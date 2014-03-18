@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<surveyModel:Model
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:surveyModel="platform:/resource/dk.itu.mddp.eank.project/model/SurveyModel.ecore">
+  <surveys>
+    <questions
+        xsi:type="surveyModel:MultipleChoice">
+      <choice
+          Description=""/>
+      <MultipleChoiceForks
+          matcher="//@surveys.0/@questions.0/@choice.0"/>
+    </questions>
+    <questions
+        xsi:type="surveyModel:Open"/>
+    <questions
+        xsi:type="surveyModel:Rating"
+        question="Things Are?"
+        Max="5"
+        first="Awesome"
+        last="Bad">
+      <RatingForks
+          max="5">
+        <forkedquestion
+            xsi:type="surveyModel:Dichotomous"/>
+      </RatingForks>
+    </questions>
+    <questions
+        xsi:type="surveyModel:Ranking">
+      <forks
+          min="1"
+          max="2"
+          matcher="//@surveys.0/@questions.3/@choices.0">
+        <forkedquestions
+            xsi:type="surveyModel:SumConstant"/>
+      </forks>
+      <choices
+          Description="Ford"/>
+      <choices
+          Description="BMW"/>
+    </questions>
+    <questions
+        xsi:type="surveyModel:Dichotomous">
+      <yes xsi:type="surveyModel:Open"/>
+      <no xsi:type="surveyModel:Rating"/>
+    </questions>
+    <questions
+        xsi:type="surveyModel:SumConstant"/>
+    <questions
+        xsi:type="surveyModel:Staple"
+        question="How is ITU?"
+        Min="-15"
+        Max="10"
+        first="Cool"
+        last="Terrible"
+        mid="Not cool">
+      <RatingForks/>
+    </questions>
+  </surveys>
+  <surveys/>
+</surveyModel:Model>
