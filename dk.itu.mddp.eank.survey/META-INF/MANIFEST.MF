@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: dk.itu.mddp.eank.survey
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: dk.itu.mddp.eank.survey; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ dk.itu.mddp.eank.project,
+ org.eclipse.xtext.util,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: dk.itu.mddp.eank.survey,
+ dk.itu.mddp.eank.survey.services,
+ dk.itu.mddp.eank.survey.serializer,
+ dk.itu.mddp.eank.survey.parser.antlr,
+ dk.itu.mddp.eank.survey.parser.antlr.internal,
+ dk.itu.mddp.eank.survey.validation,
+ dk.itu.mddp.eank.survey.scoping,
+ dk.itu.mddp.eank.survey.generator,
+ dk.itu.mddp.eank.survey.formatting
