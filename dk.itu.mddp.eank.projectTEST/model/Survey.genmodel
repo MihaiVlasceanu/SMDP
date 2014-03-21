@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/dk.itu.mddp.eank.projectTEST/src" modelPluginID="dk.itu.mddp.eank.projectTEST"
+    modelName="Survey" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>SurveyModel.ecore</foreignModel>
+  <genPackages prefix="Survey" disposableProviderFactory="true" ecorePackage="SurveyModel.ecore#/">
+    <genClasses ecoreClass="SurveyModel.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Model/surveys"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//Survey">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Survey/questions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Survey/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="SurveyModel.ecore#//Question">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Question/question"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Question/required"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//MultipleChoice">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//MultipleChoice/choice"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//MultipleChoice/other"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//MultipleChoice/Fork"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//Open">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Open/AnswerLength"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//Rating">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Rating/Min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Rating/Max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Rating/first"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Rating/last"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Rating/Fork"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//Choice">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Choice/Description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Choice/name"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//Ranking">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Ranking/choices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Ranking/Fork"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//Dichotomous">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Dichotomous/onYes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Dichotomous/onNo"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//SumConstant">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//SumConstant/Choices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//SumConstant/Constant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//SumConstant/Fork"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//Staple">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Staple/mid"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="SurveyModel.ecore#//Fork">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Fork/Questions"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//RatingFork">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//RatingFork/Min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//RatingFork/Max"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//ChoiceFork">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//ChoiceFork/On"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//DichotomousFork"/>
+    <genClasses ecoreClass="SurveyModel.ecore#//RankingChoiceFork">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//RankingChoiceFork/Max"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//RankingChoiceFork/On"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//RankingChoiceFork/Min"/>
+    </genClasses>
+    <genClasses ecoreClass="SurveyModel.ecore#//RankingSumFork">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//RankingSumFork/Max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//RankingSumFork/Min"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//RankingSumFork/On"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
