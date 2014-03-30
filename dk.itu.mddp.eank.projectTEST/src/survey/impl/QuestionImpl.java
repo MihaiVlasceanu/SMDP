@@ -22,6 +22,7 @@ import survey.SurveyPackage;
  *   <li>{@link survey.impl.QuestionImpl#getName <em>Name</em>}</li>
  *   <li>{@link survey.impl.QuestionImpl#getQuestion <em>Question</em>}</li>
  *   <li>{@link survey.impl.QuestionImpl#isRequired <em>Required</em>}</li>
+ *   <li>{@link survey.impl.QuestionImpl#isIsRequired <em>Is Required</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,6 +88,26 @@ public abstract class QuestionImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected boolean required = REQUIRED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isIsRequired() <em>Is Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_REQUIRED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsRequired() <em>Is Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isRequired = IS_REQUIRED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -175,6 +196,27 @@ public abstract class QuestionImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isIsRequired() {
+		return isRequired;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsRequired(boolean newIsRequired) {
+		boolean oldIsRequired = isRequired;
+		isRequired = newIsRequired;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.QUESTION__IS_REQUIRED, oldIsRequired, isRequired));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -184,6 +226,8 @@ public abstract class QuestionImpl extends MinimalEObjectImpl.Container implemen
 				return getQuestion();
 			case SurveyPackage.QUESTION__REQUIRED:
 				return isRequired();
+			case SurveyPackage.QUESTION__IS_REQUIRED:
+				return isIsRequired();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,6 +248,9 @@ public abstract class QuestionImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case SurveyPackage.QUESTION__REQUIRED:
 				setRequired((Boolean)newValue);
+				return;
+			case SurveyPackage.QUESTION__IS_REQUIRED:
+				setIsRequired((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -226,6 +273,9 @@ public abstract class QuestionImpl extends MinimalEObjectImpl.Container implemen
 			case SurveyPackage.QUESTION__REQUIRED:
 				setRequired(REQUIRED_EDEFAULT);
 				return;
+			case SurveyPackage.QUESTION__IS_REQUIRED:
+				setIsRequired(IS_REQUIRED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -244,6 +294,8 @@ public abstract class QuestionImpl extends MinimalEObjectImpl.Container implemen
 				return QUESTION_EDEFAULT == null ? question != null : !QUESTION_EDEFAULT.equals(question);
 			case SurveyPackage.QUESTION__REQUIRED:
 				return required != REQUIRED_EDEFAULT;
+			case SurveyPackage.QUESTION__IS_REQUIRED:
+				return isRequired != IS_REQUIRED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -264,6 +316,8 @@ public abstract class QuestionImpl extends MinimalEObjectImpl.Container implemen
 		result.append(question);
 		result.append(", required: ");
 		result.append(required);
+		result.append(", isRequired: ");
+		result.append(isRequired);
 		result.append(')');
 		return result.toString();
 	}

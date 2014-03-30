@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link survey.Question#getName <em>Name</em>}</li>
  *   <li>{@link survey.Question#getQuestion <em>Question</em>}</li>
  *   <li>{@link survey.Question#isRequired <em>Required</em>}</li>
+ *   <li>{@link survey.Question#isIsRequired <em>Is Required</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,5 +101,31 @@ public interface Question extends EObject {
 	 * @generated
 	 */
 	void setRequired(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Required</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Required</em>' attribute.
+	 * @see #setIsRequired(boolean)
+	 * @see survey.SurveyPackage#getQuestion_IsRequired()
+	 * @model
+	 * @generated
+	 */
+	boolean isIsRequired();
+
+	/**
+	 * Sets the value of the '{@link survey.Question#isIsRequired <em>Is Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Required</em>' attribute.
+	 * @see #isIsRequired()
+	 * @generated
+	 */
+	void setIsRequired(boolean value);
 
 } // Question

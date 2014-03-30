@@ -177,13 +177,22 @@ public interface SurveyPackage extends EPackage {
 	int QUESTION__REQUIRED = 2;
 
 	/**
+	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__IS_REQUIRED = 3;
+
+	/**
 	 * The number of structural features of the '<em>Question</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTION_FEATURE_COUNT = 3;
+	int QUESTION_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Question</em>' class.
@@ -230,6 +239,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTIPLE_CHOICE__REQUIRED = QUESTION__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_CHOICE__IS_REQUIRED = QUESTION__IS_REQUIRED;
 
 	/**
 	 * The feature id for the '<em><b>Choice</b></em>' containment reference list.
@@ -314,6 +332,15 @@ public interface SurveyPackage extends EPackage {
 	int OPEN__REQUIRED = QUESTION__REQUIRED;
 
 	/**
+	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPEN__IS_REQUIRED = QUESTION__IS_REQUIRED;
+
+	/**
 	 * The feature id for the '<em><b>Answer Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -376,6 +403,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int RATING__REQUIRED = QUESTION__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RATING__IS_REQUIRED = QUESTION__IS_REQUIRED;
 
 	/**
 	 * The feature id for the '<em><b>Min</b></em>' attribute.
@@ -524,6 +560,15 @@ public interface SurveyPackage extends EPackage {
 	int RANKING__REQUIRED = QUESTION__REQUIRED;
 
 	/**
+	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANKING__IS_REQUIRED = QUESTION__IS_REQUIRED;
+
+	/**
 	 * The feature id for the '<em><b>Choices</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -597,6 +642,15 @@ public interface SurveyPackage extends EPackage {
 	int DICHOTOMOUS__REQUIRED = QUESTION__REQUIRED;
 
 	/**
+	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DICHOTOMOUS__IS_REQUIRED = QUESTION__IS_REQUIRED;
+
+	/**
 	 * The feature id for the '<em><b>On Yes</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -668,6 +722,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int SUM_CONSTANT__REQUIRED = QUESTION__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUM_CONSTANT__IS_REQUIRED = QUESTION__IS_REQUIRED;
 
 	/**
 	 * The feature id for the '<em><b>Choices</b></em>' reference list.
@@ -750,6 +813,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int STAPLE__REQUIRED = RATING__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STAPLE__IS_REQUIRED = RATING__IS_REQUIRED;
 
 	/**
 	 * The feature id for the '<em><b>Min</b></em>' attribute.
@@ -1222,6 +1294,17 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getQuestion_Required();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Question#isIsRequired <em>Is Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Required</em>'.
+	 * @see survey.Question#isIsRequired()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EAttribute getQuestion_IsRequired();
 
 	/**
 	 * Returns the meta object for class '{@link survey.MultipleChoice <em>Multiple Choice</em>}'.
@@ -1782,6 +1865,14 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUESTION__REQUIRED = eINSTANCE.getQuestion_Required();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUESTION__IS_REQUIRED = eINSTANCE.getQuestion_IsRequired();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.MultipleChoiceImpl <em>Multiple Choice</em>}' class.
