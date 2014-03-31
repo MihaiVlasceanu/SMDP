@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import survey.Choice;
@@ -40,7 +39,7 @@ import survey.SurveyPackage;
  */
 public class SumConstantImpl extends QuestionImpl implements SumConstant {
 	/**
-	 * The cached value of the '{@link #getChoices() <em>Choices</em>}' reference list.
+	 * The cached value of the '{@link #getChoices() <em>Choices</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getChoices()
@@ -105,7 +104,7 @@ public class SumConstantImpl extends QuestionImpl implements SumConstant {
 	 */
 	public EList<Choice> getChoices() {
 		if (choices == null) {
-			choices = new EObjectResolvingEList<Choice>(Choice.class, this, SurveyPackage.SUM_CONSTANT__CHOICES);
+			choices = new EObjectContainmentEList<Choice>(Choice.class, this, SurveyPackage.SUM_CONSTANT__CHOICES);
 		}
 		return choices;
 	}
@@ -151,6 +150,8 @@ public class SumConstantImpl extends QuestionImpl implements SumConstant {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case SurveyPackage.SUM_CONSTANT__CHOICES:
+				return ((InternalEList<?>)getChoices()).basicRemove(otherEnd, msgs);
 			case SurveyPackage.SUM_CONSTANT__FORK:
 				return ((InternalEList<?>)getFork()).basicRemove(otherEnd, msgs);
 		}

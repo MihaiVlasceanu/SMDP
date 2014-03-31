@@ -62,7 +62,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_DGo6QaVNEeOF8-rmqZRC7g" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="SurveyModel.ecore#//Question"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DGo6QqVNEeOF8-rmqZRC7g" x="636" y="216" width="147"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DGo6QqVNEeOF8-rmqZRC7g" x="636" y="216" width="171" height="111"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_TJJ7oKVNEeOF8-rmqZRC7g" type="1001">
     <children xmi:type="notation:Node" xmi:id="_TJMX4KVNEeOF8-rmqZRC7g" type="4001"/>
@@ -82,7 +82,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_TJJ7oaVNEeOF8-rmqZRC7g" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="SurveyModel.ecore#//MultipleChoice"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TJJ7oqVNEeOF8-rmqZRC7g" x="468" y="348" width="115"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TJJ7oqVNEeOF8-rmqZRC7g" x="468" y="348" width="147" height="87"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_YINPkKVNEeOF8-rmqZRC7g" type="1001">
     <children xmi:type="notation:Node" xmi:id="_YIN2oKVNEeOF8-rmqZRC7g" type="4001"/>
@@ -102,7 +102,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_YINPkaVNEeOF8-rmqZRC7g" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="SurveyModel.ecore#//Open"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YINPkqVNEeOF8-rmqZRC7g" x="648" y="348" width="171"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YINPkqVNEeOF8-rmqZRC7g" x="636" y="384" width="171"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_Yxk8sKVNEeOF8-rmqZRC7g" type="1001">
     <children xmi:type="notation:Node" xmi:id="_Yxk8s6VNEeOF8-rmqZRC7g" type="4001"/>

@@ -347,6 +347,15 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMultipleChoice_AnswerCount() {
+		return (EAttribute)multipleChoiceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOpen() {
 		return openEClass;
 	}
@@ -738,6 +747,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEReference(multipleChoiceEClass, MULTIPLE_CHOICE__CHOICE);
 		createEAttribute(multipleChoiceEClass, MULTIPLE_CHOICE__OTHER);
 		createEReference(multipleChoiceEClass, MULTIPLE_CHOICE__FORK);
+		createEAttribute(multipleChoiceEClass, MULTIPLE_CHOICE__ANSWER_COUNT);
 
 		openEClass = createEClass(OPEN);
 		createEAttribute(openEClass, OPEN__ANSWER_LENGTH);
@@ -851,6 +861,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEReference(getMultipleChoice_Choice(), this.getChoice(), null, "choice", null, 0, -1, MultipleChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMultipleChoice_Other(), ecorePackage.getEString(), "other", null, 0, 1, MultipleChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMultipleChoice_Fork(), this.getChoiceFork(), null, "Fork", null, 0, -1, MultipleChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMultipleChoice_AnswerCount(), ecorePackage.getEInt(), "answerCount", null, 0, 1, MultipleChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(openEClass, Open.class, "Open", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOpen_AnswerLength(), ecorePackage.getEString(), "AnswerLength", null, 0, 1, Open.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -875,7 +886,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEReference(getDichotomous_OnNo(), this.getDichotomousFork(), null, "onNo", null, 0, 1, Dichotomous.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sumConstantEClass, SumConstant.class, "SumConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSumConstant_Choices(), this.getChoice(), null, "Choices", null, 0, -1, SumConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSumConstant_Choices(), this.getChoice(), null, "Choices", null, 1, -1, SumConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSumConstant_Constant(), ecorePackage.getEInt(), "Constant", null, 0, 1, SumConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSumConstant_Fork(), this.getRankingSumFork(), null, "Fork", null, 0, -1, SumConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

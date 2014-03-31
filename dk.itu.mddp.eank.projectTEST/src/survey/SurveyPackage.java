@@ -277,13 +277,22 @@ public interface SurveyPackage extends EPackage {
 	int MULTIPLE_CHOICE__FORK = QUESTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Answer Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_CHOICE__ANSWER_COUNT = QUESTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Multiple Choice</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE_CHOICE_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 3;
+	int MULTIPLE_CHOICE_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Multiple Choice</em>' class.
@@ -733,7 +742,7 @@ public interface SurveyPackage extends EPackage {
 	int SUM_CONSTANT__IS_REQUIRED = QUESTION__IS_REQUIRED;
 
 	/**
-	 * The feature id for the '<em><b>Choices</b></em>' reference list.
+	 * The feature id for the '<em><b>Choices</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1350,6 +1359,17 @@ public interface SurveyPackage extends EPackage {
 	EReference getMultipleChoice_Fork();
 
 	/**
+	 * Returns the meta object for the attribute '{@link survey.MultipleChoice#getAnswerCount <em>Answer Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Answer Count</em>'.
+	 * @see survey.MultipleChoice#getAnswerCount()
+	 * @see #getMultipleChoice()
+	 * @generated
+	 */
+	EAttribute getMultipleChoice_AnswerCount();
+
+	/**
 	 * Returns the meta object for class '{@link survey.Open <em>Open</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1542,10 +1562,10 @@ public interface SurveyPackage extends EPackage {
 	EClass getSumConstant();
 
 	/**
-	 * Returns the meta object for the reference list '{@link survey.SumConstant#getChoices <em>Choices</em>}'.
+	 * Returns the meta object for the containment reference list '{@link survey.SumConstant#getChoices <em>Choices</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Choices</em>'.
+	 * @return the meta object for the containment reference list '<em>Choices</em>'.
 	 * @see survey.SumConstant#getChoices()
 	 * @see #getSumConstant()
 	 * @generated
@@ -1909,6 +1929,14 @@ public interface SurveyPackage extends EPackage {
 		EReference MULTIPLE_CHOICE__FORK = eINSTANCE.getMultipleChoice_Fork();
 
 		/**
+		 * The meta object literal for the '<em><b>Answer Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTIPLE_CHOICE__ANSWER_COUNT = eINSTANCE.getMultipleChoice_AnswerCount();
+
+		/**
 		 * The meta object literal for the '{@link survey.impl.OpenImpl <em>Open</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2065,7 +2093,7 @@ public interface SurveyPackage extends EPackage {
 		EClass SUM_CONSTANT = eINSTANCE.getSumConstant();
 
 		/**
-		 * The meta object literal for the '<em><b>Choices</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Choices</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

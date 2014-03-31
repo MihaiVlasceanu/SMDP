@@ -23,6 +23,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="other" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Fork" upperBound="-1" eType="#//ChoiceFork"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="answerCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Open" eSuperTypes="#//Question">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AnswerLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -52,8 +53,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SumConstant" eSuperTypes="#//Question">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Choices" upperBound="-1"
-        eType="#//Choice"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Choices" lowerBound="1"
+        upperBound="-1" eType="#//Choice" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Fork" upperBound="-1" eType="#//RankingSumFork"
         containment="true"/>
