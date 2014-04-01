@@ -1726,3 +1726,144 @@ Binding(ALT+ARROW_UP,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.textEditorScope,,,system)
+!SESSION 2014-04-01 09:54:39.049 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.modeling.product
+Command-line arguments:  -data C:\Users\eanko_000\Documents\GitHub\SMDP -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.modeling.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-04-01 09:55:07.732
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-04-01 09:55:07.736
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\eanko_000'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.resources 4 376 2014-04-01 09:55:17.885
+!MESSAGE Marker id 1293 not found.
+!SESSION 2014-04-01 10:00:26.687 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.modeling.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.modeling.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-04-01 10:00:51.948
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-04-01 10:00:51.973
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\eanko_000'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2014-04-01 14:52:53.060 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.modeling.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.modeling.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-04-01 14:53:08.547
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-04-01 14:53:08.568
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\eanko_000'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.apache.log4j 4 0 2014-04-01 16:53:50.571
+!MESSAGE org.eclipse.xtext.common.types.xtext.ui.JdtHoverDocumentationProvider  - Java Model Exception: java.net.UnknownHostException: download.oracle.com
+
+
+!ENTRY org.apache.log4j 4 0 2014-04-01 16:53:54.218
+!MESSAGE org.eclipse.xtext.common.types.xtext.ui.JdtHoverDocumentationProvider  - Java Model Exception: java.net.UnknownHostException: download.oracle.com
+
+
+!ENTRY org.apache.log4j 4 0 2014-04-01 19:24:50.794
+!MESSAGE org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy  - Parsing in reconciler failed.
+
+!STACK 0
+java.lang.RuntimeException
+	at org.eclipse.xtend.core.parser.XtendNodeModelBuilder.replaceAndTransferLookAhead(XtendNodeModelBuilder.java:36)
+	at org.eclipse.xtend.core.parser.XtendPartialParsingHelper.reparse(XtendPartialParsingHelper.java:111)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:136)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:48)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:232)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:125)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:55)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:363)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.access$2(XtextReconciler.java:350)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$DocumentListener$1.process(XtextReconciler.java:112)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$DocumentListener$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:36)
+	at org.eclipse.xtext.util.concurrent.AbstractReadWriteAcces.modify(AbstractReadWriteAcces.java:81)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:216)
+	at org.eclipse.xtext.util.concurrent.AbstractReadWriteAcces.process(AbstractReadWriteAcces.java:111)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$DocumentListener.performNecessaryUpdates(XtextReconciler.java:109)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.updateContentBeforeRead(XtextDocument.java:165)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.beforeReadOnly(XtextDocument.java:186)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.beforeReadOnly(XtextDocument.java:1)
+	at org.eclipse.xtext.util.concurrent.AbstractReadWriteAcces.readOnly(AbstractReadWriteAcces.java:61)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:243)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:84)
+	at org.eclipse.xtend.ide.editor.OverrideIndicatorModelListener.updateAnnotationModel(OverrideIndicatorModelListener.java:118)
+	at org.eclipse.xtend.ide.editor.OverrideIndicatorModelListener.access$0(OverrideIndicatorModelListener.java:110)
+	at org.eclipse.xtend.ide.editor.OverrideIndicatorModelListener$1.run(OverrideIndicatorModelListener.java:101)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.apache.log4j 4 0 2014-04-01 19:24:50.820
+!MESSAGE org.eclipse.xtext.ui.editor.reconciler.XtextReconciler  - Error while forcing reconciliation
+
+!STACK 0
+java.lang.RuntimeException
+	at org.eclipse.xtend.core.parser.XtendNodeModelBuilder.replaceAndTransferLookAhead(XtendNodeModelBuilder.java:36)
+	at org.eclipse.xtend.core.parser.XtendPartialParsingHelper.reparse(XtendPartialParsingHelper.java:111)
+	at org.eclipse.xtext.parser.antlr.AbstractAntlrParser.doReparse(AbstractAntlrParser.java:136)
+	at org.eclipse.xtext.parser.AbstractParser.reparse(AbstractParser.java:48)
+	at org.eclipse.xtext.resource.XtextResource.update(XtextResource.java:232)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:125)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:55)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:363)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.access$2(XtextReconciler.java:350)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$DocumentListener$1.process(XtextReconciler.java:112)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$DocumentListener$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:36)
+	at org.eclipse.xtext.util.concurrent.AbstractReadWriteAcces.modify(AbstractReadWriteAcces.java:81)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:216)
+	at org.eclipse.xtext.util.concurrent.AbstractReadWriteAcces.process(AbstractReadWriteAcces.java:111)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$DocumentListener.performNecessaryUpdates(XtextReconciler.java:109)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.updateContentBeforeRead(XtextDocument.java:165)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.beforeReadOnly(XtextDocument.java:186)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.beforeReadOnly(XtextDocument.java:1)
+	at org.eclipse.xtext.util.concurrent.AbstractReadWriteAcces.readOnly(AbstractReadWriteAcces.java:61)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:243)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:84)
+	at org.eclipse.xtend.ide.editor.OverrideIndicatorModelListener.updateAnnotationModel(OverrideIndicatorModelListener.java:118)
+	at org.eclipse.xtend.ide.editor.OverrideIndicatorModelListener.access$0(OverrideIndicatorModelListener.java:110)
+	at org.eclipse.xtend.ide.editor.OverrideIndicatorModelListener$1.run(OverrideIndicatorModelListener.java:101)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)

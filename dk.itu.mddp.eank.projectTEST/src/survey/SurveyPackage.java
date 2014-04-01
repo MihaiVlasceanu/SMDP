@@ -168,22 +168,13 @@ public interface SurveyPackage extends EPackage {
 	int QUESTION__QUESTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUESTION__REQUIRED = 2;
-
-	/**
 	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTION__IS_REQUIRED = 3;
+	int QUESTION__IS_REQUIRED = 2;
 
 	/**
 	 * The number of structural features of the '<em>Question</em>' class.
@@ -192,7 +183,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTION_FEATURE_COUNT = 4;
+	int QUESTION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Question</em>' class.
@@ -230,15 +221,6 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTIPLE_CHOICE__QUESTION = QUESTION__QUESTION;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLE_CHOICE__REQUIRED = QUESTION__REQUIRED;
 
 	/**
 	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
@@ -332,15 +314,6 @@ public interface SurveyPackage extends EPackage {
 	int OPEN__QUESTION = QUESTION__QUESTION;
 
 	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPEN__REQUIRED = QUESTION__REQUIRED;
-
-	/**
 	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -403,15 +376,6 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int RATING__QUESTION = QUESTION__QUESTION;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RATING__REQUIRED = QUESTION__REQUIRED;
 
 	/**
 	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
@@ -560,15 +524,6 @@ public interface SurveyPackage extends EPackage {
 	int RANKING__QUESTION = QUESTION__QUESTION;
 
 	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANKING__REQUIRED = QUESTION__REQUIRED;
-
-	/**
 	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -642,15 +597,6 @@ public interface SurveyPackage extends EPackage {
 	int DICHOTOMOUS__QUESTION = QUESTION__QUESTION;
 
 	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICHOTOMOUS__REQUIRED = QUESTION__REQUIRED;
-
-	/**
 	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -696,14 +642,14 @@ public interface SurveyPackage extends EPackage {
 	int DICHOTOMOUS_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link survey.impl.SumConstantImpl <em>Sum Constant</em>}' class.
+	 * The meta object id for the '{@link survey.impl.ConstantSumImpl <em>Constant Sum</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see survey.impl.SumConstantImpl
-	 * @see survey.impl.SurveyPackageImpl#getSumConstant()
+	 * @see survey.impl.ConstantSumImpl
+	 * @see survey.impl.SurveyPackageImpl#getConstantSum()
 	 * @generated
 	 */
-	int SUM_CONSTANT = 9;
+	int CONSTANT_SUM = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -712,7 +658,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUM_CONSTANT__NAME = QUESTION__NAME;
+	int CONSTANT_SUM__NAME = QUESTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Question</b></em>' attribute.
@@ -721,16 +667,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUM_CONSTANT__QUESTION = QUESTION__QUESTION;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUM_CONSTANT__REQUIRED = QUESTION__REQUIRED;
+	int CONSTANT_SUM__QUESTION = QUESTION__QUESTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
@@ -739,7 +676,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUM_CONSTANT__IS_REQUIRED = QUESTION__IS_REQUIRED;
+	int CONSTANT_SUM__IS_REQUIRED = QUESTION__IS_REQUIRED;
 
 	/**
 	 * The feature id for the '<em><b>Choices</b></em>' containment reference list.
@@ -748,7 +685,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUM_CONSTANT__CHOICES = QUESTION_FEATURE_COUNT + 0;
+	int CONSTANT_SUM__CHOICES = QUESTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Constant</b></em>' attribute.
@@ -757,7 +694,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUM_CONSTANT__CONSTANT = QUESTION_FEATURE_COUNT + 1;
+	int CONSTANT_SUM__CONSTANT = QUESTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Fork</b></em>' containment reference list.
@@ -766,25 +703,25 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUM_CONSTANT__FORK = QUESTION_FEATURE_COUNT + 2;
+	int CONSTANT_SUM__FORK = QUESTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Sum Constant</em>' class.
+	 * The number of structural features of the '<em>Constant Sum</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUM_CONSTANT_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 3;
+	int CONSTANT_SUM_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Sum Constant</em>' class.
+	 * The number of operations of the '<em>Constant Sum</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUM_CONSTANT_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
+	int CONSTANT_SUM_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link survey.impl.StapleImpl <em>Staple</em>}' class.
@@ -813,15 +750,6 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int STAPLE__QUESTION = RATING__QUESTION;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STAPLE__REQUIRED = RATING__REQUIRED;
 
 	/**
 	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
@@ -1294,17 +1222,6 @@ public interface SurveyPackage extends EPackage {
 	EAttribute getQuestion_Question();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Question#isRequired <em>Required</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Required</em>'.
-	 * @see survey.Question#isRequired()
-	 * @see #getQuestion()
-	 * @generated
-	 */
-	EAttribute getQuestion_Required();
-
-	/**
 	 * Returns the meta object for the attribute '{@link survey.Question#isIsRequired <em>Is Required</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1552,47 +1469,47 @@ public interface SurveyPackage extends EPackage {
 	EReference getDichotomous_OnNo();
 
 	/**
-	 * Returns the meta object for class '{@link survey.SumConstant <em>Sum Constant</em>}'.
+	 * Returns the meta object for class '{@link survey.ConstantSum <em>Constant Sum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Sum Constant</em>'.
-	 * @see survey.SumConstant
+	 * @return the meta object for class '<em>Constant Sum</em>'.
+	 * @see survey.ConstantSum
 	 * @generated
 	 */
-	EClass getSumConstant();
+	EClass getConstantSum();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link survey.SumConstant#getChoices <em>Choices</em>}'.
+	 * Returns the meta object for the containment reference list '{@link survey.ConstantSum#getChoices <em>Choices</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Choices</em>'.
-	 * @see survey.SumConstant#getChoices()
-	 * @see #getSumConstant()
+	 * @see survey.ConstantSum#getChoices()
+	 * @see #getConstantSum()
 	 * @generated
 	 */
-	EReference getSumConstant_Choices();
+	EReference getConstantSum_Choices();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.SumConstant#getConstant <em>Constant</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.ConstantSum#getConstant <em>Constant</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Constant</em>'.
-	 * @see survey.SumConstant#getConstant()
-	 * @see #getSumConstant()
+	 * @see survey.ConstantSum#getConstant()
+	 * @see #getConstantSum()
 	 * @generated
 	 */
-	EAttribute getSumConstant_Constant();
+	EAttribute getConstantSum_Constant();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link survey.SumConstant#getFork <em>Fork</em>}'.
+	 * Returns the meta object for the containment reference list '{@link survey.ConstantSum#getFork <em>Fork</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Fork</em>'.
-	 * @see survey.SumConstant#getFork()
-	 * @see #getSumConstant()
+	 * @see survey.ConstantSum#getFork()
+	 * @see #getConstantSum()
 	 * @generated
 	 */
-	EReference getSumConstant_Fork();
+	EReference getConstantSum_Fork();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Staple <em>Staple</em>}'.
@@ -1879,14 +1796,6 @@ public interface SurveyPackage extends EPackage {
 		EAttribute QUESTION__QUESTION = eINSTANCE.getQuestion_Question();
 
 		/**
-		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute QUESTION__REQUIRED = eINSTANCE.getQuestion_Required();
-
-		/**
 		 * The meta object literal for the '<em><b>Is Required</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2083,14 +1992,14 @@ public interface SurveyPackage extends EPackage {
 		EReference DICHOTOMOUS__ON_NO = eINSTANCE.getDichotomous_OnNo();
 
 		/**
-		 * The meta object literal for the '{@link survey.impl.SumConstantImpl <em>Sum Constant</em>}' class.
+		 * The meta object literal for the '{@link survey.impl.ConstantSumImpl <em>Constant Sum</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see survey.impl.SumConstantImpl
-		 * @see survey.impl.SurveyPackageImpl#getSumConstant()
+		 * @see survey.impl.ConstantSumImpl
+		 * @see survey.impl.SurveyPackageImpl#getConstantSum()
 		 * @generated
 		 */
-		EClass SUM_CONSTANT = eINSTANCE.getSumConstant();
+		EClass CONSTANT_SUM = eINSTANCE.getConstantSum();
 
 		/**
 		 * The meta object literal for the '<em><b>Choices</b></em>' containment reference list feature.
@@ -2098,7 +2007,7 @@ public interface SurveyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SUM_CONSTANT__CHOICES = eINSTANCE.getSumConstant_Choices();
+		EReference CONSTANT_SUM__CHOICES = eINSTANCE.getConstantSum_Choices();
 
 		/**
 		 * The meta object literal for the '<em><b>Constant</b></em>' attribute feature.
@@ -2106,7 +2015,7 @@ public interface SurveyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SUM_CONSTANT__CONSTANT = eINSTANCE.getSumConstant_Constant();
+		EAttribute CONSTANT_SUM__CONSTANT = eINSTANCE.getConstantSum_Constant();
 
 		/**
 		 * The meta object literal for the '<em><b>Fork</b></em>' containment reference list feature.
@@ -2114,7 +2023,7 @@ public interface SurveyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SUM_CONSTANT__FORK = eINSTANCE.getSumConstant_Fork();
+		EReference CONSTANT_SUM__FORK = eINSTANCE.getConstantSum_Fork();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.StapleImpl <em>Staple</em>}' class.

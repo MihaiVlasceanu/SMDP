@@ -47,10 +47,6 @@
         <element xmi:type="ecore:EAttribute" href="SurveyModel.ecore#//Question/question"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_N4-bcaVNEeOF8-rmqZRC7g"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_6PgFAKVNEeOF8-rmqZRC7g" type="2001">
-        <element xmi:type="ecore:EAttribute" href="SurveyModel.ecore#//Question/required"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_6PgFAaVNEeOF8-rmqZRC7g"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_DGphUqVNEeOF8-rmqZRC7g"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_DGphU6VNEeOF8-rmqZRC7g"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_DGphVKVNEeOF8-rmqZRC7g"/>
@@ -196,7 +192,7 @@
     <children xmi:type="notation:Node" xmi:id="__yZfEKYMEeOr2_ygYDVMTg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="__yZfEaYMEeOr2_ygYDVMTg" type="5001">
       <children xmi:type="notation:Node" xmi:id="_uG7RoK65EeOcgvlqRsAOQw" type="2001">
-        <element xmi:type="ecore:EAttribute" href="SurveyModel.ecore#//SumConstant/Constant"/>
+        <element xmi:type="ecore:EAttribute" href="SurveyModel.ecore#//ConstantSum/Constant"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_uG7Roa65EeOcgvlqRsAOQw"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="__yZfEqYMEeOr2_ygYDVMTg"/>
@@ -209,7 +205,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="__yaGI6YMEeOr2_ygYDVMTg"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="__yY4AaYMEeOr2_ygYDVMTg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="SurveyModel.ecore#//SumConstant"/>
+    <element xmi:type="ecore:EClass" href="SurveyModel.ecore#//ConstantSum"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="__yY4AqYMEeOr2_ygYDVMTg" x="108" y="288" width="134"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_VVjCAKYOEeOr2_ygYDVMTg" type="1001">
@@ -440,7 +436,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_mHt_Ya65EeOcgvlqRsAOQw" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_mHt_Yq65EeOcgvlqRsAOQw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="SurveyModel.ecore#//SumConstant/Choices"/>
+    <element xmi:type="ecore:EReference" href="SurveyModel.ecore#//ConstantSum/Choices"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_mHt_Y665EeOcgvlqRsAOQw" points="[-66, 0, -110, -201]$[-66, 0, -110, -201]$[-270, 0, -314, -201]$[-270, 201, -314, 0]$[-114, 201, -158, 0]$[-30, 201, -74, 0]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_WWzqMLEQEeOtcsAVqfvCZg" type="3002" source="_U03WULEQEeOtcsAVqfvCZg" target="_DGo6QKVNEeOF8-rmqZRC7g">
@@ -558,7 +554,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_1GrekbEVEeOtcsAVqfvCZg" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_1GrekrEVEeOtcsAVqfvCZg" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="SurveyModel.ecore#//SumConstant/Fork"/>
+    <element xmi:type="ecore:EReference" href="SurveyModel.ecore#//ConstantSum/Fork"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1Grek7EVEeOtcsAVqfvCZg" points="[-2, 18, 2, -36]$[-2, 54, 2, 0]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1GsssLEVEeOtcsAVqfvCZg" id="(0.8305084745762712,0.0)"/>
   </edges>

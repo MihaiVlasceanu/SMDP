@@ -104,8 +104,8 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 				return createDichotomousAdapter();
 			}
 			@Override
-			public Adapter caseSumConstant(SumConstant object) {
-				return createSumConstantAdapter();
+			public Adapter caseConstantSum(ConstantSum object) {
+				return createConstantSumAdapter();
 			}
 			@Override
 			public Adapter caseStaple(Staple object) {
@@ -282,16 +282,16 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link survey.SumConstant <em>Sum Constant</em>}'.
+	 * Creates a new adapter for an object of class '{@link survey.ConstantSum <em>Constant Sum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see survey.SumConstant
+	 * @see survey.ConstantSum
 	 * @generated
 	 */
-	public Adapter createSumConstantAdapter() {
+	public Adapter createConstantSumAdapter() {
 		return null;
 	}
 

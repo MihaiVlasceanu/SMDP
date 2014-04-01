@@ -6,16 +6,16 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Model returns Model:
 	{Model}
-		(surveys+=Survey ( "??????" surveys+=Survey)* )?;
+		(surveys+=Survey)?;
 
 
 Question returns Question:
-	MultipleChoice | Open | Rating_Impl | Ranking | Dichotomous | SumConstant | Staple;
+	MultipleChoice | Open | Rating_Impl | Ranking | Dichotomous | ConstantSum | Staple;
 
 Survey returns Survey:
 	{Survey}
 	name=EString 
-		(questions+=Question";" ( questions+=Question';')* )?;
+		(questions+=Question ( questions+=Question)* )?;
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -26,74 +26,74 @@ EBoolean returns ecore::EBoolean:
 MultipleChoice returns MultipleChoice:
 	{MultipleChoice}
 	'MultipleChoice' name=ID ':' 
-		('The'? 'user')?
-		('may' | (isRequired ?='is required'))? 
-		('to'? 'answer'? question=EString)? 
-		('picking' 'up to'? answerCount = EInt 'choice')?
-		('with'? ('one of' | 'some of')? 'these:'? choice+=Choice ( "," choice+=Choice)* )?
-		('or' 'with'?'something'?'else'? other=EString)?'.'?
+		('the'? 'user')?
+		('may' | (isRequired ?= 'is' 'required'))? 
+		'to'? 'answer'? question=EString
+		('picking' 'up to'? answerCount = EInt )?
+		'from'? ('one of' | 'some of')? 'these'? choice+=Choice ( "," choice+=Choice)* 
+		('or' 'with'?'something'?'else'? other=EString)?
 		(Fork+=ChoiceFork ( "," Fork+=ChoiceFork)*)?;
 
 Open returns Open:
 	{Open}
 	'Open' name=ID ':'
-		('The'? 'user')?
-		('may' | 'is required')? 
-		('to'? 'answer'? question=EString)? 
-		
+		('the'? 'user')?
+		('may' | (isRequired ?= 'is' 'required'))? 
+		'to'? 'answer'? question=EString
+
 	;
 
 Rating_Impl returns Rating:
 	{Rating}
 	'Rating' name=ID ':'
-		('The'? 'user')?
-		('may' | 'is required')? 
-		('to'? 'rate'? question=EString)?
-		('between'? Min=EInt)?
-		('and'? Max=EInt)?
-		('where'? 'lowest' 'means'? first=EString)?
-		('and'? 'highest' 'means'? last=EString)?
+		('the'? 'user')?
+		('may' |  'is' 'required')? 
+		'to'? ('rate' | 'answer')? question=EString
+		'between'? Min=EInt
+		'and'? Max=EInt
+		'where'? 'lowest' 'means'? first=EString
+		'and'? 'highest' 'means'? last=EString
 		(Fork+=RatingFork ( "," Fork+=RatingFork)*)?;
 
 Ranking returns Ranking:
 	
 	'Ranking'name=ID  ':'
-		('The'? 'user')?
-		('may' | (isRequired ?='is required'))? 
-		('to'? 'answer'? question=EString)? 
-		('with'? ('one of' | 'some of')? 'these:'? choices+=Choice ( "," choices+=Choice)* )?'.'?
+		('the'? 'user')?
+		('may' | (isRequired ?= 'is' 'required'))? 
+		'to'? ('rank' | 'answer')? question=EString
+		'from'? ('one of' | 'some of')? 'these'? choices+=Choice ( "," choices+=Choice)*
 		(Fork+=RankingSumFork ( "," Fork+=RankingSumFork)*)?;
 
 Dichotomous returns Dichotomous:
 	{Dichotomous}
 	'Dichotomous' name=ID ':'
-		('The'? 'user')?
-		('may' | (isRequired ?='is required'))? 
-		('to'? 'answer'? question=EString)? 
-		('if yes' onYes=DichotomousFork)?
-		('if no' onNo=DichotomousFork)?;
+		('the'? 'user')?
+		('may' | (isRequired ?= 'is' 'required'))? 
+		'to'? 'answer'? question=EString
+		('if' 'yes' onYes=DichotomousFork)?
+		('if' 'no' onNo=DichotomousFork)?;
 
-SumConstant returns SumConstant:
-	{SumConstant}
-	'SumConstant' name=ID ':'
-		('The'? 'user')?
-		('may' | (isRequired ?='is required'))? 
-		('to'? 'answer'? question=EString)? 
-		('and can distribute up to'?) Constant = EInt
-		('among these' Choices+=Choice ( "," Choices+=Choice)* )?
+ConstantSum returns ConstantSum:
+	{ConstantSum}
+	'ConstantSum' name=ID ':'
+		('the'? 'user')?
+		('may' | (isRequired ?= 'is' 'required'))? 
+		'to'? ('distribute' | 'answer') question=EString
+		(('to'? 'a'? 'total' 'of'?) Constant = EInt)?
+		'among' 'these' Choices+=Choice ( "," Choices+=Choice)*
 		(Fork+=RankingSumFork ( "," Fork+=RankingSumFork)*)?;
 
 Staple returns Staple:
 	{Staple}
 	'Staple'name=ID  ':'
-		('The'? 'user')?
-		('may' | (isRequired ?='is required'))? 
-		('to'? 'answer'? question=EString)? 
-		('between'? Min=EInt)?
-		('and'? Max=EInt)?
-		('where'? 'lowest' 'means'? ','? first=EString)?
-		('mid' 'means'? mid=EString)?
-		('and'? 'highest' 'means'? last=EString)?
+		('the'? 'user')?
+		('may' | (isRequired ?= 'is' 'required'))? 
+		'to'? ('rate' | 'answer') question=EString
+		'between'? Min=EInt
+		'and'? Max=EInt
+		'where'? 'lowest' 'means'? first=EString','?
+		'mid' 'means'? mid=EString
+		'and'? 'highest' 'means'? last=EString
 		(Fork+=RatingFork ( "," Fork+=RatingFork)*)?;
 
 Choice returns Choice:
@@ -101,21 +101,21 @@ Choice returns Choice:
 	Description=EString;
 
 ChoiceFork returns ChoiceFork:
-		'If' On+=[Choice|EString] ( "," On+=[Choice|EString])*
-		'then'? 'go to'  Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;
+		'if' On+=[Choice|EString] ( "," On+=[Choice|EString])*
+		'then'? 'go' 'to'  Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;
 
 EInt returns ecore::EInt:
 	'-'? INT;
 
 RatingFork returns RatingFork:
-		'If' 'between' Min=EInt 'and' Max=EInt
-		'then'? 'go to' Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;
+		'if' 'it'? 'is'? 'between' Min=EInt 'and' Max=EInt
+		'then'? 'go''to' Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;
 
 RankingSumFork returns RankingSumFork:
 
-		'If' On+=[Choice|EString] ( "," On+=[Choice|EString])* ':'
-		'between'? Min=EInt 'to' Max=EInt 
-		'then'? 'go to' Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;
+		'if' On+=[Choice|EString] ( "," On+=[Choice|EString])* 
+		'is' 'between'? Min=EInt 'and' Max=EInt 
+		'then'? 'go''to' Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;
 
 DichotomousFork returns DichotomousFork:
-	'then'? 'go to'  Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;
+	'then'? 'go' 'to'  Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;

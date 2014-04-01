@@ -125,10 +125,10 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SurveyPackage.SUM_CONSTANT: {
-				SumConstant sumConstant = (SumConstant)theEObject;
-				T result = caseSumConstant(sumConstant);
-				if (result == null) result = caseQuestion(sumConstant);
+			case SurveyPackage.CONSTANT_SUM: {
+				ConstantSum constantSum = (ConstantSum)theEObject;
+				T result = caseConstantSum(constantSum);
+				if (result == null) result = caseQuestion(constantSum);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -321,17 +321,17 @@ public class SurveySwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sum Constant</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Constant Sum</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sum Constant</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Constant Sum</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSumConstant(SumConstant object) {
+	public T caseConstantSum(ConstantSum object) {
 		return null;
 	}
 

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import survey.Choice;
 import survey.ChoiceFork;
+import survey.ConstantSum;
 import survey.Dichotomous;
 import survey.DichotomousFork;
 import survey.Fork;
@@ -24,7 +25,6 @@ import survey.RankingSumFork;
 import survey.Rating;
 import survey.RatingFork;
 import survey.Staple;
-import survey.SumConstant;
 import survey.Survey;
 import survey.SurveyFactory;
 import survey.SurveyPackage;
@@ -104,7 +104,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sumConstantEClass = null;
+	private EClass constantSumEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -293,17 +293,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQuestion_Required() {
-		return (EAttribute)questionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getQuestion_IsRequired() {
-		return (EAttribute)questionEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)questionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -509,8 +500,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSumConstant() {
-		return sumConstantEClass;
+	public EClass getConstantSum() {
+		return constantSumEClass;
 	}
 
 	/**
@@ -518,8 +509,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSumConstant_Choices() {
-		return (EReference)sumConstantEClass.getEStructuralFeatures().get(0);
+	public EReference getConstantSum_Choices() {
+		return (EReference)constantSumEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -527,8 +518,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSumConstant_Constant() {
-		return (EAttribute)sumConstantEClass.getEStructuralFeatures().get(1);
+	public EAttribute getConstantSum_Constant() {
+		return (EAttribute)constantSumEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -536,8 +527,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSumConstant_Fork() {
-		return (EReference)sumConstantEClass.getEStructuralFeatures().get(2);
+	public EReference getConstantSum_Fork() {
+		return (EReference)constantSumEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -740,7 +731,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		questionEClass = createEClass(QUESTION);
 		createEAttribute(questionEClass, QUESTION__NAME);
 		createEAttribute(questionEClass, QUESTION__QUESTION);
-		createEAttribute(questionEClass, QUESTION__REQUIRED);
 		createEAttribute(questionEClass, QUESTION__IS_REQUIRED);
 
 		multipleChoiceEClass = createEClass(MULTIPLE_CHOICE);
@@ -771,10 +761,10 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEReference(dichotomousEClass, DICHOTOMOUS__ON_YES);
 		createEReference(dichotomousEClass, DICHOTOMOUS__ON_NO);
 
-		sumConstantEClass = createEClass(SUM_CONSTANT);
-		createEReference(sumConstantEClass, SUM_CONSTANT__CHOICES);
-		createEAttribute(sumConstantEClass, SUM_CONSTANT__CONSTANT);
-		createEReference(sumConstantEClass, SUM_CONSTANT__FORK);
+		constantSumEClass = createEClass(CONSTANT_SUM);
+		createEReference(constantSumEClass, CONSTANT_SUM__CHOICES);
+		createEAttribute(constantSumEClass, CONSTANT_SUM__CONSTANT);
+		createEReference(constantSumEClass, CONSTANT_SUM__FORK);
 
 		stapleEClass = createEClass(STAPLE);
 		createEAttribute(stapleEClass, STAPLE__MID);
@@ -835,7 +825,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		ratingEClass.getESuperTypes().add(this.getQuestion());
 		rankingEClass.getESuperTypes().add(this.getQuestion());
 		dichotomousEClass.getESuperTypes().add(this.getQuestion());
-		sumConstantEClass.getESuperTypes().add(this.getQuestion());
+		constantSumEClass.getESuperTypes().add(this.getQuestion());
 		stapleEClass.getESuperTypes().add(this.getRating());
 		ratingForkEClass.getESuperTypes().add(this.getFork());
 		choiceForkEClass.getESuperTypes().add(this.getFork());
@@ -854,7 +844,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEClass(questionEClass, Question.class, "Question", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuestion_Name(), ecorePackage.getEString(), "name", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuestion_Question(), ecorePackage.getEString(), "question", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getQuestion_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuestion_IsRequired(), ecorePackage.getEBoolean(), "isRequired", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multipleChoiceEClass, MultipleChoice.class, "MultipleChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -885,10 +874,10 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEReference(getDichotomous_OnYes(), this.getDichotomousFork(), null, "onYes", null, 0, 1, Dichotomous.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDichotomous_OnNo(), this.getDichotomousFork(), null, "onNo", null, 0, 1, Dichotomous.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sumConstantEClass, SumConstant.class, "SumConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSumConstant_Choices(), this.getChoice(), null, "Choices", null, 1, -1, SumConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSumConstant_Constant(), ecorePackage.getEInt(), "Constant", null, 0, 1, SumConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSumConstant_Fork(), this.getRankingSumFork(), null, "Fork", null, 0, -1, SumConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(constantSumEClass, ConstantSum.class, "ConstantSum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConstantSum_Choices(), this.getChoice(), null, "Choices", null, 1, -1, ConstantSum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConstantSum_Constant(), ecorePackage.getEInt(), "Constant", null, 0, 1, ConstantSum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConstantSum_Fork(), this.getRankingSumFork(), null, "Fork", null, 0, -1, ConstantSum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stapleEClass, Staple.class, "Staple", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStaple_Mid(), ecorePackage.getEString(), "mid", null, 0, 1, Staple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

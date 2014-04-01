@@ -94,13 +94,13 @@ public interface SurveyFactory extends EFactory {
 	Dichotomous createDichotomous();
 
 	/**
-	 * Returns a new object of class '<em>Sum Constant</em>'.
+	 * Returns a new object of class '<em>Constant Sum</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sum Constant</em>'.
+	 * @return a new object of class '<em>Constant Sum</em>'.
 	 * @generated
 	 */
-	SumConstant createSumConstant();
+	ConstantSum createConstantSum();
 
 	/**
 	 * Returns a new object of class '<em>Staple</em>'.

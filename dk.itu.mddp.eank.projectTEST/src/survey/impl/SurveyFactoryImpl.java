@@ -64,7 +64,7 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 			case SurveyPackage.CHOICE: return createChoice();
 			case SurveyPackage.RANKING: return createRanking();
 			case SurveyPackage.DICHOTOMOUS: return createDichotomous();
-			case SurveyPackage.SUM_CONSTANT: return createSumConstant();
+			case SurveyPackage.CONSTANT_SUM: return createConstantSum();
 			case SurveyPackage.STAPLE: return createStaple();
 			case SurveyPackage.RATING_FORK: return createRatingFork();
 			case SurveyPackage.CHOICE_FORK: return createChoiceFork();
@@ -161,9 +161,9 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SumConstant createSumConstant() {
-		SumConstantImpl sumConstant = new SumConstantImpl();
-		return sumConstant;
+	public ConstantSum createConstantSum() {
+		ConstantSumImpl constantSum = new ConstantSumImpl();
+		return constantSum;
 	}
 
 	/**
