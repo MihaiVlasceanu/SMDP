@@ -70,11 +70,13 @@
       <styles xmi:type="notation:DrawerStyle" xmi:id="_TJMX4qVNEeOF8-rmqZRC7g"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_TJMX46VNEeOF8-rmqZRC7g"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_TJMX5KVNEeOF8-rmqZRC7g"/>
+      <layoutConstraint xmi:type="notation:Ratio" xmi:id="_AeyGELpoEeOCQtc-C4uQtA" value="0.5529411764705883"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_TJMX5aVNEeOF8-rmqZRC7g" type="5002">
       <styles xmi:type="notation:DrawerStyle" xmi:id="_TJMX5qVNEeOF8-rmqZRC7g"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_TJMX56VNEeOF8-rmqZRC7g"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_TJMX6KVNEeOF8-rmqZRC7g"/>
+      <layoutConstraint xmi:type="notation:Ratio" xmi:id="_Ae2XgLpoEeOCQtc-C4uQtA" value="0.24705882352941178"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_TJJ7oaVNEeOF8-rmqZRC7g" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="SurveyModel.ecore#//MultipleChoice"/>
@@ -510,7 +512,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_oEae8bEREeOtcsAVqfvCZg" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_oEae8rEREeOtcsAVqfvCZg" fontName="Segoe UI"/>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oEae87EREeOtcsAVqfvCZg" points="[5, 34, -1298, 129]$[5, 591, -1298, 686]$[1471, 591, 168, 686]$[1471, -87, 168, 8]$[1353, -87, 50, 8]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oEae87EREeOtcsAVqfvCZg" points="[5, 34, -1298, 93]$[5, 497, -1298, 556]$[1471, 497, 168, 556]$[1471, -60, 168, -1]$[1353, -60, 50, -1]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oEbtELEREeOtcsAVqfvCZg" id="(0.5564516129032258,0.18604651162790697)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_o7eCwLEREeOtcsAVqfvCZg" type="3002" source="_EonSAKYLEeOr2_ygYDVMTg" target="_iwWkULEREeOtcsAVqfvCZg">
