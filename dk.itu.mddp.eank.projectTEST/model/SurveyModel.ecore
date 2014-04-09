@@ -45,12 +45,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Fork" upperBound="-1" eType="#//RankingSumFork"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Dichotomous" eSuperTypes="#//Question">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="onYes" eType="#//DichotomousFork"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="onNo" eType="#//DichotomousFork"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantSum" eSuperTypes="#//Question">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Choices" lowerBound="1"
         upperBound="-1" eType="#//Choice" containment="true"/>
@@ -73,7 +67,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="On" lowerBound="1" upperBound="-1"
         eType="#//Choice"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DichotomousFork" eSuperTypes="#//Fork"/>
   <eClassifiers xsi:type="ecore:EClass" name="RankingChoiceFork" eSuperTypes="#//Fork">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="On" lowerBound="1" upperBound="-1"

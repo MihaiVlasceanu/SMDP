@@ -11,7 +11,6 @@ import org.xtext.example.mydsl.MyDslStandaloneSetupGenerated
 import survey.Survey
 import survey.Question
 import survey.Open
-import survey.Dichotomous
 import survey.MultipleChoice
 import survey.Ranking
 import survey.Rating
@@ -34,42 +33,12 @@ class CodeGenerator {
 
 		val Model m = resource.getContents().get(0) as Model
 		val questions = m.surveys.get(0).questions
-		println(toTemplate(m.surveys.get(0)).toString())
-//		if(Constraints.Constraint(m.surveys.get(0)))
-//			println("All constraints passed!")w
-//		else
-//			println("Constraints Failed")
-//		println(MyDslGenerator.compileToJava(m).toString().replaceAll("object", "Object"))
+		if(Constraints.Constraint(m.surveys.get(0)))
+			println("All constraints passed!")
+		else
+			println("Constraints Failed")
 		val outputURI = URI.createFileURI("test-files/test-output.xmi")
 		resource.URI = resource.resourceSet.getURIConverter.normalize(outputURI)
 		resource.save (null)
-	}
-	def static dispatch toTemplate(Survey it)
-	{
-		'''«FOR question : it.questions SEPARATOR ", "»«toTemplate(question)»«ENDFOR»'''
-	} 
-	def static dispatch toTemplate(Open it)
-	{
-		'''«it.question»'''
-	}
-	def static dispatch toTemplate(Dichotomous it)
-	{
-		'''«it.question»'''
-	}
-	def static dispatch toTemplate(MultipleChoice it)
-	{
-	
-		}
-	def static dispatch toTemplate(Ranking it)
-	{
-		
-	}
-	def static dispatch toTemplate(Rating it)
-	{
-		
-	}
-	def static dispatch toTemplate(Staple it)
-	{
-		
 	}
 }
