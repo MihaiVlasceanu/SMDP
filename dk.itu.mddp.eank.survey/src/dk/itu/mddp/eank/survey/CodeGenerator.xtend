@@ -80,9 +80,9 @@ class CodeGenerator {
 		 
 	}
 	
-	static var  map = new HashMap<Question, Integer>();
-	static var  goToMap = new HashMap<Question, Integer>();
-	static var  usedList = new ArrayList<Integer>();
+	static var map = new HashMap<Question, Integer>();
+	static var goToMap = new HashMap<Question, Integer>();
+	static var usedList = new ArrayList<Integer>();
 		
 	def static dispatch List<EList<Question>> forkMap(Open it)
 	{		
@@ -125,7 +125,7 @@ class CodeGenerator {
 		
 		'''«FOR i:0..questions.size-1»
 		
-		«{ var to=i+1;
+		«{ var to=i+2;
 		if(goToMap.containsKey(questions.get(i))){
 			to=goToMap.get(questions.get(i));
 		}
@@ -138,27 +138,24 @@ class CodeGenerator {
 		  }
 		
 		
-		toTemplate(questions.get(i),i, to)
+		toTemplate(questions.get(i), i, to)
 		}
 		»
-		
 		
 		«ENDFOR»'''
 	} 
 	
 	def static dispatch toTemplate(Open it, int i, int to)
 	{
-		
-				
 		'''
-		<form method='POST' action='' id='form-survey-question_«i»' class='smdp' autocomplete='off' role='form'>
+		<form method="POST" action="" id="« normalize(it.name) »" class="smdp« IF (it.isRequired) » required« ENDIF »" autocomplete="off" role="form">
 			<div class="question_container">
 			<h3 class="smdp_question">«it.question»</h3>
 			</div>
 		    <div class="options_container">
-		      <textarea class="form-control" rows="3" cols="40" name="comments" onkeyup="return Survey.validateTextarea(this);"></textarea>
+		      <textarea class="form-control" rows="5" cols="40" name="« normalize(it.name) »" onkeyup="return Survey.validateTextarea(this);"></textarea>
 		    </div>
-      		<button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#form-survey-question_«i»', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+		<button type="button" class="btn btn-primary btn-sm btn-block"« IF (it.isRequired) » disabled="disabled"« ENDIF » name="submitQuestion" onclick="return Survey.saveAnswerData('#« normalize(it.name) »', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
 		</form>	
 		'''				
 	}
@@ -172,40 +169,30 @@ class CodeGenerator {
 	def static dispatch toTemplate(MultipleChoice it, int i, int to)
 	{
 		'''
-				<form method="POST" action="" id="form-survey-question_1" class="smdp" autocomplete="off" role="form">
-		    <div class="question_container">
+		<form method="POST" action="" id="« normalize(it.name) »" class="smdp« IF (it.isRequired) » required« ENDIF »" autocomplete="off" role="form">
+		<div class="question_container">
 		      <h3 class="smdp_question">«it.question»</h3>
-		    </div>
-		    <div class="options_container">
-		  
-		      «FOR p:0..it.choice.size-1»		      
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" name="«it.choice.get(p).description»" id="option_«it.choice.get(p).description»" value="«it.choice.get(p).description»" onClick="return Survey.changeSubmitButtonStatus(this); data-next="«
-									»«FOR q:0..it.fork.size-1»«
-		      							»«if(fork.get(q).on.contains(it.choice.get(p))){map.get(fork.get(q).questions.get(0))}»«
-
-		      						»«ENDFOR»" />
-		    	      			«it.choice.get(p).description»
-						</label>
-					</div>
-			«ENDFOR»
-			«if(it.other!=null && !it.other.equals(""))
-			{				
-				  "<div class='checkbox'>"+
-			        "<label class='other''>"+
-			          "<input type='checkbox' name='Other' id='option_other' value='other' onClick='return Survey.changeSubmitButtonStatus(this);' />"+
-			          it.other+ 
-			        "</label>"+
-			        "<input type='text' class='form-control other' id='optionsRadios2' maxlength='30' data-for='#option_other' onClick='Survey.updateOther(this);' />"+
-			      "</div>"+		
-		      "</div>"
-			}
-				»
-			    
-		      <button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#form-survey-question_«i»', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+		</div>
+		<div class="options_container">
+		«FOR p:0..it.choice.size-1»		      
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" name="« it.name »" id="option_« normalize(it.choice.get(p).name) »" value="«it.choice.get(p).description»" onClick="return Survey.changeSubmitButtonStatus(this);" data-next=«FOR q:0..(it.fork.size-1) »« IF (it.fork.get(q).on.contains(it.choice.get(p))) »« map.get(fork.get(q).questions.get(0)) + 1 »« ENDIF »«ENDFOR»" /> «it.choice.get(p).description»
+			</label>
+		</div>
+		«ENDFOR»
+		« IF it.other != null && !it.other.equals("")»
+			<div class="checkbox">
+				<label class="other">
+					<input type="checkbox" name="« normalize(it.other) »" id="option_« normalize(it.other) »" value="« normalize(it.other) »" onClick="return Survey.changeSubmitButtonStatus(this);' />
+		  			« it.other »
+				</label>
+				<input type="text" class="form-control other" id='« normalize(it.other) »' maxlength='30' data-for="#option_« normalize(it.other) »" onClick='Survey.updateOther(this);' />"
+			</div>
+		« ENDIF »
+			</div>
+			<button type="button" class="btn btn-primary btn-sm btn-block"« IF (it.isRequired) » disabled="disabled"« ENDIF » name="submitQuestion" onclick="return Survey.saveAnswerData('#« normalize(it.name) »', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
 		</form>
-				
 		'''
 		}
 	def static dispatch toTemplate(Ranking it, int i, int to)
@@ -219,5 +206,9 @@ class CodeGenerator {
 	def static dispatch toTemplate(Staple it, int i, int to)
 	{
 			'''«it.question»'''
+	}
+	
+	def static normalize(String string) {
+		string.replaceAll("(^[^a-zA-Z])*(\\W+)", "")
 	}
 }
