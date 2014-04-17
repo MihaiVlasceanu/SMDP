@@ -1,9 +1,4 @@
 Survey1
-	Dichotomous Q1:
-		the user
-		is required
-		to answer "Do you attend ITU?"
-		if yes then go to Q2
 	MultipleChoice Q2:
 		the user
 		is required

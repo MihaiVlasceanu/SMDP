@@ -10,7 +10,7 @@ Model returns Model:
 
 
 Question returns Question:
-	MultipleChoice | Open | Rating_Impl | Ranking | Dichotomous | ConstantSum | Staple;
+	MultipleChoice | Open | Rating_Impl | Ranking | ConstantSum | Staple;
 
 Survey returns Survey:
 	{Survey}
@@ -64,15 +64,6 @@ Ranking returns Ranking:
 		'from'? ('one of' | 'some of')? 'these'? choices+=Choice ( "," choices+=Choice)*
 		(Fork+=RankingSumFork ( "," Fork+=RankingSumFork)*)?;
 
-Dichotomous returns Dichotomous:
-	{Dichotomous}
-	'Dichotomous' name=ID ':'
-		('the'? 'user')?
-		('may' | (isRequired ?= 'is' 'required'))? 
-		'to'? 'answer'? question=EString
-		('if' 'yes' onYes=DichotomousFork)?
-		('if' 'no' onNo=DichotomousFork)?;
-
 ConstantSum returns ConstantSum:
 	{ConstantSum}
 	'ConstantSum' name=ID ':'
@@ -117,5 +108,3 @@ RankingSumFork returns RankingSumFork:
 		'is' 'between'? Min=EInt 'and' Max=EInt 
 		'then'? 'go''to' Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;
 
-DichotomousFork returns DichotomousFork:
-	'then'? 'go' 'to'  Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;

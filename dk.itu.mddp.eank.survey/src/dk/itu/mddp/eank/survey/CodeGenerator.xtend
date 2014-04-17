@@ -11,7 +11,6 @@ import org.xtext.example.mydsl.MyDslStandaloneSetupGenerated
 import survey.Survey
 import survey.Question
 import survey.Open
-import survey.Dichotomous
 import survey.MultipleChoice
 import survey.Ranking
 import survey.Rating
@@ -74,11 +73,18 @@ class CodeGenerator {
 //		else
 //			println("Constraints Failed")
 //		println(MyDslGenerator.compileToJava(m).toString().replaceAll("object", "Object"))
+
+		if(Constraints.Constraint(m.surveys.get(0)))
+			println("All constraints passed!")
+		else
+			println("Constraints Failed")
+
 		val outputURI = URI.createFileURI("test-files/test-output.xmi")
 		resource.URI = resource.resourceSet.getURIConverter.normalize(outputURI)
 		resource.save (null)
 		 
 	}
+
 	
 	static var map = new HashMap<Question, Integer>();
 	static var goToMap = new HashMap<Question, Integer>();
@@ -88,13 +94,7 @@ class CodeGenerator {
 	{		
 			return null;
 	}
-
-	def static dispatch ArrayList<EList<Question>> forkMap(Dichotomous it)
-	{			
-			return null; 
-		
-		
-	}
+	
 	def static dispatch List<EList<Question>> forkMap(MultipleChoice it)
 	{
 			return it.fork.map[getQuestions]
@@ -160,12 +160,7 @@ class CodeGenerator {
 		'''				
 	}
 
-	def static dispatch toTemplate(Dichotomous it, int i, int to)
-	{
-		'''Not Implemented'''
-		
-		
-	}
+	
 	def static dispatch toTemplate(MultipleChoice it, int i, int to)
 	{
 		'''
@@ -197,7 +192,43 @@ class CodeGenerator {
 		}
 	def static dispatch toTemplate(Ranking it, int i, int to)
 	{
-			'''«it.question»'''
+			'''
+			<form method="POST" action="" id="«normalize(it.name) »" class="smdp orm-horizontal" autocomplete="off" role="form" data-href="100">
+    <div class="question_container">
+      <h3 class="smdp_question">«normalize(it.question)»</h3>
+    </div>
+    
+    		«FOR p:0..it.choices.size-1»
+    		<div class="options_container">
+      <div class="form-group">
+        <label for="inputEmail3" class="col-xs-8 control-label">«it.choices.get(p).description»</label>
+        <div class="col-xs-4">
+          <input type="number" class="form-control rating" id="ranking_«normalize(it.choices.get(p).name)»" maxlength="3" onkeyup="return Survey.constantSumUpdate(this);" name="rating_«normalize(it.choices.get(p).name)»" data-next=«FOR q:0..(it.fork.size-1) »« IF (it.fork.get(q).on.contains(it.choices.get(p))) »« map.get(fork.get(q).questions.get(0)) + 1 »« ENDIF »«ENDFOR»" /> «it.choices.get(p).description»/>
+        </div>
+      </div>
+      		      
+		
+		</div>
+		«ENDFOR»
+    
+    
+
+
+      <div class="form-group">
+        <label class="col-xs-3 control-label label-total">100</label>
+      </div>
+
+    </div>
+    <button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#form-survey-question_2', 3);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+    </div>
+</form>
+			
+			
+			
+			
+			
+			'''
+			
 	}
 	def static dispatch toTemplate(Rating it, int i, int to)
 	{
@@ -211,4 +242,5 @@ class CodeGenerator {
 	def static normalize(String string) {
 		string.replaceAll("(^[^a-zA-Z])*(\\W+)", "")
 	}
+
 }
