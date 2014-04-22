@@ -157,7 +157,7 @@ class HTMLGenerator {
 		   <div class="options_container">
 		     <textarea class="form-control" rows="3" cols="40" name="comments" onkeyup="return Survey.validateTextarea(this);"></textarea>
 		   </div>
-      		<button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#form-survey-question_«i»', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+		   <button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#form-survey-question_«i»', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
 		</form>	
 		'''				
 	}
@@ -203,9 +203,8 @@ class HTMLGenerator {
 		         No
 		       </label>
 		     </div>
-
-      		</div>
-      		<button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#form-survey-question_«i»',«goToMap.get(it)»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+		</div>
+		<button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#form-survey-question_«i»',«goToMap.get(it)»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
 		</form>
 '''
 		
