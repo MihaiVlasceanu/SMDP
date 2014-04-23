@@ -24,6 +24,11 @@ import survey.ConstantSum
 
 class CodeGenerator {
 	val static instanceFileName = "test-files/Tes.survey"
+	static var map = new HashMap<Question, Integer>();
+	static var goToMap = new HashMap<Question, Integer>();
+	static var next = new HashMap<Question, Integer>();
+	static var usedList = new ArrayList<Integer>();
+	
 	// this method reads textual syntax and saves XMI syntax
 	def static void main (String[] args) {
 		
@@ -44,15 +49,56 @@ class CodeGenerator {
 //				map.put(questions.get(i), i)								
 //		}
 		questions.forEach[q, i | map.put(q,i)]
-		questions.forEach[q |
+		questions.forEach[q | //parent question q
 			var localQuestions = forkMap(q)
+			
 			if(localQuestions != null)
 			{
 				localQuestions.forEach[localQuestion |
-					localQuestion.forEach[forkQuestion |
-						usedList.add(map.get(forkQuestion))
-						
-					]
+					for(p:0..localQuestion.size)
+					{										
+						if(p!=localQuestion.size)
+						{
+							usedList.add(map.get(localQuestion.get(p)))							
+						}
+					}
+				]
+			}			
+			
+		]
+		questions.forEach[q | //parent question q
+			var localQuestions = forkMap(q)
+			if(!goToMap.containsKey(q)){
+				var to = map.get(q)+1;
+				while(usedList.contains(to))
+				{
+					to=to+1
+				}
+				goToMap.put(q, to)
+			}
+			
+			if(localQuestions != null)
+			{
+				localQuestions.forEach[localQuestion |
+					for(p:0..localQuestion.size)
+					{										
+						if(p!=localQuestion.size)
+						{
+		
+							if(p!=localQuestion.size-1)
+							{
+								goToMap.put(localQuestion.get(p), map.get(localQuestion.get(p+1)))
+							}					
+							else{
+								goToMap.put(localQuestion.get(p),goToMap.get(q));//go to its parents next question 
+							}
+							//localQuestion.forEach[forkQuestion |
+								//usedList.add(map.get(forkQuestion))						
+								
+								
+							//]
+						}
+					}
 				]
 			}
 		]
@@ -98,9 +144,7 @@ class CodeGenerator {
 	}
 
 	
-	static var map = new HashMap<Question, Integer>();
-	static var goToMap = new HashMap<Question, Integer>();
-	static var usedList = new ArrayList<Integer>();
+	
 		
 	def static dispatch List<EList<Question>> forkMap(Open it)
 	{		
@@ -141,12 +185,9 @@ class CodeGenerator {
 		//var toto = 0;
 		'''«FOR i:0..questions.size-1»
 		
-		«{ var to=i+1;		
-		  while(usedList.contains(to))
-		  {
-		  	to=to+1;	
-		  }
-
+		«{ var to=goToMap.get(questions.get(i))		
+		  
+		
 		
 		
 		toTemplate(questions.get(i), to)
