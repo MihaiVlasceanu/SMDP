@@ -51,6 +51,7 @@ class CodeGenerator {
 				localQuestions.forEach[localQuestion |
 					localQuestion.forEach[forkQuestion |
 						usedList.add(map.get(forkQuestion))
+						
 					]
 				]
 			}
@@ -137,7 +138,7 @@ class CodeGenerator {
 	
 	def static dispatch toTemplate(Survey it)
 	{				
-		var toto = 0;
+		//var toto = 0;
 		'''«FOR i:0..questions.size-1»
 		
 		«{ var to=i+1;		
@@ -147,14 +148,14 @@ class CodeGenerator {
 		  }
 
 		
-		toto = to
-		//toTemplate(questions.get(i), to)
+		
+		toTemplate(questions.get(i), to)
 
 		}
 		
 		
 		»
-		«i» goes to «toto»
+		
 		
 		«ENDFOR»'''
 	} 
@@ -285,7 +286,7 @@ class CodeGenerator {
 					«IF(p<0)»<th>(«p») «IF(p==it.max)»«it.last»«ENDIF»«IF(p==it.min)»«it.first»«ENDIF»</th>«ENDIF»
 					«ENDFOR»
 					</tr>
-					<tr>«FOR p:it.min..it.max»
+					<tr>«FOR p:it.min..it.max-1»
 						<td>
 							<label class="radio-inline">
 							  	<input type="radio" id="option_«p»" name="option_« it.name »" value="«p»" onclick="return Survey.ratingUpdate(this);">
