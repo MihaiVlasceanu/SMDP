@@ -260,7 +260,32 @@ class CodeGenerator {
 	}
 	def static dispatch toTemplate(Rating it, int to)
 	{
-			'''«it.question»'''
+					'''
+			<form method="POST" action="" id="« normalize(it.name) »" class="smdp« IF (it.isRequired) » required« ENDIF »" autocomplete="off" role="form">
+			<div class="question_container">
+				<h3 class="smdp_question">«it.question»</h3>
+			</div>
+			<div class="options_container">
+				<table class="table table-striped table-bordered table-condensed">
+					<tr>
+		    		«FOR p: it.min..it.max»
+					«IF(p>0)»<th>(+«p») «IF(p==it.max)»«it.last»«ENDIF»«IF(p==it.min)»«it.first»«ENDIF»</th>«ENDIF»				
+					«IF(p<0)»<th>(«p») «IF(p==it.max)»«it.last»«ENDIF»«IF(p==it.min)»«it.first»«ENDIF»</th>«ENDIF»
+					«ENDFOR»
+					</tr>
+					<tr>«FOR p:it.min..it.max»
+						<td>
+							<label class="radio-inline">
+							  	<input type="radio" id="option_«p»" name="option_« it.name »" value="«p»" onclick="return Survey.ratingUpdate(this);">
+							</label>
+						</td>
+						«ENDFOR»
+					</tr>
+				</table>
+			</div>
+			<button type="button" class="btn btn-primary btn-sm btn-block"« IF (it.isRequired) » disabled="disabled"« ENDIF » name="submitQuestion" onclick="return Survey.saveAnswerData('#« normalize(it.name) »', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+			</form>
+			'''
 	}
 	
 
@@ -316,7 +341,7 @@ class CodeGenerator {
 						</td>
 						«ENDFOR»
 					</tr>
-				</table>\
+				</table>
 			</div>
 			<button type="button" class="btn btn-primary btn-sm btn-block"« IF (it.isRequired) » disabled="disabled"« ENDIF » name="submitQuestion" onclick="return Survey.saveAnswerData('#« normalize(it.name) »', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
 			</form>
