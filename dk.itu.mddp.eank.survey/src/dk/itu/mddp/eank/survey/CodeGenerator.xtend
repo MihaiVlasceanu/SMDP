@@ -138,14 +138,17 @@ class CodeGenerator {
 		  }
 		
 		
-		toTemplate(questions.get(i), i, to)
+		toTemplate(questions.get(i), to)
 		}
 		»
 		
 		«ENDFOR»'''
 	} 
 	
-	def static dispatch toTemplate(Open it, int i, int to)
+	/**
+	 * HTML generator for the Open type question
+	 */
+	def static dispatch toTemplate(Open it, int to)
 	{
 		'''
 		<form method="POST" action="" id="« normalize(it.name) »" class="smdp« IF (it.isRequired) » required« ENDIF »" autocomplete="off" role="form">
@@ -160,8 +163,10 @@ class CodeGenerator {
 		'''				
 	}
 
-	
-	def static dispatch toTemplate(MultipleChoice it, int i, int to)
+	/**
+	 * HTML generator for the MultipleChoice question type
+	 */
+	def static dispatch toTemplate(MultipleChoice it, int to)
 	{
 		'''
 		<form method="POST" action="" id="« normalize(it.name) »" class="smdp« IF (it.isRequired) » required« ENDIF »" autocomplete="off" role="form">
@@ -189,11 +194,15 @@ class CodeGenerator {
 			<button type="button" class="btn btn-primary btn-sm btn-block"« IF (it.isRequired) » disabled="disabled"« ENDIF » name="submitQuestion" onclick="return Survey.saveAnswerData('#« normalize(it.name) »', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
 		</form>
 		'''
-		}
-	def static dispatch toTemplate(Ranking it, int i, int to)
+	}
+	
+	/**
+	 * HTML generator for the Ranking question type
+	 */
+	def static dispatch toTemplate(Ranking it, int to)
 	{
 			'''
-			<form method="POST" action="" id="« normalize(it.name) »" class="smdp" autocomplete="off" role="form">
+			<form method="POST" action="" id="« normalize(it.name) »" class="smdp« IF (it.isRequired) » required« ENDIF »" autocomplete="off" role="form">
 				<div class="question_container">
 					<h3 class="smdp_question">« it.question »</h3>
 				</div>
@@ -211,59 +220,84 @@ class CodeGenerator {
 					Next Question <span class="glyphicon glyphicon-chevron-right"></span>
 				</button>
 			</form>
+			
+			<script type="text/javascript">
+				var Fork = Fork || {};
+				Fork = (function(){
+				  return {
+				    calculate: function(input)
+				    {
+				      // Get the field object
+				      var numberField = (typeof input !== 'undefined' ? jQuery(input) : false);
+				
+				      if(numberField !== false)
+				      {
+				        // Actul inout value
+				        var value = numberField.val();
+						« FOR p : 0.. (it.fork.size - 1) »
+						if (Survey.isBetween(value, « it.fork.get(p).min », « it.fork.get(p).max »)) {
+							numberField.attr(Survey.SURVEY_FORK_SEL, « toInt(it.fork.get(p).questions.get(0).name) »);
+						}
+				        « ENDFOR »
+				        numberField.on('keyUp', function() {
+				          return Survey.rankingUpdate(this);
+				        });
+				      }
+				    }
+				  }
+				})(jQuery);
+			</script>
 			'''
 	}
-	def static dispatch toTemplate(Rating it, int i, int to)
+	def static dispatch toTemplate(Rating it, int to)
 	{
 			'''«it.question»'''
 	}
-	def static dispatch toTemplate(Staple it, int i, int to)
+	
+	/**
+	 * Generator for the Staple question
+	 */
+	def static dispatch toTemplate(Staple it, int to)
 	{
-						'''<form method="POST" action="" id="form-survey-question_«i»" class="smdp last required" autocomplete="off" role="form">
-		    <div class="question_container">
-		      <h3 class="smdp_question">«it.question»</h3>
-		    </div>
-		    <div class="options_container">
-		    	<table class="table table-striped table-bordered table-condensed">
-		    		<tr>    		
-		    			<th></th>
-		    			«FOR p: it.max..it.min»
-		    			
-		    			
-		    			«IF(p>0)»
-		    				<th>(+«p») «IF(p==it.max)»«it.first»«ENDIF»«IF(p==it.min)»«it.last»«ENDIF»</th>
-						«ENDIF»
-						«IF(p==((it.max+it.min)/2))»
-							<th>«it.mid»</th>
-						«ENDIF»
-						«IF(p<0)»
-							<th>(«p») «IF(p==it.max)»«it.first»«ENDIF»«IF(p==it.min)»«it.last»«ENDIF»</th>				
-						«ENDIF»
-						«ENDFOR»
-					</tr>
-		
-					<!-- Item to rate -->
-					
+			'''
+			<form method="POST" action="" id="« normalize(it.name) »" class="smdp« IF (it.isRequired) » required« ENDIF »" autocomplete="off" role="form">
+			<div class="question_container">
+				<h3 class="smdp_question">«it.question»</h3>
+			</div>
+			<div class="options_container">
+				<table class="table table-striped table-bordered table-condensed">
 					<tr>
-						<td class="item"></td>
-						«FOR p:it.max..it.min»
+		    		«FOR p: it.min..it.max»
+					«IF(p>0)»<th>(+«p») «IF(p==it.max)»«it.last»«ENDIF»«IF(p==it.min)»«it.first»«ENDIF»</th>«ENDIF»
+					«IF(p==((it.max+it.min)/2))»<th>«it.mid»</th>«ENDIF»
+					«IF(p<0)»<th>(«p») «IF(p==it.max)»«it.last»«ENDIF»«IF(p==it.min)»«it.first»«ENDIF»</th>«ENDIF»
+					«ENDFOR»
+					</tr>
+					<tr>«FOR p:it.min..it.max»
 						<td>
 							<label class="radio-inline">
-							  	<input type="radio" id="option«p»" name="option«p»" value="«p»" onclick="return Survey.ratingUpdate(this);">
+							  	<input type="radio" id="option_«p»" name="option_« it.name »" value="«p»" onclick="return Survey.ratingUpdate(this);">
 							</label>
 						</td>
 						«ENDFOR»
 					</tr>
-					<!-- Item to rate End -->
-				</table>
-		    </div>
-		      <button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#form-survey-question_«i», «to»');">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
-		</form>'''
-
+				</table>\
+			</div>
+			<button type="button" class="btn btn-primary btn-sm btn-block"« IF (it.isRequired) » disabled="disabled"« ENDIF » name="submitQuestion" onclick="return Survey.saveAnswerData('#« normalize(it.name) »', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+			</form>
+			'''
 	}
 	
+	/**
+	 * Removes all non-alphanumeric characters in a string
+	 */
 	def static normalize(String string) {
 		string.replaceAll("(^[^a-zA-Z])*(\\W+)", "")
+	}
+	
+	def static toInt(String name)
+	{
+		name.replaceAll("([^0-9])*", "")
 	}
 
 }

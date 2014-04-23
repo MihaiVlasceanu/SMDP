@@ -17,7 +17,6 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
@@ -81,7 +80,7 @@ public class CodeGenerator {
           } else {
             int _size_2 = localQuestions.size();
             boolean _greaterThan = (_size_2 > 0);
-            _and = (_notEquals && _greaterThan);
+            _and = _greaterThan;
           }
           if (_and) {
             int _size_3 = localQuestions.size();
@@ -93,18 +92,15 @@ public class CodeGenerator {
               int _minus_3 = (_size_4 - 1);
               IntegerRange _upTo_3 = new IntegerRange(0, _minus_3);
               for (final Integer p : _upTo_3) {
-                int _plus = ((p).intValue() + 1);
                 EList<Question> _get_6 = localQuestions.get((q).intValue());
                 int _size_5 = _get_6.size();
                 int _minus_4 = (_size_5 - 1);
-                boolean _notEquals_1 = (_plus != _minus_4);
+                boolean _notEquals_1 = (((p).intValue() + 1) != _minus_4);
                 if (_notEquals_1) {
                   EList<Question> _get_7 = localQuestions.get((q).intValue());
                   Question _get_8 = _get_7.get((p).intValue());
-                  int _plus_1 = ((p).intValue() + 1);
-                  CodeGenerator.goToMap.put(_get_8, Integer.valueOf(_plus_1));
-                  int _plus_2 = ((p).intValue() + 1);
-                  CodeGenerator.usedList.add(Integer.valueOf(_plus_2));
+                  CodeGenerator.goToMap.put(_get_8, Integer.valueOf(((p).intValue() + 1)));
+                  CodeGenerator.usedList.add(Integer.valueOf(((p).intValue() + 1)));
                 }
               }
             }
@@ -136,26 +132,11 @@ public class CodeGenerator {
     }
   }
   
-  private static HashMap<Question,Integer> map = new Function0<HashMap<Question,Integer>>() {
-    public HashMap<Question,Integer> apply() {
-      HashMap<Question,Integer> _hashMap = new HashMap<Question, Integer>();
-      return _hashMap;
-    }
-  }.apply();
+  private static HashMap<Question,Integer> map = new HashMap<Question, Integer>();
   
-  private static HashMap<Question,Integer> goToMap = new Function0<HashMap<Question,Integer>>() {
-    public HashMap<Question,Integer> apply() {
-      HashMap<Question,Integer> _hashMap = new HashMap<Question, Integer>();
-      return _hashMap;
-    }
-  }.apply();
+  private static HashMap<Question,Integer> goToMap = new HashMap<Question, Integer>();
   
-  private static ArrayList<Integer> usedList = new Function0<ArrayList<Integer>>() {
-    public ArrayList<Integer> apply() {
-      ArrayList<Integer> _arrayList = new ArrayList<Integer>();
-      return _arrayList;
-    }
-  }.apply();
+  private static ArrayList<Integer> usedList = new ArrayList<Integer>();
   
   protected static List<EList<Question>> _forkMap(final Open it) {
     return null;
@@ -165,8 +146,7 @@ public class CodeGenerator {
     EList<ChoiceFork> _fork = it.getFork();
     final Function1<ChoiceFork,EList<Question>> _function = new Function1<ChoiceFork,EList<Question>>() {
       public EList<Question> apply(final ChoiceFork it) {
-        EList<Question> _questions = it.getQuestions();
-        return _questions;
+        return it.getQuestions();
       }
     };
     return ListExtensions.<ChoiceFork, EList<Question>>map(_fork, _function);
@@ -176,8 +156,7 @@ public class CodeGenerator {
     EList<RankingSumFork> _fork = it.getFork();
     final Function1<RankingSumFork,EList<Question>> _function = new Function1<RankingSumFork,EList<Question>>() {
       public EList<Question> apply(final RankingSumFork it) {
-        EList<Question> _questions = it.getQuestions();
-        return _questions;
+        return it.getQuestions();
       }
     };
     return ListExtensions.<RankingSumFork, EList<Question>>map(_fork, _function);
@@ -187,8 +166,7 @@ public class CodeGenerator {
     EList<RatingFork> _fork = it.getFork();
     final Function1<RatingFork,EList<Question>> _function = new Function1<RatingFork,EList<Question>>() {
       public EList<Question> apply(final RatingFork it) {
-        EList<Question> _questions = it.getQuestions();
-        return _questions;
+        return it.getQuestions();
       }
     };
     return ListExtensions.<RatingFork, EList<Question>>map(_fork, _function);
@@ -198,8 +176,7 @@ public class CodeGenerator {
     EList<RatingFork> _fork = it.getFork();
     final Function1<RatingFork,EList<Question>> _function = new Function1<RatingFork,EList<Question>>() {
       public EList<Question> apply(final RatingFork it) {
-        EList<Question> _questions = it.getQuestions();
-        return _questions;
+        return it.getQuestions();
       }
     };
     return ListExtensions.<RatingFork, EList<Question>>map(_fork, _function);
@@ -240,16 +217,14 @@ public class CodeGenerator {
             boolean _contains = CodeGenerator.usedList.contains(Integer.valueOf(to));
             boolean _while = _contains;
             while (_while) {
-              int _plus = (to + 1);
-              to = _plus;
+              to = (to + 1);
               boolean _contains_1 = CodeGenerator.usedList.contains(Integer.valueOf(to));
               _while = _contains_1;
             }
           }
           EList<Question> _questions_3 = it.getQuestions();
           Question _get_3 = _questions_3.get((i).intValue());
-          CharSequence _template = CodeGenerator.toTemplate(_get_3, (i).intValue(), to);
-          _xblockexpression = (_template);
+          _xblockexpression = CodeGenerator.toTemplate(_get_3, to);
         }
         _builder.append(_xblockexpression, "");
         _builder.newLineIfNotEmpty();
@@ -259,7 +234,10 @@ public class CodeGenerator {
     return _builder;
   }
   
-  protected static CharSequence _toTemplate(final Open it, final int i, final int to) {
+  /**
+   * HTML generator for the Open type question
+   */
+  protected static CharSequence _toTemplate(final Open it, final int to) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<form method=\"POST\" action=\"\" id=\"");
     String _name = it.getName();
@@ -280,7 +258,7 @@ public class CodeGenerator {
     _builder.append("\t");
     _builder.append("<h3 class=\"smdp_question\">");
     String _question = it.getQuestion();
-    _builder.append(_question, "	");
+    _builder.append(_question, "\t");
     _builder.append("</h3>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -319,7 +297,10 @@ public class CodeGenerator {
     return _builder;
   }
   
-  protected static CharSequence _toTemplate(final MultipleChoice it, final int i, final int to) {
+  /**
+   * HTML generator for the MultipleChoice question type
+   */
+  protected static CharSequence _toTemplate(final MultipleChoice it, final int to) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<form method=\"POST\" action=\"\" id=\"");
     String _name = it.getName();
@@ -360,18 +341,18 @@ public class CodeGenerator {
         _builder.append("\t\t");
         _builder.append("<input type=\"checkbox\" name=\"");
         String _name_1 = it.getName();
-        _builder.append(_name_1, "		");
+        _builder.append(_name_1, "\t\t");
         _builder.append("\" id=\"option_");
         EList<Choice> _choice_1 = it.getChoice();
         Choice _get = _choice_1.get((p).intValue());
         String _name_2 = _get.getName();
         String _normalize_1 = CodeGenerator.normalize(_name_2);
-        _builder.append(_normalize_1, "		");
+        _builder.append(_normalize_1, "\t\t");
         _builder.append("\" value=\"");
         EList<Choice> _choice_2 = it.getChoice();
         Choice _get_1 = _choice_2.get((p).intValue());
         String _description = _get_1.getDescription();
-        _builder.append(_description, "		");
+        _builder.append(_description, "\t\t");
         _builder.append("\" onClick=\"return Survey.changeSubmitButtonStatus(this);\" data-next=");
         {
           EList<ChoiceFork> _fork = it.getFork();
@@ -393,7 +374,7 @@ public class CodeGenerator {
                 Question _get_5 = _questions.get(0);
                 Integer _get_6 = CodeGenerator.map.get(_get_5);
                 int _plus = ((_get_6).intValue() + 1);
-                _builder.append(_plus, "		");
+                _builder.append(_plus, "\t\t");
               }
             }
           }
@@ -402,7 +383,7 @@ public class CodeGenerator {
         EList<Choice> _choice_4 = it.getChoice();
         Choice _get_7 = _choice_4.get((p).intValue());
         String _description_1 = _get_7.getDescription();
-        _builder.append(_description_1, "		");
+        _builder.append(_description_1, "\t\t");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("</label>");
@@ -421,7 +402,7 @@ public class CodeGenerator {
         String _other_1 = it.getOther();
         boolean _equals = _other_1.equals("");
         boolean _not = (!_equals);
-        _and = (_notEquals && _not);
+        _and = _not;
       }
       if (_and) {
         _builder.append("<div class=\"checkbox\">");
@@ -433,20 +414,20 @@ public class CodeGenerator {
         _builder.append("<input type=\"checkbox\" name=\"");
         String _other_2 = it.getOther();
         String _normalize_2 = CodeGenerator.normalize(_other_2);
-        _builder.append(_normalize_2, "		");
+        _builder.append(_normalize_2, "\t\t");
         _builder.append("\" id=\"option_");
         String _other_3 = it.getOther();
         String _normalize_3 = CodeGenerator.normalize(_other_3);
-        _builder.append(_normalize_3, "		");
+        _builder.append(_normalize_3, "\t\t");
         _builder.append("\" value=\"");
         String _other_4 = it.getOther();
         String _normalize_4 = CodeGenerator.normalize(_other_4);
-        _builder.append(_normalize_4, "		");
+        _builder.append(_normalize_4, "\t\t");
         _builder.append("\" onClick=\"return Survey.changeSubmitButtonStatus(this);\' />");
         _builder.newLineIfNotEmpty();
         _builder.append("\t\t  \t\t\t");
         String _other_5 = it.getOther();
-        _builder.append(_other_5, "		  			");
+        _builder.append(_other_5, "\t\t  \t\t\t");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("</label>");
@@ -455,11 +436,11 @@ public class CodeGenerator {
         _builder.append("<input type=\"text\" class=\"form-control other\" id=\'");
         String _other_6 = it.getOther();
         String _normalize_5 = CodeGenerator.normalize(_other_6);
-        _builder.append(_normalize_5, "	");
+        _builder.append(_normalize_5, "\t");
         _builder.append("\' maxlength=\'30\' data-for=\"#option_");
         String _other_7 = it.getOther();
         String _normalize_6 = CodeGenerator.normalize(_other_7);
-        _builder.append(_normalize_6, "	");
+        _builder.append(_normalize_6, "\t");
         _builder.append("\" onClick=\'Survey.updateOther(this);\' />\"");
         _builder.newLineIfNotEmpty();
         _builder.append("</div>");
@@ -480,9 +461,9 @@ public class CodeGenerator {
     _builder.append(" name=\"submitQuestion\" onclick=\"return Survey.saveAnswerData(\'#");
     String _name_3 = it.getName();
     String _normalize_7 = CodeGenerator.normalize(_name_3);
-    _builder.append(_normalize_7, "	");
+    _builder.append(_normalize_7, "\t");
     _builder.append("\', ");
-    _builder.append(to, "	");
+    _builder.append(to, "\t");
     _builder.append(");\">Next Question <span class=\"glyphicon glyphicon-chevron-right\"></span></button>");
     _builder.newLineIfNotEmpty();
     _builder.append("</form>");
@@ -490,13 +471,23 @@ public class CodeGenerator {
     return _builder;
   }
   
-  protected static CharSequence _toTemplate(final Ranking it, final int i, final int to) {
+  /**
+   * HTML generator for the Ranking question type
+   */
+  protected static CharSequence _toTemplate(final Ranking it, final int to) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<form method=\"POST\" action=\"\" id=\"");
     String _name = it.getName();
     String _normalize = CodeGenerator.normalize(_name);
     _builder.append(_normalize, "");
-    _builder.append("\" class=\"smdp\" autocomplete=\"off\" role=\"form\">");
+    _builder.append("\" class=\"smdp");
+    {
+      boolean _isIsRequired = it.isIsRequired();
+      if (_isIsRequired) {
+        _builder.append(" required");
+      }
+    }
+    _builder.append("\" autocomplete=\"off\" role=\"form\">");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("<div class=\"question_container\">");
@@ -504,7 +495,7 @@ public class CodeGenerator {
     _builder.append("\t\t");
     _builder.append("<h3 class=\"smdp_question\">");
     String _question = it.getQuestion();
-    _builder.append(_question, "		");
+    _builder.append(_question, "\t\t");
     _builder.append("</h3>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -527,12 +518,12 @@ public class CodeGenerator {
         Choice _get = _choices_1.get((p).intValue());
         String _name_1 = _get.getName();
         String _normalize_1 = CodeGenerator.normalize(_name_1);
-        _builder.append(_normalize_1, "	");
+        _builder.append(_normalize_1, "\t");
         _builder.append("\" class=\"col-xs-9 control-label\">");
         EList<Choice> _choices_2 = it.getChoices();
         Choice _get_1 = _choices_2.get((p).intValue());
         String _description = _get_1.getDescription();
-        _builder.append(_description, "	");
+        _builder.append(_description, "\t");
         _builder.append("</label>");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
@@ -544,13 +535,13 @@ public class CodeGenerator {
         Choice _get_2 = _choices_3.get((p).intValue());
         String _name_2 = _get_2.getName();
         String _normalize_2 = CodeGenerator.normalize(_name_2);
-        _builder.append(_normalize_2, "		");
+        _builder.append(_normalize_2, "\t\t");
         _builder.append("\" maxlength=\"2\" onkeyup=\"return Survey.rankingUpdate(this);\" name=\"rating_");
         EList<Choice> _choices_4 = it.getChoices();
         Choice _get_3 = _choices_4.get((p).intValue());
         String _name_3 = _get_3.getName();
         String _normalize_3 = CodeGenerator.normalize(_name_3);
-        _builder.append(_normalize_3, "		");
+        _builder.append(_normalize_3, "\t\t");
         _builder.append("\" data-next=\"");
         {
           EList<RankingSumFork> _fork = it.getFork();
@@ -572,7 +563,7 @@ public class CodeGenerator {
                 Question _get_7 = _questions.get(0);
                 Integer _get_8 = CodeGenerator.map.get(_get_7);
                 int _plus = ((_get_8).intValue() + 1);
-                _builder.append(_plus, "		");
+                _builder.append(_plus, "\t\t");
               }
             }
           }
@@ -592,17 +583,17 @@ public class CodeGenerator {
     _builder.append("\t");
     _builder.append("<button type=\"button\" class=\"btn btn-primary btn-sm btn-block\"");
     {
-      boolean _isIsRequired = it.isIsRequired();
-      if (_isIsRequired) {
+      boolean _isIsRequired_1 = it.isIsRequired();
+      if (_isIsRequired_1) {
         _builder.append(" disabled=\"disabled\"");
       }
     }
     _builder.append(" name=\"submitQuestion\" onclick=\"return Survey.saveAnswerData(\'#");
     String _name_4 = it.getName();
     String _normalize_4 = CodeGenerator.normalize(_name_4);
-    _builder.append(_normalize_4, "	");
+    _builder.append(_normalize_4, "\t");
     _builder.append("\', ");
-    _builder.append(to, "	");
+    _builder.append(to, "\t");
     _builder.append(");\">");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
@@ -613,82 +604,179 @@ public class CodeGenerator {
     _builder.newLine();
     _builder.append("</form>");
     _builder.newLine();
+    _builder.newLine();
+    _builder.append("<script type=\"text/javascript\">");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("var Fork = Fork || {};");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("Fork = (function(){");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("return {");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("calculate: function(input)");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("// Get the field object");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("var numberField = (typeof input !== \'undefined\' ? jQuery(input) : false);");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("if(numberField !== false)");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("// Actul inout value");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("var value = numberField.val();");
+    _builder.newLine();
+    {
+      EList<RankingSumFork> _fork_3 = it.getFork();
+      int _size_2 = _fork_3.size();
+      int _minus_2 = (_size_2 - 1);
+      IntegerRange _upTo_2 = new IntegerRange(0, _minus_2);
+      for(final Integer p_1 : _upTo_2) {
+        _builder.append("\t\t\t");
+        _builder.append("if (Survey.isBetween(value, ");
+        EList<RankingSumFork> _fork_4 = it.getFork();
+        RankingSumFork _get_9 = _fork_4.get((p_1).intValue());
+        int _min = _get_9.getMin();
+        _builder.append(_min, "\t\t\t");
+        _builder.append(", ");
+        EList<RankingSumFork> _fork_5 = it.getFork();
+        RankingSumFork _get_10 = _fork_5.get((p_1).intValue());
+        int _max = _get_10.getMax();
+        _builder.append(_max, "\t\t\t");
+        _builder.append(")) {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t\t");
+        _builder.append("\t");
+        _builder.append("numberField.attr(Survey.SURVEY_FORK_SEL, ");
+        EList<RankingSumFork> _fork_6 = it.getFork();
+        RankingSumFork _get_11 = _fork_6.get((p_1).intValue());
+        EList<Question> _questions_1 = _get_11.getQuestions();
+        Question _get_12 = _questions_1.get(0);
+        String _name_5 = _get_12.getName();
+        String _int = CodeGenerator.toInt(_name_5);
+        _builder.append(_int, "\t\t\t\t");
+        _builder.append(");");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t        ");
+    _builder.append("numberField.on(\'keyUp\', function() {");
+    _builder.newLine();
+    _builder.append("\t          ");
+    _builder.append("return Survey.rankingUpdate(this);");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("});");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("})(jQuery);");
+    _builder.newLine();
+    _builder.append("</script>");
+    _builder.newLine();
     return _builder;
   }
   
-  protected static CharSequence _toTemplate(final Rating it, final int i, final int to) {
+  protected static CharSequence _toTemplate(final Rating it, final int to) {
     StringConcatenation _builder = new StringConcatenation();
     String _question = it.getQuestion();
     _builder.append(_question, "");
     return _builder;
   }
   
-  protected static CharSequence _toTemplate(final Staple it, final int i, final int to) {
+  /**
+   * Generator for the Staple question
+   */
+  protected static CharSequence _toTemplate(final Staple it, final int to) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<form method=\"POST\" action=\"\" id=\"form-survey-question_");
-    _builder.append(i, "");
-    _builder.append("\" class=\"smdp last required\" autocomplete=\"off\" role=\"form\">");
+    _builder.append("<form method=\"POST\" action=\"\" id=\"");
+    String _name = it.getName();
+    String _normalize = CodeGenerator.normalize(_name);
+    _builder.append(_normalize, "");
+    _builder.append("\" class=\"smdp");
+    {
+      boolean _isIsRequired = it.isIsRequired();
+      if (_isIsRequired) {
+        _builder.append(" required");
+      }
+    }
+    _builder.append("\" autocomplete=\"off\" role=\"form\">");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t\t    ");
     _builder.append("<div class=\"question_container\">");
     _builder.newLine();
-    _builder.append("\t\t      ");
+    _builder.append("\t");
     _builder.append("<h3 class=\"smdp_question\">");
     String _question = it.getQuestion();
-    _builder.append(_question, "		      ");
+    _builder.append(_question, "\t");
     _builder.append("</h3>");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t\t    ");
     _builder.append("</div>");
     _builder.newLine();
-    _builder.append("\t\t    ");
     _builder.append("<div class=\"options_container\">");
     _builder.newLine();
-    _builder.append("\t\t    \t");
+    _builder.append("\t");
     _builder.append("<table class=\"table table-striped table-bordered table-condensed\">");
     _builder.newLine();
-    _builder.append("\t\t    \t\t");
-    _builder.append("<tr>    \t\t");
-    _builder.newLine();
-    _builder.append("\t\t    \t\t\t");
-    _builder.append("<th></th>");
+    _builder.append("\t\t");
+    _builder.append("<tr>");
     _builder.newLine();
     {
-      int _max = it.getMax();
       int _min = it.getMin();
-      IntegerRange _upTo = new IntegerRange(_max, _min);
+      int _max = it.getMax();
+      IntegerRange _upTo = new IntegerRange(_min, _max);
       for(final Integer p : _upTo) {
-        _builder.append("\t\t    \t\t\t");
-        _builder.newLine();
-        _builder.append("\t\t    \t\t\t");
-        _builder.newLine();
         {
-          boolean _greaterThan = ((p).intValue() > 0);
-          if (_greaterThan) {
-            _builder.append("\t\t    \t\t\t");
+          if (((p).intValue() > 0)) {
             _builder.append("<th>(+");
-            _builder.append(p, "		    			");
+            _builder.append(p, "");
             _builder.append(") ");
             {
               int _max_1 = it.getMax();
               boolean _equals = ((p).intValue() == _max_1);
               if (_equals) {
-                String _first = it.getFirst();
-                _builder.append(_first, "		    			");
+                String _last = it.getLast();
+                _builder.append(_last, "");
               }
             }
             {
               int _min_1 = it.getMin();
               boolean _equals_1 = ((p).intValue() == _min_1);
               if (_equals_1) {
-                String _last = it.getLast();
-                _builder.append(_last, "		    			");
+                String _first = it.getFirst();
+                _builder.append(_first, "");
               }
             }
             _builder.append("</th>");
-            _builder.newLineIfNotEmpty();
           }
         }
+        _builder.newLineIfNotEmpty();
         {
           int _max_2 = it.getMax();
           int _min_2 = it.getMin();
@@ -700,12 +788,11 @@ public class CodeGenerator {
             String _mid = it.getMid();
             _builder.append(_mid, "");
             _builder.append("</th>");
-            _builder.newLineIfNotEmpty();
           }
         }
+        _builder.newLineIfNotEmpty();
         {
-          boolean _lessThan = ((p).intValue() < 0);
-          if (_lessThan) {
+          if (((p).intValue() < 0)) {
             _builder.append("<th>(");
             _builder.append(p, "");
             _builder.append(") ");
@@ -713,98 +800,99 @@ public class CodeGenerator {
               int _max_3 = it.getMax();
               boolean _equals_3 = ((p).intValue() == _max_3);
               if (_equals_3) {
-                String _first_1 = it.getFirst();
-                _builder.append(_first_1, "");
+                String _last_1 = it.getLast();
+                _builder.append(_last_1, "");
               }
             }
             {
               int _min_3 = it.getMin();
               boolean _equals_4 = ((p).intValue() == _min_3);
               if (_equals_4) {
-                String _last_1 = it.getLast();
-                _builder.append(_last_1, "");
+                String _first_1 = it.getFirst();
+                _builder.append(_first_1, "");
               }
             }
-            _builder.append("</th>\t\t\t\t");
-            _builder.newLineIfNotEmpty();
+            _builder.append("</th>");
           }
         }
+        _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t\t\t\t\t");
+    _builder.append("\t\t");
     _builder.append("</tr>");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("<!-- Item to rate -->");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
     _builder.append("<tr>");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t\t");
-    _builder.append("<td class=\"item\"></td>");
-    _builder.newLine();
     {
-      int _max_4 = it.getMax();
       int _min_4 = it.getMin();
-      IntegerRange _upTo_1 = new IntegerRange(_max_4, _min_4);
+      int _max_4 = it.getMax();
+      IntegerRange _upTo_1 = new IntegerRange(_min_4, _max_4);
       for(final Integer p_1 : _upTo_1) {
-        _builder.append("\t\t\t\t\t\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
         _builder.append("<td>");
         _builder.newLine();
-        _builder.append("\t\t\t\t\t\t");
+        _builder.append("\t\t");
         _builder.append("\t");
         _builder.append("<label class=\"radio-inline\">");
         _builder.newLine();
-        _builder.append("\t\t\t\t\t\t");
+        _builder.append("\t\t");
         _builder.append("\t  \t");
-        _builder.append("<input type=\"radio\" id=\"option");
-        _builder.append(p_1, "							  	");
-        _builder.append("\" name=\"option");
-        _builder.append(p_1, "							  	");
+        _builder.append("<input type=\"radio\" id=\"option_");
+        _builder.append(p_1, "\t\t\t  \t");
+        _builder.append("\" name=\"option_");
+        String _name_1 = it.getName();
+        _builder.append(_name_1, "\t\t\t  \t");
         _builder.append("\" value=\"");
-        _builder.append(p_1, "							  	");
+        _builder.append(p_1, "\t\t\t  \t");
         _builder.append("\" onclick=\"return Survey.ratingUpdate(this);\">");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t\t\t\t\t");
+        _builder.append("\t\t");
         _builder.append("\t");
         _builder.append("</label>");
         _builder.newLine();
-        _builder.append("\t\t\t\t\t\t");
+        _builder.append("\t\t");
         _builder.append("</td>");
         _builder.newLine();
       }
     }
-    _builder.append("\t\t\t\t\t");
+    _builder.append("\t\t");
     _builder.append("</tr>");
     _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("<!-- Item to rate End -->");
+    _builder.append("\t");
+    _builder.append("</table>\\");
     _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("</table>");
-    _builder.newLine();
-    _builder.append("\t\t    ");
     _builder.append("</div>");
     _builder.newLine();
-    _builder.append("\t\t      ");
-    _builder.append("<button type=\"button\" class=\"btn btn-primary btn-sm btn-block\" disabled=\"disabled\" name=\"submitQuestion\" onclick=\"return Survey.saveAnswerData(\'#form-survey-question_");
-    _builder.append(i, "		      ");
-    _builder.append(", ");
-    _builder.append(to, "		      ");
-    _builder.append("\');\">Next Question <span class=\"glyphicon glyphicon-chevron-right\"></span></button>");
+    _builder.append("<button type=\"button\" class=\"btn btn-primary btn-sm btn-block\"");
+    {
+      boolean _isIsRequired_1 = it.isIsRequired();
+      if (_isIsRequired_1) {
+        _builder.append(" disabled=\"disabled\"");
+      }
+    }
+    _builder.append(" name=\"submitQuestion\" onclick=\"return Survey.saveAnswerData(\'#");
+    String _name_2 = it.getName();
+    String _normalize_1 = CodeGenerator.normalize(_name_2);
+    _builder.append(_normalize_1, "");
+    _builder.append("\', ");
+    _builder.append(to, "");
+    _builder.append(");\">Next Question <span class=\"glyphicon glyphicon-chevron-right\"></span></button>");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
     _builder.append("</form>");
+    _builder.newLine();
     return _builder;
   }
   
+  /**
+   * Removes all non-alphanumeric characters in a string
+   */
   public static String normalize(final String string) {
-    String _replaceAll = string.replaceAll("(^[^a-zA-Z])*(\\W+)", "");
-    return _replaceAll;
+    return string.replaceAll("(^[^a-zA-Z])*(\\W+)", "");
+  }
+  
+  public static String toInt(final String name) {
+    return name.replaceAll("([^0-9])*", "");
   }
   
   public static List<EList<Question>> forkMap(final Question it) {
@@ -830,20 +918,20 @@ public class CodeGenerator {
     }
   }
   
-  public static CharSequence toTemplate(final Question it, final int i, final int to) {
+  public static CharSequence toTemplate(final Question it, final int to) {
     if (it instanceof Staple) {
-      return _toTemplate((Staple)it, i, to);
+      return _toTemplate((Staple)it, to);
     } else if (it instanceof MultipleChoice) {
-      return _toTemplate((MultipleChoice)it, i, to);
+      return _toTemplate((MultipleChoice)it, to);
     } else if (it instanceof Open) {
-      return _toTemplate((Open)it, i, to);
+      return _toTemplate((Open)it, to);
     } else if (it instanceof Ranking) {
-      return _toTemplate((Ranking)it, i, to);
+      return _toTemplate((Ranking)it, to);
     } else if (it instanceof Rating) {
-      return _toTemplate((Rating)it, i, to);
+      return _toTemplate((Rating)it, to);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(it, i, to).toString());
+        Arrays.<Object>asList(it, to).toString());
     }
   }
 }
