@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList
 import java.util.List
 import java.util.ArrayList
 import survey.Fork
+import survey.ConstantSum
 
 class CodeGenerator {
 	val static instanceFileName = "test-files/Tes.survey"
@@ -45,27 +46,27 @@ class CodeGenerator {
 		for(i: 0..questions.size-1)
 		{
 			
-			if(!goToMap.containsKey(questions.get(i)))
-				{
 					var localQuestions = forkMap(questions.get(i))
-					if(localQuestions!=null && localQuestions.size>0)
-					{
-						for(q: 0..localQuestions.size-1)
+					if(localQuestions!=null){
+						for(q: 0..localQuestions.size)					
 						{
-						
-							for(p:0..localQuestions.get(q).size-1)//specific fork
+							if(q!=localQuestions.size)
 							{
-								if(p+1!=localQuestions.get(q).size-1)
+								for(p: 0..localQuestions.get(q).size)
 								{
-									goToMap.put(localQuestions.get(q).get(p),p+1)																	
-									usedList.add(p+1)
-								}								
-							}														
-						}
-					}
+									if(p!=localQuestions.get(q).size)
+									{
+										usedList.add(map.get(localQuestions.get(q).get(p)));	
+									}
 									
-				}					
-		}
+								}
+							}
+						}						
+						
+					}							
+								
+		}		
+		
 		var  goToMap2 =goToMap;
 		println(toTemplate(m.surveys.get(0)).toString())
 //		if(Constraints.Constraint(m.surveys.get(0)))
@@ -107,6 +108,10 @@ class CodeGenerator {
 	{		
 			return it.fork.map[getQuestions]
 	}
+	def static dispatch List<EList<Question>> forkMap(ConstantSum it)
+	{		
+			return it.fork.map[getQuestions]
+	}
 	
 	def static dispatch  List<EList<Question>> forkMap(Staple it)
 	{		
@@ -122,33 +127,37 @@ class CodeGenerator {
 	
 	def static dispatch toTemplate(Survey it)
 	{				
-		
+	//	var toto =0;
 		'''«FOR i:0..questions.size-1»
 		
-		«{ var to=i+2;
-		if(goToMap.containsKey(questions.get(i))){
-			to=goToMap.get(questions.get(i));
-		}
-		else{
-			  while(usedList.contains(to))
-			  {
-			  	to=to+1;	
-			  }
-			  
+		«{ var to=i+1;		
+		  while(usedList.contains(to))
+		  {
+		  	to=to+1;	
 		  }
+
 		
 		
 		toTemplate(questions.get(i), to)
+
 		}
+		
+		
 		»
+		
 		
 		«ENDFOR»'''
 	} 
 	
+
+		
+	
+
 	/**
 	 * HTML generator for the Open type question
 	 */
 	def static dispatch toTemplate(Open it, int to)
+
 	{
 		'''
 		<form method="POST" action="" id="« normalize(it.name) »" class="smdp« IF (it.isRequired) » required« ENDIF »" autocomplete="off" role="form">
@@ -253,6 +262,32 @@ class CodeGenerator {
 	{
 			'''«it.question»'''
 	}
+	
+
+	def static dispatch toTemplate(ConstantSum it, int to)
+	{
+		'''<form method="POST" action="" id="«it.name»" class="smdp orm-horizontal" autocomplete="off" role="form" data-href="100">
+    <div class="question_container">
+      <h3 class="smdp_question">Rate the following colors according with their importance to you:</h3>
+    </div>
+    <div class="options_container">
+    «FOR choice : choices»
+	      <div class="form-group">
+	        <label class="col-xs-8 control-label">«choice.description»</label>
+	        <div class="col-xs-4">
+	          <input type="number" class="form-control rating" id="«it.name»" maxlength="3" onkeyup="return Survey.constantSumUpdate(this);" name="rating«choice.name»" />
+	        </div>
+	      </div>
+	«ENDFOR»
+      <div class="form-group">
+        <label class="col-xs-3 control-label label-total">«it.constant»</label>
+      </div>
+
+    </div>
+    <button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#«it.name»', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+    </div>
+</form>'''
+	}	
 	
 	/**
 	 * Generator for the Staple question
