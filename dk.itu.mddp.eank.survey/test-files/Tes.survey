@@ -9,9 +9,7 @@ Survey1
 		the user 
 		may rank "Rank your favorite subjects"
 		from these A : "MDDP", B : "Database Tuning", C : "Discrete Mathematics"
-		if A is between 1 and 3 then go to Q4,
-		if B is between 1 and 2 then go to Q5,
-		if C is between 1 and 1 then go to Q6
+		if A is between 1 and 3 then go to Q4
 	Open Q4: 
 		"What are your thoughts about model driven development?"
 	Rating Q5 : 

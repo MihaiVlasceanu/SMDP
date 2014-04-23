@@ -20,10 +20,14 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure2;
 import org.xtext.example.mydsl.MyDslStandaloneSetupGenerated;
 import survey.Choice;
 import survey.ChoiceFork;
+import survey.ConstantSum;
 import survey.Fork;
 import survey.Model;
 import survey.MultipleChoice;
@@ -56,66 +60,42 @@ public class CodeGenerator {
       EList<Survey> _surveys = m.getSurveys();
       Survey _get_1 = _surveys.get(0);
       final EList<Question> questions = _get_1.getQuestions();
-      int _size = questions.size();
-      int _minus = (_size - 1);
-      IntegerRange _upTo = new IntegerRange(0, _minus);
-      for (final Integer i : _upTo) {
-        Question _get_2 = questions.get((i).intValue());
-        CodeGenerator.map.put(_get_2, i);
-      }
-      int _size_1 = questions.size();
-      int _minus_1 = (_size_1 - 1);
-      IntegerRange _upTo_1 = new IntegerRange(0, _minus_1);
-      for (final Integer i_1 : _upTo_1) {
-        Question _get_3 = questions.get((i_1).intValue());
-        boolean _containsKey = CodeGenerator.goToMap.containsKey(_get_3);
-        boolean _not = (!_containsKey);
-        if (_not) {
-          Question _get_4 = questions.get((i_1).intValue());
-          List<EList<Question>> localQuestions = CodeGenerator.forkMap(_get_4);
-          boolean _and = false;
+      final Procedure2<Question,Integer> _function = new Procedure2<Question,Integer>() {
+        public void apply(final Question q, final Integer i) {
+          CodeGenerator.map.put(q, i);
+        }
+      };
+      IterableExtensions.<Question>forEach(questions, _function);
+      final Procedure1<Question> _function_1 = new Procedure1<Question>() {
+        public void apply(final Question q) {
+          List<EList<Question>> localQuestions = CodeGenerator.forkMap(q);
           boolean _notEquals = (!Objects.equal(localQuestions, null));
-          if (!_notEquals) {
-            _and = false;
-          } else {
-            int _size_2 = localQuestions.size();
-            boolean _greaterThan = (_size_2 > 0);
-            _and = _greaterThan;
-          }
-          if (_and) {
-            int _size_3 = localQuestions.size();
-            int _minus_2 = (_size_3 - 1);
-            IntegerRange _upTo_2 = new IntegerRange(0, _minus_2);
-            for (final Integer q : _upTo_2) {
-              EList<Question> _get_5 = localQuestions.get((q).intValue());
-              int _size_4 = _get_5.size();
-              int _minus_3 = (_size_4 - 1);
-              IntegerRange _upTo_3 = new IntegerRange(0, _minus_3);
-              for (final Integer p : _upTo_3) {
-                EList<Question> _get_6 = localQuestions.get((q).intValue());
-                int _size_5 = _get_6.size();
-                int _minus_4 = (_size_5 - 1);
-                boolean _notEquals_1 = (((p).intValue() + 1) != _minus_4);
-                if (_notEquals_1) {
-                  EList<Question> _get_7 = localQuestions.get((q).intValue());
-                  Question _get_8 = _get_7.get((p).intValue());
-                  CodeGenerator.goToMap.put(_get_8, Integer.valueOf(((p).intValue() + 1)));
-                  CodeGenerator.usedList.add(Integer.valueOf(((p).intValue() + 1)));
-                }
+          if (_notEquals) {
+            final Procedure1<EList<Question>> _function = new Procedure1<EList<Question>>() {
+              public void apply(final EList<Question> localQuestion) {
+                final Procedure1<Question> _function = new Procedure1<Question>() {
+                  public void apply(final Question forkQuestion) {
+                    Integer _get = CodeGenerator.map.get(forkQuestion);
+                    CodeGenerator.usedList.add(_get);
+                  }
+                };
+                IterableExtensions.<Question>forEach(localQuestion, _function);
               }
-            }
+            };
+            IterableExtensions.<EList<Question>>forEach(localQuestions, _function);
           }
         }
-      }
+      };
+      IterableExtensions.<Question>forEach(questions, _function_1);
       HashMap<Question,Integer> goToMap2 = CodeGenerator.goToMap;
       EList<Survey> _surveys_1 = m.getSurveys();
-      Survey _get_9 = _surveys_1.get(0);
-      CharSequence _template = CodeGenerator.toTemplate(_get_9);
+      Survey _get_2 = _surveys_1.get(0);
+      CharSequence _template = CodeGenerator.toTemplate(_get_2);
       String _string = _template.toString();
       InputOutput.<String>println(_string);
       EList<Survey> _surveys_2 = m.getSurveys();
-      Survey _get_10 = _surveys_2.get(0);
-      boolean _Constraint = Constraints.Constraint(_get_10);
+      Survey _get_3 = _surveys_2.get(0);
+      boolean _Constraint = Constraints.Constraint(_get_3);
       if (_Constraint) {
         InputOutput.<String>println("All constraints passed!");
       } else {
@@ -172,6 +152,16 @@ public class CodeGenerator {
     return ListExtensions.<RatingFork, EList<Question>>map(_fork, _function);
   }
   
+  protected static List<EList<Question>> _forkMap(final ConstantSum it) {
+    EList<RankingSumFork> _fork = it.getFork();
+    final Function1<RankingSumFork,EList<Question>> _function = new Function1<RankingSumFork,EList<Question>>() {
+      public EList<Question> apply(final RankingSumFork it) {
+        return it.getQuestions();
+      }
+    };
+    return ListExtensions.<RankingSumFork, EList<Question>>map(_fork, _function);
+  }
+  
   protected static List<EList<Question>> _forkMap(final Staple it) {
     EList<RatingFork> _fork = it.getFork();
     final Function1<RatingFork,EList<Question>> _function = new Function1<RatingFork,EList<Question>>() {
@@ -193,27 +183,21 @@ public class CodeGenerator {
   }
   
   protected static CharSequence _toTemplate(final Survey it) {
-    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _xblockexpression = null;
     {
-      EList<Question> _questions = it.getQuestions();
-      int _size = _questions.size();
-      int _minus = (_size - 1);
-      IntegerRange _upTo = new IntegerRange(0, _minus);
-      for(final Integer i : _upTo) {
-        _builder.newLineIfNotEmpty();
-        _builder.newLine();
-        CharSequence _xblockexpression = null;
-        {
-          int to = ((i).intValue() + 2);
-          EList<Question> _questions_1 = it.getQuestions();
-          Question _get = _questions_1.get((i).intValue());
-          boolean _containsKey = CodeGenerator.goToMap.containsKey(_get);
-          if (_containsKey) {
-            EList<Question> _questions_2 = it.getQuestions();
-            Question _get_1 = _questions_2.get((i).intValue());
-            Integer _get_2 = CodeGenerator.goToMap.get(_get_1);
-            to = (_get_2).intValue();
-          } else {
+      int toto = 0;
+      StringConcatenation _builder = new StringConcatenation();
+      {
+        EList<Question> _questions = it.getQuestions();
+        int _size = _questions.size();
+        int _minus = (_size - 1);
+        IntegerRange _upTo = new IntegerRange(0, _minus);
+        for(final Integer i : _upTo) {
+          _builder.newLineIfNotEmpty();
+          _builder.newLine();
+          int _xblockexpression_1 = (int) 0;
+          {
+            int to = ((i).intValue() + 1);
             boolean _contains = CodeGenerator.usedList.contains(Integer.valueOf(to));
             boolean _while = _contains;
             while (_while) {
@@ -221,17 +205,20 @@ public class CodeGenerator {
               boolean _contains_1 = CodeGenerator.usedList.contains(Integer.valueOf(to));
               _while = _contains_1;
             }
+            _xblockexpression_1 = toto = to;
           }
-          EList<Question> _questions_3 = it.getQuestions();
-          Question _get_3 = _questions_3.get((i).intValue());
-          _xblockexpression = CodeGenerator.toTemplate(_get_3, to);
+          _builder.append(_xblockexpression_1, "");
+          _builder.newLineIfNotEmpty();
+          _builder.append(i, "");
+          _builder.append(" goes to ");
+          _builder.append(toto, "");
+          _builder.newLineIfNotEmpty();
+          _builder.newLine();
         }
-        _builder.append(_xblockexpression, "");
-        _builder.newLineIfNotEmpty();
-        _builder.newLine();
       }
+      _xblockexpression = _builder;
     }
-    return _builder;
+    return _xblockexpression;
   }
   
   /**
@@ -706,8 +693,238 @@ public class CodeGenerator {
   
   protected static CharSequence _toTemplate(final Rating it, final int to) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<form method=\"POST\" action=\"\" id=\"");
+    String _name = it.getName();
+    String _normalize = CodeGenerator.normalize(_name);
+    _builder.append(_normalize, "");
+    _builder.append("\" class=\"smdp");
+    {
+      boolean _isIsRequired = it.isIsRequired();
+      if (_isIsRequired) {
+        _builder.append(" required");
+      }
+    }
+    _builder.append("\" autocomplete=\"off\" role=\"form\">");
+    _builder.newLineIfNotEmpty();
+    _builder.append("<div class=\"question_container\">");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<h3 class=\"smdp_question\">");
     String _question = it.getQuestion();
-    _builder.append(_question, "");
+    _builder.append(_question, "\t");
+    _builder.append("</h3>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("<div class=\"options_container\">");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<table class=\"table table-striped table-bordered table-condensed\">");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<tr>");
+    _builder.newLine();
+    {
+      int _min = it.getMin();
+      int _max = it.getMax();
+      IntegerRange _upTo = new IntegerRange(_min, _max);
+      for(final Integer p : _upTo) {
+        {
+          if (((p).intValue() > 0)) {
+            _builder.append("<th>(+");
+            _builder.append(p, "");
+            _builder.append(") ");
+            {
+              int _max_1 = it.getMax();
+              boolean _equals = ((p).intValue() == _max_1);
+              if (_equals) {
+                String _last = it.getLast();
+                _builder.append(_last, "");
+              }
+            }
+            {
+              int _min_1 = it.getMin();
+              boolean _equals_1 = ((p).intValue() == _min_1);
+              if (_equals_1) {
+                String _first = it.getFirst();
+                _builder.append(_first, "");
+              }
+            }
+            _builder.append("</th>");
+          }
+        }
+        _builder.append("\t\t\t\t");
+        _builder.newLineIfNotEmpty();
+        {
+          if (((p).intValue() < 0)) {
+            _builder.append("<th>(");
+            _builder.append(p, "");
+            _builder.append(") ");
+            {
+              int _max_2 = it.getMax();
+              boolean _equals_2 = ((p).intValue() == _max_2);
+              if (_equals_2) {
+                String _last_1 = it.getLast();
+                _builder.append(_last_1, "");
+              }
+            }
+            {
+              int _min_2 = it.getMin();
+              boolean _equals_3 = ((p).intValue() == _min_2);
+              if (_equals_3) {
+                String _first_1 = it.getFirst();
+                _builder.append(_first_1, "");
+              }
+            }
+            _builder.append("</th>");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.append("</tr>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<tr>");
+    {
+      int _min_3 = it.getMin();
+      int _max_3 = it.getMax();
+      IntegerRange _upTo_1 = new IntegerRange(_min_3, _max_3);
+      for(final Integer p_1 : _upTo_1) {
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("<td>");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("<label class=\"radio-inline\">");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\t  \t");
+        _builder.append("<input type=\"radio\" id=\"option_");
+        _builder.append(p_1, "\t\t\t  \t");
+        _builder.append("\" name=\"option_");
+        String _name_1 = it.getName();
+        _builder.append(_name_1, "\t\t\t  \t");
+        _builder.append("\" value=\"");
+        _builder.append(p_1, "\t\t\t  \t");
+        _builder.append("\" onclick=\"return Survey.ratingUpdate(this);\">");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("</label>");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("</td>");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.append("</tr>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</table>");
+    _builder.newLine();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("<button type=\"button\" class=\"btn btn-primary btn-sm btn-block\"");
+    {
+      boolean _isIsRequired_1 = it.isIsRequired();
+      if (_isIsRequired_1) {
+        _builder.append(" disabled=\"disabled\"");
+      }
+    }
+    _builder.append(" name=\"submitQuestion\" onclick=\"return Survey.saveAnswerData(\'#");
+    String _name_2 = it.getName();
+    String _normalize_1 = CodeGenerator.normalize(_name_2);
+    _builder.append(_normalize_1, "");
+    _builder.append("\', ");
+    _builder.append(to, "");
+    _builder.append(");\">Next Question <span class=\"glyphicon glyphicon-chevron-right\"></span></button>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("</form>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected static CharSequence _toTemplate(final ConstantSum it, final int to) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<form method=\"POST\" action=\"\" id=\"");
+    String _name = it.getName();
+    _builder.append(_name, "");
+    _builder.append("\" class=\"smdp orm-horizontal\" autocomplete=\"off\" role=\"form\" data-href=\"100\">");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    _builder.append("<div class=\"question_container\">");
+    _builder.newLine();
+    _builder.append("      ");
+    _builder.append("<h3 class=\"smdp_question\">Rate the following colors according with their importance to you:</h3>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<div class=\"options_container\">");
+    _builder.newLine();
+    {
+      EList<Choice> _choices = it.getChoices();
+      for(final Choice choice : _choices) {
+        _builder.append("<div class=\"form-group\">");
+        _builder.newLine();
+        _builder.append("  ");
+        _builder.append("<label class=\"col-xs-8 control-label\">");
+        String _description = choice.getDescription();
+        _builder.append(_description, "  ");
+        _builder.append("</label>");
+        _builder.newLineIfNotEmpty();
+        _builder.append("  ");
+        _builder.append("<div class=\"col-xs-4\">");
+        _builder.newLine();
+        _builder.append("    ");
+        _builder.append("<input type=\"number\" class=\"form-control rating\" id=\"");
+        String _name_1 = it.getName();
+        _builder.append(_name_1, "    ");
+        _builder.append("\" maxlength=\"3\" onkeyup=\"return Survey.constantSumUpdate(this);\" name=\"rating");
+        String _name_2 = choice.getName();
+        _builder.append(_name_2, "    ");
+        _builder.append("\" />");
+        _builder.newLineIfNotEmpty();
+        _builder.append("  ");
+        _builder.append("</div>");
+        _builder.newLine();
+        _builder.append("</div>");
+        _builder.newLine();
+      }
+    }
+    _builder.append("      ");
+    _builder.append("<div class=\"form-group\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<label class=\"col-xs-3 control-label label-total\">");
+    int _constant = it.getConstant();
+    _builder.append(_constant, "        ");
+    _builder.append("</label>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("      ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<button type=\"button\" class=\"btn btn-primary btn-sm btn-block\" disabled=\"disabled\" name=\"submitQuestion\" onclick=\"return Survey.saveAnswerData(\'#");
+    String _name_3 = it.getName();
+    _builder.append(_name_3, "    ");
+    _builder.append("\', ");
+    _builder.append(to, "    ");
+    _builder.append(");\">Next Question <span class=\"glyphicon glyphicon-chevron-right\"></span></button>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("</form>");
     return _builder;
   }
   
@@ -860,7 +1077,7 @@ public class CodeGenerator {
     _builder.append("</tr>");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("</table>\\");
+    _builder.append("</table>");
     _builder.newLine();
     _builder.append("</div>");
     _builder.newLine();
@@ -898,6 +1115,8 @@ public class CodeGenerator {
   public static List<EList<Question>> forkMap(final Question it) {
     if (it instanceof Staple) {
       return _forkMap((Staple)it);
+    } else if (it instanceof ConstantSum) {
+      return _forkMap((ConstantSum)it);
     } else if (it instanceof MultipleChoice) {
       return _forkMap((MultipleChoice)it);
     } else if (it instanceof Open) {
@@ -921,6 +1140,8 @@ public class CodeGenerator {
   public static CharSequence toTemplate(final Question it, final int to) {
     if (it instanceof Staple) {
       return _toTemplate((Staple)it, to);
+    } else if (it instanceof ConstantSum) {
+      return _toTemplate((ConstantSum)it, to);
     } else if (it instanceof MultipleChoice) {
       return _toTemplate((MultipleChoice)it, to);
     } else if (it instanceof Open) {

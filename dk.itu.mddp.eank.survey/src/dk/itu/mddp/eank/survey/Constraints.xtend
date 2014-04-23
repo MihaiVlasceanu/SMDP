@@ -15,30 +15,38 @@ import java.util.ArrayList
 
 class Constraints {
 	
-	static var map = new HashMap<Question, Integer>();
-	static var goToMap = new HashMap<Question, Integer>();
-	static var usedList = new ArrayList<Integer>();
+	
+	static var result = true
 	def static boolean CheckLoop(Survey it){
+		result = true
+		val map = new HashMap<Question, Integer>();
+		val goToMap = new HashMap<Question, Integer>();
+		val usedList = new ArrayList<Integer>();
+		
 		questions.forEach[q, i | map.put(q,i)]
 		questions.forEach[q |
+			usedList.add(map.get(q))
 			var localQuestions = CodeGenerator.forkMap(q)
 			if(localQuestions != null)
 			{
 				localQuestions.forEach[localQuestion |
-					localQuestion.forall[forkQuestion |
+					localQuestion.forEach[forkQuestion |
 						if(!usedList.contains(map.get(forkQuestion)))
+						{
 							usedList.add(map.get(forkQuestion))
+						}
 						else 
-							return false
+							result = false
 					]
 				]
 			}
 		]	
-		true
+		result
 	}
 	def static dispatch boolean Constraint(Survey it){
 		
 		val names = it.questions.map[name]
+		println(CheckLoop)
 		CheckLoop  &&
 		names.forall[x | names.filter[y | y == x].size == 1] 
 		&&
