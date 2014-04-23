@@ -219,7 +219,47 @@ class CodeGenerator {
 	}
 	def static dispatch toTemplate(Staple it, int i, int to)
 	{
-			'''«it.question»'''
+						'''<form method="POST" action="" id="form-survey-question_«i»" class="smdp last required" autocomplete="off" role="form">
+		    <div class="question_container">
+		      <h3 class="smdp_question">«it.question»</h3>
+		    </div>
+		    <div class="options_container">
+		    	<table class="table table-striped table-bordered table-condensed">
+		    		<tr>    		
+		    			<th></th>
+		    			«FOR p: it.max..it.min»
+		    			
+		    			
+		    			«IF(p>0)»
+		    				<th>(+«p») «IF(p==it.max)»«it.first»«ENDIF»«IF(p==it.min)»«it.last»«ENDIF»</th>
+						«ENDIF»
+						«IF(p==((it.max+it.min)/2))»
+							<th>«it.mid»</th>
+						«ENDIF»
+						«IF(p<0)»
+							<th>(«p») «IF(p==it.max)»«it.first»«ENDIF»«IF(p==it.min)»«it.last»«ENDIF»</th>				
+						«ENDIF»
+						«ENDFOR»
+					</tr>
+		
+					<!-- Item to rate -->
+					
+					<tr>
+						<td class="item"></td>
+						«FOR p:it.max..it.min»
+						<td>
+							<label class="radio-inline">
+							  	<input type="radio" id="option«p»" name="option«p»" value="«p»" onclick="return Survey.ratingUpdate(this);">
+							</label>
+						</td>
+						«ENDFOR»
+					</tr>
+					<!-- Item to rate End -->
+				</table>
+		    </div>
+		      <button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#form-survey-question_«i», «to»');">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+		</form>'''
+
 	}
 	
 	def static normalize(String string) {
