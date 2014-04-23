@@ -39,33 +39,43 @@ class CodeGenerator {
 
 		val Model m = resource.getContents().get(0) as Model
 		val questions = m.surveys.get(0).questions
-		for(i: 0..questions.size-1)
-		{
-				map.put(questions.get(i), i)								
-		}
-		for(i: 0..questions.size-1)
-		{
-			
-					var localQuestions = forkMap(questions.get(i))
-					if(localQuestions!=null){
-						for(q: 0..localQuestions.size)					
-						{
-							if(q!=localQuestions.size)
-							{
-								for(p: 0..localQuestions.get(q).size)
-								{
-									if(p!=localQuestions.get(q).size)
-									{
-										usedList.add(map.get(localQuestions.get(q).get(p)));	
-									}
-									
-								}
-							}
-						}						
-						
-					}							
-								
-		}		
+//		for(i: 0..questions.size-1)
+//		{
+//				map.put(questions.get(i), i)								
+//		}
+		questions.forEach[q, i | map.put(q,i)]
+		questions.forEach[q |
+			var localQuestions = forkMap(q)
+			if(localQuestions != null)
+			{
+				localQuestions.forEach[localQuestion |
+					localQuestion.forEach[forkQuestion |
+						usedList.add(map.get(forkQuestion))
+					]
+				]
+			}
+		]
+//		for(i: 0..questions.size-1)
+//		{
+//			
+//					var localQuestions = forkMap(questions.get(i))
+//					if(localQuestions!=null){
+//						for(q: 0..localQuestions.size)					
+//						{
+//							if(q!=localQuestions.size)
+//							{
+//								for(p: 0..localQuestions.get(q).size)
+//								{
+//									if(p!=localQuestions.get(q).size)
+//									{
+//										usedList.add(map.get(localQuestions.get(q).get(p)));	
+//									}
+//								}
+//							}
+//						}						
+//						
+//					}									
+//		}		
 		
 		var  goToMap2 =goToMap;
 		println(toTemplate(m.surveys.get(0)).toString())
@@ -127,7 +137,7 @@ class CodeGenerator {
 	
 	def static dispatch toTemplate(Survey it)
 	{				
-	//	var toto =0;
+		var toto = 0;
 		'''«FOR i:0..questions.size-1»
 		
 		«{ var to=i+1;		
@@ -137,14 +147,14 @@ class CodeGenerator {
 		  }
 
 		
-		
-		toTemplate(questions.get(i), to)
+		toto = to
+		//toTemplate(questions.get(i), to)
 
 		}
 		
 		
 		»
-		
+		«i» goes to «toto»
 		
 		«ENDFOR»'''
 	} 

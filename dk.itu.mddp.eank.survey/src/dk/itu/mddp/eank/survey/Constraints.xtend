@@ -11,17 +11,35 @@ import survey.ConstantSum
 import survey.MultipleChoice
 import org.eclipse.emf.common.util.EList
 import java.util.HashMap
+import java.util.ArrayList
+
 class Constraints {
 	
-	
-	def static boolean CreateMap(Survey it){
-		val map = new HashMap<Question, String>()
-		questions.forEach[x | map.put(x, x.name)]
-		true		
+	static var map = new HashMap<Question, Integer>();
+	static var goToMap = new HashMap<Question, Integer>();
+	static var usedList = new ArrayList<Integer>();
+	def static boolean CheckLoop(Survey it){
+		questions.forEach[q, i | map.put(q,i)]
+		questions.forEach[q |
+			var localQuestions = CodeGenerator.forkMap(q)
+			if(localQuestions != null)
+			{
+				localQuestions.forEach[localQuestion |
+					localQuestion.forall[forkQuestion |
+						if(!usedList.contains(map.get(forkQuestion)))
+							usedList.add(map.get(forkQuestion))
+						else 
+							return false
+					]
+				]
+			}
+		]	
+		true
 	}
 	def static dispatch boolean Constraint(Survey it){
-		CreateMap
+		
 		val names = it.questions.map[name]
+		CheckLoop  &&
 		names.forall[x | names.filter[y | y == x].size == 1] 
 		&&
 		questions.forall[ x | qConstraint(x)]
