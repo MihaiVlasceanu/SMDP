@@ -186,7 +186,7 @@ class CodeGenerator {
 		«FOR p:0..it.choice.size-1»		      
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="« it.name »" id="option_« normalize(it.choice.get(p).name) »" value="«it.choice.get(p).description»" onClick="return Survey.changeSubmitButtonStatus(this);" data-next=«FOR q:0..(it.fork.size-1) »« IF (it.fork.get(q).on.contains(it.choice.get(p))) »« map.get(fork.get(q).questions.get(0)) + 1 »« ENDIF »«ENDFOR»" /> «it.choice.get(p).description»
+					<input type="checkbox" name="« it.name »" id="option_« normalize(it.choice.get(p).name) »" value="«it.choice.get(p).description»" onClick="return Survey.changeSubmitButtonStatus(this);" data-next="«FOR q:0..(it.fork.size-1) »« IF (it.fork.get(q).on.contains(it.choice.get(p))) »« map.get(fork.get(q).questions.get(0)) + 1 »« ENDIF »«ENDFOR»" /> «it.choice.get(p).description»
 				</label>
 			</div>
 		«ENDFOR»
@@ -271,7 +271,7 @@ class CodeGenerator {
 				<table class="table table-striped table-bordered table-condensed">
 					<tr>
 		    		«FOR p: it.min..it.max»
-					«IF(p>0)»<th>(+«p») «IF(p==it.max)»«it.last»«ENDIF»«IF(p==it.min)»«it.first»«ENDIF»</th>«ENDIF»				
+					«IF(p>0)»<th>(+«p») «IF(p==it.max)»«it.last»«ENDIF»«IF(p==it.min)»«it.first»«ENDIF»</th>«ENDIF»
 					«IF(p<0)»<th>(«p») «IF(p==it.max)»«it.last»«ENDIF»«IF(p==it.min)»«it.first»«ENDIF»</th>«ENDIF»
 					«ENDFOR»
 					</tr>

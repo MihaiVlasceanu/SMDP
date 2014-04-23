@@ -345,7 +345,7 @@ public class CodeGenerator {
         Choice _get_1 = _choice_2.get((p).intValue());
         String _description = _get_1.getDescription();
         _builder.append(_description, "\t\t");
-        _builder.append("\" onClick=\"return Survey.changeSubmitButtonStatus(this);\" data-next=");
+        _builder.append("\" onClick=\"return Survey.changeSubmitButtonStatus(this);\" data-next=\"");
         {
           EList<ChoiceFork> _fork = it.getFork();
           int _size_1 = _fork.size();
@@ -716,8 +716,157 @@ public class CodeGenerator {
   
   protected static CharSequence _toTemplate(final Rating it, final int to) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<form method=\"POST\" action=\"\" id=\"");
+    String _name = it.getName();
+    String _normalize = CodeGenerator.normalize(_name);
+    _builder.append(_normalize, "");
+    _builder.append("\" class=\"smdp");
+    {
+      boolean _isIsRequired = it.isIsRequired();
+      if (_isIsRequired) {
+        _builder.append(" required");
+      }
+    }
+    _builder.append("\" autocomplete=\"off\" role=\"form\">");
+    _builder.newLineIfNotEmpty();
+    _builder.append("<div class=\"question_container\">");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<h3 class=\"smdp_question\">");
     String _question = it.getQuestion();
-    _builder.append(_question, "");
+    _builder.append(_question, "\t");
+    _builder.append("</h3>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("<div class=\"options_container\">");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<table class=\"table table-striped table-bordered table-condensed\">");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<tr>");
+    _builder.newLine();
+    {
+      int _min = it.getMin();
+      int _max = it.getMax();
+      IntegerRange _upTo = new IntegerRange(_min, _max);
+      for(final Integer p : _upTo) {
+        {
+          if (((p).intValue() > 0)) {
+            _builder.append("<th>(+");
+            _builder.append(p, "");
+            _builder.append(") ");
+            {
+              int _max_1 = it.getMax();
+              boolean _equals = ((p).intValue() == _max_1);
+              if (_equals) {
+                String _last = it.getLast();
+                _builder.append(_last, "");
+              }
+            }
+            {
+              int _min_1 = it.getMin();
+              boolean _equals_1 = ((p).intValue() == _min_1);
+              if (_equals_1) {
+                String _first = it.getFirst();
+                _builder.append(_first, "");
+              }
+            }
+            _builder.append("</th>");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+        {
+          if (((p).intValue() < 0)) {
+            _builder.append("<th>(");
+            _builder.append(p, "");
+            _builder.append(") ");
+            {
+              int _max_2 = it.getMax();
+              boolean _equals_2 = ((p).intValue() == _max_2);
+              if (_equals_2) {
+                String _last_1 = it.getLast();
+                _builder.append(_last_1, "");
+              }
+            }
+            {
+              int _min_2 = it.getMin();
+              boolean _equals_3 = ((p).intValue() == _min_2);
+              if (_equals_3) {
+                String _first_1 = it.getFirst();
+                _builder.append(_first_1, "");
+              }
+            }
+            _builder.append("</th>");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.append("</tr>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<tr>");
+    {
+      int _min_3 = it.getMin();
+      int _max_3 = it.getMax();
+      IntegerRange _upTo_1 = new IntegerRange(_min_3, _max_3);
+      for(final Integer p_1 : _upTo_1) {
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("<td>");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("<label class=\"radio-inline\">");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\t  \t");
+        _builder.append("<input type=\"radio\" id=\"option_");
+        _builder.append(p_1, "\t\t\t  \t");
+        _builder.append("\" name=\"option_");
+        String _name_1 = it.getName();
+        _builder.append(_name_1, "\t\t\t  \t");
+        _builder.append("\" value=\"");
+        _builder.append(p_1, "\t\t\t  \t");
+        _builder.append("\" onclick=\"return Survey.ratingUpdate(this);\">");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("</label>");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("</td>");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.append("</tr>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</table>");
+    _builder.newLine();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("<button type=\"button\" class=\"btn btn-primary btn-sm btn-block\"");
+    {
+      boolean _isIsRequired_1 = it.isIsRequired();
+      if (_isIsRequired_1) {
+        _builder.append(" disabled=\"disabled\"");
+      }
+    }
+    _builder.append(" name=\"submitQuestion\" onclick=\"return Survey.saveAnswerData(\'#");
+    String _name_2 = it.getName();
+    String _normalize_1 = CodeGenerator.normalize(_name_2);
+    _builder.append(_normalize_1, "");
+    _builder.append("\', ");
+    _builder.append(to, "");
+    _builder.append(");\">Next Question <span class=\"glyphicon glyphicon-chevron-right\"></span></button>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("</form>");
+    _builder.newLine();
     return _builder;
   }
   
@@ -1086,7 +1235,7 @@ public class CodeGenerator {
     _builder.append("</tr>");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("</table>\\");
+    _builder.append("</table>");
     _builder.newLine();
     _builder.append("</div>");
     _builder.newLine();
