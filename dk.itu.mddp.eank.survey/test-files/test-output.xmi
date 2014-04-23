@@ -1,15 +1,22 @@
 Survey1
+	ConstantSum Q1:
+		the user
+		is required
+		to distribute "Divide your daily activities in hours"
+		to a total of 24
+		among these A1: "Learning", B1 : "Cooking", C1 : "Training", D1 : "Gaming"
+		if C1 is between 2 and 4 then go to Q6
 	MultipleChoice Q2:
 		the user
 		is required
 		to answer "At what level of education?"
-		from one of these A : "Bachelor", B : "Master's", C : "PHD"
-		if B then go to Q3
+		from one of these A2 : "Bachelor", B2 : "Master's", C2 : "PHD"
+		if B2 then go to Q3
 	Ranking Q3 :
 		the user 
 		may rank "Rank your favorite subjects"
-		from these A : "MDDP", B : "Database Tuning", C : "Discrete Mathematics"
-		if C is between 1 and 1 then go to Q6
+		from these A3 : "MDDP", B3 : "Database Tuning", C3 : "Discrete Mathematics"
+		if C3 is between 1 and 3 then go to Q5
 	Open Q4: 
 		"What are your thoughts about model driven development?"
 	Rating Q5 : 

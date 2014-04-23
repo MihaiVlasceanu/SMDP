@@ -137,7 +137,7 @@ class CodeGenerator {
 	
 	def static dispatch toTemplate(Survey it)
 	{				
-		var toto = 0;
+		
 		'''«FOR i:0..questions.size-1»
 		
 		«{ var to=i+1;		
@@ -147,14 +147,13 @@ class CodeGenerator {
 		  }
 
 		
-		toto = to
-		//toTemplate(questions.get(i), to)
+		
+		toTemplate(questions.get(i), to);
 
-		}
+		}»
 		
 		
-		»
-		«i» goes to «toto»
+
 		
 		«ENDFOR»'''
 	} 
@@ -193,10 +192,10 @@ class CodeGenerator {
 		      <h3 class="smdp_question">«it.question»</h3>
 		</div>
 		<div class="options_container">
-		«FOR p:0..it.choice.size-1»		      
+		«FOR choice : it.choice »		      
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="« it.name »" id="option_« normalize(it.choice.get(p).name) »" value="«it.choice.get(p).description»" onClick="return Survey.changeSubmitButtonStatus(this);" data-next="«FOR q:0..(it.fork.size-1) »« IF (it.fork.get(q).on.contains(it.choice.get(p))) »« map.get(fork.get(q).questions.get(0)) + 1 »« ENDIF »«ENDFOR»" /> «it.choice.get(p).description»
+					<input type="checkbox" name="« it.name »" id="option_« normalize(choice.name) »" value="«choice.description»" onClick="return Survey.changeSubmitButtonStatus(this);" data-next="«FOR fork : it.fork »« IF fork.on.contains(choice) »« map.get(fork.questions.get(0)) + 1 »« ENDIF »«ENDFOR»" /> « choice.description»
 				</label>
 			</div>
 		«ENDFOR»
@@ -220,84 +219,84 @@ class CodeGenerator {
 	 */
 	def static dispatch toTemplate(Ranking it, int to)
 	{
-			'''
-			<form method="POST" action="" id="« normalize(it.name) »" class="smdp« IF (it.isRequired) » required« ENDIF »" autocomplete="off" role="form">
-				<div class="question_container">
-					<h3 class="smdp_question">« it.question »</h3>
-				</div>
-				<div class="options_container">
-			«FOR p:0..it.choices.size-1»
-					<div class="form-group">
-						<label for="ranking_«normalize(it.choices.get(p).name)»" class="col-xs-9 control-label">«it.choices.get(p).description»</label>
-						<div class="col-xs-3">
-							<input type="number" class="form-control rating" id="ranking_«normalize(it.choices.get(p).name)»" maxlength="2" onkeyup="return « IF it.fork.size > 0»Fork.calculate.constantSumUpdate« ELSE »Survey.constantSumUpdate« ENDIF »(this);" name="rating_«normalize(it.choices.get(p).name)»" data-next="«FOR q:0..(it.fork.size-1) »« IF (it.fork.get(q).on.contains(it.choices.get(p))) »« map.get(fork.get(q).questions.get(0)) + 1 »« ENDIF »«ENDFOR»" />
-						</div>
+		'''
+		<form method="POST" action="" id="« normalize(it.name) »" class="smdp« IF (it.isRequired) » required« ENDIF »" autocomplete="off" role="form">
+			<div class="question_container">
+				<h3 class="smdp_question">« it.question »</h3>
+			</div>
+			<div class="options_container">
+		«FOR choice : choices»
+				<div class="form-group">
+					<label for="ranking_«normalize(choice.name)»" class="col-xs-9 control-label">«choice.description»</label>
+					<div class="col-xs-3">
+						<input type="number" class="form-control rating" id="ranking_«normalize(choice.name)»" maxlength="2" onkeyup="return « IF it.fork.size > 0 && it.fork.exists[f | f.on.contains(choice)] »Fork.calculate(this, 'ranking_«normalize(choice.name)»')« ELSE »Survey.rankingUpdate(this)« ENDIF »;" data-next="«FOR q:0..(it.fork.size-1) »« IF (it.fork.get(q).on.contains(choice)) »« map.get(fork.get(q).questions.get(0)) + 1 »« ENDIF »«ENDFOR»" />
 					</div>
-			«ENDFOR»
 				</div>
-				<button type="button" class="btn btn-primary btn-sm btn-block"« IF (it.isRequired) » disabled="disabled"« ENDIF » name="submitQuestion" onclick="return Survey.saveAnswerData('#« normalize(it.name) »', « to »);">
-					Next Question <span class="glyphicon glyphicon-chevron-right"></span>
-				</button>
-			</form>
-			
-			« IF it.fork.size > 0»
-			<script type="text/javascript">
-				var Fork = Fork || {};
-				Fork = (function(){
-				  return {
-				    calculate: function(input)
-				    {
-				      // Get the field object
-				      var numberField = (typeof input !== 'undefined' ? jQuery(input) : false);
-				
-				      if(numberField !== false)
-				      {
-				        // Actul inout value
-				        var value = numberField.val();
-						« FOR p : 0.. (it.fork.size - 1) »
-						if (Survey.isBetween(value, « it.fork.get(p).min », « it.fork.get(p).max »)) {
-							numberField.attr(Survey.SURVEY_FORK_SEL, « toInt(it.fork.get(p).questions.get(0).name) »);
-						}
-				        « ENDFOR »
-				        numberField.on('keyUp', function() {
-				          return Survey.rankingUpdate(this);
-				        });
-				      }
-				    }
-				  }
-				})(jQuery);
-			</script>
-			« ENDIF »
-			'''
+		«ENDFOR»
+			</div>
+			<button type="button" class="btn btn-primary btn-sm btn-block"« IF (it.isRequired) » disabled="disabled"« ENDIF » name="submitQuestion" onclick="return Survey.saveAnswerData('#« normalize(it.name) »', « to »);">
+				Next Question <span class="glyphicon glyphicon-chevron-right"></span>
+			</button>
+		</form>
+		
+		« IF it.fork.size > 0»
+		<script type="text/javascript">
+		var Fork = Fork || {};
+		Fork = (function(){
+		  return {
+		    calculate: function(input, targetid)
+		    {
+		      // Get the field object
+		      var numberField = (typeof input !== 'undefined' ? jQuery(input) : false);
+		
+		      if(numberField !== false)
+		      {
+		        // Actul inout value
+		        var value = numberField.val();
+				« FOR fork : it.fork »
+				if (Survey.isBetween(value, « fork.min », « fork.max »)) {
+					numberField.attr(Survey.SURVEY_FORK_SEL, « toInt(fork.questions.get(0).name) »);
+				}
+		        « ENDFOR »
+		        numberField.on('keyUp', function() {
+		          return Survey.rankingUpdate(this);
+		        });
+		      }
+		    }
+		  }
+		})(jQuery);
+		</script>
+		« ENDIF »
+		'''
 	}
 	def static dispatch toTemplate(Rating it, int to)
 	{
-					'''
-			<form method="POST" action="" id="« normalize(it.name) »" class="smdp« IF (it.isRequired) » required« ENDIF »" autocomplete="off" role="form">
-			<div class="question_container">
-				<h3 class="smdp_question">«it.question»</h3>
-			</div>
-			<div class="options_container">
-				<table class="table table-striped table-bordered table-condensed">
-					<tr>
-		    		«FOR p: it.min..it.max»
-					«IF(p>0)»<th>(+«p») «IF(p==it.max)»«it.last»«ENDIF»«IF(p==it.min)»«it.first»«ENDIF»</th>«ENDIF»
-					«IF(p<0)»<th>(«p») «IF(p==it.max)»«it.last»«ENDIF»«IF(p==it.min)»«it.first»«ENDIF»</th>«ENDIF»
+		'''
+		<form method="POST" action="" id="« normalize(it.name) »" class="smdp« IF (it.isRequired) » required« ENDIF »" autocomplete="off" role="form">
+		<div class="question_container">
+			<h3 class="smdp_question">«it.question»</h3>
+		</div>
+		<div class="options_container">
+			<table class="table table-striped table-bordered table-condensed">
+				<tr>
+	    		«FOR p: it.min..it.max»
+				«IF(p>0)»<th>(+«p») «IF(p==it.max)»«it.last»«ENDIF»«IF(p==it.min)»«it.first»«ENDIF»</th>«ENDIF»
+				«IF(p<0)»<th>(«p») «IF(p==it.max)»«it.last»«ENDIF»«IF(p==it.min)»«it.first»«ENDIF»</th>«ENDIF»
+				«ENDFOR»
+				</tr>
+				<tr>«FOR p:it.min..it.max»
+					<td>
+						<label class="radio-inline">
+						  	<input type="radio" id="option_«p»" name="option_« it.name »" value="«p»" onclick="return Survey.ratingUpdate(this);">
+						</label>
+					</td>
 					«ENDFOR»
-					</tr>
-					<tr>«FOR p:it.min..it.max»
-						<td>
-							<label class="radio-inline">
-							  	<input type="radio" id="option_«p»" name="option_« it.name »" value="«p»" onclick="return Survey.ratingUpdate(this);">
-							</label>
-						</td>
-						«ENDFOR»
-					</tr>
-				</table>
-			</div>
-			<button type="button" class="btn btn-primary btn-sm btn-block"« IF (it.isRequired) » disabled="disabled"« ENDIF » name="submitQuestion" onclick="return Survey.saveAnswerData('#« normalize(it.name) »', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
-			</form>
-			'''
+				</tr>
+			</table>
+		</div>
+		<button type="button" class="btn btn-primary btn-sm btn-block"« IF (it.isRequired) » disabled="disabled"« ENDIF » name="submitQuestion" onclick="return Survey.saveAnswerData('#« normalize(it.name) »', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+		</form>
+		'''
 	}
 	
 
@@ -309,13 +308,13 @@ class CodeGenerator {
 			<h3 class="smdp_question">« it.question »</h3>
 		</div>
 		<div class="options_container">
-	    «FOR choice : choices»
+		«FOR choice : choices»
 			<div class="form-group">
 				<label class="col-xs-8 control-label">«choice.description»</label>
-		        <div class="col-xs-4">
-		          <input type="number" class="form-control rating" id="« it.name »" maxlength="3" onkeyup="return « IF it.fork.size > 0»Fork.calculate.constantSumUpdate« ELSE »Survey.constantSumUpdate« ENDIF »(this);" name="sum_« normalize(choice.name) »" />
-		        </div>
-		      </div>
+				<div class="col-xs-4">
+					<input type="number" class="form-control rating" id="sum_« normalize(choice.name) »" maxlength="3" onkeyup="return « IF it.fork.size > 0 && it.fork.exists[f | f.on.contains(choice)] »Fork.calculate(this, 'sum_«normalize(choice.name)»')« ELSE »Survey.constantSumUpdate(this)« ENDIF »;" name="sum_« normalize(choice.name) »" data-next="" />
+				</div>
+			</div>
 		«ENDFOR»
 		      <div class="form-group">
 		        <label class="col-xs-3 control-label label-total">« it.constant »</label>
@@ -327,31 +326,31 @@ class CodeGenerator {
 		
 		« IF it.fork.size > 0»
 		<script type="text/javascript">
-				var Fork = Fork || {};
-				Fork = (function(){
-				  return {
-				    calculate: function(input)
-				    {
-				      // Get the field object
-				      var numberField = (typeof input !== 'undefined' ? jQuery(input) : false);
-				
-				      if(numberField !== false)
-				      {
-				        // Actul inout value
-				        var value = numberField.val();
-						« FOR p : 0.. (it.fork.size - 1) »
-						if (Survey.isBetween(value, « it.fork.get(p).min », « it.fork.get(p).max »)) {
-							numberField.attr(Survey.SURVEY_FORK_SEL, « toInt(it.fork.get(p).questions.get(0).name) »);
-						}
-				        « ENDFOR »
-				        numberField.on('keyUp', function() {
-				          return Survey.constantSumUpdate(this);
-				        });
-				      }
-				    }
-				  }
-				})(jQuery);
-			</script>
+		var Fork = Fork || {};
+		Fork = (function(){
+		  return {
+		    calculate: function(input, targetid)
+		    {
+		      // Get the field object
+		      var numberField = (typeof input !== 'undefined' ? jQuery(input) : false);
+		
+		      if(numberField !== false)
+		      {
+		        // Actul inout value
+		        var value = numberField.val();
+				« FOR fork : it.fork »
+				if (Survey.isBetween(value, « fork.min », « fork.max ») && numberField.attr('id') == targetid) {
+					numberField.attr(Survey.SURVEY_FORK_SEL, « toInt(fork.questions.get(0).name) »);
+				}
+		        « ENDFOR »
+		        numberField.on('keyUp', function() {
+		          return Survey.constantSumUpdate(this);
+		        });
+		      }
+		    }
+		  }
+		})(jQuery);
+		</script>
 		« ENDIF »
 		'''
 	}	

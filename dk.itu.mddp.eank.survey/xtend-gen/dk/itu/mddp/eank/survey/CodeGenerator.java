@@ -20,7 +20,10 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure2;
 import org.xtext.example.mydsl.MyDslStandaloneSetupGenerated;
 import survey.Choice;
 import survey.ChoiceFork;
@@ -57,56 +60,42 @@ public class CodeGenerator {
       EList<Survey> _surveys = m.getSurveys();
       Survey _get_1 = _surveys.get(0);
       final EList<Question> questions = _get_1.getQuestions();
-      int _size = questions.size();
-      int _minus = (_size - 1);
-      IntegerRange _upTo = new IntegerRange(0, _minus);
-      for (final Integer i : _upTo) {
-        Question _get_2 = questions.get((i).intValue());
-        CodeGenerator.map.put(_get_2, i);
-      }
-      int _size_1 = questions.size();
-      int _minus_1 = (_size_1 - 1);
-      IntegerRange _upTo_1 = new IntegerRange(0, _minus_1);
-      for (final Integer i_1 : _upTo_1) {
-        {
-          Question _get_3 = questions.get((i_1).intValue());
-          List<EList<Question>> localQuestions = CodeGenerator.forkMap(_get_3);
+      final Procedure2<Question,Integer> _function = new Procedure2<Question,Integer>() {
+        public void apply(final Question q, final Integer i) {
+          CodeGenerator.map.put(q, i);
+        }
+      };
+      IterableExtensions.<Question>forEach(questions, _function);
+      final Procedure1<Question> _function_1 = new Procedure1<Question>() {
+        public void apply(final Question q) {
+          List<EList<Question>> localQuestions = CodeGenerator.forkMap(q);
           boolean _notEquals = (!Objects.equal(localQuestions, null));
           if (_notEquals) {
-            int _size_2 = localQuestions.size();
-            IntegerRange _upTo_2 = new IntegerRange(0, _size_2);
-            for (final Integer q : _upTo_2) {
-              int _size_3 = localQuestions.size();
-              boolean _notEquals_1 = ((q).intValue() != _size_3);
-              if (_notEquals_1) {
-                EList<Question> _get_4 = localQuestions.get((q).intValue());
-                int _size_4 = _get_4.size();
-                IntegerRange _upTo_3 = new IntegerRange(0, _size_4);
-                for (final Integer p : _upTo_3) {
-                  EList<Question> _get_5 = localQuestions.get((q).intValue());
-                  int _size_5 = _get_5.size();
-                  boolean _notEquals_2 = ((p).intValue() != _size_5);
-                  if (_notEquals_2) {
-                    EList<Question> _get_6 = localQuestions.get((q).intValue());
-                    Question _get_7 = _get_6.get((p).intValue());
-                    Integer _get_8 = CodeGenerator.map.get(_get_7);
-                    CodeGenerator.usedList.add(_get_8);
+            final Procedure1<EList<Question>> _function = new Procedure1<EList<Question>>() {
+              public void apply(final EList<Question> localQuestion) {
+                final Procedure1<Question> _function = new Procedure1<Question>() {
+                  public void apply(final Question forkQuestion) {
+                    Integer _get = CodeGenerator.map.get(forkQuestion);
+                    CodeGenerator.usedList.add(_get);
                   }
-                }
+                };
+                IterableExtensions.<Question>forEach(localQuestion, _function);
               }
-            }
+            };
+            IterableExtensions.<EList<Question>>forEach(localQuestions, _function);
           }
         }
-      }
+      };
+      IterableExtensions.<Question>forEach(questions, _function_1);
       HashMap<Question,Integer> goToMap2 = CodeGenerator.goToMap;
       EList<Survey> _surveys_1 = m.getSurveys();
-      Survey _get_3 = _surveys_1.get(0);
-      CharSequence _template = CodeGenerator.toTemplate(_get_3);
+      Survey _get_2 = _surveys_1.get(0);
+      CharSequence _template = CodeGenerator.toTemplate(_get_2);
       String _string = _template.toString();
       InputOutput.<String>println(_string);
       EList<Survey> _surveys_2 = m.getSurveys();
-      Survey _get_4 = _surveys_2.get(0);
-      boolean _Constraint = Constraints.Constraint(_get_4);
+      Survey _get_3 = _surveys_2.get(0);
+      boolean _Constraint = Constraints.Constraint(_get_3);
       if (_Constraint) {
         InputOutput.<String>println("All constraints passed!");
       } else {
@@ -221,6 +210,8 @@ public class CodeGenerator {
         _builder.newLineIfNotEmpty();
         _builder.newLine();
         _builder.newLine();
+        _builder.newLine();
+        _builder.newLine();
       }
     }
     return _builder;
@@ -321,10 +312,7 @@ public class CodeGenerator {
     _builder.newLine();
     {
       EList<Choice> _choice = it.getChoice();
-      int _size = _choice.size();
-      int _minus = (_size - 1);
-      IntegerRange _upTo = new IntegerRange(0, _minus);
-      for(final Integer p : _upTo) {
+      for(final Choice choice : _choice) {
         _builder.append("<div class=\"checkbox\">");
         _builder.newLine();
         _builder.append("\t");
@@ -335,46 +323,31 @@ public class CodeGenerator {
         String _name_1 = it.getName();
         _builder.append(_name_1, "\t\t");
         _builder.append("\" id=\"option_");
-        EList<Choice> _choice_1 = it.getChoice();
-        Choice _get = _choice_1.get((p).intValue());
-        String _name_2 = _get.getName();
+        String _name_2 = choice.getName();
         String _normalize_1 = CodeGenerator.normalize(_name_2);
         _builder.append(_normalize_1, "\t\t");
         _builder.append("\" value=\"");
-        EList<Choice> _choice_2 = it.getChoice();
-        Choice _get_1 = _choice_2.get((p).intValue());
-        String _description = _get_1.getDescription();
+        String _description = choice.getDescription();
         _builder.append(_description, "\t\t");
         _builder.append("\" onClick=\"return Survey.changeSubmitButtonStatus(this);\" data-next=\"");
         {
           EList<ChoiceFork> _fork = it.getFork();
-          int _size_1 = _fork.size();
-          int _minus_1 = (_size_1 - 1);
-          IntegerRange _upTo_1 = new IntegerRange(0, _minus_1);
-          for(final Integer q : _upTo_1) {
+          for(final ChoiceFork fork : _fork) {
             {
-              EList<ChoiceFork> _fork_1 = it.getFork();
-              ChoiceFork _get_2 = _fork_1.get((q).intValue());
-              EList<Choice> _on = _get_2.getOn();
-              EList<Choice> _choice_3 = it.getChoice();
-              Choice _get_3 = _choice_3.get((p).intValue());
-              boolean _contains = _on.contains(_get_3);
+              EList<Choice> _on = fork.getOn();
+              boolean _contains = _on.contains(choice);
               if (_contains) {
-                EList<ChoiceFork> _fork_2 = it.getFork();
-                ChoiceFork _get_4 = _fork_2.get((q).intValue());
-                EList<Question> _questions = _get_4.getQuestions();
-                Question _get_5 = _questions.get(0);
-                Integer _get_6 = CodeGenerator.map.get(_get_5);
-                int _plus = ((_get_6).intValue() + 1);
+                EList<Question> _questions = fork.getQuestions();
+                Question _get = _questions.get(0);
+                Integer _get_1 = CodeGenerator.map.get(_get);
+                int _plus = ((_get_1).intValue() + 1);
                 _builder.append(_plus, "\t\t");
               }
             }
           }
         }
         _builder.append("\" /> ");
-        EList<Choice> _choice_4 = it.getChoice();
-        Choice _get_7 = _choice_4.get((p).intValue());
-        String _description_1 = _get_7.getDescription();
+        String _description_1 = choice.getDescription();
         _builder.append(_description_1, "\t\t");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
@@ -498,23 +471,16 @@ public class CodeGenerator {
     _builder.newLine();
     {
       EList<Choice> _choices = it.getChoices();
-      int _size = _choices.size();
-      int _minus = (_size - 1);
-      IntegerRange _upTo = new IntegerRange(0, _minus);
-      for(final Integer p : _upTo) {
+      for(final Choice choice : _choices) {
         _builder.append("<div class=\"form-group\">");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("<label for=\"ranking_");
-        EList<Choice> _choices_1 = it.getChoices();
-        Choice _get = _choices_1.get((p).intValue());
-        String _name_1 = _get.getName();
+        String _name_1 = choice.getName();
         String _normalize_1 = CodeGenerator.normalize(_name_1);
         _builder.append(_normalize_1, "\t");
         _builder.append("\" class=\"col-xs-9 control-label\">");
-        EList<Choice> _choices_2 = it.getChoices();
-        Choice _get_1 = _choices_2.get((p).intValue());
-        String _description = _get_1.getDescription();
+        String _description = choice.getDescription();
         _builder.append(_description, "\t");
         _builder.append("</label>");
         _builder.newLineIfNotEmpty();
@@ -523,49 +489,57 @@ public class CodeGenerator {
         _builder.newLine();
         _builder.append("\t\t");
         _builder.append("<input type=\"number\" class=\"form-control rating\" id=\"ranking_");
-        EList<Choice> _choices_3 = it.getChoices();
-        Choice _get_2 = _choices_3.get((p).intValue());
-        String _name_2 = _get_2.getName();
+        String _name_2 = choice.getName();
         String _normalize_2 = CodeGenerator.normalize(_name_2);
         _builder.append(_normalize_2, "\t\t");
         _builder.append("\" maxlength=\"2\" onkeyup=\"return ");
         {
+          boolean _and = false;
           EList<RankingSumFork> _fork = it.getFork();
-          int _size_1 = _fork.size();
-          boolean _greaterThan = (_size_1 > 0);
-          if (_greaterThan) {
-            _builder.append("Fork.calculate.constantSumUpdate");
+          int _size = _fork.size();
+          boolean _greaterThan = (_size > 0);
+          if (!_greaterThan) {
+            _and = false;
           } else {
-            _builder.append("Survey.constantSumUpdate");
+            EList<RankingSumFork> _fork_1 = it.getFork();
+            final Function1<RankingSumFork,Boolean> _function = new Function1<RankingSumFork,Boolean>() {
+              public Boolean apply(final RankingSumFork f) {
+                EList<Choice> _on = f.getOn();
+                return Boolean.valueOf(_on.contains(choice));
+              }
+            };
+            boolean _exists = IterableExtensions.<RankingSumFork>exists(_fork_1, _function);
+            _and = _exists;
+          }
+          if (_and) {
+            _builder.append("Fork.calculate(this, \'ranking_");
+            String _name_3 = choice.getName();
+            String _normalize_3 = CodeGenerator.normalize(_name_3);
+            _builder.append(_normalize_3, "\t\t");
+            _builder.append("\')");
+          } else {
+            _builder.append("Survey.rankingUpdate(this)");
           }
         }
-        _builder.append("(this);\" name=\"rating_");
-        EList<Choice> _choices_4 = it.getChoices();
-        Choice _get_3 = _choices_4.get((p).intValue());
-        String _name_3 = _get_3.getName();
-        String _normalize_3 = CodeGenerator.normalize(_name_3);
-        _builder.append(_normalize_3, "\t\t");
-        _builder.append("\" data-next=\"");
+        _builder.append(";\" data-next=\"");
         {
-          EList<RankingSumFork> _fork_1 = it.getFork();
-          int _size_2 = _fork_1.size();
-          int _minus_1 = (_size_2 - 1);
-          IntegerRange _upTo_1 = new IntegerRange(0, _minus_1);
-          for(final Integer q : _upTo_1) {
+          EList<RankingSumFork> _fork_2 = it.getFork();
+          int _size_1 = _fork_2.size();
+          int _minus = (_size_1 - 1);
+          IntegerRange _upTo = new IntegerRange(0, _minus);
+          for(final Integer q : _upTo) {
             {
-              EList<RankingSumFork> _fork_2 = it.getFork();
-              RankingSumFork _get_4 = _fork_2.get((q).intValue());
-              EList<Choice> _on = _get_4.getOn();
-              EList<Choice> _choices_5 = it.getChoices();
-              Choice _get_5 = _choices_5.get((p).intValue());
-              boolean _contains = _on.contains(_get_5);
+              EList<RankingSumFork> _fork_3 = it.getFork();
+              RankingSumFork _get = _fork_3.get((q).intValue());
+              EList<Choice> _on = _get.getOn();
+              boolean _contains = _on.contains(choice);
               if (_contains) {
-                EList<RankingSumFork> _fork_3 = it.getFork();
-                RankingSumFork _get_6 = _fork_3.get((q).intValue());
-                EList<Question> _questions = _get_6.getQuestions();
-                Question _get_7 = _questions.get(0);
-                Integer _get_8 = CodeGenerator.map.get(_get_7);
-                int _plus = ((_get_8).intValue() + 1);
+                EList<RankingSumFork> _fork_4 = it.getFork();
+                RankingSumFork _get_1 = _fork_4.get((q).intValue());
+                EList<Question> _questions = _get_1.getQuestions();
+                Question _get_2 = _questions.get(0);
+                Integer _get_3 = CodeGenerator.map.get(_get_2);
+                int _plus = ((_get_3).intValue() + 1);
                 _builder.append(_plus, "\t\t");
               }
             }
@@ -609,102 +583,89 @@ public class CodeGenerator {
     _builder.newLine();
     _builder.newLine();
     {
-      EList<RankingSumFork> _fork_4 = it.getFork();
-      int _size_3 = _fork_4.size();
-      boolean _greaterThan_1 = (_size_3 > 0);
+      EList<RankingSumFork> _fork_5 = it.getFork();
+      int _size_2 = _fork_5.size();
+      boolean _greaterThan_1 = (_size_2 > 0);
       if (_greaterThan_1) {
         _builder.append("<script type=\"text/javascript\">");
         _builder.newLine();
-        _builder.append("\t");
         _builder.append("var Fork = Fork || {};");
         _builder.newLine();
-        _builder.append("\t");
         _builder.append("Fork = (function(){");
         _builder.newLine();
-        _builder.append("\t  ");
+        _builder.append("  ");
         _builder.append("return {");
         _builder.newLine();
-        _builder.append("\t    ");
-        _builder.append("calculate: function(input)");
+        _builder.append("    ");
+        _builder.append("calculate: function(input, targetid)");
         _builder.newLine();
-        _builder.append("\t    ");
+        _builder.append("    ");
         _builder.append("{");
         _builder.newLine();
-        _builder.append("\t      ");
+        _builder.append("      ");
         _builder.append("// Get the field object");
         _builder.newLine();
-        _builder.append("\t      ");
+        _builder.append("      ");
         _builder.append("var numberField = (typeof input !== \'undefined\' ? jQuery(input) : false);");
         _builder.newLine();
-        _builder.append("\t");
         _builder.newLine();
-        _builder.append("\t      ");
+        _builder.append("      ");
         _builder.append("if(numberField !== false)");
         _builder.newLine();
-        _builder.append("\t      ");
+        _builder.append("      ");
         _builder.append("{");
         _builder.newLine();
-        _builder.append("\t        ");
+        _builder.append("        ");
         _builder.append("// Actul inout value");
         _builder.newLine();
-        _builder.append("\t        ");
+        _builder.append("        ");
         _builder.append("var value = numberField.val();");
         _builder.newLine();
         {
-          EList<RankingSumFork> _fork_5 = it.getFork();
-          int _size_4 = _fork_5.size();
-          int _minus_2 = (_size_4 - 1);
-          IntegerRange _upTo_2 = new IntegerRange(0, _minus_2);
-          for(final Integer p_1 : _upTo_2) {
-            _builder.append("\t\t\t");
+          EList<RankingSumFork> _fork_6 = it.getFork();
+          for(final RankingSumFork fork : _fork_6) {
+            _builder.append("\t\t");
             _builder.append("if (Survey.isBetween(value, ");
-            EList<RankingSumFork> _fork_6 = it.getFork();
-            RankingSumFork _get_9 = _fork_6.get((p_1).intValue());
-            int _min = _get_9.getMin();
-            _builder.append(_min, "\t\t\t");
+            int _min = fork.getMin();
+            _builder.append(_min, "\t\t");
             _builder.append(", ");
-            EList<RankingSumFork> _fork_7 = it.getFork();
-            RankingSumFork _get_10 = _fork_7.get((p_1).intValue());
-            int _max = _get_10.getMax();
-            _builder.append(_max, "\t\t\t");
+            int _max = fork.getMax();
+            _builder.append(_max, "\t\t");
             _builder.append(")) {");
             _builder.newLineIfNotEmpty();
-            _builder.append("\t\t\t");
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("numberField.attr(Survey.SURVEY_FORK_SEL, ");
-            EList<RankingSumFork> _fork_8 = it.getFork();
-            RankingSumFork _get_11 = _fork_8.get((p_1).intValue());
-            EList<Question> _questions_1 = _get_11.getQuestions();
-            Question _get_12 = _questions_1.get(0);
-            String _name_5 = _get_12.getName();
+            EList<Question> _questions_1 = fork.getQuestions();
+            Question _get_4 = _questions_1.get(0);
+            String _name_5 = _get_4.getName();
             String _int = CodeGenerator.toInt(_name_5);
-            _builder.append(_int, "\t\t\t\t");
+            _builder.append(_int, "\t\t\t");
             _builder.append(");");
             _builder.newLineIfNotEmpty();
-            _builder.append("\t\t\t");
+            _builder.append("\t\t");
             _builder.append("}");
             _builder.newLine();
           }
         }
-        _builder.append("\t        ");
+        _builder.append("        ");
         _builder.append("numberField.on(\'keyUp\', function() {");
         _builder.newLine();
-        _builder.append("\t          ");
+        _builder.append("          ");
         _builder.append("return Survey.rankingUpdate(this);");
         _builder.newLine();
-        _builder.append("\t        ");
+        _builder.append("        ");
         _builder.append("});");
         _builder.newLine();
-        _builder.append("\t      ");
+        _builder.append("      ");
         _builder.append("}");
         _builder.newLine();
-        _builder.append("\t    ");
+        _builder.append("    ");
         _builder.append("}");
         _builder.newLine();
-        _builder.append("\t  ");
+        _builder.append("  ");
         _builder.append("}");
         _builder.newLine();
-        _builder.append("\t");
         _builder.append("})(jQuery);");
         _builder.newLine();
         _builder.append("</script>");
@@ -911,34 +872,52 @@ public class CodeGenerator {
         _builder.append(_description, "\t");
         _builder.append("</label>");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t        ");
+        _builder.append("\t");
         _builder.append("<div class=\"col-xs-4\">");
         _builder.newLine();
-        _builder.append("\t\t          ");
-        _builder.append("<input type=\"number\" class=\"form-control rating\" id=\"");
-        String _name_1 = it.getName();
-        _builder.append(_name_1, "\t\t          ");
+        _builder.append("\t\t");
+        _builder.append("<input type=\"number\" class=\"form-control rating\" id=\"sum_");
+        String _name_1 = choice.getName();
+        String _normalize_1 = CodeGenerator.normalize(_name_1);
+        _builder.append(_normalize_1, "\t\t");
         _builder.append("\" maxlength=\"3\" onkeyup=\"return ");
         {
+          boolean _and = false;
           EList<RankingSumFork> _fork = it.getFork();
           int _size = _fork.size();
           boolean _greaterThan = (_size > 0);
-          if (_greaterThan) {
-            _builder.append("Fork.calculate.constantSumUpdate");
+          if (!_greaterThan) {
+            _and = false;
           } else {
-            _builder.append("Survey.constantSumUpdate");
+            EList<RankingSumFork> _fork_1 = it.getFork();
+            final Function1<RankingSumFork,Boolean> _function = new Function1<RankingSumFork,Boolean>() {
+              public Boolean apply(final RankingSumFork f) {
+                EList<Choice> _on = f.getOn();
+                return Boolean.valueOf(_on.contains(choice));
+              }
+            };
+            boolean _exists = IterableExtensions.<RankingSumFork>exists(_fork_1, _function);
+            _and = _exists;
+          }
+          if (_and) {
+            _builder.append("Fork.calculate(this, \'sum_");
+            String _name_2 = choice.getName();
+            String _normalize_2 = CodeGenerator.normalize(_name_2);
+            _builder.append(_normalize_2, "\t\t");
+            _builder.append("\')");
+          } else {
+            _builder.append("Survey.constantSumUpdate(this)");
           }
         }
-        _builder.append("(this);\" name=\"sum_");
-        String _name_2 = choice.getName();
-        String _normalize_1 = CodeGenerator.normalize(_name_2);
-        _builder.append(_normalize_1, "\t\t          ");
-        _builder.append("\" />");
+        _builder.append(";\" name=\"sum_");
+        String _name_3 = choice.getName();
+        String _normalize_3 = CodeGenerator.normalize(_name_3);
+        _builder.append(_normalize_3, "\t\t");
+        _builder.append("\" data-next=\"\" />");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t        ");
+        _builder.append("\t");
         _builder.append("</div>");
         _builder.newLine();
-        _builder.append("\t\t      ");
         _builder.append("</div>");
         _builder.newLine();
       }
@@ -967,9 +946,9 @@ public class CodeGenerator {
       }
     }
     _builder.append(" name=\"submitQuestion\" onclick=\"return Survey.saveAnswerData(\'#");
-    String _name_3 = it.getName();
-    String _normalize_2 = CodeGenerator.normalize(_name_3);
-    _builder.append(_normalize_2, "    ");
+    String _name_4 = it.getName();
+    String _normalize_4 = CodeGenerator.normalize(_name_4);
+    _builder.append(_normalize_4, "    ");
     _builder.append("\', ");
     _builder.append(to, "    ");
     _builder.append(");\">Next Question <span class=\"glyphicon glyphicon-chevron-right\"></span></button>");
@@ -980,105 +959,91 @@ public class CodeGenerator {
     _builder.newLine();
     _builder.newLine();
     {
-      EList<RankingSumFork> _fork_1 = it.getFork();
-      int _size_1 = _fork_1.size();
+      EList<RankingSumFork> _fork_2 = it.getFork();
+      int _size_1 = _fork_2.size();
       boolean _greaterThan_1 = (_size_1 > 0);
       if (_greaterThan_1) {
         _builder.append("<script type=\"text/javascript\">");
         _builder.newLine();
-        _builder.append("\t\t");
         _builder.append("var Fork = Fork || {};");
         _builder.newLine();
-        _builder.append("\t\t");
         _builder.append("Fork = (function(){");
         _builder.newLine();
-        _builder.append("\t\t  ");
+        _builder.append("  ");
         _builder.append("return {");
         _builder.newLine();
-        _builder.append("\t\t    ");
-        _builder.append("calculate: function(input)");
+        _builder.append("    ");
+        _builder.append("calculate: function(input, targetid)");
         _builder.newLine();
-        _builder.append("\t\t    ");
+        _builder.append("    ");
         _builder.append("{");
         _builder.newLine();
-        _builder.append("\t\t      ");
+        _builder.append("      ");
         _builder.append("// Get the field object");
         _builder.newLine();
-        _builder.append("\t\t      ");
+        _builder.append("      ");
         _builder.append("var numberField = (typeof input !== \'undefined\' ? jQuery(input) : false);");
         _builder.newLine();
-        _builder.append("\t\t");
         _builder.newLine();
-        _builder.append("\t\t      ");
+        _builder.append("      ");
         _builder.append("if(numberField !== false)");
         _builder.newLine();
-        _builder.append("\t\t      ");
+        _builder.append("      ");
         _builder.append("{");
         _builder.newLine();
-        _builder.append("\t\t        ");
+        _builder.append("        ");
         _builder.append("// Actul inout value");
         _builder.newLine();
-        _builder.append("\t\t        ");
+        _builder.append("        ");
         _builder.append("var value = numberField.val();");
         _builder.newLine();
         {
-          EList<RankingSumFork> _fork_2 = it.getFork();
-          int _size_2 = _fork_2.size();
-          int _minus = (_size_2 - 1);
-          IntegerRange _upTo = new IntegerRange(0, _minus);
-          for(final Integer p : _upTo) {
-            _builder.append("\t\t\t\t");
+          EList<RankingSumFork> _fork_3 = it.getFork();
+          for(final RankingSumFork fork : _fork_3) {
+            _builder.append("\t\t");
             _builder.append("if (Survey.isBetween(value, ");
-            EList<RankingSumFork> _fork_3 = it.getFork();
-            RankingSumFork _get = _fork_3.get((p).intValue());
-            int _min = _get.getMin();
-            _builder.append(_min, "\t\t\t\t");
+            int _min = fork.getMin();
+            _builder.append(_min, "\t\t");
             _builder.append(", ");
-            EList<RankingSumFork> _fork_4 = it.getFork();
-            RankingSumFork _get_1 = _fork_4.get((p).intValue());
-            int _max = _get_1.getMax();
-            _builder.append(_max, "\t\t\t\t");
-            _builder.append(")) {");
+            int _max = fork.getMax();
+            _builder.append(_max, "\t\t");
+            _builder.append(") && numberField.attr(\'id\') == targetid) {");
             _builder.newLineIfNotEmpty();
-            _builder.append("\t\t\t\t");
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("numberField.attr(Survey.SURVEY_FORK_SEL, ");
-            EList<RankingSumFork> _fork_5 = it.getFork();
-            RankingSumFork _get_2 = _fork_5.get((p).intValue());
-            EList<Question> _questions = _get_2.getQuestions();
-            Question _get_3 = _questions.get(0);
-            String _name_4 = _get_3.getName();
-            String _int = CodeGenerator.toInt(_name_4);
-            _builder.append(_int, "\t\t\t\t\t");
+            EList<Question> _questions = fork.getQuestions();
+            Question _get = _questions.get(0);
+            String _name_5 = _get.getName();
+            String _int = CodeGenerator.toInt(_name_5);
+            _builder.append(_int, "\t\t\t");
             _builder.append(");");
             _builder.newLineIfNotEmpty();
-            _builder.append("\t\t\t\t");
+            _builder.append("\t\t");
             _builder.append("}");
             _builder.newLine();
           }
         }
-        _builder.append("\t\t        ");
+        _builder.append("        ");
         _builder.append("numberField.on(\'keyUp\', function() {");
         _builder.newLine();
-        _builder.append("\t\t          ");
+        _builder.append("          ");
         _builder.append("return Survey.constantSumUpdate(this);");
         _builder.newLine();
-        _builder.append("\t\t        ");
+        _builder.append("        ");
         _builder.append("});");
         _builder.newLine();
-        _builder.append("\t\t      ");
+        _builder.append("      ");
         _builder.append("}");
         _builder.newLine();
-        _builder.append("\t\t    ");
+        _builder.append("    ");
         _builder.append("}");
         _builder.newLine();
-        _builder.append("\t\t  ");
+        _builder.append("  ");
         _builder.append("}");
         _builder.newLine();
-        _builder.append("\t\t");
         _builder.append("})(jQuery);");
         _builder.newLine();
-        _builder.append("\t");
         _builder.append("</script>");
         _builder.newLine();
       }

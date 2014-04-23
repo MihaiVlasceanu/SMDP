@@ -1,6 +1,8 @@
 package dk.itu.mddp.eank.survey;
 
 import com.google.common.base.Objects;
+import dk.itu.mddp.eank.survey.CodeGenerator;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +11,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure2;
 import survey.ChoiceFork;
 import survey.ConstantSum;
 import survey.Fork;
@@ -24,18 +27,53 @@ import survey.Survey;
 
 @SuppressWarnings("all")
 public class Constraints {
-  public static boolean CreateMap(final Survey it) {
+  private static HashMap<Question,Integer> map = new HashMap<Question, Integer>();
+  
+  private static HashMap<Question,Integer> goToMap = new HashMap<Question, Integer>();
+  
+  private static ArrayList<Integer> usedList = new ArrayList<Integer>();
+  
+  public static boolean CheckLoop(final Survey it) {
     boolean _xblockexpression = false;
     {
-      final HashMap<Question,String> map = new HashMap<Question, String>();
       EList<Question> _questions = it.getQuestions();
-      final Procedure1<Question> _function = new Procedure1<Question>() {
-        public void apply(final Question x) {
-          String _name = x.getName();
-          map.put(x, _name);
+      final Procedure2<Question,Integer> _function = new Procedure2<Question,Integer>() {
+        public void apply(final Question q, final Integer i) {
+          Constraints.map.put(q, i);
         }
       };
       IterableExtensions.<Question>forEach(_questions, _function);
+      EList<Question> _questions_1 = it.getQuestions();
+      final Procedure1<Question> _function_1 = new Procedure1<Question>() {
+        public void apply(final Question q) {
+          List<EList<Question>> localQuestions = CodeGenerator.forkMap(q);
+          boolean _notEquals = (!Objects.equal(localQuestions, null));
+          if (_notEquals) {
+            final Procedure1<EList<Question>> _function = new Procedure1<EList<Question>>() {
+              public void apply(final EList<Question> localQuestion) {
+                final Function1<Question,Boolean> _function = new Function1<Question,Boolean>() {
+                  public Boolean apply(final Question forkQuestion) {
+                    boolean _xifexpression = false;
+                    Integer _get = Constraints.map.get(forkQuestion);
+                    boolean _contains = Constraints.usedList.contains(_get);
+                    boolean _not = (!_contains);
+                    if (_not) {
+                      Integer _get_1 = Constraints.map.get(forkQuestion);
+                      _xifexpression = Constraints.usedList.add(_get_1);
+                    } else {
+                      return Boolean.valueOf(false);
+                    }
+                    return Boolean.valueOf(_xifexpression);
+                  }
+                };
+                IterableExtensions.<Question>forall(localQuestion, _function);
+              }
+            };
+            IterableExtensions.<EList<Question>>forEach(localQuestions, _function);
+          }
+        }
+      };
+      IterableExtensions.<Question>forEach(_questions_1, _function_1);
       _xblockexpression = true;
     }
     return _xblockexpression;
@@ -44,7 +82,6 @@ public class Constraints {
   protected static boolean _Constraint(final Survey it) {
     boolean _xblockexpression = false;
     {
-      Constraints.CreateMap(it);
       EList<Question> _questions = it.getQuestions();
       final Function1<Question,String> _function = new Function1<Question,String>() {
         public String apply(final Question it) {
@@ -53,20 +90,27 @@ public class Constraints {
       };
       final List<String> names = ListExtensions.<Question, String>map(_questions, _function);
       boolean _and = false;
-      final Function1<String,Boolean> _function_1 = new Function1<String,Boolean>() {
-        public Boolean apply(final String x) {
-          final Function1<String,Boolean> _function = new Function1<String,Boolean>() {
-            public Boolean apply(final String y) {
-              return Boolean.valueOf(Objects.equal(y, x));
-            }
-          };
-          Iterable<String> _filter = IterableExtensions.<String>filter(names, _function);
-          int _size = IterableExtensions.size(_filter);
-          return Boolean.valueOf((_size == 1));
-        }
-      };
-      boolean _forall = IterableExtensions.<String>forall(names, _function_1);
-      if (!_forall) {
+      boolean _and_1 = false;
+      boolean _CheckLoop = Constraints.CheckLoop(it);
+      if (!_CheckLoop) {
+        _and_1 = false;
+      } else {
+        final Function1<String,Boolean> _function_1 = new Function1<String,Boolean>() {
+          public Boolean apply(final String x) {
+            final Function1<String,Boolean> _function = new Function1<String,Boolean>() {
+              public Boolean apply(final String y) {
+                return Boolean.valueOf(Objects.equal(y, x));
+              }
+            };
+            Iterable<String> _filter = IterableExtensions.<String>filter(names, _function);
+            int _size = IterableExtensions.size(_filter);
+            return Boolean.valueOf((_size == 1));
+          }
+        };
+        boolean _forall = IterableExtensions.<String>forall(names, _function_1);
+        _and_1 = _forall;
+      }
+      if (!_and_1) {
         _and = false;
       } else {
         EList<Question> _questions_1 = it.getQuestions();
