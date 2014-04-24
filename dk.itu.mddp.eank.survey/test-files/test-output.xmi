@@ -1,20 +1,39 @@
 Survey1
+	Open Q2:
+		the user is required to answer "Things"
+		
 	MultipleChoice Q2:
 		the user
 		is required
 		to answer "At what level of education?"
 		from one of these A : "Bachelor", B : "Master's", C : "PHD"
-		if B then go to Q3
+		if B then go to Q3,Q4,
+		if A then go to Q5,Q6,Q7			
 	Ranking Q3 :
 		the user 
 		may rank "Rank your favorite subjects"
 		from these A : "MDDP", B : "Database Tuning", C : "Discrete Mathematics"
-		if A is between 1 and 3 then go to Q4
+		if A is between 1 and 3 then go to Q2
 	Open Q4: 
 		"What are your thoughts about model driven development?"
-	Rating Q5 : 
-		rate "How much do you like databases"
-		between 0 and 10 where lowest "Hate it" and highest "I dream of databases at night"
-	Staple Q6 : 
+	MultipleChoice Q5:
+		the user
+		is required
+		to answer "At what level of education?"
+		from one of these A : "Bachelor", B : "Master's", C : "PHD"
+		if B, B then go to Qx, Qx
+		
+Staple Qx : 
+		rate "Have you been following the lectures"
+		between -5 and 5 where lowest means "I've been asleep the entire time", mid means "I've been present" and highest means "I am always a 100% focused"		
+Staple Q6 : 
+	rate "Have you been following the lectures"
+	between -5 and 5 where lowest means "I've been asleep the entire time", mid means "I've been present" and highest means "I am always a 100% focused"
+	
+Staple Q7 : 
+	rate "Have you been following the lectures"
+	between -5 and 5 where lowest means "I've been asleep the entire time", mid means "I've been present" and highest means "I am always a 100% focused"
+	
+Staple Q8 : 
 		rate "Have you been following the lectures"
 		between -5 and 5 where lowest means "I've been asleep the entire time", mid means "I've been present" and highest means "I am always a 100% focused"
