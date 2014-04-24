@@ -39,6 +39,5 @@ class CodeGenerator {
 			println("Constraints Failed")
 		val outputURI = URI.createFileURI("test-files/test-output.xmi")
 		resource.URI = resource.resourceSet.getURIConverter.normalize(outputURI)
-		resource.save (null)
 	}
 }

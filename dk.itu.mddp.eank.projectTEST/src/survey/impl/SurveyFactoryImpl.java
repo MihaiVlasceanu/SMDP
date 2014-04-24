@@ -63,12 +63,10 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 			case SurveyPackage.RATING: return createRating();
 			case SurveyPackage.CHOICE: return createChoice();
 			case SurveyPackage.RANKING: return createRanking();
-			case SurveyPackage.DICHOTOMOUS: return createDichotomous();
 			case SurveyPackage.CONSTANT_SUM: return createConstantSum();
 			case SurveyPackage.STAPLE: return createStaple();
 			case SurveyPackage.RATING_FORK: return createRatingFork();
 			case SurveyPackage.CHOICE_FORK: return createChoiceFork();
-			case SurveyPackage.DICHOTOMOUS_FORK: return createDichotomousFork();
 			case SurveyPackage.RANKING_CHOICE_FORK: return createRankingChoiceFork();
 			case SurveyPackage.RANKING_SUM_FORK: return createRankingSumFork();
 			default:
@@ -151,16 +149,6 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Dichotomous createDichotomous() {
-		DichotomousImpl dichotomous = new DichotomousImpl();
-		return dichotomous;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ConstantSum createConstantSum() {
 		ConstantSumImpl constantSum = new ConstantSumImpl();
 		return constantSum;
@@ -194,16 +182,6 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	public ChoiceFork createChoiceFork() {
 		ChoiceForkImpl choiceFork = new ChoiceForkImpl();
 		return choiceFork;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DichotomousFork createDichotomousFork() {
-		DichotomousForkImpl dichotomousFork = new DichotomousForkImpl();
-		return dichotomousFork;
 	}
 
 	/**

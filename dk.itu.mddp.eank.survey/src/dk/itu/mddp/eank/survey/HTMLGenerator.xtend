@@ -11,7 +11,6 @@ import org.xtext.example.mydsl.MyDslStandaloneSetupGenerated
 import survey.Survey
 import survey.Question
 import survey.Open
-import survey.Dichotomous
 import survey.MultipleChoice
 import survey.Ranking
 import survey.Rating
@@ -22,7 +21,7 @@ import java.util.List
 import java.util.ArrayList
 import survey.Fork
 
-class HTMLGenerator {
+class CodeGenerator {
 	val static instanceFileName = "test-files/Tes.survey"
 	// this method reads textual syntax and saves XMI syntax
 	def static void main (String[] args) {
@@ -39,36 +38,55 @@ class HTMLGenerator {
 
 		val Model m = resource.getContents().get(0) as Model
 		val questions = m.surveys.get(0).questions
-		for(i: 0..questions.size-1)
-		{
-				map.put(questions.get(i), i)								
-		}
-		for(i: 0..questions.size-1)
-		{
-			
-			if(!goToMap.containsKey(questions.get(i)))
-				{
-					var localQuestions = forkMap(questions.get(i))
-					if(localQuestions!=null && localQuestions.size>0)
-					{
-						for(q: 0..localQuestions.size-1)
-						{
-						
-							for(p:0..localQuestions.get(q).size-1)
-							{
-								if(p+1!=localQuestions.get(q).size-1)
-								{
-									goToMap.put(localQuestions.get(q).get(p),p+1)																	
-									usedList.add(p+1)
-								}								
-							}														
-						}
-					}
-									
-				}					
-		}
+		
+		
+//		for(i: 0..questions.size-1)
+//		{
+//				map.put(questions.get(i), i)								
+//		}
+//		for(i: 0..questions.size-1)
+//		{
+//			
+//			if(!goToMap.containsKey(questions.get(i)))
+//				{
+//					val localQuestions = forkMap(questions.get(i))s
+//					if(localQuestions!=null && localQuestions.size>0)
+//					{
+//						for(q: 0..localQuestions.size-1)
+//						{
+//						
+//							for(p:0..localQuestions.get(q).size-1)//specific fork
+//							{
+//								
+		questions.forEach[question, iterator| map.put(question,iterator)] 	//Puts all the questions in the main map
+		
+		questions.forEach[question, iIterator | 							//Iterates questions again
+			if(!goToMap.containsKey(question)){								//Checks the question whether or not they exist in the goToMap
+			val localQuestions = forkMap(question) 							//Maps all the forks questions as a List of List of type Question
+				if(localQuestions != null && localQuestions.size > 0){ 		//Checks Whether the list is null or empty
+					localQuestions.forEach[localFork, qIterator | 			//Iterates all the lists 
+							localFork.forEach[localQuestion, pIterator |	//Iterates the single questions 
+							if( pIterator + 1 != localFork.size -1) {		//???
+								goToMap.put(localQuestion, pIterator + 1) 	//Puts question in the map with the a key based on the current sinqle question index  + 1
+								usedList.add(pIterator + 1)					//adds the previously used key to the used list
+							}
+						]
+					]
+				}
+			}
+		]
+//								if(p+1!=localQuestions.get(q).size-1)
+//								{
+//									goToMap.put(localQuestions.get(q).get(p),p+1)																	
+//									usedList.add(p+1)
+//								}								
+//							}														
+//						}
+//					}
+//									
+//				}					
+//		}
 		var  goToMap2 =goToMap;
-		println(goToMap2.get(1))
 		println(toTemplate(m.surveys.get(0)).toString())
 //		if(Constraints.Constraint(m.surveys.get(0)))
 //			println("All constraints passed!")w
@@ -77,7 +95,6 @@ class HTMLGenerator {
 //		println(MyDslGenerator.compileToJava(m).toString().replaceAll("object", "Object"))
 		val outputURI = URI.createFileURI("test-files/test-output.xmi")
 		resource.URI = resource.resourceSet.getURIConverter.normalize(outputURI)
-		resource.save (null)
 		 
 	}
 	
@@ -89,57 +106,52 @@ class HTMLGenerator {
 	{		
 			return null;
 	}
-
-	def static dispatch ArrayList<EList<Question>> forkMap(Dichotomous it)
-	{			
-			return null; 
-		
-		
-	}
-	def static dispatch List<EList<Question>> forkMap(MultipleChoice it)
+	def static dispatch List<List<Question>> forkMap(MultipleChoice it)
 	{
 			return it.fork.map[getQuestions]
 	}
-	def static dispatch List<EList<Question>> forkMap(Ranking it)
+	def static dispatch List<List<Question>> forkMap(Ranking it)
 	{
 			return it.fork.map[getQuestions]
 	}
-	def static dispatch List<EList<Question>> forkMap(Rating it)
+	def static dispatch List<List<Question>> forkMap(Rating it)
 	{		
 			return it.fork.map[getQuestions]
 	}
 	
-	def static dispatch  List<EList<Question>> forkMap(Staple it)
+	def static dispatch  List<List<Question>> forkMap(Staple it)
 	{		
 			return it.fork.map[getQuestions]
 	}
 	
-	def static List<EList<Question>> getQuestions(Fork it)
+	def static List<Question> getQuestions(Fork it)
 	{
-			return questions.map[] 			
+			return questions.map[x | x] 			
 	}
 	//***Code generation start
 	
 	
 	def static dispatch toTemplate(Survey it)
 	{				
-		var to =0;
+		
 		'''«FOR i:0..questions.size-1»
 		
-		«{ to=i+1;
-		if(goToMap.containsKey(it)){
-			to=goToMap.get(it);
+		«{ var to=i+1;
+		if(goToMap.containsKey(questions.get(i))){
+			to=goToMap.get(questions.get(i));
 		}
 		else{
-			 while(!usedList.contains(to))
-			 {
-			 	to=to+1;	
-			 }
-			 
-		 }
+			  while(usedList.contains(to))
+			  {
+			  	to=to+1;	
+			  }
+			  
+		  }
+		
+		
+		toTemplate(questions.get(i),i, to)
 		}
 		»
-		«toTemplate(questions.get(i),i, to)»
 		
 		
 		«ENDFOR»'''
@@ -148,72 +160,57 @@ class HTMLGenerator {
 	def static dispatch toTemplate(Open it, int i, int to)
 	{
 		
-		
+				
 		'''
 		<form method='POST' action='' id='form-survey-question_«i»' class='smdp' autocomplete='off' role='form'>
 			<div class="question_container">
 			<h3 class="smdp_question">«it.question»</h3>
 			</div>
-		   <div class="options_container">
-		     <textarea class="form-control" rows="3" cols="40" name="comments" onkeyup="return Survey.validateTextarea(this);"></textarea>
-		   </div>
+		    <div class="options_container">
+		      <textarea class="form-control" rows="3" cols="40" name="comments" onkeyup="return Survey.validateTextarea(this);"></textarea>
+		    </div>
       		<button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#form-survey-question_«i»', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
 		</form>	
 		'''				
 	}
-
-	def static dispatch toTemplate(Dichotomous it, int i, int to)
-	{
-		var nextNoQuestions = ""
-		if(it.onNo!==null && it.onNo.questions!=null){
-			for(p: 0..it.onNo.questions.size-1)
-			{
-						var to2 =map.get(it.onNo.questions.get(p))
-						nextNoQuestions=nextNoQuestions+","+to2												
-			}
-			nextNoQuestions=nextNoQuestions.substring(1);
-		}
-		
-		
-		var nextYesQuestions = ""
-		if(it.onYes!==null && it.onYes.questions!=null){
-			for(p: 0..it.onYes.questions.size-1)
-			{
-						nextYesQuestions=nextYesQuestions+","+map.get(it.onYes.questions.get(p))
-			}
-			nextYesQuestions=nextYesQuestions.substring(1);
-		}
-		
-		'''
-		<form method="POST" action="" id="form-survey-question_«i»" class="smdp" autocomplete="off" role="form">
-			<div class="question_container">
-		     <h3 class="smdp_question">«it.question»</h3>
-		   </div>
-		   <div class="options_container">
-		     <div class="radio">
-		       <label>
-		         <input type="radio" name="student" id="student_yes" value="yes" onClick="return Survey.changeSubmitButtonStatus(this); data-next="«nextYesQuestions»" />
-		         Yes
-		       </label>
-		     </div>
-		
-		     <div class="radio">
-		       <label>
-		         <input type="radio" name="student" id="student_no" value="no" onClick="return Survey.changeSubmitButtonStatus(this);" data-next="«nextNoQuestions»" />
-		         No
-		       </label>
-		     </div>
-
-      		</div>
-      		<button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#form-survey-question_«i»',«goToMap.get(it)»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
-		</form>
-'''
-		
-		
-	}
 	def static dispatch toTemplate(MultipleChoice it, int i, int to)
 	{
-		'''«it.question»'''
+		'''
+				<form method="POST" action="" id="form-survey-question_1" class="smdp" autocomplete="off" role="form">
+		    <div class="question_container">
+		      <h3 class="smdp_question">«it.question»</h3>
+		    </div>
+		    <div class="options_container">
+		  
+		      «FOR p:0..it.choice.size-1»		      
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="«it.choice.get(p).description»" id="option_«it.choice.get(p).description»" value="«it.choice.get(p).description»" onClick="return Survey.changeSubmitButtonStatus(this); data-next="«
+									»«FOR q:0..it.fork.size-1»«
+		      							»«if(fork.get(q).on.contains(it.choice.get(p))){map.get(fork.get(q).questions.get(0))}»«
+
+		      						»«ENDFOR»" />
+		    	      			«it.choice.get(p).description»
+						</label>
+					</div>
+			«ENDFOR»
+			«if(it.other!=null && !it.other.equals(""))
+			{				
+				  "<div class='checkbox'>"+
+			        "<label class='other''>"+
+			          "<input type='checkbox' name='Other' id='option_other' value='other' onClick='return Survey.changeSubmitButtonStatus(this);' />"+
+			          it.other+ 
+			        "</label>"+
+			        "<input type='text' class='form-control other' id='optionsRadios2' maxlength='30' data-for='#option_other' onClick='Survey.updateOther(this);' />"+
+			      "</div>"+		
+		      "</div>"
+			}
+				»
+			    
+		      <button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#form-survey-question_«i»', «to»);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+		</form>
+				
+		'''
 		}
 	def static dispatch toTemplate(Ranking it, int i, int to)
 	{
@@ -228,4 +225,3 @@ class HTMLGenerator {
 			'''«it.question»'''
 	}
 }
-

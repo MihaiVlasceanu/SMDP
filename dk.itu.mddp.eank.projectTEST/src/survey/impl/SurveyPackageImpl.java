@@ -12,8 +12,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import survey.Choice;
 import survey.ChoiceFork;
 import survey.ConstantSum;
-import survey.Dichotomous;
-import survey.DichotomousFork;
 import survey.Fork;
 import survey.Model;
 import survey.MultipleChoice;
@@ -97,13 +95,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dichotomousEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass constantSumEClass = null;
 
 	/**
@@ -133,13 +124,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * @generated
 	 */
 	private EClass choiceForkEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dichotomousForkEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -473,33 +457,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDichotomous() {
-		return dichotomousEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDichotomous_OnYes() {
-		return (EReference)dichotomousEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDichotomous_OnNo() {
-		return (EReference)dichotomousEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getConstantSum() {
 		return constantSumEClass;
 	}
@@ -610,15 +567,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 */
 	public EReference getChoiceFork_On() {
 		return (EReference)choiceForkEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDichotomousFork() {
-		return dichotomousForkEClass;
 	}
 
 	/**
@@ -757,10 +705,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEReference(rankingEClass, RANKING__CHOICES);
 		createEReference(rankingEClass, RANKING__FORK);
 
-		dichotomousEClass = createEClass(DICHOTOMOUS);
-		createEReference(dichotomousEClass, DICHOTOMOUS__ON_YES);
-		createEReference(dichotomousEClass, DICHOTOMOUS__ON_NO);
-
 		constantSumEClass = createEClass(CONSTANT_SUM);
 		createEReference(constantSumEClass, CONSTANT_SUM__CHOICES);
 		createEAttribute(constantSumEClass, CONSTANT_SUM__CONSTANT);
@@ -778,8 +722,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 
 		choiceForkEClass = createEClass(CHOICE_FORK);
 		createEReference(choiceForkEClass, CHOICE_FORK__ON);
-
-		dichotomousForkEClass = createEClass(DICHOTOMOUS_FORK);
 
 		rankingChoiceForkEClass = createEClass(RANKING_CHOICE_FORK);
 		createEAttribute(rankingChoiceForkEClass, RANKING_CHOICE_FORK__MAX);
@@ -824,12 +766,10 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		openEClass.getESuperTypes().add(this.getQuestion());
 		ratingEClass.getESuperTypes().add(this.getQuestion());
 		rankingEClass.getESuperTypes().add(this.getQuestion());
-		dichotomousEClass.getESuperTypes().add(this.getQuestion());
 		constantSumEClass.getESuperTypes().add(this.getQuestion());
 		stapleEClass.getESuperTypes().add(this.getRating());
 		ratingForkEClass.getESuperTypes().add(this.getFork());
 		choiceForkEClass.getESuperTypes().add(this.getFork());
-		dichotomousForkEClass.getESuperTypes().add(this.getFork());
 		rankingChoiceForkEClass.getESuperTypes().add(this.getFork());
 		rankingSumForkEClass.getESuperTypes().add(this.getFork());
 
@@ -870,10 +810,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEReference(getRanking_Choices(), this.getChoice(), null, "choices", null, 2, -1, Ranking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRanking_Fork(), this.getRankingSumFork(), null, "Fork", null, 0, -1, Ranking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dichotomousEClass, Dichotomous.class, "Dichotomous", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDichotomous_OnYes(), this.getDichotomousFork(), null, "onYes", null, 0, 1, Dichotomous.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDichotomous_OnNo(), this.getDichotomousFork(), null, "onNo", null, 0, 1, Dichotomous.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(constantSumEClass, ConstantSum.class, "ConstantSum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConstantSum_Choices(), this.getChoice(), null, "Choices", null, 1, -1, ConstantSum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConstantSum_Constant(), ecorePackage.getEInt(), "Constant", null, 0, 1, ConstantSum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -891,8 +827,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 
 		initEClass(choiceForkEClass, ChoiceFork.class, "ChoiceFork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getChoiceFork_On(), this.getChoice(), null, "On", null, 1, -1, ChoiceFork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dichotomousForkEClass, DichotomousFork.class, "DichotomousFork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(rankingChoiceForkEClass, RankingChoiceFork.class, "RankingChoiceFork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRankingChoiceFork_Max(), ecorePackage.getEInt(), "Max", null, 1, 1, RankingChoiceFork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -118,13 +118,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SurveyPackage.DICHOTOMOUS: {
-				Dichotomous dichotomous = (Dichotomous)theEObject;
-				T result = caseDichotomous(dichotomous);
-				if (result == null) result = caseQuestion(dichotomous);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SurveyPackage.CONSTANT_SUM: {
 				ConstantSum constantSum = (ConstantSum)theEObject;
 				T result = caseConstantSum(constantSum);
@@ -157,13 +150,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				ChoiceFork choiceFork = (ChoiceFork)theEObject;
 				T result = caseChoiceFork(choiceFork);
 				if (result == null) result = caseFork(choiceFork);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SurveyPackage.DICHOTOMOUS_FORK: {
-				DichotomousFork dichotomousFork = (DichotomousFork)theEObject;
-				T result = caseDichotomousFork(dichotomousFork);
-				if (result == null) result = caseFork(dichotomousFork);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -306,21 +292,6 @@ public class SurveySwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dichotomous</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dichotomous</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDichotomous(Dichotomous object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Constant Sum</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -392,21 +363,6 @@ public class SurveySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseChoiceFork(ChoiceFork object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dichotomous Fork</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dichotomous Fork</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDichotomousFork(DichotomousFork object) {
 		return null;
 	}
 

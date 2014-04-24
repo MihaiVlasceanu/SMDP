@@ -17,8 +17,6 @@ import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 import survey.Choice;
 import survey.ChoiceFork;
 import survey.ConstantSum;
-import survey.Dichotomous;
-import survey.DichotomousFork;
 import survey.Model;
 import survey.MultipleChoice;
 import survey.Open;
@@ -54,19 +52,6 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 				if(context == grammarAccess.getConstantSumRule() ||
 				   context == grammarAccess.getQuestionRule()) {
 					sequence_ConstantSum(context, (ConstantSum) semanticObject); 
-					return; 
-				}
-				else break;
-			case SurveyPackage.DICHOTOMOUS:
-				if(context == grammarAccess.getDichotomousRule() ||
-				   context == grammarAccess.getQuestionRule()) {
-					sequence_Dichotomous(context, (Dichotomous) semanticObject); 
-					return; 
-				}
-				else break;
-			case SurveyPackage.DICHOTOMOUS_FORK:
-				if(context == grammarAccess.getDichotomousForkRule()) {
-					sequence_DichotomousFork(context, (DichotomousFork) semanticObject); 
 					return; 
 				}
 				else break;
@@ -174,24 +159,6 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	 *     )
 	 */
 	protected void sequence_ConstantSum(EObject context, ConstantSum semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (Questions+=[Question|EString] Questions+=[Question|EString]*)
-	 */
-	protected void sequence_DichotomousFork(EObject context, DichotomousFork semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID isRequired?='is'? question=EString onYes=DichotomousFork? onNo=DichotomousFork?)
-	 */
-	protected void sequence_Dichotomous(EObject context, Dichotomous semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

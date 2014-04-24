@@ -48,7 +48,6 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRankingAccess().getAlternatives_4(), "rule__Ranking__Alternatives_4");
 					put(grammarAccess.getRankingAccess().getAlternatives_6(), "rule__Ranking__Alternatives_6");
 					put(grammarAccess.getRankingAccess().getAlternatives_9(), "rule__Ranking__Alternatives_9");
-					put(grammarAccess.getDichotomousAccess().getAlternatives_5(), "rule__Dichotomous__Alternatives_5");
 					put(grammarAccess.getConstantSumAccess().getAlternatives_5(), "rule__ConstantSum__Alternatives_5");
 					put(grammarAccess.getConstantSumAccess().getAlternatives_7(), "rule__ConstantSum__Alternatives_7");
 					put(grammarAccess.getStapleAccess().getAlternatives_5(), "rule__Staple__Alternatives_5");
@@ -78,11 +77,6 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRankingAccess().getGroup_12(), "rule__Ranking__Group_12__0");
 					put(grammarAccess.getRankingAccess().getGroup_13(), "rule__Ranking__Group_13__0");
 					put(grammarAccess.getRankingAccess().getGroup_13_1(), "rule__Ranking__Group_13_1__0");
-					put(grammarAccess.getDichotomousAccess().getGroup(), "rule__Dichotomous__Group__0");
-					put(grammarAccess.getDichotomousAccess().getGroup_4(), "rule__Dichotomous__Group_4__0");
-					put(grammarAccess.getDichotomousAccess().getGroup_5_1(), "rule__Dichotomous__Group_5_1__0");
-					put(grammarAccess.getDichotomousAccess().getGroup_9(), "rule__Dichotomous__Group_9__0");
-					put(grammarAccess.getDichotomousAccess().getGroup_10(), "rule__Dichotomous__Group_10__0");
 					put(grammarAccess.getConstantSumAccess().getGroup(), "rule__ConstantSum__Group__0");
 					put(grammarAccess.getConstantSumAccess().getGroup_4(), "rule__ConstantSum__Group_4__0");
 					put(grammarAccess.getConstantSumAccess().getGroup_5_1(), "rule__ConstantSum__Group_5_1__0");
@@ -106,8 +100,6 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRankingSumForkAccess().getGroup(), "rule__RankingSumFork__Group__0");
 					put(grammarAccess.getRankingSumForkAccess().getGroup_2(), "rule__RankingSumFork__Group_2__0");
 					put(grammarAccess.getRankingSumForkAccess().getGroup_12(), "rule__RankingSumFork__Group_12__0");
-					put(grammarAccess.getDichotomousForkAccess().getGroup(), "rule__DichotomousFork__Group__0");
-					put(grammarAccess.getDichotomousForkAccess().getGroup_4(), "rule__DichotomousFork__Group_4__0");
 					put(grammarAccess.getModelAccess().getSurveysAssignment_1(), "rule__Model__SurveysAssignment_1");
 					put(grammarAccess.getSurveyAccess().getNameAssignment_1(), "rule__Survey__NameAssignment_1");
 					put(grammarAccess.getSurveyAccess().getQuestionsAssignment_2_0(), "rule__Survey__QuestionsAssignment_2_0");
@@ -139,11 +131,6 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRankingAccess().getChoicesAssignment_12_1(), "rule__Ranking__ChoicesAssignment_12_1");
 					put(grammarAccess.getRankingAccess().getForkAssignment_13_0(), "rule__Ranking__ForkAssignment_13_0");
 					put(grammarAccess.getRankingAccess().getForkAssignment_13_1_1(), "rule__Ranking__ForkAssignment_13_1_1");
-					put(grammarAccess.getDichotomousAccess().getNameAssignment_2(), "rule__Dichotomous__NameAssignment_2");
-					put(grammarAccess.getDichotomousAccess().getIsRequiredAssignment_5_1_0(), "rule__Dichotomous__IsRequiredAssignment_5_1_0");
-					put(grammarAccess.getDichotomousAccess().getQuestionAssignment_8(), "rule__Dichotomous__QuestionAssignment_8");
-					put(grammarAccess.getDichotomousAccess().getOnYesAssignment_9_2(), "rule__Dichotomous__OnYesAssignment_9_2");
-					put(grammarAccess.getDichotomousAccess().getOnNoAssignment_10_2(), "rule__Dichotomous__OnNoAssignment_10_2");
 					put(grammarAccess.getConstantSumAccess().getNameAssignment_2(), "rule__ConstantSum__NameAssignment_2");
 					put(grammarAccess.getConstantSumAccess().getIsRequiredAssignment_5_1_0(), "rule__ConstantSum__IsRequiredAssignment_5_1_0");
 					put(grammarAccess.getConstantSumAccess().getQuestionAssignment_8(), "rule__ConstantSum__QuestionAssignment_8");
@@ -178,8 +165,6 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRankingSumForkAccess().getMaxAssignment_7(), "rule__RankingSumFork__MaxAssignment_7");
 					put(grammarAccess.getRankingSumForkAccess().getQuestionsAssignment_11(), "rule__RankingSumFork__QuestionsAssignment_11");
 					put(grammarAccess.getRankingSumForkAccess().getQuestionsAssignment_12_1(), "rule__RankingSumFork__QuestionsAssignment_12_1");
-					put(grammarAccess.getDichotomousForkAccess().getQuestionsAssignment_3(), "rule__DichotomousFork__QuestionsAssignment_3");
-					put(grammarAccess.getDichotomousForkAccess().getQuestionsAssignment_4_1(), "rule__DichotomousFork__QuestionsAssignment_4_1");
 				}
 			};
 		}

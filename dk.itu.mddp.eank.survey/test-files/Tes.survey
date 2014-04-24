@@ -1,4 +1,12 @@
 Survey1
+	MultipleChoice Q1: 
+		is required
+		to answer "Where's the beef?"
+		from one of these A : "Somewhere", B : "The beef is a lie", C : "Here have some cake"
+		or with something else "Other"
+		if A then go to Q2,
+		if B then go to Q2,
+		if C then go to Q7
 	MultipleChoice Q2:
 		the user
 		is required
@@ -20,3 +28,22 @@ Survey1
 	Staple Q6 : 
 		rate "Have you been following the lectures"
 		between -5 and 5 where lowest means "I've been asleep the entire time", mid means "I've been present" and highest means "I am always a 100% focused"
+	MultipleChoice Q7:
+		may answer "How would you like your cake"
+		from one of these A : "Over Easy", B : "Well Done", C : "On its side", D : "In my mouth"
+		if A then go to Q8,
+		if B then go to Q9,
+		if C then go to Q10
+	Rating Q8 :
+		is required to answer "If eggs were red how would you rank them?"
+		between 0 and 10 where lowest means "I'd rather kill myself" and highest means "This sounds like the best thing ever!"
+		if it is between 0 and 3 then go to Q1
+	ConstantSum Q9:
+		is required to answer "Distribute the amount of stuff on the side"
+		total of 100 among these A : "Pebbles", B : "Chicken Nuggets", C : "Salad", D : "Dressing with Salad on the side"
+		if A is between 0 and 30 then go to Q3
+	Staple Q10: 
+		is required to answer "How did you like the stuff in your mouth"
+		between -5 and 5 where lowest "It was disgusting" mid means "Meh"and highest means "YO GIMME MORE"
+		if between 0 and 3 then go to Q5
+		

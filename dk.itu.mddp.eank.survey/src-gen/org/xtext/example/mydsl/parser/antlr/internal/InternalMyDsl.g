@@ -164,31 +164,21 @@ ruleQuestion returns [EObject current=null]
 
     |
     { 
-        newCompositeNode(grammarAccess.getQuestionAccess().getDichotomousParserRuleCall_4()); 
+        newCompositeNode(grammarAccess.getQuestionAccess().getConstantSumParserRuleCall_4()); 
     }
-    this_Dichotomous_4=ruleDichotomous
+    this_ConstantSum_4=ruleConstantSum
     { 
-        $current = $this_Dichotomous_4.current; 
+        $current = $this_ConstantSum_4.current; 
         afterParserOrEnumRuleCall();
     }
 
     |
     { 
-        newCompositeNode(grammarAccess.getQuestionAccess().getConstantSumParserRuleCall_5()); 
+        newCompositeNode(grammarAccess.getQuestionAccess().getStapleParserRuleCall_5()); 
     }
-    this_ConstantSum_5=ruleConstantSum
+    this_Staple_5=ruleStaple
     { 
-        $current = $this_ConstantSum_5.current; 
-        afterParserOrEnumRuleCall();
-    }
-
-    |
-    { 
-        newCompositeNode(grammarAccess.getQuestionAccess().getStapleParserRuleCall_6()); 
-    }
-    this_Staple_6=ruleStaple
-    { 
-        $current = $this_Staple_6.current; 
+        $current = $this_Staple_5.current; 
         afterParserOrEnumRuleCall();
     }
 )
@@ -1146,169 +1136,6 @@ ruleRanking returns [EObject current=null]
 
 )
 ))*)?)
-;
-
-
-
-
-
-// Entry rule entryRuleDichotomous
-entryRuleDichotomous returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getDichotomousRule()); }
-	 iv_ruleDichotomous=ruleDichotomous 
-	 { $current=$iv_ruleDichotomous.current; } 
-	 EOF 
-;
-
-// Rule Dichotomous
-ruleDichotomous returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getDichotomousAccess().getDichotomousAction_0(),
-            $current);
-    }
-)	otherlv_1='Dichotomous' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getDichotomousAccess().getDichotomousKeyword_1());
-    }
-(
-(
-		lv_name_2_0=RULE_ID
-		{
-			newLeafNode(lv_name_2_0, grammarAccess.getDichotomousAccess().getNameIDTerminalRuleCall_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDichotomousRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_2_0, 
-        		"ID");
-	    }
-
-)
-)	otherlv_3=':' 
-    {
-    	newLeafNode(otherlv_3, grammarAccess.getDichotomousAccess().getColonKeyword_3());
-    }
-((	otherlv_4='the' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getDichotomousAccess().getTheKeyword_4_0());
-    }
-)?	otherlv_5='user' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getDichotomousAccess().getUserKeyword_4_1());
-    }
-)?(	otherlv_6='may' 
-    {
-    	newLeafNode(otherlv_6, grammarAccess.getDichotomousAccess().getMayKeyword_5_0());
-    }
-
-    |((
-(
-		lv_isRequired_7_0=	'is' 
-    {
-        newLeafNode(lv_isRequired_7_0, grammarAccess.getDichotomousAccess().getIsRequiredIsKeyword_5_1_0_0());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDichotomousRule());
-	        }
-       		setWithLastConsumed($current, "isRequired", true, "is");
-	    }
-
-)
-)	otherlv_8='required' 
-    {
-    	newLeafNode(otherlv_8, grammarAccess.getDichotomousAccess().getRequiredKeyword_5_1_1());
-    }
-))?(	otherlv_9='to' 
-    {
-    	newLeafNode(otherlv_9, grammarAccess.getDichotomousAccess().getToKeyword_6());
-    }
-)?(	otherlv_10='answer' 
-    {
-    	newLeafNode(otherlv_10, grammarAccess.getDichotomousAccess().getAnswerKeyword_7());
-    }
-)?(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getDichotomousAccess().getQuestionEStringParserRuleCall_8_0()); 
-	    }
-		lv_question_11_0=ruleEString		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getDichotomousRule());
-	        }
-       		set(
-       			$current, 
-       			"question",
-        		lv_question_11_0, 
-        		"EString");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)(	otherlv_12='if' 
-    {
-    	newLeafNode(otherlv_12, grammarAccess.getDichotomousAccess().getIfKeyword_9_0());
-    }
-	otherlv_13='yes' 
-    {
-    	newLeafNode(otherlv_13, grammarAccess.getDichotomousAccess().getYesKeyword_9_1());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getDichotomousAccess().getOnYesDichotomousForkParserRuleCall_9_2_0()); 
-	    }
-		lv_onYes_14_0=ruleDichotomousFork		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getDichotomousRule());
-	        }
-       		set(
-       			$current, 
-       			"onYes",
-        		lv_onYes_14_0, 
-        		"DichotomousFork");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))?(	otherlv_15='if' 
-    {
-    	newLeafNode(otherlv_15, grammarAccess.getDichotomousAccess().getIfKeyword_10_0());
-    }
-	otherlv_16='no' 
-    {
-    	newLeafNode(otherlv_16, grammarAccess.getDichotomousAccess().getNoKeyword_10_1());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getDichotomousAccess().getOnNoDichotomousForkParserRuleCall_10_2_0()); 
-	    }
-		lv_onNo_17_0=ruleDichotomousFork		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getDichotomousRule());
-	        }
-       		set(
-       			$current, 
-       			"onNo",
-        		lv_onNo_17_0, 
-        		"DichotomousFork");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))?)
 ;
 
 
@@ -2306,73 +2133,6 @@ ruleRankingSumFork returns [EObject current=null]
         }
 		{ 
 	        newCompositeNode(grammarAccess.getRankingSumForkAccess().getQuestionsQuestionCrossReference_12_1_0()); 
-	    }
-		ruleEString		{ 
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))*)
-;
-
-
-
-
-
-// Entry rule entryRuleDichotomousFork
-entryRuleDichotomousFork returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getDichotomousForkRule()); }
-	 iv_ruleDichotomousFork=ruleDichotomousFork 
-	 { $current=$iv_ruleDichotomousFork.current; } 
-	 EOF 
-;
-
-// Rule DichotomousFork
-ruleDichotomousFork returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((	otherlv_0='then' 
-    {
-    	newLeafNode(otherlv_0, grammarAccess.getDichotomousForkAccess().getThenKeyword_0());
-    }
-)?	otherlv_1='go' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getDichotomousForkAccess().getGoKeyword_1());
-    }
-	otherlv_2='to' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getDichotomousForkAccess().getToKeyword_2());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDichotomousForkRule());
-	        }
-        }
-		{ 
-	        newCompositeNode(grammarAccess.getDichotomousForkAccess().getQuestionsQuestionCrossReference_3_0()); 
-	    }
-		ruleEString		{ 
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)(	otherlv_4=',' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getDichotomousForkAccess().getCommaKeyword_4_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDichotomousForkRule());
-	        }
-        }
-		{ 
-	        newCompositeNode(grammarAccess.getDichotomousForkAccess().getQuestionsQuestionCrossReference_4_1_0()); 
 	    }
 		ruleEString		{ 
 	        afterParserOrEnumRuleCall();
