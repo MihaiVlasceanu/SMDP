@@ -89,13 +89,19 @@ public class CodeGenerator {
       EList<Survey> _surveys = m.getSurveys();
       Survey _get_1 = _surveys.get(0);
       final EList<Question> questions = _get_1.getQuestions();
-      final Procedure2<Question,Integer> _function = new Procedure2<Question,Integer>() {
+      final Procedure1<Question> _function = new Procedure1<Question>() {
+        public void apply(final Question it) {
+          CodeGenerator.changeChoices(it);
+        }
+      };
+      IterableExtensions.<Question>forEach(questions, _function);
+      final Procedure2<Question,Integer> _function_1 = new Procedure2<Question,Integer>() {
         public void apply(final Question q, final Integer i) {
           CodeGenerator.map.put(q, i);
         }
       };
-      IterableExtensions.<Question>forEach(questions, _function);
-      final Procedure1<Question> _function_1 = new Procedure1<Question>() {
+      IterableExtensions.<Question>forEach(questions, _function_1);
+      final Procedure1<Question> _function_2 = new Procedure1<Question>() {
         public void apply(final Question q) {
           List<EList<Question>> localQuestions = CodeGenerator.forkMap(q);
           boolean _notEquals = (!Objects.equal(localQuestions, null));
@@ -119,8 +125,8 @@ public class CodeGenerator {
           }
         }
       };
-      IterableExtensions.<Question>forEach(questions, _function_1);
-      final Procedure1<Question> _function_2 = new Procedure1<Question>() {
+      IterableExtensions.<Question>forEach(questions, _function_2);
+      final Procedure1<Question> _function_3 = new Procedure1<Question>() {
         public void apply(final Question q) {
           List<EList<Question>> localQuestions = CodeGenerator.forkMap(q);
           boolean _containsKey = CodeGenerator.goToMap.containsKey(q);
@@ -170,7 +176,7 @@ public class CodeGenerator {
           }
         }
       };
-      IterableExtensions.<Question>forEach(questions, _function_2);
+      IterableExtensions.<Question>forEach(questions, _function_3);
       HashMap<Question,Integer> goToMap2 = CodeGenerator.goToMap;
       EList<Survey> _surveys_1 = m.getSurveys();
       Survey _get_2 = _surveys_1.get(0);
@@ -194,6 +200,144 @@ public class CodeGenerator {
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+  
+  protected static Object _changeChoices(final Open it) {
+    return null;
+  }
+  
+  protected static Object _changeChoices(final Rating it) {
+    return null;
+  }
+  
+  protected static Object _changeChoices(final Staple it) {
+    return null;
+  }
+  
+  protected static Object _changeChoices(final MultipleChoice it) {
+    EList<ChoiceFork> _fork = it.getFork();
+    final Procedure1<ChoiceFork> _function = new Procedure1<ChoiceFork>() {
+      public void apply(final ChoiceFork f) {
+        EList<Choice> _choice = it.getChoice();
+        final Procedure1<Choice> _function = new Procedure1<Choice>() {
+          public void apply(final Choice c) {
+            EList<Choice> _on = f.getOn();
+            final Function1<Choice,Boolean> _function = new Function1<Choice,Boolean>() {
+              public Boolean apply(final Choice x) {
+                String _name = x.getName();
+                String _name_1 = c.getName();
+                boolean _equals = Objects.equal(_name, _name_1);
+                return Boolean.valueOf(_equals);
+              }
+            };
+            boolean _exists = IterableExtensions.<Choice>exists(_on, _function);
+            if (_exists) {
+              EList<Choice> _on_1 = f.getOn();
+              EList<Choice> _on_2 = f.getOn();
+              final Function1<Choice,Boolean> _function_1 = new Function1<Choice,Boolean>() {
+                public Boolean apply(final Choice x) {
+                  String _name = x.getName();
+                  String _name_1 = c.getName();
+                  boolean _equals = Objects.equal(_name, _name_1);
+                  return Boolean.valueOf(_equals);
+                }
+              };
+              Choice _findFirst = IterableExtensions.<Choice>findFirst(_on_2, _function_1);
+              _on_1.remove(_findFirst);
+              EList<Choice> _on_3 = f.getOn();
+              _on_3.add(c);
+            }
+          }
+        };
+        IterableExtensions.<Choice>forEach(_choice, _function);
+      }
+    };
+    IterableExtensions.<ChoiceFork>forEach(_fork, _function);
+    return null;
+  }
+  
+  protected static Object _changeChoices(final ConstantSum it) {
+    EList<RankingSumFork> _fork = it.getFork();
+    final Procedure1<RankingSumFork> _function = new Procedure1<RankingSumFork>() {
+      public void apply(final RankingSumFork f) {
+        EList<Choice> _choices = it.getChoices();
+        final Procedure1<Choice> _function = new Procedure1<Choice>() {
+          public void apply(final Choice c) {
+            EList<Choice> _on = f.getOn();
+            final Function1<Choice,Boolean> _function = new Function1<Choice,Boolean>() {
+              public Boolean apply(final Choice x) {
+                String _name = x.getName();
+                String _name_1 = c.getName();
+                boolean _equals = Objects.equal(_name, _name_1);
+                return Boolean.valueOf(_equals);
+              }
+            };
+            boolean _exists = IterableExtensions.<Choice>exists(_on, _function);
+            if (_exists) {
+              EList<Choice> _on_1 = f.getOn();
+              EList<Choice> _on_2 = f.getOn();
+              final Function1<Choice,Boolean> _function_1 = new Function1<Choice,Boolean>() {
+                public Boolean apply(final Choice x) {
+                  String _name = x.getName();
+                  String _name_1 = c.getName();
+                  boolean _equals = Objects.equal(_name, _name_1);
+                  return Boolean.valueOf(_equals);
+                }
+              };
+              Choice _findFirst = IterableExtensions.<Choice>findFirst(_on_2, _function_1);
+              _on_1.remove(_findFirst);
+              EList<Choice> _on_3 = f.getOn();
+              _on_3.add(c);
+            }
+          }
+        };
+        IterableExtensions.<Choice>forEach(_choices, _function);
+      }
+    };
+    IterableExtensions.<RankingSumFork>forEach(_fork, _function);
+    return null;
+  }
+  
+  protected static Object _changeChoices(final Ranking it) {
+    EList<RankingSumFork> _fork = it.getFork();
+    final Procedure1<RankingSumFork> _function = new Procedure1<RankingSumFork>() {
+      public void apply(final RankingSumFork f) {
+        EList<Choice> _choices = it.getChoices();
+        final Procedure1<Choice> _function = new Procedure1<Choice>() {
+          public void apply(final Choice c) {
+            EList<Choice> _on = f.getOn();
+            final Function1<Choice,Boolean> _function = new Function1<Choice,Boolean>() {
+              public Boolean apply(final Choice x) {
+                String _name = x.getName();
+                String _name_1 = c.getName();
+                boolean _equals = Objects.equal(_name, _name_1);
+                return Boolean.valueOf(_equals);
+              }
+            };
+            boolean _exists = IterableExtensions.<Choice>exists(_on, _function);
+            if (_exists) {
+              EList<Choice> _on_1 = f.getOn();
+              EList<Choice> _on_2 = f.getOn();
+              final Function1<Choice,Boolean> _function_1 = new Function1<Choice,Boolean>() {
+                public Boolean apply(final Choice x) {
+                  String _name = x.getName();
+                  String _name_1 = c.getName();
+                  boolean _equals = Objects.equal(_name, _name_1);
+                  return Boolean.valueOf(_equals);
+                }
+              };
+              Choice _findFirst = IterableExtensions.<Choice>findFirst(_on_2, _function_1);
+              _on_1.remove(_findFirst);
+              EList<Choice> _on_3 = f.getOn();
+              _on_3.add(c);
+            }
+          }
+        };
+        IterableExtensions.<Choice>forEach(_choices, _function);
+      }
+    };
+    IterableExtensions.<RankingSumFork>forEach(_fork, _function);
+    return null;
   }
   
   protected static List<EList<Question>> _forkMap(final Open it) {
@@ -1343,6 +1487,25 @@ public class CodeGenerator {
   public static String toInt(final String name) {
     String _replaceAll = name.replaceAll("([^0-9])*", "");
     return _replaceAll;
+  }
+  
+  public static Object changeChoices(final Question it) {
+    if (it instanceof Staple) {
+      return _changeChoices((Staple)it);
+    } else if (it instanceof ConstantSum) {
+      return _changeChoices((ConstantSum)it);
+    } else if (it instanceof MultipleChoice) {
+      return _changeChoices((MultipleChoice)it);
+    } else if (it instanceof Open) {
+      return _changeChoices((Open)it);
+    } else if (it instanceof Ranking) {
+      return _changeChoices((Ranking)it);
+    } else if (it instanceof Rating) {
+      return _changeChoices((Rating)it);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(it).toString());
+    }
   }
   
   public static List<EList<Question>> forkMap(final Question it) {

@@ -44,6 +44,10 @@ class CodeGenerator {
 
 		val Model m = resource.getContents().get(0) as Model
 		val questions = m.surveys.get(0).questions
+		
+		//Changes all choices so they reference the correct ID within the question
+		//Previously it would reference the first occurence of the choice with that name
+		questions.forEach[changeChoices]
 //		for(i: 0..questions.size-1)
 //		{
 //				map.put(questions.get(i), i)								
@@ -144,6 +148,59 @@ class CodeGenerator {
 	}
 
 	
+	def static dispatch changeChoices(Open it)
+	{
+		
+	}
+	def static dispatch changeChoices(Rating it)
+	{
+		
+	}
+	def static dispatch changeChoices(Staple it)
+	{
+		
+	}
+	def static dispatch changeChoices(MultipleChoice it)
+	{
+		//Iterates all the forks and checks for their choices
+		fork.forEach[f | 
+			choice.forEach[c | 
+				//When the fork's "on" contains the current choice with the same name 
+				if(f.on.exists[x | x.name == c.name])
+				{
+					//it removes this choice 
+					f.on.remove(f.on.findFirst[x | x.name == c.name])
+					//and adds the choice that is within the question's choices
+					f.on.add(c)
+				}
+			]
+		]
+
+	}
+	def static dispatch changeChoices(ConstantSum it)
+	{
+		fork.forEach[f | 
+			choices.forEach[c | 
+				if(f.on.exists[x | x.name == c.name])
+				{
+					f.on.remove(f.on.findFirst[x | x.name == c.name])
+					f.on.add(c)
+				}
+			]
+		]
+	}
+	def static dispatch changeChoices(Ranking it)
+	{
+		fork.forEach[f | 
+			choices.forEach[c | 
+				if(f.on.exists[x | x.name == c.name])
+				{
+					f.on.remove(f.on.findFirst[x | x.name == c.name])
+					f.on.add(c)
+				}
+			]
+		]
+	}
 	
 		
 	def static dispatch List<EList<Question>> forkMap(Open it)
