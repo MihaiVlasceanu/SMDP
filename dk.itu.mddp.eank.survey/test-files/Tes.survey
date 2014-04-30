@@ -19,6 +19,17 @@ Survey1
 		if C3 is between 1 and 3 then go to Q4,Q5
 	Open Q4: 
 		"What are your thoughts about model driven development?"
-	Staple Q5 : 
+	Staple Q5:
+		from these A : "MDDP", B : "Database Tuning", C : "Discrete Mathematics"
+		if A is between 1 and 3 then go to Q2
+	Open Q5: 
+		"What are your thoughts about model driven development?"
+	MultipleChoice Q6:
+		the user
+		is required
+		to answer "At what level of education?"
+		from one of these A : "Bachelor", B : "Master's", C : "PHD"
+		if B, B then go to Qx, Qx		
+	Staple Q7: 
 		rate "Have you been following the lectures"
 		between -5 and 5 where lowest means "I've been asleep the entire time", mid means "I've been present" and highest means "I am always a 100% focused"		
