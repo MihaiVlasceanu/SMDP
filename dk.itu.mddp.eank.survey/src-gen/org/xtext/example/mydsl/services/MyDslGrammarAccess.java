@@ -49,15 +49,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOpenParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cRating_ImplParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cRankingParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cDichotomousParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cConstantSumParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cStapleParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cConstantSumParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cStapleParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Question:
-		//	MultipleChoice | Open | Rating_Impl | Ranking | Dichotomous | ConstantSum | Staple;
+		//	MultipleChoice | Open | Rating_Impl | Ranking | ConstantSum | Staple;
 		public ParserRule getRule() { return rule; }
 
-		//MultipleChoice | Open | Rating_Impl | Ranking | Dichotomous | ConstantSum | Staple
+		//MultipleChoice | Open | Rating_Impl | Ranking | ConstantSum | Staple
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//MultipleChoice
@@ -72,14 +71,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Ranking
 		public RuleCall getRankingParserRuleCall_3() { return cRankingParserRuleCall_3; }
 
-		//Dichotomous
-		public RuleCall getDichotomousParserRuleCall_4() { return cDichotomousParserRuleCall_4; }
-
 		//ConstantSum
-		public RuleCall getConstantSumParserRuleCall_5() { return cConstantSumParserRuleCall_5; }
+		public RuleCall getConstantSumParserRuleCall_4() { return cConstantSumParserRuleCall_4; }
 
 		//Staple
-		public RuleCall getStapleParserRuleCall_6() { return cStapleParserRuleCall_6; }
+		public RuleCall getStapleParserRuleCall_5() { return cStapleParserRuleCall_5; }
 	}
 
 	public class SurveyElements extends AbstractParserRuleElementFinder {
@@ -804,132 +800,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//RankingSumFork
 		public RuleCall getForkRankingSumForkParserRuleCall_13_1_1_0() { return cForkRankingSumForkParserRuleCall_13_1_1_0; }
-	}
-
-	public class DichotomousElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Dichotomous");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cDichotomousAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cDichotomousKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cTheKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cUserKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
-		private final Keyword cMayKeyword_5_0 = (Keyword)cAlternatives_5.eContents().get(0);
-		private final Group cGroup_5_1 = (Group)cAlternatives_5.eContents().get(1);
-		private final Assignment cIsRequiredAssignment_5_1_0 = (Assignment)cGroup_5_1.eContents().get(0);
-		private final Keyword cIsRequiredIsKeyword_5_1_0_0 = (Keyword)cIsRequiredAssignment_5_1_0.eContents().get(0);
-		private final Keyword cRequiredKeyword_5_1_1 = (Keyword)cGroup_5_1.eContents().get(1);
-		private final Keyword cToKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cAnswerKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cQuestionAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cQuestionEStringParserRuleCall_8_0 = (RuleCall)cQuestionAssignment_8.eContents().get(0);
-		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cIfKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Keyword cYesKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
-		private final Assignment cOnYesAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
-		private final RuleCall cOnYesDichotomousForkParserRuleCall_9_2_0 = (RuleCall)cOnYesAssignment_9_2.eContents().get(0);
-		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cIfKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Keyword cNoKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
-		private final Assignment cOnNoAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
-		private final RuleCall cOnNoDichotomousForkParserRuleCall_10_2_0 = (RuleCall)cOnNoAssignment_10_2.eContents().get(0);
-		
-		//Dichotomous:
-		//	{Dichotomous} "Dichotomous" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? "answer"?
-		//	question=EString ("if" "yes" onYes=DichotomousFork)? ("if" "no" onNo=DichotomousFork)?;
-		public ParserRule getRule() { return rule; }
-
-		//{Dichotomous} "Dichotomous" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? "answer"?
-		//question=EString ("if" "yes" onYes=DichotomousFork)? ("if" "no" onNo=DichotomousFork)?
-		public Group getGroup() { return cGroup; }
-
-		//{Dichotomous}
-		public Action getDichotomousAction_0() { return cDichotomousAction_0; }
-
-		//"Dichotomous"
-		public Keyword getDichotomousKeyword_1() { return cDichotomousKeyword_1; }
-
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
-
-		//":"
-		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
-
-		//("the"? "user")?
-		public Group getGroup_4() { return cGroup_4; }
-
-		//"the"?
-		public Keyword getTheKeyword_4_0() { return cTheKeyword_4_0; }
-
-		//"user"
-		public Keyword getUserKeyword_4_1() { return cUserKeyword_4_1; }
-
-		//("may" | isRequired?="is" "required")?
-		public Alternatives getAlternatives_5() { return cAlternatives_5; }
-
-		//"may"
-		public Keyword getMayKeyword_5_0() { return cMayKeyword_5_0; }
-
-		//isRequired?="is" "required"
-		public Group getGroup_5_1() { return cGroup_5_1; }
-
-		//isRequired?="is"
-		public Assignment getIsRequiredAssignment_5_1_0() { return cIsRequiredAssignment_5_1_0; }
-
-		//"is"
-		public Keyword getIsRequiredIsKeyword_5_1_0_0() { return cIsRequiredIsKeyword_5_1_0_0; }
-
-		//"required"
-		public Keyword getRequiredKeyword_5_1_1() { return cRequiredKeyword_5_1_1; }
-
-		//"to"?
-		public Keyword getToKeyword_6() { return cToKeyword_6; }
-
-		//"answer"?
-		public Keyword getAnswerKeyword_7() { return cAnswerKeyword_7; }
-
-		//question=EString
-		public Assignment getQuestionAssignment_8() { return cQuestionAssignment_8; }
-
-		//EString
-		public RuleCall getQuestionEStringParserRuleCall_8_0() { return cQuestionEStringParserRuleCall_8_0; }
-
-		//("if" "yes" onYes=DichotomousFork)?
-		public Group getGroup_9() { return cGroup_9; }
-
-		//"if"
-		public Keyword getIfKeyword_9_0() { return cIfKeyword_9_0; }
-
-		//"yes"
-		public Keyword getYesKeyword_9_1() { return cYesKeyword_9_1; }
-
-		//onYes=DichotomousFork
-		public Assignment getOnYesAssignment_9_2() { return cOnYesAssignment_9_2; }
-
-		//DichotomousFork
-		public RuleCall getOnYesDichotomousForkParserRuleCall_9_2_0() { return cOnYesDichotomousForkParserRuleCall_9_2_0; }
-
-		//("if" "no" onNo=DichotomousFork)?
-		public Group getGroup_10() { return cGroup_10; }
-
-		//"if"
-		public Keyword getIfKeyword_10_0() { return cIfKeyword_10_0; }
-
-		//"no"
-		public Keyword getNoKeyword_10_1() { return cNoKeyword_10_1; }
-
-		//onNo=DichotomousFork
-		public Assignment getOnNoAssignment_10_2() { return cOnNoAssignment_10_2; }
-
-		//DichotomousFork
-		public RuleCall getOnNoDichotomousForkParserRuleCall_10_2_0() { return cOnNoDichotomousForkParserRuleCall_10_2_0; }
 	}
 
 	public class ConstantSumElements extends AbstractParserRuleElementFinder {
@@ -1689,62 +1559,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getQuestionsQuestionEStringParserRuleCall_12_1_0_1() { return cQuestionsQuestionEStringParserRuleCall_12_1_0_1; }
 	}
-
-	public class DichotomousForkElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DichotomousFork");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cThenKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cGoKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cToKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cQuestionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cQuestionsQuestionCrossReference_3_0 = (CrossReference)cQuestionsAssignment_3.eContents().get(0);
-		private final RuleCall cQuestionsQuestionEStringParserRuleCall_3_0_1 = (RuleCall)cQuestionsQuestionCrossReference_3_0.eContents().get(1);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cQuestionsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cQuestionsQuestionCrossReference_4_1_0 = (CrossReference)cQuestionsAssignment_4_1.eContents().get(0);
-		private final RuleCall cQuestionsQuestionEStringParserRuleCall_4_1_0_1 = (RuleCall)cQuestionsQuestionCrossReference_4_1_0.eContents().get(1);
-		
-		//DichotomousFork:
-		//	"then"? "go" "to" Questions+=[Question|EString] ("," Questions+=[Question|EString])*;
-		public ParserRule getRule() { return rule; }
-
-		//"then"? "go" "to" Questions+=[Question|EString] ("," Questions+=[Question|EString])*
-		public Group getGroup() { return cGroup; }
-
-		//"then"?
-		public Keyword getThenKeyword_0() { return cThenKeyword_0; }
-
-		//"go"
-		public Keyword getGoKeyword_1() { return cGoKeyword_1; }
-
-		//"to"
-		public Keyword getToKeyword_2() { return cToKeyword_2; }
-
-		//Questions+=[Question|EString]
-		public Assignment getQuestionsAssignment_3() { return cQuestionsAssignment_3; }
-
-		//[Question|EString]
-		public CrossReference getQuestionsQuestionCrossReference_3_0() { return cQuestionsQuestionCrossReference_3_0; }
-
-		//EString
-		public RuleCall getQuestionsQuestionEStringParserRuleCall_3_0_1() { return cQuestionsQuestionEStringParserRuleCall_3_0_1; }
-
-		//("," Questions+=[Question|EString])*
-		public Group getGroup_4() { return cGroup_4; }
-
-		//","
-		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
-
-		//Questions+=[Question|EString]
-		public Assignment getQuestionsAssignment_4_1() { return cQuestionsAssignment_4_1; }
-
-		//[Question|EString]
-		public CrossReference getQuestionsQuestionCrossReference_4_1_0() { return cQuestionsQuestionCrossReference_4_1_0; }
-
-		//EString
-		public RuleCall getQuestionsQuestionEStringParserRuleCall_4_1_0_1() { return cQuestionsQuestionEStringParserRuleCall_4_1_0_1; }
-	}
 	
 	
 	private ModelElements pModel;
@@ -1756,7 +1570,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private OpenElements pOpen;
 	private Rating_ImplElements pRating_Impl;
 	private RankingElements pRanking;
-	private DichotomousElements pDichotomous;
 	private ConstantSumElements pConstantSum;
 	private StapleElements pStaple;
 	private ChoiceElements pChoice;
@@ -1764,7 +1577,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private EIntElements pEInt;
 	private RatingForkElements pRatingFork;
 	private RankingSumForkElements pRankingSumFork;
-	private DichotomousForkElements pDichotomousFork;
 	
 	private final Grammar grammar;
 
@@ -1815,7 +1627,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Question:
-	//	MultipleChoice | Open | Rating_Impl | Ranking | Dichotomous | ConstantSum | Staple;
+	//	MultipleChoice | Open | Rating_Impl | Ranking | ConstantSum | Staple;
 	public QuestionElements getQuestionAccess() {
 		return (pQuestion != null) ? pQuestion : (pQuestion = new QuestionElements());
 	}
@@ -1900,17 +1712,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getRankingAccess().getRule();
 	}
 
-	//Dichotomous:
-	//	{Dichotomous} "Dichotomous" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? "answer"?
-	//	question=EString ("if" "yes" onYes=DichotomousFork)? ("if" "no" onNo=DichotomousFork)?;
-	public DichotomousElements getDichotomousAccess() {
-		return (pDichotomous != null) ? pDichotomous : (pDichotomous = new DichotomousElements());
-	}
-	
-	public ParserRule getDichotomousRule() {
-		return getDichotomousAccess().getRule();
-	}
-
 	//ConstantSum:
 	//	{ConstantSum} "ConstantSum" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? ("distribute" |
 	//	"answer") question=EString (("to"? "a"? "total" "of"?) Constant=EInt)? "among" "these" Choices+=Choice (","
@@ -1986,16 +1787,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getRankingSumForkRule() {
 		return getRankingSumForkAccess().getRule();
-	}
-
-	//DichotomousFork:
-	//	"then"? "go" "to" Questions+=[Question|EString] ("," Questions+=[Question|EString])*;
-	public DichotomousForkElements getDichotomousForkAccess() {
-		return (pDichotomousFork != null) ? pDichotomousFork : (pDichotomousFork = new DichotomousForkElements());
-	}
-	
-	public ParserRule getDichotomousForkRule() {
-		return getDichotomousForkAccess().getRule();
 	}
 
 	//terminal ID:

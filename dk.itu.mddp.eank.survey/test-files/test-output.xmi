@@ -5,7 +5,7 @@ Survey1
 		to distribute "Divide your daily activities in hours"
 		to a total of 24
 		among these A1: "Learning", B1 : "Cooking", C1 : "Training", D1 : "Gaming"
-		if C1 is between 2 and 4 then go to Q6
+		if C1 is between 2 and 4 then go to Q3
 	MultipleChoice Q2:
 		the user
 		is required
@@ -16,12 +16,9 @@ Survey1
 		the user 
 		may rank "Rank your favorite subjects"
 		from these A3 : "MDDP", B3 : "Database Tuning", C3 : "Discrete Mathematics"
-		if C3 is between 1 and 3 then go to Q5
+		if C3 is between 1 and 3 then go to Q4,Q5
 	Open Q4: 
 		"What are your thoughts about model driven development?"
-	Rating Q5 : 
-		rate "How much do you like databases"
-		between 0 and 10 where lowest "Hate it" and highest "I dream of databases at night"
-	Staple Q6 : 
+	Staple Q5 : 
 		rate "Have you been following the lectures"
 		between -5 and 5 where lowest means "I've been asleep the entire time", mid means "I've been present" and highest means "I am always a 100% focused"

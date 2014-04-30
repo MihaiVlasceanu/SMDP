@@ -24,6 +24,11 @@ import survey.ConstantSum
 
 class CodeGenerator {
 	val static instanceFileName = "test-files/Tes.survey"
+	static var map = new HashMap<Question, Integer>();
+	static var goToMap = new HashMap<Question, Integer>();
+	static var next = new HashMap<Question, Integer>();
+	static var usedList = new ArrayList<Integer>();
+	
 	// this method reads textual syntax and saves XMI syntax
 	def static void main (String[] args) {
 		
@@ -39,19 +44,62 @@ class CodeGenerator {
 
 		val Model m = resource.getContents().get(0) as Model
 		val questions = m.surveys.get(0).questions
+		
 //		for(i: 0..questions.size-1)
 //		{
 //				map.put(questions.get(i), i)								
 //		}
 		questions.forEach[q, i | map.put(q,i)]
-		questions.forEach[q |
+		questions.forEach[q | //parent question q
 			var localQuestions = forkMap(q)
+			
 			if(localQuestions != null)
 			{
 				localQuestions.forEach[localQuestion |
-					localQuestion.forEach[forkQuestion |
-						usedList.add(map.get(forkQuestion))
-					]
+					for(p:0..localQuestion.size)
+					{										
+						if(p!=localQuestion.size)
+						{
+							usedList.add(map.get(localQuestion.get(p)))							
+						}
+					}
+				]
+			}			
+			
+		]
+		questions.forEach[q | //parent question q
+			var localQuestions = forkMap(q)
+			if(!goToMap.containsKey(q)){
+				var to = map.get(q)+1;
+				while(usedList.contains(to))
+				{
+					to=to+1
+				}
+				goToMap.put(q, to)
+			}
+			
+			if(localQuestions != null)
+			{
+				localQuestions.forEach[localQuestion |
+					for(p:0..localQuestion.size)
+					{										
+						if(p!=localQuestion.size)
+						{
+		
+							if(p!=localQuestion.size-1)
+							{
+								goToMap.put(localQuestion.get(p), map.get(localQuestion.get(p+1)))
+							}					
+							else{
+								goToMap.put(localQuestion.get(p),goToMap.get(q));//go to its parents next question 
+							}
+							//localQuestion.forEach[forkQuestion |
+								//usedList.add(map.get(forkQuestion))						
+								
+								
+							//]
+						}
+					}
 				]
 			}
 		]
@@ -97,9 +145,7 @@ class CodeGenerator {
 	}
 
 	
-	static var map = new HashMap<Question, Integer>();
-	static var goToMap = new HashMap<Question, Integer>();
-	static var usedList = new ArrayList<Integer>();
+	
 		
 	def static dispatch List<EList<Question>> forkMap(Open it)
 	{		
@@ -137,25 +183,15 @@ class CodeGenerator {
 	
 	def static dispatch toTemplate(Survey it)
 	{				
+		'''
 		
-		'''«FOR i:0..questions.size-1»
-		
-		«{ var to=i+1;		
-		  while(usedList.contains(to))
-		  {
-		  	to=to+1;	
-		  }
-
-		
-		
+		«FOR i:0..questions.size-1»
+		«{ var to=goToMap.get(questions.get(i))
 		toTemplate(questions.get(i), to);
 
 		}»
-		
-		
-
-		
-		«ENDFOR»'''
+		«ENDFOR»
+		'''
 	} 
 	
 
@@ -229,7 +265,7 @@ class CodeGenerator {
 				<div class="form-group">
 					<label for="ranking_«normalize(choice.name)»" class="col-xs-9 control-label">«choice.description»</label>
 					<div class="col-xs-3">
-						<input type="number" class="form-control rating" id="ranking_«normalize(choice.name)»" maxlength="2" onkeyup="return « IF it.fork.size > 0 && it.fork.exists[f | f.on.contains(choice)] »Fork.calculate(this, 'ranking_«normalize(choice.name)»')« ELSE »Survey.rankingUpdate(this)« ENDIF »;" data-next="«FOR q:0..(it.fork.size-1) »« IF (it.fork.get(q).on.contains(choice)) »« map.get(fork.get(q).questions.get(0)) + 1 »« ENDIF »«ENDFOR»" />
+						<input type="number" class="form-control rating" id="ranking_«normalize(choice.name)»" maxlength="2" onkeyup="return « IF it.fork.size > 0 && it.fork.exists[f | f.on.contains(choice)] »Fork.calculate(this, 'ranking_«normalize(choice.name)»')« ELSE »Survey.rankingUpdate(this)« ENDIF »;" data-next="" />
 					</div>
 				</div>
 		«ENDFOR»
@@ -254,11 +290,13 @@ class CodeGenerator {
 		        // Actul inout value
 		        var value = numberField.val();
 				« FOR fork : it.fork »
+				« IF fork.questions.size > 0»
 				if (Survey.isBetween(value, « fork.min », « fork.max »)) {
-					numberField.attr(Survey.SURVEY_FORK_SEL, « toInt(fork.questions.get(0).name) »);
+					numberField.attr(Survey.SURVEY_FORK_SEL, '« fork.questions.join(",", [q | toInt(q.name)]) »');
 				}
+				« ENDIF »
 		        « ENDFOR »
-		        numberField.on('keyUp', function() {
+		        numberField.on('keyup keypress blur change', function() {
 		          return Survey.rankingUpdate(this);
 		        });
 		      }
@@ -339,11 +377,13 @@ class CodeGenerator {
 		        // Actul inout value
 		        var value = numberField.val();
 				« FOR fork : it.fork »
-				if (Survey.isBetween(value, « fork.min », « fork.max ») && numberField.attr('id') == targetid) {
-					numberField.attr(Survey.SURVEY_FORK_SEL, « toInt(fork.questions.get(0).name) »);
+				« IF fork.questions.size > 0»
+				if (Survey.isBetween(value, « fork.min », « fork.max »)) {
+					numberField.attr(Survey.SURVEY_FORK_SEL, '« fork.questions.join(",", [q | toInt(q.name)]) »');
 				}
+				« ENDIF »
 		        « ENDFOR »
-		        numberField.on('keyUp', function() {
+		        numberField.on('keyup keypress blur change', function() {
 		          return Survey.constantSumUpdate(this);
 		        });
 		      }

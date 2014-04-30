@@ -27,11 +27,6 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	protected AbstractElementAlias match_ConstantSum_ToKeyword_6_q;
 	protected AbstractElementAlias match_ConstantSum_ToKeyword_9_0_0_q;
 	protected AbstractElementAlias match_ConstantSum___TheKeyword_4_0_q_UserKeyword_4_1__q;
-	protected AbstractElementAlias match_DichotomousFork_ThenKeyword_0_q;
-	protected AbstractElementAlias match_Dichotomous_AnswerKeyword_7_q;
-	protected AbstractElementAlias match_Dichotomous_MayKeyword_5_0_q;
-	protected AbstractElementAlias match_Dichotomous_ToKeyword_6_q;
-	protected AbstractElementAlias match_Dichotomous___TheKeyword_4_0_q_UserKeyword_4_1__q;
 	protected AbstractElementAlias match_MultipleChoice_AnswerKeyword_7_q;
 	protected AbstractElementAlias match_MultipleChoice_ElseKeyword_15_3_q;
 	protected AbstractElementAlias match_MultipleChoice_FromKeyword_10_q;
@@ -93,11 +88,6 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 		match_ConstantSum_ToKeyword_6_q = new TokenAlias(false, true, grammarAccess.getConstantSumAccess().getToKeyword_6());
 		match_ConstantSum_ToKeyword_9_0_0_q = new TokenAlias(false, true, grammarAccess.getConstantSumAccess().getToKeyword_9_0_0());
 		match_ConstantSum___TheKeyword_4_0_q_UserKeyword_4_1__q = new GroupAlias(false, true, new TokenAlias(false, true, grammarAccess.getConstantSumAccess().getTheKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getConstantSumAccess().getUserKeyword_4_1()));
-		match_DichotomousFork_ThenKeyword_0_q = new TokenAlias(false, true, grammarAccess.getDichotomousForkAccess().getThenKeyword_0());
-		match_Dichotomous_AnswerKeyword_7_q = new TokenAlias(false, true, grammarAccess.getDichotomousAccess().getAnswerKeyword_7());
-		match_Dichotomous_MayKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getDichotomousAccess().getMayKeyword_5_0());
-		match_Dichotomous_ToKeyword_6_q = new TokenAlias(false, true, grammarAccess.getDichotomousAccess().getToKeyword_6());
-		match_Dichotomous___TheKeyword_4_0_q_UserKeyword_4_1__q = new GroupAlias(false, true, new TokenAlias(false, true, grammarAccess.getDichotomousAccess().getTheKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getDichotomousAccess().getUserKeyword_4_1()));
 		match_MultipleChoice_AnswerKeyword_7_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getAnswerKeyword_7());
 		match_MultipleChoice_ElseKeyword_15_3_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getElseKeyword_15_3());
 		match_MultipleChoice_FromKeyword_10_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getFromKeyword_10());
@@ -177,16 +167,6 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 				emit_ConstantSum_ToKeyword_9_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ConstantSum___TheKeyword_4_0_q_UserKeyword_4_1__q.equals(syntax))
 				emit_ConstantSum___TheKeyword_4_0_q_UserKeyword_4_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_DichotomousFork_ThenKeyword_0_q.equals(syntax))
-				emit_DichotomousFork_ThenKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Dichotomous_AnswerKeyword_7_q.equals(syntax))
-				emit_Dichotomous_AnswerKeyword_7_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Dichotomous_MayKeyword_5_0_q.equals(syntax))
-				emit_Dichotomous_MayKeyword_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Dichotomous_ToKeyword_6_q.equals(syntax))
-				emit_Dichotomous_ToKeyword_6_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Dichotomous___TheKeyword_4_0_q_UserKeyword_4_1__q.equals(syntax))
-				emit_Dichotomous___TheKeyword_4_0_q_UserKeyword_4_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_MultipleChoice_AnswerKeyword_7_q.equals(syntax))
 				emit_MultipleChoice_AnswerKeyword_7_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_MultipleChoice_ElseKeyword_15_3_q.equals(syntax))
@@ -350,46 +330,6 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	 *     ('the'? 'user')?
 	 */
 	protected void emit_ConstantSum___TheKeyword_4_0_q_UserKeyword_4_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
-	 *     'then'?
-	 */
-	protected void emit_DichotomousFork_ThenKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
-	 *     'answer'?
-	 */
-	protected void emit_Dichotomous_AnswerKeyword_7_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
-	 *     'may'?
-	 */
-	protected void emit_Dichotomous_MayKeyword_5_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
-	 *     'to'?
-	 */
-	protected void emit_Dichotomous_ToKeyword_6_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
-	 *     ('the'? 'user')?
-	 */
-	protected void emit_Dichotomous___TheKeyword_4_0_q_UserKeyword_4_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -571,7 +511,7 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	
 	/**
 	 * Syntax:
-	 *     ('some of' | 'one of')?
+	 *     ('one of' | 'some of')?
 	 */
 	protected void emit_Ranking___OneOfKeyword_9_0_or_SomeOfKeyword_9_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

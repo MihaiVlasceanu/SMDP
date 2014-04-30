@@ -45,6 +45,14 @@ import survey.SurveyPackage;
 public class CodeGenerator {
   private final static String instanceFileName = "test-files/Tes.survey";
   
+  private static HashMap<Question,Integer> map = new HashMap<Question, Integer>();
+  
+  private static HashMap<Question,Integer> goToMap = new HashMap<Question, Integer>();
+  
+  private static HashMap<Question,Integer> next = new HashMap<Question, Integer>();
+  
+  private static ArrayList<Integer> usedList = new ArrayList<Integer>();
+  
   public static void main(final String[] args) {
     try {
       SurveyPackage.eINSTANCE.eClass();
@@ -73,13 +81,17 @@ public class CodeGenerator {
           if (_notEquals) {
             final Procedure1<EList<Question>> _function = new Procedure1<EList<Question>>() {
               public void apply(final EList<Question> localQuestion) {
-                final Procedure1<Question> _function = new Procedure1<Question>() {
-                  public void apply(final Question forkQuestion) {
-                    Integer _get = CodeGenerator.map.get(forkQuestion);
-                    CodeGenerator.usedList.add(_get);
+                int _size = localQuestion.size();
+                IntegerRange _upTo = new IntegerRange(0, _size);
+                for (final Integer p : _upTo) {
+                  int _size_1 = localQuestion.size();
+                  boolean _notEquals = ((p).intValue() != _size_1);
+                  if (_notEquals) {
+                    Question _get = localQuestion.get((p).intValue());
+                    Integer _get_1 = CodeGenerator.map.get(_get);
+                    CodeGenerator.usedList.add(_get_1);
                   }
-                };
-                IterableExtensions.<Question>forEach(localQuestion, _function);
+                }
               }
             };
             IterableExtensions.<EList<Question>>forEach(localQuestions, _function);
@@ -87,6 +99,55 @@ public class CodeGenerator {
         }
       };
       IterableExtensions.<Question>forEach(questions, _function_1);
+      final Procedure1<Question> _function_2 = new Procedure1<Question>() {
+        public void apply(final Question q) {
+          List<EList<Question>> localQuestions = CodeGenerator.forkMap(q);
+          boolean _containsKey = CodeGenerator.goToMap.containsKey(q);
+          boolean _not = (!_containsKey);
+          if (_not) {
+            Integer _get = CodeGenerator.map.get(q);
+            int to = ((_get).intValue() + 1);
+            boolean _contains = CodeGenerator.usedList.contains(Integer.valueOf(to));
+            boolean _while = _contains;
+            while (_while) {
+              to = (to + 1);
+              boolean _contains_1 = CodeGenerator.usedList.contains(Integer.valueOf(to));
+              _while = _contains_1;
+            }
+            CodeGenerator.goToMap.put(q, Integer.valueOf(to));
+          }
+          boolean _notEquals = (!Objects.equal(localQuestions, null));
+          if (_notEquals) {
+            final Procedure1<EList<Question>> _function = new Procedure1<EList<Question>>() {
+              public void apply(final EList<Question> localQuestion) {
+                int _size = localQuestion.size();
+                IntegerRange _upTo = new IntegerRange(0, _size);
+                for (final Integer p : _upTo) {
+                  int _size_1 = localQuestion.size();
+                  boolean _notEquals = ((p).intValue() != _size_1);
+                  if (_notEquals) {
+                    int _size_2 = localQuestion.size();
+                    int _minus = (_size_2 - 1);
+                    boolean _notEquals_1 = ((p).intValue() != _minus);
+                    if (_notEquals_1) {
+                      Question _get = localQuestion.get((p).intValue());
+                      Question _get_1 = localQuestion.get(((p).intValue() + 1));
+                      Integer _get_2 = CodeGenerator.map.get(_get_1);
+                      CodeGenerator.goToMap.put(_get, _get_2);
+                    } else {
+                      Question _get_3 = localQuestion.get((p).intValue());
+                      Integer _get_4 = CodeGenerator.goToMap.get(q);
+                      CodeGenerator.goToMap.put(_get_3, _get_4);
+                    }
+                  }
+                }
+              }
+            };
+            IterableExtensions.<EList<Question>>forEach(localQuestions, _function);
+          }
+        }
+      };
+      IterableExtensions.<Question>forEach(questions, _function_2);
       HashMap<Question,Integer> goToMap2 = CodeGenerator.goToMap;
       EList<Survey> _surveys_1 = m.getSurveys();
       Survey _get_2 = _surveys_1.get(0);
@@ -111,12 +172,6 @@ public class CodeGenerator {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
-  private static HashMap<Question,Integer> map = new HashMap<Question, Integer>();
-  
-  private static HashMap<Question,Integer> goToMap = new HashMap<Question, Integer>();
-  
-  private static ArrayList<Integer> usedList = new ArrayList<Integer>();
   
   protected static List<EList<Question>> _forkMap(final Open it) {
     return null;
@@ -184,34 +239,24 @@ public class CodeGenerator {
   
   protected static CharSequence _toTemplate(final Survey it) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.newLine();
     {
       EList<Question> _questions = it.getQuestions();
       int _size = _questions.size();
       int _minus = (_size - 1);
       IntegerRange _upTo = new IntegerRange(0, _minus);
       for(final Integer i : _upTo) {
-        _builder.newLineIfNotEmpty();
-        _builder.newLine();
         CharSequence _xblockexpression = null;
         {
-          int to = ((i).intValue() + 1);
-          boolean _contains = CodeGenerator.usedList.contains(Integer.valueOf(to));
-          boolean _while = _contains;
-          while (_while) {
-            to = (to + 1);
-            boolean _contains_1 = CodeGenerator.usedList.contains(Integer.valueOf(to));
-            _while = _contains_1;
-          }
           EList<Question> _questions_1 = it.getQuestions();
           Question _get = _questions_1.get((i).intValue());
-          _xblockexpression = CodeGenerator.toTemplate(_get, to);
+          Integer to = CodeGenerator.goToMap.get(_get);
+          EList<Question> _questions_2 = it.getQuestions();
+          Question _get_1 = _questions_2.get((i).intValue());
+          _xblockexpression = CodeGenerator.toTemplate(_get_1, (to).intValue());
         }
         _builder.append(_xblockexpression, "");
         _builder.newLineIfNotEmpty();
-        _builder.newLine();
-        _builder.newLine();
-        _builder.newLine();
-        _builder.newLine();
       }
     }
     return _builder;
@@ -521,31 +566,7 @@ public class CodeGenerator {
             _builder.append("Survey.rankingUpdate(this)");
           }
         }
-        _builder.append(";\" data-next=\"");
-        {
-          EList<RankingSumFork> _fork_2 = it.getFork();
-          int _size_1 = _fork_2.size();
-          int _minus = (_size_1 - 1);
-          IntegerRange _upTo = new IntegerRange(0, _minus);
-          for(final Integer q : _upTo) {
-            {
-              EList<RankingSumFork> _fork_3 = it.getFork();
-              RankingSumFork _get = _fork_3.get((q).intValue());
-              EList<Choice> _on = _get.getOn();
-              boolean _contains = _on.contains(choice);
-              if (_contains) {
-                EList<RankingSumFork> _fork_4 = it.getFork();
-                RankingSumFork _get_1 = _fork_4.get((q).intValue());
-                EList<Question> _questions = _get_1.getQuestions();
-                Question _get_2 = _questions.get(0);
-                Integer _get_3 = CodeGenerator.map.get(_get_2);
-                int _plus = ((_get_3).intValue() + 1);
-                _builder.append(_plus, "\t\t");
-              }
-            }
-          }
-        }
-        _builder.append("\" />");
+        _builder.append(";\" data-next=\"\" />");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("</div>");
@@ -583,9 +604,9 @@ public class CodeGenerator {
     _builder.newLine();
     _builder.newLine();
     {
-      EList<RankingSumFork> _fork_5 = it.getFork();
-      int _size_2 = _fork_5.size();
-      boolean _greaterThan_1 = (_size_2 > 0);
+      EList<RankingSumFork> _fork_2 = it.getFork();
+      int _size_1 = _fork_2.size();
+      boolean _greaterThan_1 = (_size_1 > 0);
       if (_greaterThan_1) {
         _builder.append("<script type=\"text/javascript\">");
         _builder.newLine();
@@ -622,34 +643,45 @@ public class CodeGenerator {
         _builder.append("var value = numberField.val();");
         _builder.newLine();
         {
-          EList<RankingSumFork> _fork_6 = it.getFork();
-          for(final RankingSumFork fork : _fork_6) {
-            _builder.append("\t\t");
-            _builder.append("if (Survey.isBetween(value, ");
-            int _min = fork.getMin();
-            _builder.append(_min, "\t\t");
-            _builder.append(", ");
-            int _max = fork.getMax();
-            _builder.append(_max, "\t\t");
-            _builder.append(")) {");
-            _builder.newLineIfNotEmpty();
-            _builder.append("\t\t");
-            _builder.append("\t");
-            _builder.append("numberField.attr(Survey.SURVEY_FORK_SEL, ");
-            EList<Question> _questions_1 = fork.getQuestions();
-            Question _get_4 = _questions_1.get(0);
-            String _name_5 = _get_4.getName();
-            String _int = CodeGenerator.toInt(_name_5);
-            _builder.append(_int, "\t\t\t");
-            _builder.append(");");
-            _builder.newLineIfNotEmpty();
-            _builder.append("\t\t");
-            _builder.append("}");
-            _builder.newLine();
+          EList<RankingSumFork> _fork_3 = it.getFork();
+          for(final RankingSumFork fork : _fork_3) {
+            {
+              EList<Question> _questions = fork.getQuestions();
+              int _size_2 = _questions.size();
+              boolean _greaterThan_2 = (_size_2 > 0);
+              if (_greaterThan_2) {
+                _builder.append("\t\t");
+                _builder.append("if (Survey.isBetween(value, ");
+                int _min = fork.getMin();
+                _builder.append(_min, "\t\t");
+                _builder.append(", ");
+                int _max = fork.getMax();
+                _builder.append(_max, "\t\t");
+                _builder.append(")) {");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
+                _builder.append("\t");
+                _builder.append("numberField.attr(Survey.SURVEY_FORK_SEL, \'");
+                EList<Question> _questions_1 = fork.getQuestions();
+                final Function1<Question,String> _function_1 = new Function1<Question,String>() {
+                  public String apply(final Question q) {
+                    String _name = q.getName();
+                    return CodeGenerator.toInt(_name);
+                  }
+                };
+                String _join = IterableExtensions.<Question>join(_questions_1, ",", _function_1);
+                _builder.append(_join, "\t\t\t");
+                _builder.append("\');");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
+                _builder.append("}");
+                _builder.newLine();
+              }
+            }
           }
         }
         _builder.append("        ");
-        _builder.append("numberField.on(\'keyUp\', function() {");
+        _builder.append("numberField.on(\'keyup keypress blur change\', function() {");
         _builder.newLine();
         _builder.append("          ");
         _builder.append("return Survey.rankingUpdate(this);");
@@ -1000,32 +1032,43 @@ public class CodeGenerator {
         {
           EList<RankingSumFork> _fork_3 = it.getFork();
           for(final RankingSumFork fork : _fork_3) {
-            _builder.append("\t\t");
-            _builder.append("if (Survey.isBetween(value, ");
-            int _min = fork.getMin();
-            _builder.append(_min, "\t\t");
-            _builder.append(", ");
-            int _max = fork.getMax();
-            _builder.append(_max, "\t\t");
-            _builder.append(") && numberField.attr(\'id\') == targetid) {");
-            _builder.newLineIfNotEmpty();
-            _builder.append("\t\t");
-            _builder.append("\t");
-            _builder.append("numberField.attr(Survey.SURVEY_FORK_SEL, ");
-            EList<Question> _questions = fork.getQuestions();
-            Question _get = _questions.get(0);
-            String _name_5 = _get.getName();
-            String _int = CodeGenerator.toInt(_name_5);
-            _builder.append(_int, "\t\t\t");
-            _builder.append(");");
-            _builder.newLineIfNotEmpty();
-            _builder.append("\t\t");
-            _builder.append("}");
-            _builder.newLine();
+            {
+              EList<Question> _questions = fork.getQuestions();
+              int _size_2 = _questions.size();
+              boolean _greaterThan_2 = (_size_2 > 0);
+              if (_greaterThan_2) {
+                _builder.append("\t\t");
+                _builder.append("if (Survey.isBetween(value, ");
+                int _min = fork.getMin();
+                _builder.append(_min, "\t\t");
+                _builder.append(", ");
+                int _max = fork.getMax();
+                _builder.append(_max, "\t\t");
+                _builder.append(")) {");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
+                _builder.append("\t");
+                _builder.append("numberField.attr(Survey.SURVEY_FORK_SEL, \'");
+                EList<Question> _questions_1 = fork.getQuestions();
+                final Function1<Question,String> _function_1 = new Function1<Question,String>() {
+                  public String apply(final Question q) {
+                    String _name = q.getName();
+                    return CodeGenerator.toInt(_name);
+                  }
+                };
+                String _join = IterableExtensions.<Question>join(_questions_1, ",", _function_1);
+                _builder.append(_join, "\t\t\t");
+                _builder.append("\');");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
+                _builder.append("}");
+                _builder.newLine();
+              }
+            }
           }
         }
         _builder.append("        ");
-        _builder.append("numberField.on(\'keyUp\', function() {");
+        _builder.append("numberField.on(\'keyup keypress blur change\', function() {");
         _builder.newLine();
         _builder.append("          ");
         _builder.append("return Survey.constantSumUpdate(this);");
