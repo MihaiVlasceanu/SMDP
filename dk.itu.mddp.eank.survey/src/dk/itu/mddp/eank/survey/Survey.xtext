@@ -93,18 +93,18 @@ Choice returns Choice:
 
 ChoiceFork returns ChoiceFork:
 		'if' On+=[Choice|EString] ( "," On+=[Choice|EString])*
-		'then'? 'go' 'to'  Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;
+		'then'? 'go' 'to'  Questions+=[Question|EString] (Questions+=[Question|EString])*;
 
 EInt returns ecore::EInt:
 	'-'? INT;
 
 RatingFork returns RatingFork:
 		'if' 'it'? 'is'? 'between' Min=EInt 'and' Max=EInt
-		'then'? 'go''to' Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;
+		'then'? 'go''to' Questions+=[Question|EString] (Questions+=[Question|EString])*;
 
 RankingSumFork returns RankingSumFork:
 
 		'if' On+=[Choice|EString] ( "," On+=[Choice|EString])* 
 		'is' 'between'? Min=EInt 'and' Max=EInt 
-		'then'? 'go''to' Questions+=[Question|EString] ( "," Questions+=[Question|EString])*;
+		'then'? 'go''to' Questions+=[Question|EString] (Questions+=[Question|EString])*;
 
