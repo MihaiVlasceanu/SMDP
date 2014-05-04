@@ -30,9 +30,9 @@ MultipleChoice returns MultipleChoice:
 		('may' | (isRequired ?= 'is' 'required'))? 
 		'to'? 'answer'? question=EString
 		('picking' 'up to'? answerCount = EInt )?
-		'from'? ('one' | 'some')? 'of'? 'these'? choice+=Choice ( "," choice+=Choice)* 
+		'from'? 'these'? choice+=Choice ( "," choice+=Choice)* 
 		('or' 'with'?'something'?'else'? other=EString)?
-		(Fork+=ChoiceFork ( "," Fork+=ChoiceFork)*)?;
+		(Fork+=ChoiceFork (Fork+=ChoiceFork)*)?;
 
 Open returns Open:
 	{Open}
@@ -50,9 +50,9 @@ Rating_Impl returns Rating:
 		'to'? ('rate' | 'answer')? question=EString
 		'between'? Min=EInt
 		'and'? Max=EInt
-		'where'? 'lowest' 'means'? first=EString
-		'and'? 'highest' 'means'? last=EString
-		(Fork+=RatingFork (  Fork+=RatingFork)*)?;
+		'where'? 'lowest'? 'means'? first=EString
+		'and'? 'highest'? 'means'? last=EString
+		(Fork+=RatingFork (Fork+=RatingFork)*)?;
 
 Ranking returns Ranking:
 	
@@ -61,7 +61,7 @@ Ranking returns Ranking:
 		('may' | (isRequired ?= 'is' 'required'))? 
 		'to'? ('rank' | 'answer')? question=EString
 		'from'? ('one of' | 'some of')? 'these'? choices+=Choice ( "," choices+=Choice)*
-		(Fork+=RankingSumFork ( Fork+=RankingSumFork)*)?;
+		(Fork+=RankingSumFork (Fork+=RankingSumFork)*)?;
 
 ConstantSum returns ConstantSum:
 	{ConstantSum}
@@ -70,8 +70,8 @@ ConstantSum returns ConstantSum:
 		('may' | (isRequired ?= 'is' 'required'))? 
 		'to'? ('distribute' | 'answer') question=EString
 		(('to'? 'a'? 'total' 'of'?) Constant = EInt)?
-		'among' 'these' Choices+=Choice ( "," Choices+=Choice)*
-		(Fork+=RankingSumFork (  Fork+=RankingSumFork)*)?;
+		'amongst' 'these' Choices+=Choice ( "," Choices+=Choice)*
+		(Fork+=RankingSumFork (Fork+=RankingSumFork)*)?;
 
 Staple returns Staple:
 	{Staple}
@@ -81,10 +81,10 @@ Staple returns Staple:
 		'to'? ('rate' | 'answer') question=EString
 		'between'? Min=EInt
 		'and'? Max=EInt
-		'where'? 'lowest' 'means'? first=EString','?
-		'mid' 'means'? mid=EString
-		'and'? 'highest' 'means'? last=EString
-		(Fork+=RatingFork ( "," Fork+=RatingFork)*)?;
+		'where'? 'lowest'? 'means'? first=EString','?
+		'mid'? 'means'? mid=EString
+		'and'? 'highest'? 'means'? last=EString
+		(Fork+=RatingFork (Fork+=RatingFork)*)?;
 
 Choice returns Choice:
 	name = ID ':'
