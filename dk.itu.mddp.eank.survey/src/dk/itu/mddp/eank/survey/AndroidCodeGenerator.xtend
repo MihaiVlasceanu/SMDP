@@ -8,18 +8,13 @@ import org.eclipse.xtext.resource.XtextResource
 import org.xtext.example.mydsl.MyDslStandaloneSetupGenerated
 import survey.Survey
 import survey.Open
-import survey.Dichotomous
 import survey.MultipleChoice
 import survey.Ranking
 import survey.Rating
 import survey.Staple
 import survey.Choice
 import survey.ConstantSum
-import org.eclipse.xtext.generator.IGenerator
-import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IFileSystemAccess
 import survey.Question
-import java.util.List
 import org.eclipse.emf.common.util.EList
 
 class AndroidCodeGenerator{
@@ -42,7 +37,11 @@ class AndroidCodeGenerator{
 		val questions = m.surveys.get(0).questions
 		questions.forEach[changeChoices]
 		println(toTemplate(m.surveys.get(0)).toString())
-
+		
+			if(Constraints.Constraint(m.surveys.get(0)))
+			println("All constraints passed!")
+		else
+			println("Constraints Failed")
 
 		//		if(Constraints.Constraint(m.surveys.get(0)))
 		//			println("All constraints passed!")w
@@ -112,7 +111,6 @@ package com.smdp.surveytoandroid;
 import java.util.ArrayList;
 
 import com.smdp.surveytoandroid.questionstructure.Choice;
-import com.smdp.surveytoandroid.questionstructure.DichotomousQuestion;
 import com.smdp.surveytoandroid.questionstructure.Fork;
 import com.smdp.surveytoandroid.questionstructure.MultipleChoiceQuestion;
 import com.smdp.surveytoandroid.questionstructure.OpenQuestion;
@@ -137,7 +135,7 @@ public class CodeGenData {
 }	
 		'''
 	}
-
+	//open question template
 	def static dispatch toTemplate(Open it) {
 				'''
 				OpenQuestion «it.name» = new OpenQuestion ("«it.name»","«it.question»",«it.isRequired»);
@@ -146,16 +144,10 @@ public class CodeGenData {
 				'''
 	}
 
-	def static dispatch toTemplate(Dichotomous it) {
-				'''DichotomousQuestion «it.name» = new DichotomousQuestion ("«it.name»","«it.question»",«it.isRequired»);
-questions.add(«it.name»);				
-				
-				'''
-	}
-		//multiple choice fork template	
-		def static dispatch toTemplate(String forkname, String forkarrayname,  EList<Question> questions, String choicename, String questionname) {
+	//multiple choice fork template	
+	def static dispatch toTemplate(String forkname, String forkarrayname,  EList<Question> questions, String choicename, String questionname) {
 			'''
-			Fork «forkname» = new Fork ();
+			Fork «forkname» = new Fork();
 			ArrayList<Questionable> «forkarrayname» = new ArrayList<Questionable>();
 			«FOR q : questions»«forkarrayname».add(«q.name»); «ENDFOR»
 			«forkname».bindingChoiceQuest.put("«choicename»",«forkarrayname»);
@@ -164,10 +156,10 @@ questions.add(«it.name»);
 			'''
 	}
 	
-			//rank + sum const fork template
-			def static dispatch toTemplate(String forkname, String forkarrayname,  EList<Question> questions, String choicename,String questionname, int min, int max) {
+	//rank + sum constant fork template
+	def static dispatch toTemplate(String forkname, String forkarrayname,  EList<Question> questions, String choicename,String questionname, int min, int max) {
 			'''
-			Fork «forkname» = new Fork («min», «max»);
+			Fork «forkname» = new Fork(«min», «max»);
 			ArrayList<Questionable> «forkarrayname» = new ArrayList<Questionable>();
 			«FOR q : questions»«forkarrayname».add(«q.name»); «ENDFOR»
 			«forkname».bindingChoiceQuest.put("«choicename»",«forkarrayname»);
@@ -176,8 +168,8 @@ questions.add(«it.name»);
 			'''
 	}
 	
-			//rate + staple fork template
-			def static dispatch toTemplate(String forkname, String forkarrayname, EList<Question> questions,String questionname, int min, int max) {
+	//rate + staple fork template
+	def static dispatch toTemplate(String forkname, String forkarrayname, EList<Question> questions,String questionname, int min, int max) {
 			'''
 			Fork «forkname» = new Fork («min», «max»);
 			ArrayList<Questionable> «forkarrayname» = new ArrayList<Questionable>();
@@ -189,49 +181,49 @@ questions.add(«it.name»);
 	}
 	
 	
-
+	//multiple choice template
 	def static dispatch toTemplate(MultipleChoice it) {
 			//name for the choice array
 			var arrName = "arrMulti" + it.name
 			//name for the specific fork
-			var forkName = "fork" + it.name
-			//name for fork array
-			var forkArrName =  "forkArr" + it.name
-			
+			var forkName = it.name.toLowerCase + "ForkId"
+			//name for fork array 
+			var forkArrName = it.name.toLowerCase + "ForkArrId"
 			'''
 			ArrayList<Choice> «arrName» = new ArrayList<Choice>();
 			«FOR c : it.choice»«toTemplate(c, arrName)»«ENDFOR»MultipleChoiceQuestion «it.name» = new MultipleChoiceQuestion ("«it.name»","«it.question»",«it.isRequired», "«it.other»", «arrName» );		
 			
-			«FOR p:0..it.choice.size-1»		
-			 «FOR q:0..(it.fork.size-1)» 
-			 «IF (it.fork.get(q).on.contains(it.choice.get(p)))»«toTemplate(forkName,forkArrName,it.fork.get(q).questions,it.choice.get(p).name, it.name)» « ENDIF »«ENDFOR»
+			«FOR p : choice»
+			 «FOR q : fork»		 				
+			 «IF (q.on.contains(p))»
+			 «toTemplate(forkName,forkArrName,q.questions,p.name, it.name)» 
+			 « ENDIF »«ENDFOR»
 			«ENDFOR»
 			questions.add(«it.name»);	
 			
 			'''
 	}
-
-		def static dispatch toTemplate(Choice it, String arrname) {
+	//choice template	
+	def static dispatch toTemplate(Choice it, String arrname) {
 			
 			'''
 			«arrname».add(new Choice ("«it.name»","«it.description»")); 
 			'''
 	}
-	
+	//ranking question template
 	def static dispatch toTemplate(Ranking it) {
 			//name for the choice array
 			var arrName = "arrRank" + it.name
-			//name for the specific fork
-			var forkName = "fork" + it.name
+			//name for the specific fork 
+			var forkName = it.name.toLowerCase + "ForkId"
 			//name for fork array
-			var forkArrName =  "forkArr" + it.name
+			var forkArrName = it.name.toLowerCase + "ForkArrId"
 			'''
 			ArrayList<Choice> «arrName» = new ArrayList<Choice>();
 			«FOR c : it.choices» «toTemplate(c, arrName)»«ENDFOR»RankingQuestion «it.name» = new RankingQuestion ("«it.name»","«it.question»",«it.isRequired», «arrName»);
 			
 			«FOR p : choices»
 			 «FOR q : fork»				
-«««			 «FOR q:0..(it.fork.size-1)» 
 			 «IF (q.on.contains(p))»
 			 «toTemplate(forkName,forkArrName,q.questions,p.name, it.name, q.min, q.max)» 
 			 « ENDIF »«ENDFOR»
@@ -240,51 +232,55 @@ questions.add(«it.name»);
 			
 			'''
 	}
-		def static dispatch toTemplate(ConstantSum it) {
+	//cosntantSum question template
+	def static dispatch toTemplate(ConstantSum it) {
 			//name for the choice array
-			var arrName = "arrRank" + it.name
-			//name for the specific fork
-			var forkName = "fork" + it.name
+			var arrName = "arrConstSum" + it.name
+			//name for the specific fork 
+			var forkName = it.name.toLowerCase + "ForkId"
 			//name for fork array
-			var forkArrName =  "forkArr" + it.name
+			var forkArrName = it.name.toLowerCase + "ForkArrId"
 			'''
 			ArrayList<Choice> «arrName» = new ArrayList<Choice>();
-			«FOR c : it.choices» «toTemplate(c, arrName)»«ENDFOR»SumConstantQuestion «it.name» = new SumConstantQuestion ("«it.name»","«it.question»",«it.isRequired», «it.constant»,«arrName» );
+			«FOR c : it.choices» «toTemplate(c, arrName)»«ENDFOR»ConstantSumQuestion «it.name» = new ConstantSumQuestion ("«it.name»","«it.question»",«it.isRequired», «it.constant»,«arrName» );
 			 
-«««			 «FOR p:0..it.choices.size-1»
-			 «FOR p : choices»
+			«FOR p : choices»
 			 «FOR q : fork»				
-«««			 «FOR q:0..(it.fork.size-1)» 
-			 «IF (q.on.contains(p))»«toTemplate(forkName,forkArrName,q.questions,p.name, it.name, q.min, q.max)» « ENDIF »«ENDFOR»
+			 «IF (q.on.contains(p))»«toTemplate(forkName,forkArrName,q.questions,p.name, it.name, q.min, q.max)»
+			 « ENDIF »«ENDFOR»
 			«ENDFOR»
 			questions.add(«it.name»);			
 
 			'''
 	}
-
+	//rating question template
 	def static dispatch toTemplate(Rating it) {
-				//name for the specific fork
-				var forkName = "fork" + it.name
-				//name for fork array
-				var forkArrName =  "forkArr" + it.name
+			//name for the specific fork 
+			var forkName = it.name.toLowerCase + "ForkId"
+			//name for fork array
+			var forkArrName = it.name.toLowerCase + "ForkArrId"
 				'''
 				RatingQuestion «it.name» = new RatingQuestion ("«it.name»","«it.question» ",«it.isRequired», «it.min», «it.max», "«it.first»"," «it.last»");
-				«FOR q:0..(it.fork.size-1)» 
-			 	«IF it.fork.size >0»«toTemplate(forkName,forkArrName,it.fork.get(q).questions, it.name,it.fork.get(q).min, it.fork.get(q).max)» « ENDIF »«ENDFOR»
+				
+				«FOR q : fork»	
+				 «IF (it.fork.size >0)»«toTemplate(forkName,forkArrName,q.questions, it.name, q.min, q.max)»
+				 « ENDIF »«ENDFOR»
 				questions.add(«it.name»);				
 
 				'''
 	}
-
+	//staple question template
 	def static dispatch toTemplate(Staple it) {
-					//name for the specific fork
-					var forkName = "fork" + it.name
-					//name for fork array
-					var forkArrName =  "forkArr" + it.name
+			//name for the specific fork 
+			var forkName = it.name.toLowerCase + "ForkId"
+			//name for fork array
+			var forkArrName = it.name.toLowerCase + "ForkArrId"
 					'''
 					Staple «it.name» = new Staple ("«it.name»","«it.question»",«it.isRequired»,«it.min»,«it.max»,"«it.first»", "«it.last»", "«it.mid»");
-					«FOR q:0..(it.fork.size-1)» 
-			 		«IF it.fork.size >0»«toTemplate(forkName,forkArrName,it.fork.get(q).questions, it.name,it.fork.get(q).min, it.fork.get(q).max)» « ENDIF »«ENDFOR»
+					
+					«FOR q : fork»	
+					 «IF (it.fork.size >0)»«toTemplate(forkName,forkArrName,q.questions, it.name, q.min, q.max)»
+				 	 « ENDIF »«ENDFOR»
 					questions.add(«it.name»);
 				
 					'''
