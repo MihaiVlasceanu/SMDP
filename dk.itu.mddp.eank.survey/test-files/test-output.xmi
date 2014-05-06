@@ -3,15 +3,16 @@ Rating Q4414:
  	the user is required to rate "THIS"
  	between 1 and 5
  	lowest "Hi" highest "Yo"
- 	if it is between 1 and 3 then go to Q1
- 	if it is between 2 and 3 then go to Q2
+ 	if it is between 1 and 3 then Q1
+ 	if it is between 2 and 3 then Q2
+ 	
 	ConstantSum Q1:
 		the user
 		is required
 		to distribute "Divide your daily activities in hours"
 		to a total of 24
-		amongst these A1: "Learning", B1 : "Cooking", C1 : "Training", D1 : "Gaming"
-		if C1 is between 2 and 4 then go to Q3
+		these A1: "Learning", B1 : "Cooking", C1 : "Training", D1 : "Gaming"
+		if C1 is between 2 and 4 then Q3
 	MultipleChoice Q2:
 		the user
 		is required
@@ -20,8 +21,8 @@ Rating Q4414:
 	Ranking Q3 :
 		the user 
 		may rank "Rank your favorite subjects"
-		from these A3 : "MDDP", B3 : "Database Tuning", C3 : "Discrete Mathematics"
-		if C3 is between 1 and 2 then go to Q4
+		these A3 : "MDDP", B3 : "Database Tuning", C3 : "Discrete Mathematics"
+		if C3 is between 1 and 2 then Q4
 	Open Q4: 
 		"What are your thoughts about model driven development?"
 	Open Q8: 
@@ -31,7 +32,7 @@ Rating Q4414:
 		is required
 		to answer "At what level of education?"
 		picking 1 these A : "Bachelor", B : "Master's", C : "PHD"
-		if B then go to Q7		
+		if B then  Q7		
 	Staple Q7: 
 		rate "Have you been following the lectures"
-		between -5 and 5 where lowest means "I've been asleep the entire time", mid means "I've been present" and highest means "I am always a 100% focused"
+		where lowest means "I've been asleep the entire time", middle means "I've been present" and  highest means "I am always a 100% focused"

@@ -366,109 +366,101 @@ ruleMultipleChoice returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_12='picking' 
+)((	otherlv_12='by' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getMultipleChoiceAccess().getPickingKeyword_9_0());
+    	newLeafNode(otherlv_12, grammarAccess.getMultipleChoiceAccess().getByKeyword_9_0());
     }
-(	otherlv_13='up to' 
+)?	otherlv_13='picking' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getMultipleChoiceAccess().getUpToKeyword_9_1());
+    	newLeafNode(otherlv_13, grammarAccess.getMultipleChoiceAccess().getPickingKeyword_9_1());
+    }
+(	otherlv_14='up to' 
+    {
+    	newLeafNode(otherlv_14, grammarAccess.getMultipleChoiceAccess().getUpToKeyword_9_2());
     }
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getAnswerCountEIntParserRuleCall_9_2_0()); 
+	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getAnswerCountEIntParserRuleCall_9_3_0()); 
 	    }
-		lv_answerCount_14_0=ruleEInt		{
+		lv_answerCount_15_0=ruleEInt		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMultipleChoiceRule());
 	        }
        		set(
        			$current, 
        			"answerCount",
-        		lv_answerCount_14_0, 
+        		lv_answerCount_15_0, 
         		"EInt");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?(	otherlv_15='from' 
+))?(	otherlv_16='of' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getMultipleChoiceAccess().getFromKeyword_10());
+    	newLeafNode(otherlv_16, grammarAccess.getMultipleChoiceAccess().getOfKeyword_10());
     }
-)?(	otherlv_16='these' 
+)?(	otherlv_17='these' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getMultipleChoiceAccess().getTheseKeyword_11());
+    	newLeafNode(otherlv_17, grammarAccess.getMultipleChoiceAccess().getTheseKeyword_11());
     }
 )?(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getChoiceChoiceParserRuleCall_12_0()); 
 	    }
-		lv_choice_17_0=ruleChoice		{
+		lv_choice_18_0=ruleChoice		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMultipleChoiceRule());
 	        }
        		add(
        			$current, 
        			"choice",
-        		lv_choice_17_0, 
+        		lv_choice_18_0, 
         		"Choice");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_18=',' 
+)(	otherlv_19=',' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getMultipleChoiceAccess().getCommaKeyword_13_0());
+    	newLeafNode(otherlv_19, grammarAccess.getMultipleChoiceAccess().getCommaKeyword_13_0());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getChoiceChoiceParserRuleCall_13_1_0()); 
 	    }
-		lv_choice_19_0=ruleChoice		{
+		lv_choice_20_0=ruleChoice		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMultipleChoiceRule());
 	        }
        		add(
        			$current, 
        			"choice",
-        		lv_choice_19_0, 
+        		lv_choice_20_0, 
         		"Choice");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*(	otherlv_20='or' 
+))*(	otherlv_21='or' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getMultipleChoiceAccess().getOrKeyword_14_0());
+    	newLeafNode(otherlv_21, grammarAccess.getMultipleChoiceAccess().getOrKeyword_14_0());
     }
-(	otherlv_21='with' 
-    {
-    	newLeafNode(otherlv_21, grammarAccess.getMultipleChoiceAccess().getWithKeyword_14_1());
-    }
-)?(	otherlv_22='something' 
-    {
-    	newLeafNode(otherlv_22, grammarAccess.getMultipleChoiceAccess().getSomethingKeyword_14_2());
-    }
-)?(	otherlv_23='else' 
-    {
-    	newLeafNode(otherlv_23, grammarAccess.getMultipleChoiceAccess().getElseKeyword_14_3());
-    }
-)?(
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getOtherEStringParserRuleCall_14_4_0()); 
+	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getOtherEStringParserRuleCall_14_1_0()); 
 	    }
-		lv_other_24_0=ruleEString		{
+		lv_other_22_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMultipleChoiceRule());
 	        }
        		set(
        			$current, 
        			"other",
-        		lv_other_24_0, 
+        		lv_other_22_0, 
         		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -479,14 +471,14 @@ ruleMultipleChoice returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getForksChoiceForkParserRuleCall_15_0_0()); 
 	    }
-		lv_forks_25_0=ruleChoiceFork		{
+		lv_forks_23_0=ruleChoiceFork		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMultipleChoiceRule());
 	        }
        		add(
        			$current, 
        			"forks",
-        		lv_forks_25_0, 
+        		lv_forks_23_0, 
         		"ChoiceFork");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -497,14 +489,14 @@ ruleMultipleChoice returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getForksChoiceForkParserRuleCall_15_1_0()); 
 	    }
-		lv_forks_26_0=ruleChoiceFork		{
+		lv_forks_24_0=ruleChoiceFork		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMultipleChoiceRule());
 	        }
        		add(
        			$current, 
        			"forks",
-        		lv_forks_26_0, 
+        		lv_forks_24_0, 
         		"ChoiceFork");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -687,11 +679,22 @@ ruleRating_Impl returns [EObject current=null]
     	newLeafNode(otherlv_6, grammarAccess.getRating_ImplAccess().getMayKeyword_5_0());
     }
 
-    |(	otherlv_7='is' 
+    |((
+(
+		lv_isRequired_7_0=	'is' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getRating_ImplAccess().getIsKeyword_5_1_0());
+        newLeafNode(lv_isRequired_7_0, grammarAccess.getRating_ImplAccess().getIsRequiredIsKeyword_5_1_0_0());
     }
-	otherlv_8='required' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRating_ImplRule());
+	        }
+       		setWithLastConsumed($current, "isRequired", true, "is");
+	    }
+
+)
+)	otherlv_8='required' 
     {
     	newLeafNode(otherlv_8, grammarAccess.getRating_ImplAccess().getRequiredKeyword_5_1_1());
     }
@@ -976,58 +979,45 @@ ruleRanking returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_12='from' 
+)(	otherlv_12='these' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getRankingAccess().getFromKeyword_8());
-    }
-)?(	otherlv_13='one of' 
-    {
-    	newLeafNode(otherlv_13, grammarAccess.getRankingAccess().getOneOfKeyword_9_0());
-    }
-
-    |	otherlv_14='some of' 
-    {
-    	newLeafNode(otherlv_14, grammarAccess.getRankingAccess().getSomeOfKeyword_9_1());
-    }
-)?(	otherlv_15='these' 
-    {
-    	newLeafNode(otherlv_15, grammarAccess.getRankingAccess().getTheseKeyword_10());
+    	newLeafNode(otherlv_12, grammarAccess.getRankingAccess().getTheseKeyword_8());
     }
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRankingAccess().getChoicesChoiceParserRuleCall_11_0()); 
+	        newCompositeNode(grammarAccess.getRankingAccess().getChoicesChoiceParserRuleCall_9_0()); 
 	    }
-		lv_choices_16_0=ruleChoice		{
+		lv_choices_13_0=ruleChoice		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRankingRule());
 	        }
        		add(
        			$current, 
        			"choices",
-        		lv_choices_16_0, 
+        		lv_choices_13_0, 
         		"Choice");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_17=',' 
+)(	otherlv_14=',' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getRankingAccess().getCommaKeyword_12_0());
+    	newLeafNode(otherlv_14, grammarAccess.getRankingAccess().getCommaKeyword_10_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRankingAccess().getChoicesChoiceParserRuleCall_12_1_0()); 
+	        newCompositeNode(grammarAccess.getRankingAccess().getChoicesChoiceParserRuleCall_10_1_0()); 
 	    }
-		lv_choices_18_0=ruleChoice		{
+		lv_choices_15_0=ruleChoice		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRankingRule());
 	        }
        		add(
        			$current, 
        			"choices",
-        		lv_choices_18_0, 
+        		lv_choices_15_0, 
         		"Choice");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1036,16 +1026,16 @@ ruleRanking returns [EObject current=null]
 ))*((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRankingAccess().getForksRankingSumForkParserRuleCall_13_0_0()); 
+	        newCompositeNode(grammarAccess.getRankingAccess().getForksRankingSumForkParserRuleCall_11_0_0()); 
 	    }
-		lv_forks_19_0=ruleRankingSumFork		{
+		lv_forks_16_0=ruleRankingSumFork		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRankingRule());
 	        }
        		add(
        			$current, 
        			"forks",
-        		lv_forks_19_0, 
+        		lv_forks_16_0, 
         		"RankingSumFork");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1054,16 +1044,16 @@ ruleRanking returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRankingAccess().getForksRankingSumForkParserRuleCall_13_1_0()); 
+	        newCompositeNode(grammarAccess.getRankingAccess().getForksRankingSumForkParserRuleCall_11_1_0()); 
 	    }
-		lv_forks_20_0=ruleRankingSumFork		{
+		lv_forks_17_0=ruleRankingSumFork		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRankingRule());
 	        }
        		add(
        			$current, 
        			"forks",
-        		lv_forks_20_0, 
+        		lv_forks_17_0, 
         		"RankingSumFork");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1167,7 +1157,7 @@ ruleConstantSum returns [EObject current=null]
     {
     	newLeafNode(otherlv_11, grammarAccess.getConstantSumAccess().getAnswerKeyword_7_1());
     }
-)(
+)?(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getConstantSumAccess().getQuestionEStringParserRuleCall_8_0()); 
@@ -1219,49 +1209,45 @@ ruleConstantSum returns [EObject current=null]
 	    }
 
 )
-))?	otherlv_18='amongst' 
+))?(	otherlv_18='these' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getConstantSumAccess().getAmongstKeyword_10());
+    	newLeafNode(otherlv_18, grammarAccess.getConstantSumAccess().getTheseKeyword_10());
     }
-	otherlv_19='these' 
-    {
-    	newLeafNode(otherlv_19, grammarAccess.getConstantSumAccess().getTheseKeyword_11());
-    }
-(
+)?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getConstantSumAccess().getChoicesChoiceParserRuleCall_12_0()); 
+	        newCompositeNode(grammarAccess.getConstantSumAccess().getChoicesChoiceParserRuleCall_11_0()); 
 	    }
-		lv_choices_20_0=ruleChoice		{
+		lv_choices_19_0=ruleChoice		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getConstantSumRule());
 	        }
        		add(
        			$current, 
        			"choices",
-        		lv_choices_20_0, 
+        		lv_choices_19_0, 
         		"Choice");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_21=',' 
+)(	otherlv_20=',' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getConstantSumAccess().getCommaKeyword_13_0());
+    	newLeafNode(otherlv_20, grammarAccess.getConstantSumAccess().getCommaKeyword_12_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getConstantSumAccess().getChoicesChoiceParserRuleCall_13_1_0()); 
+	        newCompositeNode(grammarAccess.getConstantSumAccess().getChoicesChoiceParserRuleCall_12_1_0()); 
 	    }
-		lv_choices_22_0=ruleChoice		{
+		lv_choices_21_0=ruleChoice		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getConstantSumRule());
 	        }
        		add(
        			$current, 
        			"choices",
-        		lv_choices_22_0, 
+        		lv_choices_21_0, 
         		"Choice");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1270,7 +1256,25 @@ ruleConstantSum returns [EObject current=null]
 ))*((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getConstantSumAccess().getForksRankingSumForkParserRuleCall_14_0_0()); 
+	        newCompositeNode(grammarAccess.getConstantSumAccess().getForksRankingSumForkParserRuleCall_13_0_0()); 
+	    }
+		lv_forks_22_0=ruleRankingSumFork		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getConstantSumRule());
+	        }
+       		add(
+       			$current, 
+       			"forks",
+        		lv_forks_22_0, 
+        		"RankingSumFork");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getConstantSumAccess().getForksRankingSumForkParserRuleCall_13_1_0()); 
 	    }
 		lv_forks_23_0=ruleRankingSumFork		{
 	        if ($current==null) {
@@ -1280,24 +1284,6 @@ ruleConstantSum returns [EObject current=null]
        			$current, 
        			"forks",
         		lv_forks_23_0, 
-        		"RankingSumFork");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getConstantSumAccess().getForksRankingSumForkParserRuleCall_14_1_0()); 
-	    }
-		lv_forks_24_0=ruleRankingSumFork		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getConstantSumRule());
-	        }
-       		add(
-       			$current, 
-       			"forks",
-        		lv_forks_24_0, 
         		"RankingSumFork");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1401,7 +1387,7 @@ ruleStaple returns [EObject current=null]
     {
     	newLeafNode(otherlv_11, grammarAccess.getStapleAccess().getAnswerKeyword_7_1());
     }
-)(
+)?(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getStapleAccess().getQuestionEStringParserRuleCall_8_0()); 
@@ -1419,57 +1405,43 @@ ruleStaple returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_13='between' 
+)(	otherlv_13='where' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getStapleAccess().getBetweenKeyword_9());
+    	newLeafNode(otherlv_13, grammarAccess.getStapleAccess().getWhereKeyword_9());
+    }
+)?(	otherlv_14='lowest' 
+    {
+    	newLeafNode(otherlv_14, grammarAccess.getStapleAccess().getLowestKeyword_10());
+    }
+)?(	otherlv_15='means' 
+    {
+    	newLeafNode(otherlv_15, grammarAccess.getStapleAccess().getMeansKeyword_11());
     }
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStapleAccess().getMinEIntParserRuleCall_10_0()); 
+	        newCompositeNode(grammarAccess.getStapleAccess().getFirstEStringParserRuleCall_12_0()); 
 	    }
-		lv_min_14_0=ruleEInt		{
+		lv_first_16_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStapleRule());
 	        }
        		set(
        			$current, 
-       			"min",
-        		lv_min_14_0, 
-        		"EInt");
+       			"first",
+        		lv_first_16_0, 
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_15='and' 
+)(	otherlv_17=',' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getStapleAccess().getAndKeyword_11());
+    	newLeafNode(otherlv_17, grammarAccess.getStapleAccess().getCommaKeyword_13());
     }
-)?(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getStapleAccess().getMaxEIntParserRuleCall_12_0()); 
-	    }
-		lv_max_16_0=ruleEInt		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getStapleRule());
-	        }
-       		set(
-       			$current, 
-       			"max",
-        		lv_max_16_0, 
-        		"EInt");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)(	otherlv_17='where' 
+)?(	otherlv_18='middle' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getStapleAccess().getWhereKeyword_13());
-    }
-)?(	otherlv_18='lowest' 
-    {
-    	newLeafNode(otherlv_18, grammarAccess.getStapleAccess().getLowestKeyword_14());
+    	newLeafNode(otherlv_18, grammarAccess.getStapleAccess().getMiddleKeyword_14());
     }
 )?(	otherlv_19='means' 
     {
@@ -1478,28 +1450,28 @@ ruleStaple returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStapleAccess().getFirstEStringParserRuleCall_16_0()); 
+	        newCompositeNode(grammarAccess.getStapleAccess().getMidEStringParserRuleCall_16_0()); 
 	    }
-		lv_first_20_0=ruleEString		{
+		lv_mid_20_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStapleRule());
 	        }
        		set(
        			$current, 
-       			"first",
-        		lv_first_20_0, 
+       			"mid",
+        		lv_mid_20_0, 
         		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_21=',' 
+)(	otherlv_21='and' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getStapleAccess().getCommaKeyword_17());
+    	newLeafNode(otherlv_21, grammarAccess.getStapleAccess().getAndKeyword_17());
     }
-)?(	otherlv_22='mid' 
+)?(	otherlv_22='highest' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getStapleAccess().getMidKeyword_18());
+    	newLeafNode(otherlv_22, grammarAccess.getStapleAccess().getHighestKeyword_18());
     }
 )?(	otherlv_23='means' 
     {
@@ -1508,46 +1480,16 @@ ruleStaple returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStapleAccess().getMidEStringParserRuleCall_20_0()); 
+	        newCompositeNode(grammarAccess.getStapleAccess().getLastEStringParserRuleCall_20_0()); 
 	    }
-		lv_mid_24_0=ruleEString		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getStapleRule());
-	        }
-       		set(
-       			$current, 
-       			"mid",
-        		lv_mid_24_0, 
-        		"EString");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)(	otherlv_25='and' 
-    {
-    	newLeafNode(otherlv_25, grammarAccess.getStapleAccess().getAndKeyword_21());
-    }
-)?(	otherlv_26='highest' 
-    {
-    	newLeafNode(otherlv_26, grammarAccess.getStapleAccess().getHighestKeyword_22());
-    }
-)?(	otherlv_27='means' 
-    {
-    	newLeafNode(otherlv_27, grammarAccess.getStapleAccess().getMeansKeyword_23());
-    }
-)?(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getStapleAccess().getLastEStringParserRuleCall_24_0()); 
-	    }
-		lv_last_28_0=ruleEString		{
+		lv_last_24_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStapleRule());
 	        }
        		set(
        			$current, 
        			"last",
-        		lv_last_28_0, 
+        		lv_last_24_0, 
         		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1556,16 +1498,16 @@ ruleStaple returns [EObject current=null]
 )((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStapleAccess().getForksRatingForkParserRuleCall_25_0_0()); 
+	        newCompositeNode(grammarAccess.getStapleAccess().getForksRatingForkParserRuleCall_21_0_0()); 
 	    }
-		lv_forks_29_0=ruleRatingFork		{
+		lv_forks_25_0=ruleRatingFork		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStapleRule());
 	        }
        		add(
        			$current, 
        			"forks",
-        		lv_forks_29_0, 
+        		lv_forks_25_0, 
         		"RatingFork");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1574,16 +1516,16 @@ ruleStaple returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStapleAccess().getForksRatingForkParserRuleCall_25_1_0()); 
+	        newCompositeNode(grammarAccess.getStapleAccess().getForksRatingForkParserRuleCall_21_1_0()); 
 	    }
-		lv_forks_30_0=ruleRatingFork		{
+		lv_forks_26_0=ruleRatingFork		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStapleRule());
 	        }
        		add(
        			$current, 
        			"forks",
-        		lv_forks_30_0, 
+        		lv_forks_26_0, 
         		"RatingFork");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1713,15 +1655,15 @@ ruleChoiceFork returns [EObject current=null]
     {
     	newLeafNode(otherlv_4, grammarAccess.getChoiceForkAccess().getThenKeyword_3());
     }
-)?	otherlv_5='go' 
+)?(	otherlv_5='continue' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getChoiceForkAccess().getGoKeyword_4());
+    	newLeafNode(otherlv_5, grammarAccess.getChoiceForkAccess().getContinueKeyword_4());
     }
-	otherlv_6='to' 
+)?(	otherlv_6='with' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getChoiceForkAccess().getToKeyword_5());
+    	newLeafNode(otherlv_6, grammarAccess.getChoiceForkAccess().getWithKeyword_5());
     }
-(
+)?(
 (
 		{
 			if ($current==null) {
@@ -1870,15 +1812,15 @@ ruleRatingFork returns [EObject current=null]
     {
     	newLeafNode(otherlv_7, grammarAccess.getRatingForkAccess().getThenKeyword_7());
     }
-)?	otherlv_8='go' 
+)?(	otherlv_8='continue' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getRatingForkAccess().getGoKeyword_8());
+    	newLeafNode(otherlv_8, grammarAccess.getRatingForkAccess().getContinueKeyword_8());
     }
-	otherlv_9='to' 
+)?(	otherlv_9='with' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getRatingForkAccess().getToKeyword_9());
+    	newLeafNode(otherlv_9, grammarAccess.getRatingForkAccess().getWithKeyword_9());
     }
-(
+)?(
 (
 		{
 			if ($current==null) {
@@ -2023,15 +1965,15 @@ ruleRankingSumFork returns [EObject current=null]
     {
     	newLeafNode(otherlv_9, grammarAccess.getRankingSumForkAccess().getThenKeyword_8());
     }
-)?	otherlv_10='go' 
+)?(	otherlv_10='continue' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getRankingSumForkAccess().getGoKeyword_9());
+    	newLeafNode(otherlv_10, grammarAccess.getRankingSumForkAccess().getContinueKeyword_9());
     }
-	otherlv_11='to' 
+)?(	otherlv_11='with' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getRankingSumForkAccess().getToKeyword_10());
+    	newLeafNode(otherlv_11, grammarAccess.getRankingSumForkAccess().getWithKeyword_10());
     }
-(
+)?(
 (
 		{
 			if ($current==null) {

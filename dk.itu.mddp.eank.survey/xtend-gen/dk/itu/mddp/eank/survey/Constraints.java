@@ -1,7 +1,7 @@
 package dk.itu.mddp.eank.survey;
 
 import com.google.common.base.Objects;
-import dk.itu.mddp.eank.survey.CodeGenerator;
+import dk.itu.mddp.eank.survey.Transformation;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -53,7 +53,7 @@ public class Constraints {
         public void apply(final Question q) {
           Integer _get = map.get(q);
           usedList.add(_get);
-          List<EList<Question>> localQuestions = CodeGenerator.forkMap(q);
+          List<EList<Question>> localQuestions = Transformation.forkMap(q);
           boolean _notEquals = (!Objects.equal(localQuestions, null));
           if (_notEquals) {
             final Procedure1<EList<Question>> _function = new Procedure1<EList<Question>>() {
@@ -439,23 +439,19 @@ public class Constraints {
   public static boolean Constraint(final RatingFork it, final Staple q) {
     boolean _and = false;
     int _max = it.getMax();
-    int _max_1 = q.getMax();
-    boolean _lessEqualsThan = (_max <= _max_1);
+    boolean _lessEqualsThan = (_max <= 5);
     if (!_lessEqualsThan) {
       _and = false;
     } else {
       int _min = it.getMin();
-      int _min_1 = q.getMin();
-      boolean _greaterEqualsThan = (_min >= _min_1);
+      boolean _greaterEqualsThan = (_min >= (-5));
       _and = _greaterEqualsThan;
     }
     return _and;
   }
   
   public static boolean Constraint(final EObject it) {
-    if (it instanceof Staple) {
-      return _Constraint((Staple)it);
-    } else if (it instanceof ConstantSum) {
+    if (it instanceof ConstantSum) {
       return _Constraint((ConstantSum)it);
     } else if (it instanceof MultipleChoice) {
       return _Constraint((MultipleChoice)it);
@@ -465,6 +461,8 @@ public class Constraints {
       return _Constraint((Ranking)it);
     } else if (it instanceof Rating) {
       return _Constraint((Rating)it);
+    } else if (it instanceof Staple) {
+      return _Constraint((Staple)it);
     } else if (it instanceof Survey) {
       return _Constraint((Survey)it);
     } else {

@@ -43,7 +43,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//ConstantSum/forks"/>
     </genClasses>
     <genClasses ecoreClass="SurveyModel.ecore#//Staple">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Staple/first"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Staple/mid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Staple/last"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Staple/forks"/>
     </genClasses>
     <genClasses image="false" ecoreClass="SurveyModel.ecore#//Fork">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Fork/questions"/>
@@ -64,9 +67,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//RankingSumFork/max"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//RankingSumFork/min"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//RankingSumFork/on"/>
-    </genClasses>
-    <genClasses ecoreClass="SurveyModel.ecore#//Model">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Model/Survey"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

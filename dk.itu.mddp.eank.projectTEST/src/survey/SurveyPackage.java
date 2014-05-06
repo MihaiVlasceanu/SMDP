@@ -621,7 +621,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAPLE__NAME = RATING__NAME;
+	int STAPLE__NAME = QUESTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Question</b></em>' attribute.
@@ -630,7 +630,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAPLE__QUESTION = RATING__QUESTION;
+	int STAPLE__QUESTION = QUESTION__QUESTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
@@ -639,25 +639,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAPLE__IS_REQUIRED = RATING__IS_REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>Min</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STAPLE__MIN = RATING__MIN;
-
-	/**
-	 * The feature id for the '<em><b>Max</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STAPLE__MAX = RATING__MAX;
+	int STAPLE__IS_REQUIRED = QUESTION__IS_REQUIRED;
 
 	/**
 	 * The feature id for the '<em><b>First</b></em>' attribute.
@@ -666,25 +648,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAPLE__FIRST = RATING__FIRST;
-
-	/**
-	 * The feature id for the '<em><b>Last</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STAPLE__LAST = RATING__LAST;
-
-	/**
-	 * The feature id for the '<em><b>Forks</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STAPLE__FORKS = RATING__FORKS;
+	int STAPLE__FIRST = QUESTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Mid</b></em>' attribute.
@@ -693,7 +657,25 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAPLE__MID = RATING_FEATURE_COUNT + 0;
+	int STAPLE__MID = QUESTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Last</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STAPLE__LAST = QUESTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Forks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STAPLE__FORKS = QUESTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Staple</em>' class.
@@ -702,7 +684,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAPLE_FEATURE_COUNT = RATING_FEATURE_COUNT + 1;
+	int STAPLE_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Staple</em>' class.
@@ -711,7 +693,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAPLE_OPERATION_COUNT = RATING_OPERATION_COUNT + 0;
+	int STAPLE_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link survey.Fork <em>Fork</em>}' class.
@@ -978,43 +960,6 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int RANKING_SUM_FORK_OPERATION_COUNT = FORK_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link survey.impl.ModelImpl <em>Model</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.ModelImpl
-	 * @see survey.impl.SurveyPackageImpl#getModel()
-	 * @generated
-	 */
-	int MODEL = 14;
-
-	/**
-	 * The feature id for the '<em><b>Survey</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__SURVEY = 0;
-
-	/**
-	 * The number of structural features of the '<em>Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_OPERATION_COUNT = 0;
 
 
 	/**
@@ -1339,6 +1284,17 @@ public interface SurveyPackage extends EPackage {
 	EClass getStaple();
 
 	/**
+	 * Returns the meta object for the attribute '{@link survey.Staple#getFirst <em>First</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>First</em>'.
+	 * @see survey.Staple#getFirst()
+	 * @see #getStaple()
+	 * @generated
+	 */
+	EAttribute getStaple_First();
+
+	/**
 	 * Returns the meta object for the attribute '{@link survey.Staple#getMid <em>Mid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1348,6 +1304,28 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStaple_Mid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Staple#getLast <em>Last</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last</em>'.
+	 * @see survey.Staple#getLast()
+	 * @see #getStaple()
+	 * @generated
+	 */
+	EAttribute getStaple_Last();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link survey.Staple#getForks <em>Forks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Forks</em>'.
+	 * @see survey.Staple#getForks()
+	 * @see #getStaple()
+	 * @generated
+	 */
+	EReference getStaple_Forks();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Fork <em>Fork</em>}'.
@@ -1508,27 +1486,6 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRankingSumFork_On();
-
-	/**
-	 * Returns the meta object for class '{@link survey.Model <em>Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model</em>'.
-	 * @see survey.Model
-	 * @generated
-	 */
-	EClass getModel();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link survey.Model#getSurvey <em>Survey</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Survey</em>'.
-	 * @see survey.Model#getSurvey()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EReference getModel_Survey();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1812,12 +1769,36 @@ public interface SurveyPackage extends EPackage {
 		EClass STAPLE = eINSTANCE.getStaple();
 
 		/**
+		 * The meta object literal for the '<em><b>First</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STAPLE__FIRST = eINSTANCE.getStaple_First();
+
+		/**
 		 * The meta object literal for the '<em><b>Mid</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute STAPLE__MID = eINSTANCE.getStaple_Mid();
+
+		/**
+		 * The meta object literal for the '<em><b>Last</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STAPLE__LAST = eINSTANCE.getStaple_Last();
+
+		/**
+		 * The meta object literal for the '<em><b>Forks</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STAPLE__FORKS = eINSTANCE.getStaple_Forks();
 
 		/**
 		 * The meta object literal for the '{@link survey.Fork <em>Fork</em>}' class.
@@ -1948,24 +1929,6 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RANKING_SUM_FORK__ON = eINSTANCE.getRankingSumFork_On();
-
-		/**
-		 * The meta object literal for the '{@link survey.impl.ModelImpl <em>Model</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.impl.ModelImpl
-		 * @see survey.impl.SurveyPackageImpl#getModel()
-		 * @generated
-		 */
-		EClass MODEL = eINSTANCE.getModel();
-
-		/**
-		 * The meta object literal for the '<em><b>Survey</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL__SURVEY = eINSTANCE.getModel_Survey();
 
 	}
 

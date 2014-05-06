@@ -767,12 +767,6 @@ public class AndroidCodeGenerator {
       boolean _isIsRequired = it.isIsRequired();
       _builder.append(_isIsRequired, "");
       _builder.append(",");
-      int _min = it.getMin();
-      _builder.append(_min, "");
-      _builder.append(",");
-      int _max = it.getMax();
-      _builder.append(_max, "");
-      _builder.append(",\"");
       String _first = it.getFirst();
       _builder.append(_first, "");
       _builder.append("\", \"");

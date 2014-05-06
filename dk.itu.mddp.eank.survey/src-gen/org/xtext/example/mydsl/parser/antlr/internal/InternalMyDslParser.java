@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalMyDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'MultipleChoice'", "':'", "'the'", "'user'", "'may'", "'is'", "'required'", "'to'", "'answer'", "'picking'", "'up to'", "'from'", "'these'", "','", "'or'", "'with'", "'something'", "'else'", "'Open'", "'Rating'", "'rate'", "'between'", "'and'", "'where'", "'lowest'", "'means'", "'highest'", "'Ranking'", "'rank'", "'one of'", "'some of'", "'ConstantSum'", "'distribute'", "'a'", "'total'", "'of'", "'amongst'", "'Staple'", "'mid'", "'if'", "'then'", "'go'", "'-'", "'it'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'MultipleChoice'", "':'", "'the'", "'user'", "'may'", "'is'", "'required'", "'to'", "'answer'", "'by'", "'picking'", "'up to'", "'of'", "'these'", "','", "'or'", "'Open'", "'Rating'", "'rate'", "'between'", "'and'", "'where'", "'lowest'", "'means'", "'highest'", "'Ranking'", "'rank'", "'ConstantSum'", "'distribute'", "'a'", "'total'", "'Staple'", "'middle'", "'if'", "'then'", "'continue'", "'with'", "'-'", "'it'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -37,20 +37,15 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
     public static final int T__20=20;
     public static final int EOF=-1;
     public static final int T__19=19;
-    public static final int T__51=51;
     public static final int T__16=16;
-    public static final int T__52=52;
     public static final int T__15=15;
-    public static final int T__53=53;
     public static final int T__18=18;
-    public static final int T__54=54;
     public static final int T__17=17;
     public static final int T__12=12;
     public static final int T__11=11;
     public static final int T__14=14;
     public static final int T__13=13;
     public static final int RULE_INT=6;
-    public static final int T__50=50;
     public static final int T__42=42;
     public static final int T__43=43;
     public static final int T__40=40;
@@ -211,7 +206,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==11||(LA2_0>=29 && LA2_0<=30)||LA2_0==38||LA2_0==42||LA2_0==48) ) {
+            if ( (LA2_0==11||(LA2_0>=27 && LA2_0<=28)||LA2_0==36||LA2_0==38||LA2_0==42) ) {
                 alt2=1;
             }
             switch (alt2) {
@@ -255,7 +250,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                         int alt1=2;
                         int LA1_0 = input.LA(1);
 
-                        if ( (LA1_0==11||(LA1_0>=29 && LA1_0<=30)||LA1_0==38||LA1_0==42||LA1_0==48) ) {
+                        if ( (LA1_0==11||(LA1_0>=27 && LA1_0<=28)||LA1_0==36||LA1_0==38||LA1_0==42) ) {
                             alt1=1;
                         }
 
@@ -392,27 +387,27 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                 alt3=1;
                 }
                 break;
-            case 29:
+            case 27:
                 {
                 alt3=2;
                 }
                 break;
-            case 30:
+            case 28:
                 {
                 alt3=3;
                 }
                 break;
-            case 38:
+            case 36:
                 {
                 alt3=4;
                 }
                 break;
-            case 42:
+            case 38:
                 {
                 alt3=5;
                 }
                 break;
-            case 48:
+            case 42:
                 {
                 alt3=6;
                 }
@@ -703,7 +698,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMultipleChoice"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:275:1: ruleMultipleChoice returns [EObject current=null] : ( () otherlv_1= 'MultipleChoice' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'picking' (otherlv_13= 'up to' )? ( (lv_answerCount_14_0= ruleEInt ) ) )? (otherlv_15= 'from' )? (otherlv_16= 'these' )? ( (lv_choice_17_0= ruleChoice ) ) (otherlv_18= ',' ( (lv_choice_19_0= ruleChoice ) ) )* (otherlv_20= 'or' (otherlv_21= 'with' )? (otherlv_22= 'something' )? (otherlv_23= 'else' )? ( (lv_other_24_0= ruleEString ) ) )? ( ( (lv_forks_25_0= ruleChoiceFork ) ) ( (lv_forks_26_0= ruleChoiceFork ) )* )? ) ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:275:1: ruleMultipleChoice returns [EObject current=null] : ( () otherlv_1= 'MultipleChoice' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) ( (otherlv_12= 'by' )? otherlv_13= 'picking' (otherlv_14= 'up to' )? ( (lv_answerCount_15_0= ruleEInt ) ) )? (otherlv_16= 'of' )? (otherlv_17= 'these' )? ( (lv_choice_18_0= ruleChoice ) ) (otherlv_19= ',' ( (lv_choice_20_0= ruleChoice ) ) )* (otherlv_21= 'or' ( (lv_other_22_0= ruleEString ) ) )? ( ( (lv_forks_23_0= ruleChoiceFork ) ) ( (lv_forks_24_0= ruleChoiceFork ) )* )? ) ;
     public final EObject ruleMultipleChoice() throws RecognitionException {
         EObject current = null;
 
@@ -719,36 +714,34 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
         Token otherlv_10=null;
         Token otherlv_12=null;
         Token otherlv_13=null;
-        Token otherlv_15=null;
+        Token otherlv_14=null;
         Token otherlv_16=null;
-        Token otherlv_18=null;
-        Token otherlv_20=null;
+        Token otherlv_17=null;
+        Token otherlv_19=null;
         Token otherlv_21=null;
-        Token otherlv_22=null;
-        Token otherlv_23=null;
         AntlrDatatypeRuleToken lv_question_11_0 = null;
 
-        AntlrDatatypeRuleToken lv_answerCount_14_0 = null;
+        AntlrDatatypeRuleToken lv_answerCount_15_0 = null;
 
-        EObject lv_choice_17_0 = null;
+        EObject lv_choice_18_0 = null;
 
-        EObject lv_choice_19_0 = null;
+        EObject lv_choice_20_0 = null;
 
-        AntlrDatatypeRuleToken lv_other_24_0 = null;
+        AntlrDatatypeRuleToken lv_other_22_0 = null;
 
-        EObject lv_forks_25_0 = null;
+        EObject lv_forks_23_0 = null;
 
-        EObject lv_forks_26_0 = null;
+        EObject lv_forks_24_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:278:28: ( ( () otherlv_1= 'MultipleChoice' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'picking' (otherlv_13= 'up to' )? ( (lv_answerCount_14_0= ruleEInt ) ) )? (otherlv_15= 'from' )? (otherlv_16= 'these' )? ( (lv_choice_17_0= ruleChoice ) ) (otherlv_18= ',' ( (lv_choice_19_0= ruleChoice ) ) )* (otherlv_20= 'or' (otherlv_21= 'with' )? (otherlv_22= 'something' )? (otherlv_23= 'else' )? ( (lv_other_24_0= ruleEString ) ) )? ( ( (lv_forks_25_0= ruleChoiceFork ) ) ( (lv_forks_26_0= ruleChoiceFork ) )* )? ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:279:1: ( () otherlv_1= 'MultipleChoice' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'picking' (otherlv_13= 'up to' )? ( (lv_answerCount_14_0= ruleEInt ) ) )? (otherlv_15= 'from' )? (otherlv_16= 'these' )? ( (lv_choice_17_0= ruleChoice ) ) (otherlv_18= ',' ( (lv_choice_19_0= ruleChoice ) ) )* (otherlv_20= 'or' (otherlv_21= 'with' )? (otherlv_22= 'something' )? (otherlv_23= 'else' )? ( (lv_other_24_0= ruleEString ) ) )? ( ( (lv_forks_25_0= ruleChoiceFork ) ) ( (lv_forks_26_0= ruleChoiceFork ) )* )? )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:278:28: ( ( () otherlv_1= 'MultipleChoice' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) ( (otherlv_12= 'by' )? otherlv_13= 'picking' (otherlv_14= 'up to' )? ( (lv_answerCount_15_0= ruleEInt ) ) )? (otherlv_16= 'of' )? (otherlv_17= 'these' )? ( (lv_choice_18_0= ruleChoice ) ) (otherlv_19= ',' ( (lv_choice_20_0= ruleChoice ) ) )* (otherlv_21= 'or' ( (lv_other_22_0= ruleEString ) ) )? ( ( (lv_forks_23_0= ruleChoiceFork ) ) ( (lv_forks_24_0= ruleChoiceFork ) )* )? ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:279:1: ( () otherlv_1= 'MultipleChoice' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) ( (otherlv_12= 'by' )? otherlv_13= 'picking' (otherlv_14= 'up to' )? ( (lv_answerCount_15_0= ruleEInt ) ) )? (otherlv_16= 'of' )? (otherlv_17= 'these' )? ( (lv_choice_18_0= ruleChoice ) ) (otherlv_19= ',' ( (lv_choice_20_0= ruleChoice ) ) )* (otherlv_21= 'or' ( (lv_other_22_0= ruleEString ) ) )? ( ( (lv_forks_23_0= ruleChoiceFork ) ) ( (lv_forks_24_0= ruleChoiceFork ) )* )? )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:279:1: ( () otherlv_1= 'MultipleChoice' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'picking' (otherlv_13= 'up to' )? ( (lv_answerCount_14_0= ruleEInt ) ) )? (otherlv_15= 'from' )? (otherlv_16= 'these' )? ( (lv_choice_17_0= ruleChoice ) ) (otherlv_18= ',' ( (lv_choice_19_0= ruleChoice ) ) )* (otherlv_20= 'or' (otherlv_21= 'with' )? (otherlv_22= 'something' )? (otherlv_23= 'else' )? ( (lv_other_24_0= ruleEString ) ) )? ( ( (lv_forks_25_0= ruleChoiceFork ) ) ( (lv_forks_26_0= ruleChoiceFork ) )* )? )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:279:2: () otherlv_1= 'MultipleChoice' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'picking' (otherlv_13= 'up to' )? ( (lv_answerCount_14_0= ruleEInt ) ) )? (otherlv_15= 'from' )? (otherlv_16= 'these' )? ( (lv_choice_17_0= ruleChoice ) ) (otherlv_18= ',' ( (lv_choice_19_0= ruleChoice ) ) )* (otherlv_20= 'or' (otherlv_21= 'with' )? (otherlv_22= 'something' )? (otherlv_23= 'else' )? ( (lv_other_24_0= ruleEString ) ) )? ( ( (lv_forks_25_0= ruleChoiceFork ) ) ( (lv_forks_26_0= ruleChoiceFork ) )* )?
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:279:1: ( () otherlv_1= 'MultipleChoice' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) ( (otherlv_12= 'by' )? otherlv_13= 'picking' (otherlv_14= 'up to' )? ( (lv_answerCount_15_0= ruleEInt ) ) )? (otherlv_16= 'of' )? (otherlv_17= 'these' )? ( (lv_choice_18_0= ruleChoice ) ) (otherlv_19= ',' ( (lv_choice_20_0= ruleChoice ) ) )* (otherlv_21= 'or' ( (lv_other_22_0= ruleEString ) ) )? ( ( (lv_forks_23_0= ruleChoiceFork ) ) ( (lv_forks_24_0= ruleChoiceFork ) )* )? )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:279:2: () otherlv_1= 'MultipleChoice' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) ( (otherlv_12= 'by' )? otherlv_13= 'picking' (otherlv_14= 'up to' )? ( (lv_answerCount_15_0= ruleEInt ) ) )? (otherlv_16= 'of' )? (otherlv_17= 'these' )? ( (lv_choice_18_0= ruleChoice ) ) (otherlv_19= ',' ( (lv_choice_20_0= ruleChoice ) ) )* (otherlv_21= 'or' ( (lv_other_22_0= ruleEString ) ) )? ( ( (lv_forks_23_0= ruleChoiceFork ) ) ( (lv_forks_24_0= ruleChoiceFork ) )* )?
             {
             // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:279:2: ()
             // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:280:5: 
@@ -972,35 +965,31 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:369:2: (otherlv_12= 'picking' (otherlv_13= 'up to' )? ( (lv_answerCount_14_0= ruleEInt ) ) )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:369:2: ( (otherlv_12= 'by' )? otherlv_13= 'picking' (otherlv_14= 'up to' )? ( (lv_answerCount_15_0= ruleEInt ) ) )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0==20) ) {
-                alt11=1;
+            if ( ((LA12_0>=20 && LA12_0<=21)) ) {
+                alt12=1;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:369:4: otherlv_12= 'picking' (otherlv_13= 'up to' )? ( (lv_answerCount_14_0= ruleEInt ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:369:3: (otherlv_12= 'by' )? otherlv_13= 'picking' (otherlv_14= 'up to' )? ( (lv_answerCount_15_0= ruleEInt ) )
                     {
-                    otherlv_12=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleMultipleChoice825); 
-
-                        	newLeafNode(otherlv_12, grammarAccess.getMultipleChoiceAccess().getPickingKeyword_9_0());
-                        
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:373:1: (otherlv_13= 'up to' )?
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:369:3: (otherlv_12= 'by' )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
-                    if ( (LA10_0==21) ) {
+                    if ( (LA10_0==20) ) {
                         alt10=1;
                     }
                     switch (alt10) {
                         case 1 :
-                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:373:3: otherlv_13= 'up to'
+                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:369:5: otherlv_12= 'by'
                             {
-                            otherlv_13=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleMultipleChoice838); 
+                            otherlv_12=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleMultipleChoice826); 
 
-                                	newLeafNode(otherlv_13, grammarAccess.getMultipleChoiceAccess().getUpToKeyword_9_1());
+                                	newLeafNode(otherlv_12, grammarAccess.getMultipleChoiceAccess().getByKeyword_9_0());
                                 
 
                             }
@@ -1008,17 +997,42 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:377:3: ( (lv_answerCount_14_0= ruleEInt ) )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:378:1: (lv_answerCount_14_0= ruleEInt )
+                    otherlv_13=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleMultipleChoice840); 
+
+                        	newLeafNode(otherlv_13, grammarAccess.getMultipleChoiceAccess().getPickingKeyword_9_1());
+                        
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:377:1: (otherlv_14= 'up to' )?
+                    int alt11=2;
+                    int LA11_0 = input.LA(1);
+
+                    if ( (LA11_0==22) ) {
+                        alt11=1;
+                    }
+                    switch (alt11) {
+                        case 1 :
+                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:377:3: otherlv_14= 'up to'
+                            {
+                            otherlv_14=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleMultipleChoice853); 
+
+                                	newLeafNode(otherlv_14, grammarAccess.getMultipleChoiceAccess().getUpToKeyword_9_2());
+                                
+
+                            }
+                            break;
+
+                    }
+
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:381:3: ( (lv_answerCount_15_0= ruleEInt ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:382:1: (lv_answerCount_15_0= ruleEInt )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:378:1: (lv_answerCount_14_0= ruleEInt )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:379:3: lv_answerCount_14_0= ruleEInt
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:382:1: (lv_answerCount_15_0= ruleEInt )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:383:3: lv_answerCount_15_0= ruleEInt
                     {
                      
-                    	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getAnswerCountEIntParserRuleCall_9_2_0()); 
+                    	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getAnswerCountEIntParserRuleCall_9_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMultipleChoice861);
-                    lv_answerCount_14_0=ruleEInt();
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMultipleChoice876);
+                    lv_answerCount_15_0=ruleEInt();
 
                     state._fsp--;
 
@@ -1029,7 +1043,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"answerCount",
-                            		lv_answerCount_14_0, 
+                            		lv_answerCount_15_0, 
                             		"EInt");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -1045,28 +1059,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:395:4: (otherlv_15= 'from' )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
-
-            if ( (LA12_0==22) ) {
-                alt12=1;
-            }
-            switch (alt12) {
-                case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:395:6: otherlv_15= 'from'
-                    {
-                    otherlv_15=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleMultipleChoice876); 
-
-                        	newLeafNode(otherlv_15, grammarAccess.getMultipleChoiceAccess().getFromKeyword_10());
-                        
-
-                    }
-                    break;
-
-            }
-
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:399:3: (otherlv_16= 'these' )?
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:399:4: (otherlv_16= 'of' )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -1075,11 +1068,11 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             }
             switch (alt13) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:399:5: otherlv_16= 'these'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:399:6: otherlv_16= 'of'
                     {
                     otherlv_16=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleMultipleChoice891); 
 
-                        	newLeafNode(otherlv_16, grammarAccess.getMultipleChoiceAccess().getTheseKeyword_11());
+                        	newLeafNode(otherlv_16, grammarAccess.getMultipleChoiceAccess().getOfKeyword_10());
                         
 
                     }
@@ -1087,17 +1080,38 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:403:3: ( (lv_choice_17_0= ruleChoice ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:404:1: (lv_choice_17_0= ruleChoice )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:403:3: (otherlv_17= 'these' )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
+
+            if ( (LA14_0==24) ) {
+                alt14=1;
+            }
+            switch (alt14) {
+                case 1 :
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:403:5: otherlv_17= 'these'
+                    {
+                    otherlv_17=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleMultipleChoice906); 
+
+                        	newLeafNode(otherlv_17, grammarAccess.getMultipleChoiceAccess().getTheseKeyword_11());
+                        
+
+                    }
+                    break;
+
+            }
+
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:407:3: ( (lv_choice_18_0= ruleChoice ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:408:1: (lv_choice_18_0= ruleChoice )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:404:1: (lv_choice_17_0= ruleChoice )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:405:3: lv_choice_17_0= ruleChoice
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:408:1: (lv_choice_18_0= ruleChoice )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:409:3: lv_choice_18_0= ruleChoice
             {
              
             	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getChoiceChoiceParserRuleCall_12_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleChoice_in_ruleMultipleChoice914);
-            lv_choice_17_0=ruleChoice();
+            pushFollow(FollowSets000.FOLLOW_ruleChoice_in_ruleMultipleChoice929);
+            lv_choice_18_0=ruleChoice();
 
             state._fsp--;
 
@@ -1108,7 +1122,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                    		add(
                    			current, 
                    			"choice",
-                    		lv_choice_17_0, 
+                    		lv_choice_18_0, 
                     		"Choice");
             	        afterParserOrEnumRuleCall();
             	    
@@ -1118,36 +1132,36 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:421:2: (otherlv_18= ',' ( (lv_choice_19_0= ruleChoice ) ) )*
-            loop14:
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:425:2: (otherlv_19= ',' ( (lv_choice_20_0= ruleChoice ) ) )*
+            loop15:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-                if ( (LA14_0==24) ) {
-                    alt14=1;
+                if ( (LA15_0==25) ) {
+                    alt15=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt15) {
             	case 1 :
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:421:4: otherlv_18= ',' ( (lv_choice_19_0= ruleChoice ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:425:4: otherlv_19= ',' ( (lv_choice_20_0= ruleChoice ) )
             	    {
-            	    otherlv_18=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleMultipleChoice927); 
+            	    otherlv_19=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleMultipleChoice942); 
 
-            	        	newLeafNode(otherlv_18, grammarAccess.getMultipleChoiceAccess().getCommaKeyword_13_0());
+            	        	newLeafNode(otherlv_19, grammarAccess.getMultipleChoiceAccess().getCommaKeyword_13_0());
             	        
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:425:1: ( (lv_choice_19_0= ruleChoice ) )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:426:1: (lv_choice_19_0= ruleChoice )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:429:1: ( (lv_choice_20_0= ruleChoice ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:430:1: (lv_choice_20_0= ruleChoice )
             	    {
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:426:1: (lv_choice_19_0= ruleChoice )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:427:3: lv_choice_19_0= ruleChoice
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:430:1: (lv_choice_20_0= ruleChoice )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:431:3: lv_choice_20_0= ruleChoice
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getChoiceChoiceParserRuleCall_13_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleChoice_in_ruleMultipleChoice948);
-            	    lv_choice_19_0=ruleChoice();
+            	    pushFollow(FollowSets000.FOLLOW_ruleChoice_in_ruleMultipleChoice963);
+            	    lv_choice_20_0=ruleChoice();
 
             	    state._fsp--;
 
@@ -1158,7 +1172,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	           		add(
             	           			current, 
             	           			"choice",
-            	            		lv_choice_19_0, 
+            	            		lv_choice_20_0, 
             	            		"Choice");
             	    	        afterParserOrEnumRuleCall();
             	    	    
@@ -1173,99 +1187,36 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop14;
+            	    break loop15;
                 }
             } while (true);
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:443:4: (otherlv_20= 'or' (otherlv_21= 'with' )? (otherlv_22= 'something' )? (otherlv_23= 'else' )? ( (lv_other_24_0= ruleEString ) ) )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:447:4: (otherlv_21= 'or' ( (lv_other_22_0= ruleEString ) ) )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA18_0==25) ) {
-                alt18=1;
+            if ( (LA16_0==26) ) {
+                alt16=1;
             }
-            switch (alt18) {
+            switch (alt16) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:443:6: otherlv_20= 'or' (otherlv_21= 'with' )? (otherlv_22= 'something' )? (otherlv_23= 'else' )? ( (lv_other_24_0= ruleEString ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:447:6: otherlv_21= 'or' ( (lv_other_22_0= ruleEString ) )
                     {
-                    otherlv_20=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleMultipleChoice963); 
+                    otherlv_21=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleMultipleChoice978); 
 
-                        	newLeafNode(otherlv_20, grammarAccess.getMultipleChoiceAccess().getOrKeyword_14_0());
+                        	newLeafNode(otherlv_21, grammarAccess.getMultipleChoiceAccess().getOrKeyword_14_0());
                         
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:447:1: (otherlv_21= 'with' )?
-                    int alt15=2;
-                    int LA15_0 = input.LA(1);
-
-                    if ( (LA15_0==26) ) {
-                        alt15=1;
-                    }
-                    switch (alt15) {
-                        case 1 :
-                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:447:3: otherlv_21= 'with'
-                            {
-                            otherlv_21=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleMultipleChoice976); 
-
-                                	newLeafNode(otherlv_21, grammarAccess.getMultipleChoiceAccess().getWithKeyword_14_1());
-                                
-
-                            }
-                            break;
-
-                    }
-
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:451:3: (otherlv_22= 'something' )?
-                    int alt16=2;
-                    int LA16_0 = input.LA(1);
-
-                    if ( (LA16_0==27) ) {
-                        alt16=1;
-                    }
-                    switch (alt16) {
-                        case 1 :
-                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:451:5: otherlv_22= 'something'
-                            {
-                            otherlv_22=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleMultipleChoice991); 
-
-                                	newLeafNode(otherlv_22, grammarAccess.getMultipleChoiceAccess().getSomethingKeyword_14_2());
-                                
-
-                            }
-                            break;
-
-                    }
-
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:455:3: (otherlv_23= 'else' )?
-                    int alt17=2;
-                    int LA17_0 = input.LA(1);
-
-                    if ( (LA17_0==28) ) {
-                        alt17=1;
-                    }
-                    switch (alt17) {
-                        case 1 :
-                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:455:5: otherlv_23= 'else'
-                            {
-                            otherlv_23=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleMultipleChoice1006); 
-
-                                	newLeafNode(otherlv_23, grammarAccess.getMultipleChoiceAccess().getElseKeyword_14_3());
-                                
-
-                            }
-                            break;
-
-                    }
-
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:459:3: ( (lv_other_24_0= ruleEString ) )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:460:1: (lv_other_24_0= ruleEString )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:451:1: ( (lv_other_22_0= ruleEString ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:452:1: (lv_other_22_0= ruleEString )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:460:1: (lv_other_24_0= ruleEString )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:461:3: lv_other_24_0= ruleEString
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:452:1: (lv_other_22_0= ruleEString )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:453:3: lv_other_22_0= ruleEString
                     {
                      
-                    	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getOtherEStringParserRuleCall_14_4_0()); 
+                    	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getOtherEStringParserRuleCall_14_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleMultipleChoice1029);
-                    lv_other_24_0=ruleEString();
+                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleMultipleChoice999);
+                    lv_other_22_0=ruleEString();
 
                     state._fsp--;
 
@@ -1276,7 +1227,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"other",
-                            		lv_other_24_0, 
+                            		lv_other_22_0, 
                             		"EString");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -1292,28 +1243,28 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:477:4: ( ( (lv_forks_25_0= ruleChoiceFork ) ) ( (lv_forks_26_0= ruleChoiceFork ) )* )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:469:4: ( ( (lv_forks_23_0= ruleChoiceFork ) ) ( (lv_forks_24_0= ruleChoiceFork ) )* )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA20_0==50) ) {
-                alt20=1;
+            if ( (LA18_0==44) ) {
+                alt18=1;
             }
-            switch (alt20) {
+            switch (alt18) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:477:5: ( (lv_forks_25_0= ruleChoiceFork ) ) ( (lv_forks_26_0= ruleChoiceFork ) )*
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:469:5: ( (lv_forks_23_0= ruleChoiceFork ) ) ( (lv_forks_24_0= ruleChoiceFork ) )*
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:477:5: ( (lv_forks_25_0= ruleChoiceFork ) )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:478:1: (lv_forks_25_0= ruleChoiceFork )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:469:5: ( (lv_forks_23_0= ruleChoiceFork ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:470:1: (lv_forks_23_0= ruleChoiceFork )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:478:1: (lv_forks_25_0= ruleChoiceFork )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:479:3: lv_forks_25_0= ruleChoiceFork
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:470:1: (lv_forks_23_0= ruleChoiceFork )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:471:3: lv_forks_23_0= ruleChoiceFork
                     {
                      
                     	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getForksChoiceForkParserRuleCall_15_0_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleChoiceFork_in_ruleMultipleChoice1053);
-                    lv_forks_25_0=ruleChoiceFork();
+                    pushFollow(FollowSets000.FOLLOW_ruleChoiceFork_in_ruleMultipleChoice1023);
+                    lv_forks_23_0=ruleChoiceFork();
 
                     state._fsp--;
 
@@ -1324,7 +1275,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                            		add(
                            			current, 
                            			"forks",
-                            		lv_forks_25_0, 
+                            		lv_forks_23_0, 
                             		"ChoiceFork");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -1334,29 +1285,29 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:495:2: ( (lv_forks_26_0= ruleChoiceFork ) )*
-                    loop19:
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:487:2: ( (lv_forks_24_0= ruleChoiceFork ) )*
+                    loop17:
                     do {
-                        int alt19=2;
-                        int LA19_0 = input.LA(1);
+                        int alt17=2;
+                        int LA17_0 = input.LA(1);
 
-                        if ( (LA19_0==50) ) {
-                            alt19=1;
+                        if ( (LA17_0==44) ) {
+                            alt17=1;
                         }
 
 
-                        switch (alt19) {
+                        switch (alt17) {
                     	case 1 :
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:496:1: (lv_forks_26_0= ruleChoiceFork )
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:488:1: (lv_forks_24_0= ruleChoiceFork )
                     	    {
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:496:1: (lv_forks_26_0= ruleChoiceFork )
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:497:3: lv_forks_26_0= ruleChoiceFork
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:488:1: (lv_forks_24_0= ruleChoiceFork )
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:489:3: lv_forks_24_0= ruleChoiceFork
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getMultipleChoiceAccess().getForksChoiceForkParserRuleCall_15_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleChoiceFork_in_ruleMultipleChoice1074);
-                    	    lv_forks_26_0=ruleChoiceFork();
+                    	    pushFollow(FollowSets000.FOLLOW_ruleChoiceFork_in_ruleMultipleChoice1044);
+                    	    lv_forks_24_0=ruleChoiceFork();
 
                     	    state._fsp--;
 
@@ -1367,7 +1318,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     	           		add(
                     	           			current, 
                     	           			"forks",
-                    	            		lv_forks_26_0, 
+                    	            		lv_forks_24_0, 
                     	            		"ChoiceFork");
                     	    	        afterParserOrEnumRuleCall();
                     	    	    
@@ -1379,7 +1330,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop19;
+                    	    break loop17;
                         }
                     } while (true);
 
@@ -1410,7 +1361,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOpen"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:521:1: entryRuleOpen returns [EObject current=null] : iv_ruleOpen= ruleOpen EOF ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:513:1: entryRuleOpen returns [EObject current=null] : iv_ruleOpen= ruleOpen EOF ;
     public final EObject entryRuleOpen() throws RecognitionException {
         EObject current = null;
 
@@ -1418,17 +1369,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:522:2: (iv_ruleOpen= ruleOpen EOF )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:523:2: iv_ruleOpen= ruleOpen EOF
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:514:2: (iv_ruleOpen= ruleOpen EOF )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:515:2: iv_ruleOpen= ruleOpen EOF
             {
              newCompositeNode(grammarAccess.getOpenRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleOpen_in_entryRuleOpen1113);
+            pushFollow(FollowSets000.FOLLOW_ruleOpen_in_entryRuleOpen1083);
             iv_ruleOpen=ruleOpen();
 
             state._fsp--;
 
              current =iv_ruleOpen; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleOpen1123); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleOpen1093); 
 
             }
 
@@ -1446,7 +1397,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpen"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:530:1: ruleOpen returns [EObject current=null] : ( () otherlv_1= 'Open' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) ) ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:522:1: ruleOpen returns [EObject current=null] : ( () otherlv_1= 'Open' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) ) ;
     public final EObject ruleOpen() throws RecognitionException {
         EObject current = null;
 
@@ -1466,14 +1417,14 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:533:28: ( ( () otherlv_1= 'Open' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:534:1: ( () otherlv_1= 'Open' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:525:28: ( ( () otherlv_1= 'Open' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:526:1: ( () otherlv_1= 'Open' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:534:1: ( () otherlv_1= 'Open' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:534:2: () otherlv_1= 'Open' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:526:1: ( () otherlv_1= 'Open' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:526:2: () otherlv_1= 'Open' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:534:2: ()
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:535:5: 
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:526:2: ()
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:527:5: 
             {
 
                     current = forceCreateModelElement(
@@ -1483,17 +1434,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleOpen1169); 
+            otherlv_1=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleOpen1139); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getOpenAccess().getOpenKeyword_1());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:544:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:545:1: (lv_name_2_0= RULE_ID )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:536:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:537:1: (lv_name_2_0= RULE_ID )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:545:1: (lv_name_2_0= RULE_ID )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:546:3: lv_name_2_0= RULE_ID
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:537:1: (lv_name_2_0= RULE_ID )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:538:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleOpen1186); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleOpen1156); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getOpenAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -1513,33 +1464,33 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleOpen1203); 
+            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleOpen1173); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getOpenAccess().getColonKeyword_3());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:566:1: ( (otherlv_4= 'the' )? otherlv_5= 'user' )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:558:1: ( (otherlv_4= 'the' )? otherlv_5= 'user' )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( ((LA22_0>=13 && LA22_0<=14)) ) {
-                alt22=1;
+            if ( ((LA20_0>=13 && LA20_0<=14)) ) {
+                alt20=1;
             }
-            switch (alt22) {
+            switch (alt20) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:566:2: (otherlv_4= 'the' )? otherlv_5= 'user'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:558:2: (otherlv_4= 'the' )? otherlv_5= 'user'
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:566:2: (otherlv_4= 'the' )?
-                    int alt21=2;
-                    int LA21_0 = input.LA(1);
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:558:2: (otherlv_4= 'the' )?
+                    int alt19=2;
+                    int LA19_0 = input.LA(1);
 
-                    if ( (LA21_0==13) ) {
-                        alt21=1;
+                    if ( (LA19_0==13) ) {
+                        alt19=1;
                     }
-                    switch (alt21) {
+                    switch (alt19) {
                         case 1 :
-                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:566:4: otherlv_4= 'the'
+                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:558:4: otherlv_4= 'the'
                             {
-                            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleOpen1217); 
+                            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleOpen1187); 
 
                                 	newLeafNode(otherlv_4, grammarAccess.getOpenAccess().getTheKeyword_4_0());
                                 
@@ -1549,7 +1500,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleOpen1231); 
+                    otherlv_5=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleOpen1201); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getOpenAccess().getUserKeyword_4_1());
                         
@@ -1559,21 +1510,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:574:3: (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )?
-            int alt23=3;
-            int LA23_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:566:3: (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )?
+            int alt21=3;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA23_0==15) ) {
-                alt23=1;
+            if ( (LA21_0==15) ) {
+                alt21=1;
             }
-            else if ( (LA23_0==16) ) {
-                alt23=2;
+            else if ( (LA21_0==16) ) {
+                alt21=2;
             }
-            switch (alt23) {
+            switch (alt21) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:574:5: otherlv_6= 'may'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:566:5: otherlv_6= 'may'
                     {
-                    otherlv_6=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleOpen1246); 
+                    otherlv_6=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleOpen1216); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getOpenAccess().getMayKeyword_5_0());
                         
@@ -1581,18 +1532,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:579:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:571:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:579:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:579:7: ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:571:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:571:7: ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required'
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:579:7: ( (lv_isRequired_7_0= 'is' ) )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:580:1: (lv_isRequired_7_0= 'is' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:571:7: ( (lv_isRequired_7_0= 'is' ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:572:1: (lv_isRequired_7_0= 'is' )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:580:1: (lv_isRequired_7_0= 'is' )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:581:3: lv_isRequired_7_0= 'is'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:572:1: (lv_isRequired_7_0= 'is' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:573:3: lv_isRequired_7_0= 'is'
                     {
-                    lv_isRequired_7_0=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleOpen1271); 
+                    lv_isRequired_7_0=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleOpen1241); 
 
                             newLeafNode(lv_isRequired_7_0, grammarAccess.getOpenAccess().getIsRequiredIsKeyword_5_1_0_0());
                         
@@ -1608,7 +1559,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleOpen1296); 
+                    otherlv_8=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleOpen1266); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getOpenAccess().getRequiredKeyword_5_1_1());
                         
@@ -1621,18 +1572,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:598:4: (otherlv_9= 'to' )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:590:4: (otherlv_9= 'to' )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA24_0==18) ) {
-                alt24=1;
+            if ( (LA22_0==18) ) {
+                alt22=1;
             }
-            switch (alt24) {
+            switch (alt22) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:598:6: otherlv_9= 'to'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:590:6: otherlv_9= 'to'
                     {
-                    otherlv_9=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleOpen1312); 
+                    otherlv_9=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleOpen1282); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getOpenAccess().getToKeyword_6());
                         
@@ -1642,18 +1593,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:602:3: (otherlv_10= 'answer' )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:594:3: (otherlv_10= 'answer' )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA25_0==19) ) {
-                alt25=1;
+            if ( (LA23_0==19) ) {
+                alt23=1;
             }
-            switch (alt25) {
+            switch (alt23) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:602:5: otherlv_10= 'answer'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:594:5: otherlv_10= 'answer'
                     {
-                    otherlv_10=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleOpen1327); 
+                    otherlv_10=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleOpen1297); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getOpenAccess().getAnswerKeyword_7());
                         
@@ -1663,16 +1614,16 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:606:3: ( (lv_question_11_0= ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:607:1: (lv_question_11_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:598:3: ( (lv_question_11_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:599:1: (lv_question_11_0= ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:607:1: (lv_question_11_0= ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:608:3: lv_question_11_0= ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:599:1: (lv_question_11_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:600:3: lv_question_11_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getOpenAccess().getQuestionEStringParserRuleCall_8_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleOpen1350);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleOpen1320);
             lv_question_11_0=ruleEString();
 
             state._fsp--;
@@ -1715,7 +1666,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRating_Impl"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:632:1: entryRuleRating_Impl returns [EObject current=null] : iv_ruleRating_Impl= ruleRating_Impl EOF ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:624:1: entryRuleRating_Impl returns [EObject current=null] : iv_ruleRating_Impl= ruleRating_Impl EOF ;
     public final EObject entryRuleRating_Impl() throws RecognitionException {
         EObject current = null;
 
@@ -1723,17 +1674,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:633:2: (iv_ruleRating_Impl= ruleRating_Impl EOF )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:634:2: iv_ruleRating_Impl= ruleRating_Impl EOF
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:625:2: (iv_ruleRating_Impl= ruleRating_Impl EOF )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:626:2: iv_ruleRating_Impl= ruleRating_Impl EOF
             {
              newCompositeNode(grammarAccess.getRating_ImplRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleRating_Impl_in_entryRuleRating_Impl1386);
+            pushFollow(FollowSets000.FOLLOW_ruleRating_Impl_in_entryRuleRating_Impl1356);
             iv_ruleRating_Impl=ruleRating_Impl();
 
             state._fsp--;
 
              current =iv_ruleRating_Impl; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRating_Impl1396); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRating_Impl1366); 
 
             }
 
@@ -1751,7 +1702,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRating_Impl"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:641:1: ruleRating_Impl returns [EObject current=null] : ( () otherlv_1= 'Rating' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | (otherlv_7= 'is' otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )? ) ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:633:1: ruleRating_Impl returns [EObject current=null] : ( () otherlv_1= 'Rating' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )? ) ;
     public final EObject ruleRating_Impl() throws RecognitionException {
         EObject current = null;
 
@@ -1761,7 +1712,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
         Token otherlv_4=null;
         Token otherlv_5=null;
         Token otherlv_6=null;
-        Token otherlv_7=null;
+        Token lv_isRequired_7_0=null;
         Token otherlv_8=null;
         Token otherlv_9=null;
         Token otherlv_10=null;
@@ -1792,14 +1743,14 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:644:28: ( ( () otherlv_1= 'Rating' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | (otherlv_7= 'is' otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )? ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:645:1: ( () otherlv_1= 'Rating' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | (otherlv_7= 'is' otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )? )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:636:28: ( ( () otherlv_1= 'Rating' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )? ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:637:1: ( () otherlv_1= 'Rating' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )? )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:645:1: ( () otherlv_1= 'Rating' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | (otherlv_7= 'is' otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )? )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:645:2: () otherlv_1= 'Rating' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | (otherlv_7= 'is' otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )?
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:637:1: ( () otherlv_1= 'Rating' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )? )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:637:2: () otherlv_1= 'Rating' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )?
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:645:2: ()
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:646:5: 
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:637:2: ()
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:638:5: 
             {
 
                     current = forceCreateModelElement(
@@ -1809,17 +1760,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleRating_Impl1442); 
+            otherlv_1=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleRating_Impl1412); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getRating_ImplAccess().getRatingKeyword_1());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:655:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:656:1: (lv_name_2_0= RULE_ID )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:647:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:648:1: (lv_name_2_0= RULE_ID )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:656:1: (lv_name_2_0= RULE_ID )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:657:3: lv_name_2_0= RULE_ID
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:648:1: (lv_name_2_0= RULE_ID )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:649:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleRating_Impl1459); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleRating_Impl1429); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getRating_ImplAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -1839,33 +1790,33 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRating_Impl1476); 
+            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRating_Impl1446); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getRating_ImplAccess().getColonKeyword_3());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:677:1: ( (otherlv_4= 'the' )? otherlv_5= 'user' )?
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:669:1: ( (otherlv_4= 'the' )? otherlv_5= 'user' )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( ((LA27_0>=13 && LA27_0<=14)) ) {
-                alt27=1;
+            if ( ((LA25_0>=13 && LA25_0<=14)) ) {
+                alt25=1;
             }
-            switch (alt27) {
+            switch (alt25) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:677:2: (otherlv_4= 'the' )? otherlv_5= 'user'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:669:2: (otherlv_4= 'the' )? otherlv_5= 'user'
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:677:2: (otherlv_4= 'the' )?
-                    int alt26=2;
-                    int LA26_0 = input.LA(1);
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:669:2: (otherlv_4= 'the' )?
+                    int alt24=2;
+                    int LA24_0 = input.LA(1);
 
-                    if ( (LA26_0==13) ) {
-                        alt26=1;
+                    if ( (LA24_0==13) ) {
+                        alt24=1;
                     }
-                    switch (alt26) {
+                    switch (alt24) {
                         case 1 :
-                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:677:4: otherlv_4= 'the'
+                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:669:4: otherlv_4= 'the'
                             {
-                            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleRating_Impl1490); 
+                            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleRating_Impl1460); 
 
                                 	newLeafNode(otherlv_4, grammarAccess.getRating_ImplAccess().getTheKeyword_4_0());
                                 
@@ -1875,7 +1826,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleRating_Impl1504); 
+                    otherlv_5=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleRating_Impl1474); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getRating_ImplAccess().getUserKeyword_4_1());
                         
@@ -1885,21 +1836,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:685:3: (otherlv_6= 'may' | (otherlv_7= 'is' otherlv_8= 'required' ) )?
-            int alt28=3;
-            int LA28_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:677:3: (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )?
+            int alt26=3;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA28_0==15) ) {
-                alt28=1;
+            if ( (LA26_0==15) ) {
+                alt26=1;
             }
-            else if ( (LA28_0==16) ) {
-                alt28=2;
+            else if ( (LA26_0==16) ) {
+                alt26=2;
             }
-            switch (alt28) {
+            switch (alt26) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:685:5: otherlv_6= 'may'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:677:5: otherlv_6= 'may'
                     {
-                    otherlv_6=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRating_Impl1519); 
+                    otherlv_6=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRating_Impl1489); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getRating_ImplAccess().getMayKeyword_5_0());
                         
@@ -1907,16 +1858,34 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:690:6: (otherlv_7= 'is' otherlv_8= 'required' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:682:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:690:6: (otherlv_7= 'is' otherlv_8= 'required' )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:690:8: otherlv_7= 'is' otherlv_8= 'required'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:682:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:682:7: ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required'
                     {
-                    otherlv_7=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleRating_Impl1538); 
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:682:7: ( (lv_isRequired_7_0= 'is' ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:683:1: (lv_isRequired_7_0= 'is' )
+                    {
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:683:1: (lv_isRequired_7_0= 'is' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:684:3: lv_isRequired_7_0= 'is'
+                    {
+                    lv_isRequired_7_0=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleRating_Impl1514); 
 
-                        	newLeafNode(otherlv_7, grammarAccess.getRating_ImplAccess().getIsKeyword_5_1_0());
+                            newLeafNode(lv_isRequired_7_0, grammarAccess.getRating_ImplAccess().getIsRequiredIsKeyword_5_1_0_0());
                         
-                    otherlv_8=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleRating_Impl1550); 
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getRating_ImplRule());
+                    	        }
+                           		setWithLastConsumed(current, "isRequired", true, "is");
+                    	    
+
+                    }
+
+
+                    }
+
+                    otherlv_8=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleRating_Impl1539); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getRating_ImplAccess().getRequiredKeyword_5_1_1());
                         
@@ -1929,18 +1898,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:698:4: (otherlv_9= 'to' )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:701:4: (otherlv_9= 'to' )?
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA29_0==18) ) {
-                alt29=1;
+            if ( (LA27_0==18) ) {
+                alt27=1;
             }
-            switch (alt29) {
+            switch (alt27) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:698:6: otherlv_9= 'to'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:701:6: otherlv_9= 'to'
                     {
-                    otherlv_9=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleRating_Impl1566); 
+                    otherlv_9=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleRating_Impl1555); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getRating_ImplAccess().getToKeyword_6());
                         
@@ -1950,21 +1919,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:702:3: (otherlv_10= 'rate' | otherlv_11= 'answer' )?
-            int alt30=3;
-            int LA30_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:705:3: (otherlv_10= 'rate' | otherlv_11= 'answer' )?
+            int alt28=3;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA30_0==31) ) {
-                alt30=1;
+            if ( (LA28_0==29) ) {
+                alt28=1;
             }
-            else if ( (LA30_0==19) ) {
-                alt30=2;
+            else if ( (LA28_0==19) ) {
+                alt28=2;
             }
-            switch (alt30) {
+            switch (alt28) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:702:5: otherlv_10= 'rate'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:705:5: otherlv_10= 'rate'
                     {
-                    otherlv_10=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleRating_Impl1581); 
+                    otherlv_10=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleRating_Impl1570); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getRating_ImplAccess().getRateKeyword_7_0());
                         
@@ -1972,9 +1941,9 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:707:7: otherlv_11= 'answer'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:710:7: otherlv_11= 'answer'
                     {
-                    otherlv_11=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleRating_Impl1599); 
+                    otherlv_11=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleRating_Impl1588); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getRating_ImplAccess().getAnswerKeyword_7_1());
                         
@@ -1984,16 +1953,16 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:711:3: ( (lv_question_12_0= ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:712:1: (lv_question_12_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:714:3: ( (lv_question_12_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:715:1: (lv_question_12_0= ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:712:1: (lv_question_12_0= ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:713:3: lv_question_12_0= ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:715:1: (lv_question_12_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:716:3: lv_question_12_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getRating_ImplAccess().getQuestionEStringParserRuleCall_8_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRating_Impl1622);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRating_Impl1611);
             lv_question_12_0=ruleEString();
 
             state._fsp--;
@@ -2015,18 +1984,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:729:2: (otherlv_13= 'between' )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:732:2: (otherlv_13= 'between' )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            if ( (LA31_0==32) ) {
-                alt31=1;
+            if ( (LA29_0==30) ) {
+                alt29=1;
             }
-            switch (alt31) {
+            switch (alt29) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:729:4: otherlv_13= 'between'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:732:4: otherlv_13= 'between'
                     {
-                    otherlv_13=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleRating_Impl1635); 
+                    otherlv_13=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleRating_Impl1624); 
 
                         	newLeafNode(otherlv_13, grammarAccess.getRating_ImplAccess().getBetweenKeyword_9());
                         
@@ -2036,16 +2005,16 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:733:3: ( (lv_min_14_0= ruleEInt ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:734:1: (lv_min_14_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:736:3: ( (lv_min_14_0= ruleEInt ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:737:1: (lv_min_14_0= ruleEInt )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:734:1: (lv_min_14_0= ruleEInt )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:735:3: lv_min_14_0= ruleEInt
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:737:1: (lv_min_14_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:738:3: lv_min_14_0= ruleEInt
             {
              
             	        newCompositeNode(grammarAccess.getRating_ImplAccess().getMinEIntParserRuleCall_10_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleRating_Impl1658);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleRating_Impl1647);
             lv_min_14_0=ruleEInt();
 
             state._fsp--;
@@ -2067,18 +2036,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:751:2: (otherlv_15= 'and' )?
-            int alt32=2;
-            int LA32_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:754:2: (otherlv_15= 'and' )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA32_0==33) ) {
-                alt32=1;
+            if ( (LA30_0==31) ) {
+                alt30=1;
             }
-            switch (alt32) {
+            switch (alt30) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:751:4: otherlv_15= 'and'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:754:4: otherlv_15= 'and'
                     {
-                    otherlv_15=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleRating_Impl1671); 
+                    otherlv_15=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleRating_Impl1660); 
 
                         	newLeafNode(otherlv_15, grammarAccess.getRating_ImplAccess().getAndKeyword_11());
                         
@@ -2088,16 +2057,16 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:755:3: ( (lv_max_16_0= ruleEInt ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:756:1: (lv_max_16_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:758:3: ( (lv_max_16_0= ruleEInt ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:759:1: (lv_max_16_0= ruleEInt )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:756:1: (lv_max_16_0= ruleEInt )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:757:3: lv_max_16_0= ruleEInt
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:759:1: (lv_max_16_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:760:3: lv_max_16_0= ruleEInt
             {
              
             	        newCompositeNode(grammarAccess.getRating_ImplAccess().getMaxEIntParserRuleCall_12_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleRating_Impl1694);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleRating_Impl1683);
             lv_max_16_0=ruleEInt();
 
             state._fsp--;
@@ -2119,18 +2088,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:773:2: (otherlv_17= 'where' )?
-            int alt33=2;
-            int LA33_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:776:2: (otherlv_17= 'where' )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA33_0==34) ) {
-                alt33=1;
+            if ( (LA31_0==32) ) {
+                alt31=1;
             }
-            switch (alt33) {
+            switch (alt31) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:773:4: otherlv_17= 'where'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:776:4: otherlv_17= 'where'
                     {
-                    otherlv_17=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleRating_Impl1707); 
+                    otherlv_17=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleRating_Impl1696); 
 
                         	newLeafNode(otherlv_17, grammarAccess.getRating_ImplAccess().getWhereKeyword_13());
                         
@@ -2140,18 +2109,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:777:3: (otherlv_18= 'lowest' )?
-            int alt34=2;
-            int LA34_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:780:3: (otherlv_18= 'lowest' )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
 
-            if ( (LA34_0==35) ) {
-                alt34=1;
+            if ( (LA32_0==33) ) {
+                alt32=1;
             }
-            switch (alt34) {
+            switch (alt32) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:777:5: otherlv_18= 'lowest'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:780:5: otherlv_18= 'lowest'
                     {
-                    otherlv_18=(Token)match(input,35,FollowSets000.FOLLOW_35_in_ruleRating_Impl1722); 
+                    otherlv_18=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleRating_Impl1711); 
 
                         	newLeafNode(otherlv_18, grammarAccess.getRating_ImplAccess().getLowestKeyword_14());
                         
@@ -2161,18 +2130,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:781:3: (otherlv_19= 'means' )?
-            int alt35=2;
-            int LA35_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:784:3: (otherlv_19= 'means' )?
+            int alt33=2;
+            int LA33_0 = input.LA(1);
 
-            if ( (LA35_0==36) ) {
-                alt35=1;
+            if ( (LA33_0==34) ) {
+                alt33=1;
             }
-            switch (alt35) {
+            switch (alt33) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:781:5: otherlv_19= 'means'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:784:5: otherlv_19= 'means'
                     {
-                    otherlv_19=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleRating_Impl1737); 
+                    otherlv_19=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleRating_Impl1726); 
 
                         	newLeafNode(otherlv_19, grammarAccess.getRating_ImplAccess().getMeansKeyword_15());
                         
@@ -2182,16 +2151,16 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:785:3: ( (lv_first_20_0= ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:786:1: (lv_first_20_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:788:3: ( (lv_first_20_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:789:1: (lv_first_20_0= ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:786:1: (lv_first_20_0= ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:787:3: lv_first_20_0= ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:789:1: (lv_first_20_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:790:3: lv_first_20_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getRating_ImplAccess().getFirstEStringParserRuleCall_16_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRating_Impl1760);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRating_Impl1749);
             lv_first_20_0=ruleEString();
 
             state._fsp--;
@@ -2213,18 +2182,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:803:2: (otherlv_21= 'and' )?
-            int alt36=2;
-            int LA36_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:806:2: (otherlv_21= 'and' )?
+            int alt34=2;
+            int LA34_0 = input.LA(1);
 
-            if ( (LA36_0==33) ) {
-                alt36=1;
+            if ( (LA34_0==31) ) {
+                alt34=1;
             }
-            switch (alt36) {
+            switch (alt34) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:803:4: otherlv_21= 'and'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:806:4: otherlv_21= 'and'
                     {
-                    otherlv_21=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleRating_Impl1773); 
+                    otherlv_21=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleRating_Impl1762); 
 
                         	newLeafNode(otherlv_21, grammarAccess.getRating_ImplAccess().getAndKeyword_17());
                         
@@ -2234,18 +2203,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:807:3: (otherlv_22= 'highest' )?
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:810:3: (otherlv_22= 'highest' )?
+            int alt35=2;
+            int LA35_0 = input.LA(1);
 
-            if ( (LA37_0==37) ) {
-                alt37=1;
+            if ( (LA35_0==35) ) {
+                alt35=1;
             }
-            switch (alt37) {
+            switch (alt35) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:807:5: otherlv_22= 'highest'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:810:5: otherlv_22= 'highest'
                     {
-                    otherlv_22=(Token)match(input,37,FollowSets000.FOLLOW_37_in_ruleRating_Impl1788); 
+                    otherlv_22=(Token)match(input,35,FollowSets000.FOLLOW_35_in_ruleRating_Impl1777); 
 
                         	newLeafNode(otherlv_22, grammarAccess.getRating_ImplAccess().getHighestKeyword_18());
                         
@@ -2255,18 +2224,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:811:3: (otherlv_23= 'means' )?
-            int alt38=2;
-            int LA38_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:814:3: (otherlv_23= 'means' )?
+            int alt36=2;
+            int LA36_0 = input.LA(1);
 
-            if ( (LA38_0==36) ) {
-                alt38=1;
+            if ( (LA36_0==34) ) {
+                alt36=1;
             }
-            switch (alt38) {
+            switch (alt36) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:811:5: otherlv_23= 'means'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:814:5: otherlv_23= 'means'
                     {
-                    otherlv_23=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleRating_Impl1803); 
+                    otherlv_23=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleRating_Impl1792); 
 
                         	newLeafNode(otherlv_23, grammarAccess.getRating_ImplAccess().getMeansKeyword_19());
                         
@@ -2276,16 +2245,16 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:815:3: ( (lv_last_24_0= ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:816:1: (lv_last_24_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:818:3: ( (lv_last_24_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:819:1: (lv_last_24_0= ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:816:1: (lv_last_24_0= ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:817:3: lv_last_24_0= ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:819:1: (lv_last_24_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:820:3: lv_last_24_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getRating_ImplAccess().getLastEStringParserRuleCall_20_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRating_Impl1826);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRating_Impl1815);
             lv_last_24_0=ruleEString();
 
             state._fsp--;
@@ -2307,27 +2276,27 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:833:2: ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )?
-            int alt40=2;
-            int LA40_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:836:2: ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )?
+            int alt38=2;
+            int LA38_0 = input.LA(1);
 
-            if ( (LA40_0==50) ) {
-                alt40=1;
+            if ( (LA38_0==44) ) {
+                alt38=1;
             }
-            switch (alt40) {
+            switch (alt38) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:833:3: ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )*
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:836:3: ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )*
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:833:3: ( (lv_forks_25_0= ruleRatingFork ) )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:834:1: (lv_forks_25_0= ruleRatingFork )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:836:3: ( (lv_forks_25_0= ruleRatingFork ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:837:1: (lv_forks_25_0= ruleRatingFork )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:834:1: (lv_forks_25_0= ruleRatingFork )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:835:3: lv_forks_25_0= ruleRatingFork
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:837:1: (lv_forks_25_0= ruleRatingFork )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:838:3: lv_forks_25_0= ruleRatingFork
                     {
                      
                     	        newCompositeNode(grammarAccess.getRating_ImplAccess().getForksRatingForkParserRuleCall_21_0_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleRatingFork_in_ruleRating_Impl1848);
+                    pushFollow(FollowSets000.FOLLOW_ruleRatingFork_in_ruleRating_Impl1837);
                     lv_forks_25_0=ruleRatingFork();
 
                     state._fsp--;
@@ -2349,28 +2318,28 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:851:2: ( (lv_forks_26_0= ruleRatingFork ) )*
-                    loop39:
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:854:2: ( (lv_forks_26_0= ruleRatingFork ) )*
+                    loop37:
                     do {
-                        int alt39=2;
-                        int LA39_0 = input.LA(1);
+                        int alt37=2;
+                        int LA37_0 = input.LA(1);
 
-                        if ( (LA39_0==50) ) {
-                            alt39=1;
+                        if ( (LA37_0==44) ) {
+                            alt37=1;
                         }
 
 
-                        switch (alt39) {
+                        switch (alt37) {
                     	case 1 :
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:852:1: (lv_forks_26_0= ruleRatingFork )
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:855:1: (lv_forks_26_0= ruleRatingFork )
                     	    {
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:852:1: (lv_forks_26_0= ruleRatingFork )
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:853:3: lv_forks_26_0= ruleRatingFork
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:855:1: (lv_forks_26_0= ruleRatingFork )
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:856:3: lv_forks_26_0= ruleRatingFork
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getRating_ImplAccess().getForksRatingForkParserRuleCall_21_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleRatingFork_in_ruleRating_Impl1869);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleRatingFork_in_ruleRating_Impl1858);
                     	    lv_forks_26_0=ruleRatingFork();
 
                     	    state._fsp--;
@@ -2394,7 +2363,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop39;
+                    	    break loop37;
                         }
                     } while (true);
 
@@ -2425,7 +2394,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRanking"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:877:1: entryRuleRanking returns [EObject current=null] : iv_ruleRanking= ruleRanking EOF ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:880:1: entryRuleRanking returns [EObject current=null] : iv_ruleRanking= ruleRanking EOF ;
     public final EObject entryRuleRanking() throws RecognitionException {
         EObject current = null;
 
@@ -2433,17 +2402,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:878:2: (iv_ruleRanking= ruleRanking EOF )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:879:2: iv_ruleRanking= ruleRanking EOF
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:881:2: (iv_ruleRanking= ruleRanking EOF )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:882:2: iv_ruleRanking= ruleRanking EOF
             {
              newCompositeNode(grammarAccess.getRankingRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleRanking_in_entryRuleRanking1908);
+            pushFollow(FollowSets000.FOLLOW_ruleRanking_in_entryRuleRanking1897);
             iv_ruleRanking=ruleRanking();
 
             state._fsp--;
 
              current =iv_ruleRanking; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRanking1918); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRanking1907); 
 
             }
 
@@ -2461,7 +2430,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRanking"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:886:1: ruleRanking returns [EObject current=null] : (otherlv_0= 'Ranking' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= 'the' )? otherlv_4= 'user' )? (otherlv_5= 'may' | ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' ) )? (otherlv_8= 'to' )? (otherlv_9= 'rank' | otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'from' )? (otherlv_13= 'one of' | otherlv_14= 'some of' )? (otherlv_15= 'these' )? ( (lv_choices_16_0= ruleChoice ) ) (otherlv_17= ',' ( (lv_choices_18_0= ruleChoice ) ) )* ( ( (lv_forks_19_0= ruleRankingSumFork ) ) ( (lv_forks_20_0= ruleRankingSumFork ) )* )? ) ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:889:1: ruleRanking returns [EObject current=null] : (otherlv_0= 'Ranking' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= 'the' )? otherlv_4= 'user' )? (otherlv_5= 'may' | ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' ) )? (otherlv_8= 'to' )? (otherlv_9= 'rank' | otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'these' )? ( (lv_choices_13_0= ruleChoice ) ) (otherlv_14= ',' ( (lv_choices_15_0= ruleChoice ) ) )* ( ( (lv_forks_16_0= ruleRankingSumFork ) ) ( (lv_forks_17_0= ruleRankingSumFork ) )* )? ) ;
     public final EObject ruleRanking() throws RecognitionException {
         EObject current = null;
 
@@ -2477,41 +2446,38 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
         Token otherlv_9=null;
         Token otherlv_10=null;
         Token otherlv_12=null;
-        Token otherlv_13=null;
         Token otherlv_14=null;
-        Token otherlv_15=null;
-        Token otherlv_17=null;
         AntlrDatatypeRuleToken lv_question_11_0 = null;
 
-        EObject lv_choices_16_0 = null;
+        EObject lv_choices_13_0 = null;
 
-        EObject lv_choices_18_0 = null;
+        EObject lv_choices_15_0 = null;
 
-        EObject lv_forks_19_0 = null;
+        EObject lv_forks_16_0 = null;
 
-        EObject lv_forks_20_0 = null;
+        EObject lv_forks_17_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:889:28: ( (otherlv_0= 'Ranking' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= 'the' )? otherlv_4= 'user' )? (otherlv_5= 'may' | ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' ) )? (otherlv_8= 'to' )? (otherlv_9= 'rank' | otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'from' )? (otherlv_13= 'one of' | otherlv_14= 'some of' )? (otherlv_15= 'these' )? ( (lv_choices_16_0= ruleChoice ) ) (otherlv_17= ',' ( (lv_choices_18_0= ruleChoice ) ) )* ( ( (lv_forks_19_0= ruleRankingSumFork ) ) ( (lv_forks_20_0= ruleRankingSumFork ) )* )? ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:890:1: (otherlv_0= 'Ranking' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= 'the' )? otherlv_4= 'user' )? (otherlv_5= 'may' | ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' ) )? (otherlv_8= 'to' )? (otherlv_9= 'rank' | otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'from' )? (otherlv_13= 'one of' | otherlv_14= 'some of' )? (otherlv_15= 'these' )? ( (lv_choices_16_0= ruleChoice ) ) (otherlv_17= ',' ( (lv_choices_18_0= ruleChoice ) ) )* ( ( (lv_forks_19_0= ruleRankingSumFork ) ) ( (lv_forks_20_0= ruleRankingSumFork ) )* )? )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:892:28: ( (otherlv_0= 'Ranking' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= 'the' )? otherlv_4= 'user' )? (otherlv_5= 'may' | ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' ) )? (otherlv_8= 'to' )? (otherlv_9= 'rank' | otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'these' )? ( (lv_choices_13_0= ruleChoice ) ) (otherlv_14= ',' ( (lv_choices_15_0= ruleChoice ) ) )* ( ( (lv_forks_16_0= ruleRankingSumFork ) ) ( (lv_forks_17_0= ruleRankingSumFork ) )* )? ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:893:1: (otherlv_0= 'Ranking' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= 'the' )? otherlv_4= 'user' )? (otherlv_5= 'may' | ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' ) )? (otherlv_8= 'to' )? (otherlv_9= 'rank' | otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'these' )? ( (lv_choices_13_0= ruleChoice ) ) (otherlv_14= ',' ( (lv_choices_15_0= ruleChoice ) ) )* ( ( (lv_forks_16_0= ruleRankingSumFork ) ) ( (lv_forks_17_0= ruleRankingSumFork ) )* )? )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:890:1: (otherlv_0= 'Ranking' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= 'the' )? otherlv_4= 'user' )? (otherlv_5= 'may' | ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' ) )? (otherlv_8= 'to' )? (otherlv_9= 'rank' | otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'from' )? (otherlv_13= 'one of' | otherlv_14= 'some of' )? (otherlv_15= 'these' )? ( (lv_choices_16_0= ruleChoice ) ) (otherlv_17= ',' ( (lv_choices_18_0= ruleChoice ) ) )* ( ( (lv_forks_19_0= ruleRankingSumFork ) ) ( (lv_forks_20_0= ruleRankingSumFork ) )* )? )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:890:3: otherlv_0= 'Ranking' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= 'the' )? otherlv_4= 'user' )? (otherlv_5= 'may' | ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' ) )? (otherlv_8= 'to' )? (otherlv_9= 'rank' | otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'from' )? (otherlv_13= 'one of' | otherlv_14= 'some of' )? (otherlv_15= 'these' )? ( (lv_choices_16_0= ruleChoice ) ) (otherlv_17= ',' ( (lv_choices_18_0= ruleChoice ) ) )* ( ( (lv_forks_19_0= ruleRankingSumFork ) ) ( (lv_forks_20_0= ruleRankingSumFork ) )* )?
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:893:1: (otherlv_0= 'Ranking' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= 'the' )? otherlv_4= 'user' )? (otherlv_5= 'may' | ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' ) )? (otherlv_8= 'to' )? (otherlv_9= 'rank' | otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'these' )? ( (lv_choices_13_0= ruleChoice ) ) (otherlv_14= ',' ( (lv_choices_15_0= ruleChoice ) ) )* ( ( (lv_forks_16_0= ruleRankingSumFork ) ) ( (lv_forks_17_0= ruleRankingSumFork ) )* )? )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:893:3: otherlv_0= 'Ranking' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= 'the' )? otherlv_4= 'user' )? (otherlv_5= 'may' | ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' ) )? (otherlv_8= 'to' )? (otherlv_9= 'rank' | otherlv_10= 'answer' )? ( (lv_question_11_0= ruleEString ) ) (otherlv_12= 'these' )? ( (lv_choices_13_0= ruleChoice ) ) (otherlv_14= ',' ( (lv_choices_15_0= ruleChoice ) ) )* ( ( (lv_forks_16_0= ruleRankingSumFork ) ) ( (lv_forks_17_0= ruleRankingSumFork ) )* )?
             {
-            otherlv_0=(Token)match(input,38,FollowSets000.FOLLOW_38_in_ruleRanking1955); 
+            otherlv_0=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleRanking1944); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRankingAccess().getRankingKeyword_0());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:894:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:895:1: (lv_name_1_0= RULE_ID )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:897:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:898:1: (lv_name_1_0= RULE_ID )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:895:1: (lv_name_1_0= RULE_ID )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:896:3: lv_name_1_0= RULE_ID
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:898:1: (lv_name_1_0= RULE_ID )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:899:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleRanking1972); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleRanking1961); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getRankingAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -2531,33 +2497,33 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRanking1989); 
+            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRanking1978); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getRankingAccess().getColonKeyword_2());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:916:1: ( (otherlv_3= 'the' )? otherlv_4= 'user' )?
-            int alt42=2;
-            int LA42_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:919:1: ( (otherlv_3= 'the' )? otherlv_4= 'user' )?
+            int alt40=2;
+            int LA40_0 = input.LA(1);
 
-            if ( ((LA42_0>=13 && LA42_0<=14)) ) {
-                alt42=1;
+            if ( ((LA40_0>=13 && LA40_0<=14)) ) {
+                alt40=1;
             }
-            switch (alt42) {
+            switch (alt40) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:916:2: (otherlv_3= 'the' )? otherlv_4= 'user'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:919:2: (otherlv_3= 'the' )? otherlv_4= 'user'
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:916:2: (otherlv_3= 'the' )?
-                    int alt41=2;
-                    int LA41_0 = input.LA(1);
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:919:2: (otherlv_3= 'the' )?
+                    int alt39=2;
+                    int LA39_0 = input.LA(1);
 
-                    if ( (LA41_0==13) ) {
-                        alt41=1;
+                    if ( (LA39_0==13) ) {
+                        alt39=1;
                     }
-                    switch (alt41) {
+                    switch (alt39) {
                         case 1 :
-                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:916:4: otherlv_3= 'the'
+                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:919:4: otherlv_3= 'the'
                             {
-                            otherlv_3=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleRanking2003); 
+                            otherlv_3=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleRanking1992); 
 
                                 	newLeafNode(otherlv_3, grammarAccess.getRankingAccess().getTheKeyword_3_0());
                                 
@@ -2567,7 +2533,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_4=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleRanking2017); 
+                    otherlv_4=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleRanking2006); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getRankingAccess().getUserKeyword_3_1());
                         
@@ -2577,21 +2543,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:924:3: (otherlv_5= 'may' | ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' ) )?
-            int alt43=3;
-            int LA43_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:927:3: (otherlv_5= 'may' | ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' ) )?
+            int alt41=3;
+            int LA41_0 = input.LA(1);
 
-            if ( (LA43_0==15) ) {
-                alt43=1;
+            if ( (LA41_0==15) ) {
+                alt41=1;
             }
-            else if ( (LA43_0==16) ) {
-                alt43=2;
+            else if ( (LA41_0==16) ) {
+                alt41=2;
             }
-            switch (alt43) {
+            switch (alt41) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:924:5: otherlv_5= 'may'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:927:5: otherlv_5= 'may'
                     {
-                    otherlv_5=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRanking2032); 
+                    otherlv_5=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleRanking2021); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getRankingAccess().getMayKeyword_4_0());
                         
@@ -2599,18 +2565,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:929:6: ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:932:6: ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:929:6: ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:929:7: ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:932:6: ( ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:932:7: ( (lv_isRequired_6_0= 'is' ) ) otherlv_7= 'required'
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:929:7: ( (lv_isRequired_6_0= 'is' ) )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:930:1: (lv_isRequired_6_0= 'is' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:932:7: ( (lv_isRequired_6_0= 'is' ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:933:1: (lv_isRequired_6_0= 'is' )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:930:1: (lv_isRequired_6_0= 'is' )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:931:3: lv_isRequired_6_0= 'is'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:933:1: (lv_isRequired_6_0= 'is' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:934:3: lv_isRequired_6_0= 'is'
                     {
-                    lv_isRequired_6_0=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleRanking2057); 
+                    lv_isRequired_6_0=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleRanking2046); 
 
                             newLeafNode(lv_isRequired_6_0, grammarAccess.getRankingAccess().getIsRequiredIsKeyword_4_1_0_0());
                         
@@ -2626,7 +2592,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleRanking2082); 
+                    otherlv_7=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleRanking2071); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getRankingAccess().getRequiredKeyword_4_1_1());
                         
@@ -2639,18 +2605,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:948:4: (otherlv_8= 'to' )?
-            int alt44=2;
-            int LA44_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:951:4: (otherlv_8= 'to' )?
+            int alt42=2;
+            int LA42_0 = input.LA(1);
 
-            if ( (LA44_0==18) ) {
-                alt44=1;
+            if ( (LA42_0==18) ) {
+                alt42=1;
             }
-            switch (alt44) {
+            switch (alt42) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:948:6: otherlv_8= 'to'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:951:6: otherlv_8= 'to'
                     {
-                    otherlv_8=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleRanking2098); 
+                    otherlv_8=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleRanking2087); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getRankingAccess().getToKeyword_5());
                         
@@ -2660,21 +2626,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:952:3: (otherlv_9= 'rank' | otherlv_10= 'answer' )?
-            int alt45=3;
-            int LA45_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:955:3: (otherlv_9= 'rank' | otherlv_10= 'answer' )?
+            int alt43=3;
+            int LA43_0 = input.LA(1);
 
-            if ( (LA45_0==39) ) {
-                alt45=1;
+            if ( (LA43_0==37) ) {
+                alt43=1;
             }
-            else if ( (LA45_0==19) ) {
-                alt45=2;
+            else if ( (LA43_0==19) ) {
+                alt43=2;
             }
-            switch (alt45) {
+            switch (alt43) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:952:5: otherlv_9= 'rank'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:955:5: otherlv_9= 'rank'
                     {
-                    otherlv_9=(Token)match(input,39,FollowSets000.FOLLOW_39_in_ruleRanking2113); 
+                    otherlv_9=(Token)match(input,37,FollowSets000.FOLLOW_37_in_ruleRanking2102); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getRankingAccess().getRankKeyword_6_0());
                         
@@ -2682,9 +2648,9 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:957:7: otherlv_10= 'answer'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:960:7: otherlv_10= 'answer'
                     {
-                    otherlv_10=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleRanking2131); 
+                    otherlv_10=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleRanking2120); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getRankingAccess().getAnswerKeyword_6_1());
                         
@@ -2694,16 +2660,16 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:961:3: ( (lv_question_11_0= ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:962:1: (lv_question_11_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:964:3: ( (lv_question_11_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:965:1: (lv_question_11_0= ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:962:1: (lv_question_11_0= ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:963:3: lv_question_11_0= ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:965:1: (lv_question_11_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:966:3: lv_question_11_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getRankingAccess().getQuestionEStringParserRuleCall_7_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRanking2154);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRanking2143);
             lv_question_11_0=ruleEString();
 
             state._fsp--;
@@ -2725,20 +2691,20 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:979:2: (otherlv_12= 'from' )?
-            int alt46=2;
-            int LA46_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:982:2: (otherlv_12= 'these' )?
+            int alt44=2;
+            int LA44_0 = input.LA(1);
 
-            if ( (LA46_0==22) ) {
-                alt46=1;
+            if ( (LA44_0==24) ) {
+                alt44=1;
             }
-            switch (alt46) {
+            switch (alt44) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:979:4: otherlv_12= 'from'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:982:4: otherlv_12= 'these'
                     {
-                    otherlv_12=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleRanking2167); 
+                    otherlv_12=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleRanking2156); 
 
-                        	newLeafNode(otherlv_12, grammarAccess.getRankingAccess().getFromKeyword_8());
+                        	newLeafNode(otherlv_12, grammarAccess.getRankingAccess().getTheseKeyword_8());
                         
 
                     }
@@ -2746,72 +2712,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:983:3: (otherlv_13= 'one of' | otherlv_14= 'some of' )?
-            int alt47=3;
-            int LA47_0 = input.LA(1);
-
-            if ( (LA47_0==40) ) {
-                alt47=1;
-            }
-            else if ( (LA47_0==41) ) {
-                alt47=2;
-            }
-            switch (alt47) {
-                case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:983:5: otherlv_13= 'one of'
-                    {
-                    otherlv_13=(Token)match(input,40,FollowSets000.FOLLOW_40_in_ruleRanking2182); 
-
-                        	newLeafNode(otherlv_13, grammarAccess.getRankingAccess().getOneOfKeyword_9_0());
-                        
-
-                    }
-                    break;
-                case 2 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:988:7: otherlv_14= 'some of'
-                    {
-                    otherlv_14=(Token)match(input,41,FollowSets000.FOLLOW_41_in_ruleRanking2200); 
-
-                        	newLeafNode(otherlv_14, grammarAccess.getRankingAccess().getSomeOfKeyword_9_1());
-                        
-
-                    }
-                    break;
-
-            }
-
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:992:3: (otherlv_15= 'these' )?
-            int alt48=2;
-            int LA48_0 = input.LA(1);
-
-            if ( (LA48_0==23) ) {
-                alt48=1;
-            }
-            switch (alt48) {
-                case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:992:5: otherlv_15= 'these'
-                    {
-                    otherlv_15=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleRanking2215); 
-
-                        	newLeafNode(otherlv_15, grammarAccess.getRankingAccess().getTheseKeyword_10());
-                        
-
-                    }
-                    break;
-
-            }
-
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:996:3: ( (lv_choices_16_0= ruleChoice ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:997:1: (lv_choices_16_0= ruleChoice )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:986:3: ( (lv_choices_13_0= ruleChoice ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:987:1: (lv_choices_13_0= ruleChoice )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:997:1: (lv_choices_16_0= ruleChoice )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:998:3: lv_choices_16_0= ruleChoice
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:987:1: (lv_choices_13_0= ruleChoice )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:988:3: lv_choices_13_0= ruleChoice
             {
              
-            	        newCompositeNode(grammarAccess.getRankingAccess().getChoicesChoiceParserRuleCall_11_0()); 
+            	        newCompositeNode(grammarAccess.getRankingAccess().getChoicesChoiceParserRuleCall_9_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleChoice_in_ruleRanking2238);
-            lv_choices_16_0=ruleChoice();
+            pushFollow(FollowSets000.FOLLOW_ruleChoice_in_ruleRanking2179);
+            lv_choices_13_0=ruleChoice();
 
             state._fsp--;
 
@@ -2822,7 +2733,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                    		add(
                    			current, 
                    			"choices",
-                    		lv_choices_16_0, 
+                    		lv_choices_13_0, 
                     		"Choice");
             	        afterParserOrEnumRuleCall();
             	    
@@ -2832,36 +2743,36 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1014:2: (otherlv_17= ',' ( (lv_choices_18_0= ruleChoice ) ) )*
-            loop49:
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1004:2: (otherlv_14= ',' ( (lv_choices_15_0= ruleChoice ) ) )*
+            loop45:
             do {
-                int alt49=2;
-                int LA49_0 = input.LA(1);
+                int alt45=2;
+                int LA45_0 = input.LA(1);
 
-                if ( (LA49_0==24) ) {
-                    alt49=1;
+                if ( (LA45_0==25) ) {
+                    alt45=1;
                 }
 
 
-                switch (alt49) {
+                switch (alt45) {
             	case 1 :
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1014:4: otherlv_17= ',' ( (lv_choices_18_0= ruleChoice ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1004:4: otherlv_14= ',' ( (lv_choices_15_0= ruleChoice ) )
             	    {
-            	    otherlv_17=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleRanking2251); 
+            	    otherlv_14=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleRanking2192); 
 
-            	        	newLeafNode(otherlv_17, grammarAccess.getRankingAccess().getCommaKeyword_12_0());
+            	        	newLeafNode(otherlv_14, grammarAccess.getRankingAccess().getCommaKeyword_10_0());
             	        
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1018:1: ( (lv_choices_18_0= ruleChoice ) )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1019:1: (lv_choices_18_0= ruleChoice )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1008:1: ( (lv_choices_15_0= ruleChoice ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1009:1: (lv_choices_15_0= ruleChoice )
             	    {
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1019:1: (lv_choices_18_0= ruleChoice )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1020:3: lv_choices_18_0= ruleChoice
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1009:1: (lv_choices_15_0= ruleChoice )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1010:3: lv_choices_15_0= ruleChoice
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getRankingAccess().getChoicesChoiceParserRuleCall_12_1_0()); 
+            	    	        newCompositeNode(grammarAccess.getRankingAccess().getChoicesChoiceParserRuleCall_10_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleChoice_in_ruleRanking2272);
-            	    lv_choices_18_0=ruleChoice();
+            	    pushFollow(FollowSets000.FOLLOW_ruleChoice_in_ruleRanking2213);
+            	    lv_choices_15_0=ruleChoice();
 
             	    state._fsp--;
 
@@ -2872,7 +2783,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	           		add(
             	           			current, 
             	           			"choices",
-            	            		lv_choices_18_0, 
+            	            		lv_choices_15_0, 
             	            		"Choice");
             	    	        afterParserOrEnumRuleCall();
             	    	    
@@ -2887,32 +2798,32 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop49;
+            	    break loop45;
                 }
             } while (true);
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1036:4: ( ( (lv_forks_19_0= ruleRankingSumFork ) ) ( (lv_forks_20_0= ruleRankingSumFork ) )* )?
-            int alt51=2;
-            int LA51_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1026:4: ( ( (lv_forks_16_0= ruleRankingSumFork ) ) ( (lv_forks_17_0= ruleRankingSumFork ) )* )?
+            int alt47=2;
+            int LA47_0 = input.LA(1);
 
-            if ( (LA51_0==50) ) {
-                alt51=1;
+            if ( (LA47_0==44) ) {
+                alt47=1;
             }
-            switch (alt51) {
+            switch (alt47) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1036:5: ( (lv_forks_19_0= ruleRankingSumFork ) ) ( (lv_forks_20_0= ruleRankingSumFork ) )*
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1026:5: ( (lv_forks_16_0= ruleRankingSumFork ) ) ( (lv_forks_17_0= ruleRankingSumFork ) )*
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1036:5: ( (lv_forks_19_0= ruleRankingSumFork ) )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1037:1: (lv_forks_19_0= ruleRankingSumFork )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1026:5: ( (lv_forks_16_0= ruleRankingSumFork ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1027:1: (lv_forks_16_0= ruleRankingSumFork )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1037:1: (lv_forks_19_0= ruleRankingSumFork )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1038:3: lv_forks_19_0= ruleRankingSumFork
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1027:1: (lv_forks_16_0= ruleRankingSumFork )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1028:3: lv_forks_16_0= ruleRankingSumFork
                     {
                      
-                    	        newCompositeNode(grammarAccess.getRankingAccess().getForksRankingSumForkParserRuleCall_13_0_0()); 
+                    	        newCompositeNode(grammarAccess.getRankingAccess().getForksRankingSumForkParserRuleCall_11_0_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleRankingSumFork_in_ruleRanking2296);
-                    lv_forks_19_0=ruleRankingSumFork();
+                    pushFollow(FollowSets000.FOLLOW_ruleRankingSumFork_in_ruleRanking2237);
+                    lv_forks_16_0=ruleRankingSumFork();
 
                     state._fsp--;
 
@@ -2923,7 +2834,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                            		add(
                            			current, 
                            			"forks",
-                            		lv_forks_19_0, 
+                            		lv_forks_16_0, 
                             		"RankingSumFork");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -2933,29 +2844,29 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1054:2: ( (lv_forks_20_0= ruleRankingSumFork ) )*
-                    loop50:
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1044:2: ( (lv_forks_17_0= ruleRankingSumFork ) )*
+                    loop46:
                     do {
-                        int alt50=2;
-                        int LA50_0 = input.LA(1);
+                        int alt46=2;
+                        int LA46_0 = input.LA(1);
 
-                        if ( (LA50_0==50) ) {
-                            alt50=1;
+                        if ( (LA46_0==44) ) {
+                            alt46=1;
                         }
 
 
-                        switch (alt50) {
+                        switch (alt46) {
                     	case 1 :
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1055:1: (lv_forks_20_0= ruleRankingSumFork )
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1045:1: (lv_forks_17_0= ruleRankingSumFork )
                     	    {
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1055:1: (lv_forks_20_0= ruleRankingSumFork )
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1056:3: lv_forks_20_0= ruleRankingSumFork
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1045:1: (lv_forks_17_0= ruleRankingSumFork )
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1046:3: lv_forks_17_0= ruleRankingSumFork
                     	    {
                     	     
-                    	    	        newCompositeNode(grammarAccess.getRankingAccess().getForksRankingSumForkParserRuleCall_13_1_0()); 
+                    	    	        newCompositeNode(grammarAccess.getRankingAccess().getForksRankingSumForkParserRuleCall_11_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleRankingSumFork_in_ruleRanking2317);
-                    	    lv_forks_20_0=ruleRankingSumFork();
+                    	    pushFollow(FollowSets000.FOLLOW_ruleRankingSumFork_in_ruleRanking2258);
+                    	    lv_forks_17_0=ruleRankingSumFork();
 
                     	    state._fsp--;
 
@@ -2966,7 +2877,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     	           		add(
                     	           			current, 
                     	           			"forks",
-                    	            		lv_forks_20_0, 
+                    	            		lv_forks_17_0, 
                     	            		"RankingSumFork");
                     	    	        afterParserOrEnumRuleCall();
                     	    	    
@@ -2978,7 +2889,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop50;
+                    	    break loop46;
                         }
                     } while (true);
 
@@ -3009,7 +2920,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConstantSum"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1080:1: entryRuleConstantSum returns [EObject current=null] : iv_ruleConstantSum= ruleConstantSum EOF ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1070:1: entryRuleConstantSum returns [EObject current=null] : iv_ruleConstantSum= ruleConstantSum EOF ;
     public final EObject entryRuleConstantSum() throws RecognitionException {
         EObject current = null;
 
@@ -3017,17 +2928,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1081:2: (iv_ruleConstantSum= ruleConstantSum EOF )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1082:2: iv_ruleConstantSum= ruleConstantSum EOF
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1071:2: (iv_ruleConstantSum= ruleConstantSum EOF )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1072:2: iv_ruleConstantSum= ruleConstantSum EOF
             {
              newCompositeNode(grammarAccess.getConstantSumRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleConstantSum_in_entryRuleConstantSum2356);
+            pushFollow(FollowSets000.FOLLOW_ruleConstantSum_in_entryRuleConstantSum2297);
             iv_ruleConstantSum=ruleConstantSum();
 
             state._fsp--;
 
              current =iv_ruleConstantSum; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleConstantSum2366); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleConstantSum2307); 
 
             }
 
@@ -3045,7 +2956,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConstantSum"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1089:1: ruleConstantSum returns [EObject current=null] : ( () otherlv_1= 'ConstantSum' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'distribute' | otherlv_11= 'answer' ) ( (lv_question_12_0= ruleEString ) ) ( ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) ) )? otherlv_18= 'amongst' otherlv_19= 'these' ( (lv_choices_20_0= ruleChoice ) ) (otherlv_21= ',' ( (lv_choices_22_0= ruleChoice ) ) )* ( ( (lv_forks_23_0= ruleRankingSumFork ) ) ( (lv_forks_24_0= ruleRankingSumFork ) )* )? ) ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1079:1: ruleConstantSum returns [EObject current=null] : ( () otherlv_1= 'ConstantSum' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'distribute' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) ( ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) ) )? (otherlv_18= 'these' )? ( (lv_choices_19_0= ruleChoice ) ) (otherlv_20= ',' ( (lv_choices_21_0= ruleChoice ) ) )* ( ( (lv_forks_22_0= ruleRankingSumFork ) ) ( (lv_forks_23_0= ruleRankingSumFork ) )* )? ) ;
     public final EObject ruleConstantSum() throws RecognitionException {
         EObject current = null;
 
@@ -3065,32 +2976,31 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
         Token otherlv_15=null;
         Token otherlv_16=null;
         Token otherlv_18=null;
-        Token otherlv_19=null;
-        Token otherlv_21=null;
+        Token otherlv_20=null;
         AntlrDatatypeRuleToken lv_question_12_0 = null;
 
         AntlrDatatypeRuleToken lv_constant_17_0 = null;
 
-        EObject lv_choices_20_0 = null;
+        EObject lv_choices_19_0 = null;
 
-        EObject lv_choices_22_0 = null;
+        EObject lv_choices_21_0 = null;
+
+        EObject lv_forks_22_0 = null;
 
         EObject lv_forks_23_0 = null;
-
-        EObject lv_forks_24_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1092:28: ( ( () otherlv_1= 'ConstantSum' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'distribute' | otherlv_11= 'answer' ) ( (lv_question_12_0= ruleEString ) ) ( ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) ) )? otherlv_18= 'amongst' otherlv_19= 'these' ( (lv_choices_20_0= ruleChoice ) ) (otherlv_21= ',' ( (lv_choices_22_0= ruleChoice ) ) )* ( ( (lv_forks_23_0= ruleRankingSumFork ) ) ( (lv_forks_24_0= ruleRankingSumFork ) )* )? ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1093:1: ( () otherlv_1= 'ConstantSum' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'distribute' | otherlv_11= 'answer' ) ( (lv_question_12_0= ruleEString ) ) ( ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) ) )? otherlv_18= 'amongst' otherlv_19= 'these' ( (lv_choices_20_0= ruleChoice ) ) (otherlv_21= ',' ( (lv_choices_22_0= ruleChoice ) ) )* ( ( (lv_forks_23_0= ruleRankingSumFork ) ) ( (lv_forks_24_0= ruleRankingSumFork ) )* )? )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1082:28: ( ( () otherlv_1= 'ConstantSum' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'distribute' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) ( ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) ) )? (otherlv_18= 'these' )? ( (lv_choices_19_0= ruleChoice ) ) (otherlv_20= ',' ( (lv_choices_21_0= ruleChoice ) ) )* ( ( (lv_forks_22_0= ruleRankingSumFork ) ) ( (lv_forks_23_0= ruleRankingSumFork ) )* )? ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1083:1: ( () otherlv_1= 'ConstantSum' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'distribute' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) ( ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) ) )? (otherlv_18= 'these' )? ( (lv_choices_19_0= ruleChoice ) ) (otherlv_20= ',' ( (lv_choices_21_0= ruleChoice ) ) )* ( ( (lv_forks_22_0= ruleRankingSumFork ) ) ( (lv_forks_23_0= ruleRankingSumFork ) )* )? )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1093:1: ( () otherlv_1= 'ConstantSum' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'distribute' | otherlv_11= 'answer' ) ( (lv_question_12_0= ruleEString ) ) ( ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) ) )? otherlv_18= 'amongst' otherlv_19= 'these' ( (lv_choices_20_0= ruleChoice ) ) (otherlv_21= ',' ( (lv_choices_22_0= ruleChoice ) ) )* ( ( (lv_forks_23_0= ruleRankingSumFork ) ) ( (lv_forks_24_0= ruleRankingSumFork ) )* )? )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1093:2: () otherlv_1= 'ConstantSum' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'distribute' | otherlv_11= 'answer' ) ( (lv_question_12_0= ruleEString ) ) ( ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) ) )? otherlv_18= 'amongst' otherlv_19= 'these' ( (lv_choices_20_0= ruleChoice ) ) (otherlv_21= ',' ( (lv_choices_22_0= ruleChoice ) ) )* ( ( (lv_forks_23_0= ruleRankingSumFork ) ) ( (lv_forks_24_0= ruleRankingSumFork ) )* )?
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1083:1: ( () otherlv_1= 'ConstantSum' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'distribute' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) ( ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) ) )? (otherlv_18= 'these' )? ( (lv_choices_19_0= ruleChoice ) ) (otherlv_20= ',' ( (lv_choices_21_0= ruleChoice ) ) )* ( ( (lv_forks_22_0= ruleRankingSumFork ) ) ( (lv_forks_23_0= ruleRankingSumFork ) )* )? )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1083:2: () otherlv_1= 'ConstantSum' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'distribute' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) ( ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) ) )? (otherlv_18= 'these' )? ( (lv_choices_19_0= ruleChoice ) ) (otherlv_20= ',' ( (lv_choices_21_0= ruleChoice ) ) )* ( ( (lv_forks_22_0= ruleRankingSumFork ) ) ( (lv_forks_23_0= ruleRankingSumFork ) )* )?
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1093:2: ()
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1094:5: 
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1083:2: ()
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1084:5: 
             {
 
                     current = forceCreateModelElement(
@@ -3100,17 +3010,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,42,FollowSets000.FOLLOW_42_in_ruleConstantSum2412); 
+            otherlv_1=(Token)match(input,38,FollowSets000.FOLLOW_38_in_ruleConstantSum2353); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getConstantSumAccess().getConstantSumKeyword_1());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1103:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1104:1: (lv_name_2_0= RULE_ID )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1093:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1094:1: (lv_name_2_0= RULE_ID )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1104:1: (lv_name_2_0= RULE_ID )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1105:3: lv_name_2_0= RULE_ID
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1094:1: (lv_name_2_0= RULE_ID )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1095:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleConstantSum2429); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleConstantSum2370); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getConstantSumAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -3130,33 +3040,33 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleConstantSum2446); 
+            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleConstantSum2387); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getConstantSumAccess().getColonKeyword_3());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1125:1: ( (otherlv_4= 'the' )? otherlv_5= 'user' )?
-            int alt53=2;
-            int LA53_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1115:1: ( (otherlv_4= 'the' )? otherlv_5= 'user' )?
+            int alt49=2;
+            int LA49_0 = input.LA(1);
 
-            if ( ((LA53_0>=13 && LA53_0<=14)) ) {
-                alt53=1;
+            if ( ((LA49_0>=13 && LA49_0<=14)) ) {
+                alt49=1;
             }
-            switch (alt53) {
+            switch (alt49) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1125:2: (otherlv_4= 'the' )? otherlv_5= 'user'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1115:2: (otherlv_4= 'the' )? otherlv_5= 'user'
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1125:2: (otherlv_4= 'the' )?
-                    int alt52=2;
-                    int LA52_0 = input.LA(1);
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1115:2: (otherlv_4= 'the' )?
+                    int alt48=2;
+                    int LA48_0 = input.LA(1);
 
-                    if ( (LA52_0==13) ) {
-                        alt52=1;
+                    if ( (LA48_0==13) ) {
+                        alt48=1;
                     }
-                    switch (alt52) {
+                    switch (alt48) {
                         case 1 :
-                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1125:4: otherlv_4= 'the'
+                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1115:4: otherlv_4= 'the'
                             {
-                            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleConstantSum2460); 
+                            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleConstantSum2401); 
 
                                 	newLeafNode(otherlv_4, grammarAccess.getConstantSumAccess().getTheKeyword_4_0());
                                 
@@ -3166,7 +3076,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleConstantSum2474); 
+                    otherlv_5=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleConstantSum2415); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getConstantSumAccess().getUserKeyword_4_1());
                         
@@ -3176,21 +3086,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1133:3: (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )?
-            int alt54=3;
-            int LA54_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1123:3: (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )?
+            int alt50=3;
+            int LA50_0 = input.LA(1);
 
-            if ( (LA54_0==15) ) {
-                alt54=1;
+            if ( (LA50_0==15) ) {
+                alt50=1;
             }
-            else if ( (LA54_0==16) ) {
-                alt54=2;
+            else if ( (LA50_0==16) ) {
+                alt50=2;
             }
-            switch (alt54) {
+            switch (alt50) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1133:5: otherlv_6= 'may'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1123:5: otherlv_6= 'may'
                     {
-                    otherlv_6=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleConstantSum2489); 
+                    otherlv_6=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleConstantSum2430); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getConstantSumAccess().getMayKeyword_5_0());
                         
@@ -3198,18 +3108,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1138:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1128:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1138:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1138:7: ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1128:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1128:7: ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required'
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1138:7: ( (lv_isRequired_7_0= 'is' ) )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1139:1: (lv_isRequired_7_0= 'is' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1128:7: ( (lv_isRequired_7_0= 'is' ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1129:1: (lv_isRequired_7_0= 'is' )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1139:1: (lv_isRequired_7_0= 'is' )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1140:3: lv_isRequired_7_0= 'is'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1129:1: (lv_isRequired_7_0= 'is' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1130:3: lv_isRequired_7_0= 'is'
                     {
-                    lv_isRequired_7_0=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleConstantSum2514); 
+                    lv_isRequired_7_0=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleConstantSum2455); 
 
                             newLeafNode(lv_isRequired_7_0, grammarAccess.getConstantSumAccess().getIsRequiredIsKeyword_5_1_0_0());
                         
@@ -3225,7 +3135,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleConstantSum2539); 
+                    otherlv_8=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleConstantSum2480); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getConstantSumAccess().getRequiredKeyword_5_1_1());
                         
@@ -3238,18 +3148,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1157:4: (otherlv_9= 'to' )?
-            int alt55=2;
-            int LA55_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1147:4: (otherlv_9= 'to' )?
+            int alt51=2;
+            int LA51_0 = input.LA(1);
 
-            if ( (LA55_0==18) ) {
-                alt55=1;
+            if ( (LA51_0==18) ) {
+                alt51=1;
             }
-            switch (alt55) {
+            switch (alt51) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1157:6: otherlv_9= 'to'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1147:6: otherlv_9= 'to'
                     {
-                    otherlv_9=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleConstantSum2555); 
+                    otherlv_9=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleConstantSum2496); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getConstantSumAccess().getToKeyword_6());
                         
@@ -3259,27 +3169,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1161:3: (otherlv_10= 'distribute' | otherlv_11= 'answer' )
-            int alt56=2;
-            int LA56_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1151:3: (otherlv_10= 'distribute' | otherlv_11= 'answer' )?
+            int alt52=3;
+            int LA52_0 = input.LA(1);
 
-            if ( (LA56_0==43) ) {
-                alt56=1;
+            if ( (LA52_0==39) ) {
+                alt52=1;
             }
-            else if ( (LA56_0==19) ) {
-                alt56=2;
+            else if ( (LA52_0==19) ) {
+                alt52=2;
             }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 56, 0, input);
-
-                throw nvae;
-            }
-            switch (alt56) {
+            switch (alt52) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1161:5: otherlv_10= 'distribute'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1151:5: otherlv_10= 'distribute'
                     {
-                    otherlv_10=(Token)match(input,43,FollowSets000.FOLLOW_43_in_ruleConstantSum2570); 
+                    otherlv_10=(Token)match(input,39,FollowSets000.FOLLOW_39_in_ruleConstantSum2511); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getConstantSumAccess().getDistributeKeyword_7_0());
                         
@@ -3287,9 +3191,9 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1166:7: otherlv_11= 'answer'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1156:7: otherlv_11= 'answer'
                     {
-                    otherlv_11=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleConstantSum2588); 
+                    otherlv_11=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleConstantSum2529); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getConstantSumAccess().getAnswerKeyword_7_1());
                         
@@ -3299,16 +3203,16 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1170:2: ( (lv_question_12_0= ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1171:1: (lv_question_12_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1160:3: ( (lv_question_12_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1161:1: (lv_question_12_0= ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1171:1: (lv_question_12_0= ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1172:3: lv_question_12_0= ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1161:1: (lv_question_12_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1162:3: lv_question_12_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getConstantSumAccess().getQuestionEStringParserRuleCall_8_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleConstantSum2610);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleConstantSum2552);
             lv_question_12_0=ruleEString();
 
             state._fsp--;
@@ -3330,32 +3234,32 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1188:2: ( ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) ) )?
-            int alt60=2;
-            int LA60_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1178:2: ( ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) ) )?
+            int alt56=2;
+            int LA56_0 = input.LA(1);
 
-            if ( (LA60_0==18||(LA60_0>=44 && LA60_0<=45)) ) {
-                alt60=1;
+            if ( (LA56_0==18||(LA56_0>=40 && LA56_0<=41)) ) {
+                alt56=1;
             }
-            switch (alt60) {
+            switch (alt56) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1188:3: ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1178:3: ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? ) ( (lv_constant_17_0= ruleEInt ) )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1188:3: ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1188:4: (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )?
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1178:3: ( (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )? )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1178:4: (otherlv_13= 'to' )? (otherlv_14= 'a' )? otherlv_15= 'total' (otherlv_16= 'of' )?
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1188:4: (otherlv_13= 'to' )?
-                    int alt57=2;
-                    int LA57_0 = input.LA(1);
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1178:4: (otherlv_13= 'to' )?
+                    int alt53=2;
+                    int LA53_0 = input.LA(1);
 
-                    if ( (LA57_0==18) ) {
-                        alt57=1;
+                    if ( (LA53_0==18) ) {
+                        alt53=1;
                     }
-                    switch (alt57) {
+                    switch (alt53) {
                         case 1 :
-                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1188:6: otherlv_13= 'to'
+                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1178:6: otherlv_13= 'to'
                             {
-                            otherlv_13=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleConstantSum2625); 
+                            otherlv_13=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleConstantSum2567); 
 
                                 	newLeafNode(otherlv_13, grammarAccess.getConstantSumAccess().getToKeyword_9_0_0());
                                 
@@ -3365,18 +3269,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1192:3: (otherlv_14= 'a' )?
-                    int alt58=2;
-                    int LA58_0 = input.LA(1);
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1182:3: (otherlv_14= 'a' )?
+                    int alt54=2;
+                    int LA54_0 = input.LA(1);
 
-                    if ( (LA58_0==44) ) {
-                        alt58=1;
+                    if ( (LA54_0==40) ) {
+                        alt54=1;
                     }
-                    switch (alt58) {
+                    switch (alt54) {
                         case 1 :
-                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1192:5: otherlv_14= 'a'
+                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1182:5: otherlv_14= 'a'
                             {
-                            otherlv_14=(Token)match(input,44,FollowSets000.FOLLOW_44_in_ruleConstantSum2640); 
+                            otherlv_14=(Token)match(input,40,FollowSets000.FOLLOW_40_in_ruleConstantSum2582); 
 
                                 	newLeafNode(otherlv_14, grammarAccess.getConstantSumAccess().getAKeyword_9_0_1());
                                 
@@ -3386,22 +3290,22 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_15=(Token)match(input,45,FollowSets000.FOLLOW_45_in_ruleConstantSum2654); 
+                    otherlv_15=(Token)match(input,41,FollowSets000.FOLLOW_41_in_ruleConstantSum2596); 
 
                         	newLeafNode(otherlv_15, grammarAccess.getConstantSumAccess().getTotalKeyword_9_0_2());
                         
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1200:1: (otherlv_16= 'of' )?
-                    int alt59=2;
-                    int LA59_0 = input.LA(1);
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1190:1: (otherlv_16= 'of' )?
+                    int alt55=2;
+                    int LA55_0 = input.LA(1);
 
-                    if ( (LA59_0==46) ) {
-                        alt59=1;
+                    if ( (LA55_0==23) ) {
+                        alt55=1;
                     }
-                    switch (alt59) {
+                    switch (alt55) {
                         case 1 :
-                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1200:3: otherlv_16= 'of'
+                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1190:3: otherlv_16= 'of'
                             {
-                            otherlv_16=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleConstantSum2667); 
+                            otherlv_16=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleConstantSum2609); 
 
                                 	newLeafNode(otherlv_16, grammarAccess.getConstantSumAccess().getOfKeyword_9_0_3());
                                 
@@ -3414,16 +3318,16 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1204:4: ( (lv_constant_17_0= ruleEInt ) )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1205:1: (lv_constant_17_0= ruleEInt )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1194:4: ( (lv_constant_17_0= ruleEInt ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1195:1: (lv_constant_17_0= ruleEInt )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1205:1: (lv_constant_17_0= ruleEInt )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1206:3: lv_constant_17_0= ruleEInt
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1195:1: (lv_constant_17_0= ruleEInt )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1196:3: lv_constant_17_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getConstantSumAccess().getConstantEIntParserRuleCall_9_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleConstantSum2691);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleConstantSum2633);
                     lv_constant_17_0=ruleEInt();
 
                     state._fsp--;
@@ -3451,25 +3355,38 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_18=(Token)match(input,47,FollowSets000.FOLLOW_47_in_ruleConstantSum2705); 
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1212:4: (otherlv_18= 'these' )?
+            int alt57=2;
+            int LA57_0 = input.LA(1);
 
-                	newLeafNode(otherlv_18, grammarAccess.getConstantSumAccess().getAmongstKeyword_10());
-                
-            otherlv_19=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleConstantSum2717); 
+            if ( (LA57_0==24) ) {
+                alt57=1;
+            }
+            switch (alt57) {
+                case 1 :
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1212:6: otherlv_18= 'these'
+                    {
+                    otherlv_18=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleConstantSum2648); 
 
-                	newLeafNode(otherlv_19, grammarAccess.getConstantSumAccess().getTheseKeyword_11());
-                
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1230:1: ( (lv_choices_20_0= ruleChoice ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1231:1: (lv_choices_20_0= ruleChoice )
+                        	newLeafNode(otherlv_18, grammarAccess.getConstantSumAccess().getTheseKeyword_10());
+                        
+
+                    }
+                    break;
+
+            }
+
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1216:3: ( (lv_choices_19_0= ruleChoice ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1217:1: (lv_choices_19_0= ruleChoice )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1231:1: (lv_choices_20_0= ruleChoice )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1232:3: lv_choices_20_0= ruleChoice
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1217:1: (lv_choices_19_0= ruleChoice )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1218:3: lv_choices_19_0= ruleChoice
             {
              
-            	        newCompositeNode(grammarAccess.getConstantSumAccess().getChoicesChoiceParserRuleCall_12_0()); 
+            	        newCompositeNode(grammarAccess.getConstantSumAccess().getChoicesChoiceParserRuleCall_11_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleChoice_in_ruleConstantSum2738);
-            lv_choices_20_0=ruleChoice();
+            pushFollow(FollowSets000.FOLLOW_ruleChoice_in_ruleConstantSum2671);
+            lv_choices_19_0=ruleChoice();
 
             state._fsp--;
 
@@ -3480,7 +3397,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                    		add(
                    			current, 
                    			"choices",
-                    		lv_choices_20_0, 
+                    		lv_choices_19_0, 
                     		"Choice");
             	        afterParserOrEnumRuleCall();
             	    
@@ -3490,36 +3407,36 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1248:2: (otherlv_21= ',' ( (lv_choices_22_0= ruleChoice ) ) )*
-            loop61:
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1234:2: (otherlv_20= ',' ( (lv_choices_21_0= ruleChoice ) ) )*
+            loop58:
             do {
-                int alt61=2;
-                int LA61_0 = input.LA(1);
+                int alt58=2;
+                int LA58_0 = input.LA(1);
 
-                if ( (LA61_0==24) ) {
-                    alt61=1;
+                if ( (LA58_0==25) ) {
+                    alt58=1;
                 }
 
 
-                switch (alt61) {
+                switch (alt58) {
             	case 1 :
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1248:4: otherlv_21= ',' ( (lv_choices_22_0= ruleChoice ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1234:4: otherlv_20= ',' ( (lv_choices_21_0= ruleChoice ) )
             	    {
-            	    otherlv_21=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleConstantSum2751); 
+            	    otherlv_20=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleConstantSum2684); 
 
-            	        	newLeafNode(otherlv_21, grammarAccess.getConstantSumAccess().getCommaKeyword_13_0());
+            	        	newLeafNode(otherlv_20, grammarAccess.getConstantSumAccess().getCommaKeyword_12_0());
             	        
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1252:1: ( (lv_choices_22_0= ruleChoice ) )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1253:1: (lv_choices_22_0= ruleChoice )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1238:1: ( (lv_choices_21_0= ruleChoice ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1239:1: (lv_choices_21_0= ruleChoice )
             	    {
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1253:1: (lv_choices_22_0= ruleChoice )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1254:3: lv_choices_22_0= ruleChoice
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1239:1: (lv_choices_21_0= ruleChoice )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1240:3: lv_choices_21_0= ruleChoice
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getConstantSumAccess().getChoicesChoiceParserRuleCall_13_1_0()); 
+            	    	        newCompositeNode(grammarAccess.getConstantSumAccess().getChoicesChoiceParserRuleCall_12_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleChoice_in_ruleConstantSum2772);
-            	    lv_choices_22_0=ruleChoice();
+            	    pushFollow(FollowSets000.FOLLOW_ruleChoice_in_ruleConstantSum2705);
+            	    lv_choices_21_0=ruleChoice();
 
             	    state._fsp--;
 
@@ -3530,7 +3447,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	           		add(
             	           			current, 
             	           			"choices",
-            	            		lv_choices_22_0, 
+            	            		lv_choices_21_0, 
             	            		"Choice");
             	    	        afterParserOrEnumRuleCall();
             	    	    
@@ -3545,32 +3462,32 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop61;
+            	    break loop58;
                 }
             } while (true);
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1270:4: ( ( (lv_forks_23_0= ruleRankingSumFork ) ) ( (lv_forks_24_0= ruleRankingSumFork ) )* )?
-            int alt63=2;
-            int LA63_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1256:4: ( ( (lv_forks_22_0= ruleRankingSumFork ) ) ( (lv_forks_23_0= ruleRankingSumFork ) )* )?
+            int alt60=2;
+            int LA60_0 = input.LA(1);
 
-            if ( (LA63_0==50) ) {
-                alt63=1;
+            if ( (LA60_0==44) ) {
+                alt60=1;
             }
-            switch (alt63) {
+            switch (alt60) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1270:5: ( (lv_forks_23_0= ruleRankingSumFork ) ) ( (lv_forks_24_0= ruleRankingSumFork ) )*
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1256:5: ( (lv_forks_22_0= ruleRankingSumFork ) ) ( (lv_forks_23_0= ruleRankingSumFork ) )*
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1270:5: ( (lv_forks_23_0= ruleRankingSumFork ) )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1271:1: (lv_forks_23_0= ruleRankingSumFork )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1256:5: ( (lv_forks_22_0= ruleRankingSumFork ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1257:1: (lv_forks_22_0= ruleRankingSumFork )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1271:1: (lv_forks_23_0= ruleRankingSumFork )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1272:3: lv_forks_23_0= ruleRankingSumFork
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1257:1: (lv_forks_22_0= ruleRankingSumFork )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1258:3: lv_forks_22_0= ruleRankingSumFork
                     {
                      
-                    	        newCompositeNode(grammarAccess.getConstantSumAccess().getForksRankingSumForkParserRuleCall_14_0_0()); 
+                    	        newCompositeNode(grammarAccess.getConstantSumAccess().getForksRankingSumForkParserRuleCall_13_0_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleRankingSumFork_in_ruleConstantSum2796);
-                    lv_forks_23_0=ruleRankingSumFork();
+                    pushFollow(FollowSets000.FOLLOW_ruleRankingSumFork_in_ruleConstantSum2729);
+                    lv_forks_22_0=ruleRankingSumFork();
 
                     state._fsp--;
 
@@ -3581,7 +3498,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                            		add(
                            			current, 
                            			"forks",
-                            		lv_forks_23_0, 
+                            		lv_forks_22_0, 
                             		"RankingSumFork");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -3591,29 +3508,29 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1288:2: ( (lv_forks_24_0= ruleRankingSumFork ) )*
-                    loop62:
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1274:2: ( (lv_forks_23_0= ruleRankingSumFork ) )*
+                    loop59:
                     do {
-                        int alt62=2;
-                        int LA62_0 = input.LA(1);
+                        int alt59=2;
+                        int LA59_0 = input.LA(1);
 
-                        if ( (LA62_0==50) ) {
-                            alt62=1;
+                        if ( (LA59_0==44) ) {
+                            alt59=1;
                         }
 
 
-                        switch (alt62) {
+                        switch (alt59) {
                     	case 1 :
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1289:1: (lv_forks_24_0= ruleRankingSumFork )
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1275:1: (lv_forks_23_0= ruleRankingSumFork )
                     	    {
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1289:1: (lv_forks_24_0= ruleRankingSumFork )
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1290:3: lv_forks_24_0= ruleRankingSumFork
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1275:1: (lv_forks_23_0= ruleRankingSumFork )
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1276:3: lv_forks_23_0= ruleRankingSumFork
                     	    {
                     	     
-                    	    	        newCompositeNode(grammarAccess.getConstantSumAccess().getForksRankingSumForkParserRuleCall_14_1_0()); 
+                    	    	        newCompositeNode(grammarAccess.getConstantSumAccess().getForksRankingSumForkParserRuleCall_13_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleRankingSumFork_in_ruleConstantSum2817);
-                    	    lv_forks_24_0=ruleRankingSumFork();
+                    	    pushFollow(FollowSets000.FOLLOW_ruleRankingSumFork_in_ruleConstantSum2750);
+                    	    lv_forks_23_0=ruleRankingSumFork();
 
                     	    state._fsp--;
 
@@ -3624,7 +3541,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     	           		add(
                     	           			current, 
                     	           			"forks",
-                    	            		lv_forks_24_0, 
+                    	            		lv_forks_23_0, 
                     	            		"RankingSumFork");
                     	    	        afterParserOrEnumRuleCall();
                     	    	    
@@ -3636,7 +3553,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop62;
+                    	    break loop59;
                         }
                     } while (true);
 
@@ -3667,7 +3584,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStaple"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1314:1: entryRuleStaple returns [EObject current=null] : iv_ruleStaple= ruleStaple EOF ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1300:1: entryRuleStaple returns [EObject current=null] : iv_ruleStaple= ruleStaple EOF ;
     public final EObject entryRuleStaple() throws RecognitionException {
         EObject current = null;
 
@@ -3675,17 +3592,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1315:2: (iv_ruleStaple= ruleStaple EOF )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1316:2: iv_ruleStaple= ruleStaple EOF
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1301:2: (iv_ruleStaple= ruleStaple EOF )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1302:2: iv_ruleStaple= ruleStaple EOF
             {
              newCompositeNode(grammarAccess.getStapleRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleStaple_in_entryRuleStaple2856);
+            pushFollow(FollowSets000.FOLLOW_ruleStaple_in_entryRuleStaple2789);
             iv_ruleStaple=ruleStaple();
 
             state._fsp--;
 
              current =iv_ruleStaple; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleStaple2866); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleStaple2799); 
 
             }
 
@@ -3703,7 +3620,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStaple"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1323:1: ruleStaple returns [EObject current=null] : ( () otherlv_1= 'Staple' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' ) ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= ',' )? (otherlv_22= 'mid' )? (otherlv_23= 'means' )? ( (lv_mid_24_0= ruleEString ) ) (otherlv_25= 'and' )? (otherlv_26= 'highest' )? (otherlv_27= 'means' )? ( (lv_last_28_0= ruleEString ) ) ( ( (lv_forks_29_0= ruleRatingFork ) ) ( (lv_forks_30_0= ruleRatingFork ) )* )? ) ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1309:1: ruleStaple returns [EObject current=null] : ( () otherlv_1= 'Staple' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'where' )? (otherlv_14= 'lowest' )? (otherlv_15= 'means' )? ( (lv_first_16_0= ruleEString ) ) (otherlv_17= ',' )? (otherlv_18= 'middle' )? (otherlv_19= 'means' )? ( (lv_mid_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )? ) ;
     public final EObject ruleStaple() throws RecognitionException {
         EObject current = null;
 
@@ -3719,6 +3636,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
         Token otherlv_10=null;
         Token otherlv_11=null;
         Token otherlv_13=null;
+        Token otherlv_14=null;
         Token otherlv_15=null;
         Token otherlv_17=null;
         Token otherlv_18=null;
@@ -3726,37 +3644,30 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
         Token otherlv_21=null;
         Token otherlv_22=null;
         Token otherlv_23=null;
-        Token otherlv_25=null;
-        Token otherlv_26=null;
-        Token otherlv_27=null;
         AntlrDatatypeRuleToken lv_question_12_0 = null;
 
-        AntlrDatatypeRuleToken lv_min_14_0 = null;
+        AntlrDatatypeRuleToken lv_first_16_0 = null;
 
-        AntlrDatatypeRuleToken lv_max_16_0 = null;
+        AntlrDatatypeRuleToken lv_mid_20_0 = null;
 
-        AntlrDatatypeRuleToken lv_first_20_0 = null;
+        AntlrDatatypeRuleToken lv_last_24_0 = null;
 
-        AntlrDatatypeRuleToken lv_mid_24_0 = null;
+        EObject lv_forks_25_0 = null;
 
-        AntlrDatatypeRuleToken lv_last_28_0 = null;
-
-        EObject lv_forks_29_0 = null;
-
-        EObject lv_forks_30_0 = null;
+        EObject lv_forks_26_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1326:28: ( ( () otherlv_1= 'Staple' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' ) ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= ',' )? (otherlv_22= 'mid' )? (otherlv_23= 'means' )? ( (lv_mid_24_0= ruleEString ) ) (otherlv_25= 'and' )? (otherlv_26= 'highest' )? (otherlv_27= 'means' )? ( (lv_last_28_0= ruleEString ) ) ( ( (lv_forks_29_0= ruleRatingFork ) ) ( (lv_forks_30_0= ruleRatingFork ) )* )? ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1327:1: ( () otherlv_1= 'Staple' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' ) ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= ',' )? (otherlv_22= 'mid' )? (otherlv_23= 'means' )? ( (lv_mid_24_0= ruleEString ) ) (otherlv_25= 'and' )? (otherlv_26= 'highest' )? (otherlv_27= 'means' )? ( (lv_last_28_0= ruleEString ) ) ( ( (lv_forks_29_0= ruleRatingFork ) ) ( (lv_forks_30_0= ruleRatingFork ) )* )? )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1312:28: ( ( () otherlv_1= 'Staple' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'where' )? (otherlv_14= 'lowest' )? (otherlv_15= 'means' )? ( (lv_first_16_0= ruleEString ) ) (otherlv_17= ',' )? (otherlv_18= 'middle' )? (otherlv_19= 'means' )? ( (lv_mid_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )? ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1313:1: ( () otherlv_1= 'Staple' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'where' )? (otherlv_14= 'lowest' )? (otherlv_15= 'means' )? ( (lv_first_16_0= ruleEString ) ) (otherlv_17= ',' )? (otherlv_18= 'middle' )? (otherlv_19= 'means' )? ( (lv_mid_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )? )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1327:1: ( () otherlv_1= 'Staple' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' ) ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= ',' )? (otherlv_22= 'mid' )? (otherlv_23= 'means' )? ( (lv_mid_24_0= ruleEString ) ) (otherlv_25= 'and' )? (otherlv_26= 'highest' )? (otherlv_27= 'means' )? ( (lv_last_28_0= ruleEString ) ) ( ( (lv_forks_29_0= ruleRatingFork ) ) ( (lv_forks_30_0= ruleRatingFork ) )* )? )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1327:2: () otherlv_1= 'Staple' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' ) ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'between' )? ( (lv_min_14_0= ruleEInt ) ) (otherlv_15= 'and' )? ( (lv_max_16_0= ruleEInt ) ) (otherlv_17= 'where' )? (otherlv_18= 'lowest' )? (otherlv_19= 'means' )? ( (lv_first_20_0= ruleEString ) ) (otherlv_21= ',' )? (otherlv_22= 'mid' )? (otherlv_23= 'means' )? ( (lv_mid_24_0= ruleEString ) ) (otherlv_25= 'and' )? (otherlv_26= 'highest' )? (otherlv_27= 'means' )? ( (lv_last_28_0= ruleEString ) ) ( ( (lv_forks_29_0= ruleRatingFork ) ) ( (lv_forks_30_0= ruleRatingFork ) )* )?
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1313:1: ( () otherlv_1= 'Staple' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'where' )? (otherlv_14= 'lowest' )? (otherlv_15= 'means' )? ( (lv_first_16_0= ruleEString ) ) (otherlv_17= ',' )? (otherlv_18= 'middle' )? (otherlv_19= 'means' )? ( (lv_mid_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )? )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1313:2: () otherlv_1= 'Staple' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= 'the' )? otherlv_5= 'user' )? (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )? (otherlv_9= 'to' )? (otherlv_10= 'rate' | otherlv_11= 'answer' )? ( (lv_question_12_0= ruleEString ) ) (otherlv_13= 'where' )? (otherlv_14= 'lowest' )? (otherlv_15= 'means' )? ( (lv_first_16_0= ruleEString ) ) (otherlv_17= ',' )? (otherlv_18= 'middle' )? (otherlv_19= 'means' )? ( (lv_mid_20_0= ruleEString ) ) (otherlv_21= 'and' )? (otherlv_22= 'highest' )? (otherlv_23= 'means' )? ( (lv_last_24_0= ruleEString ) ) ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )?
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1327:2: ()
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1328:5: 
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1313:2: ()
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1314:5: 
             {
 
                     current = forceCreateModelElement(
@@ -3766,17 +3677,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,48,FollowSets000.FOLLOW_48_in_ruleStaple2912); 
+            otherlv_1=(Token)match(input,42,FollowSets000.FOLLOW_42_in_ruleStaple2845); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getStapleAccess().getStapleKeyword_1());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1337:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1338:1: (lv_name_2_0= RULE_ID )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1323:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1324:1: (lv_name_2_0= RULE_ID )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1338:1: (lv_name_2_0= RULE_ID )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1339:3: lv_name_2_0= RULE_ID
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1324:1: (lv_name_2_0= RULE_ID )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1325:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleStaple2929); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleStaple2862); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getStapleAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -3796,33 +3707,33 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleStaple2946); 
+            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleStaple2879); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getStapleAccess().getColonKeyword_3());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1359:1: ( (otherlv_4= 'the' )? otherlv_5= 'user' )?
-            int alt65=2;
-            int LA65_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1345:1: ( (otherlv_4= 'the' )? otherlv_5= 'user' )?
+            int alt62=2;
+            int LA62_0 = input.LA(1);
 
-            if ( ((LA65_0>=13 && LA65_0<=14)) ) {
-                alt65=1;
+            if ( ((LA62_0>=13 && LA62_0<=14)) ) {
+                alt62=1;
             }
-            switch (alt65) {
+            switch (alt62) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1359:2: (otherlv_4= 'the' )? otherlv_5= 'user'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1345:2: (otherlv_4= 'the' )? otherlv_5= 'user'
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1359:2: (otherlv_4= 'the' )?
-                    int alt64=2;
-                    int LA64_0 = input.LA(1);
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1345:2: (otherlv_4= 'the' )?
+                    int alt61=2;
+                    int LA61_0 = input.LA(1);
 
-                    if ( (LA64_0==13) ) {
-                        alt64=1;
+                    if ( (LA61_0==13) ) {
+                        alt61=1;
                     }
-                    switch (alt64) {
+                    switch (alt61) {
                         case 1 :
-                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1359:4: otherlv_4= 'the'
+                            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1345:4: otherlv_4= 'the'
                             {
-                            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleStaple2960); 
+                            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleStaple2893); 
 
                                 	newLeafNode(otherlv_4, grammarAccess.getStapleAccess().getTheKeyword_4_0());
                                 
@@ -3832,7 +3743,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleStaple2974); 
+                    otherlv_5=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleStaple2907); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getStapleAccess().getUserKeyword_4_1());
                         
@@ -3842,21 +3753,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1367:3: (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )?
-            int alt66=3;
-            int LA66_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1353:3: (otherlv_6= 'may' | ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' ) )?
+            int alt63=3;
+            int LA63_0 = input.LA(1);
 
-            if ( (LA66_0==15) ) {
-                alt66=1;
+            if ( (LA63_0==15) ) {
+                alt63=1;
             }
-            else if ( (LA66_0==16) ) {
-                alt66=2;
+            else if ( (LA63_0==16) ) {
+                alt63=2;
             }
-            switch (alt66) {
+            switch (alt63) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1367:5: otherlv_6= 'may'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1353:5: otherlv_6= 'may'
                     {
-                    otherlv_6=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleStaple2989); 
+                    otherlv_6=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleStaple2922); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getStapleAccess().getMayKeyword_5_0());
                         
@@ -3864,18 +3775,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1372:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1358:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1372:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1372:7: ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1358:6: ( ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1358:7: ( (lv_isRequired_7_0= 'is' ) ) otherlv_8= 'required'
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1372:7: ( (lv_isRequired_7_0= 'is' ) )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1373:1: (lv_isRequired_7_0= 'is' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1358:7: ( (lv_isRequired_7_0= 'is' ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1359:1: (lv_isRequired_7_0= 'is' )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1373:1: (lv_isRequired_7_0= 'is' )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1374:3: lv_isRequired_7_0= 'is'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1359:1: (lv_isRequired_7_0= 'is' )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1360:3: lv_isRequired_7_0= 'is'
                     {
-                    lv_isRequired_7_0=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleStaple3014); 
+                    lv_isRequired_7_0=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleStaple2947); 
 
                             newLeafNode(lv_isRequired_7_0, grammarAccess.getStapleAccess().getIsRequiredIsKeyword_5_1_0_0());
                         
@@ -3891,7 +3802,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleStaple3039); 
+                    otherlv_8=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleStaple2972); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getStapleAccess().getRequiredKeyword_5_1_1());
                         
@@ -3904,18 +3815,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1391:4: (otherlv_9= 'to' )?
-            int alt67=2;
-            int LA67_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1377:4: (otherlv_9= 'to' )?
+            int alt64=2;
+            int LA64_0 = input.LA(1);
 
-            if ( (LA67_0==18) ) {
-                alt67=1;
+            if ( (LA64_0==18) ) {
+                alt64=1;
             }
-            switch (alt67) {
+            switch (alt64) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1391:6: otherlv_9= 'to'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1377:6: otherlv_9= 'to'
                     {
-                    otherlv_9=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleStaple3055); 
+                    otherlv_9=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleStaple2988); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getStapleAccess().getToKeyword_6());
                         
@@ -3925,27 +3836,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1395:3: (otherlv_10= 'rate' | otherlv_11= 'answer' )
-            int alt68=2;
-            int LA68_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1381:3: (otherlv_10= 'rate' | otherlv_11= 'answer' )?
+            int alt65=3;
+            int LA65_0 = input.LA(1);
 
-            if ( (LA68_0==31) ) {
-                alt68=1;
+            if ( (LA65_0==29) ) {
+                alt65=1;
             }
-            else if ( (LA68_0==19) ) {
-                alt68=2;
+            else if ( (LA65_0==19) ) {
+                alt65=2;
             }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 68, 0, input);
-
-                throw nvae;
-            }
-            switch (alt68) {
+            switch (alt65) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1395:5: otherlv_10= 'rate'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1381:5: otherlv_10= 'rate'
                     {
-                    otherlv_10=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleStaple3070); 
+                    otherlv_10=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleStaple3003); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getStapleAccess().getRateKeyword_7_0());
                         
@@ -3953,9 +3858,9 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1400:7: otherlv_11= 'answer'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1386:7: otherlv_11= 'answer'
                     {
-                    otherlv_11=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleStaple3088); 
+                    otherlv_11=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleStaple3021); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getStapleAccess().getAnswerKeyword_7_1());
                         
@@ -3965,16 +3870,16 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1404:2: ( (lv_question_12_0= ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1405:1: (lv_question_12_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1390:3: ( (lv_question_12_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1391:1: (lv_question_12_0= ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1405:1: (lv_question_12_0= ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1406:3: lv_question_12_0= ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1391:1: (lv_question_12_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1392:3: lv_question_12_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getStapleAccess().getQuestionEStringParserRuleCall_8_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleStaple3110);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleStaple3044);
             lv_question_12_0=ruleEString();
 
             state._fsp--;
@@ -3996,20 +3901,20 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1422:2: (otherlv_13= 'between' )?
-            int alt69=2;
-            int LA69_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1408:2: (otherlv_13= 'where' )?
+            int alt66=2;
+            int LA66_0 = input.LA(1);
 
-            if ( (LA69_0==32) ) {
-                alt69=1;
+            if ( (LA66_0==32) ) {
+                alt66=1;
             }
-            switch (alt69) {
+            switch (alt66) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1422:4: otherlv_13= 'between'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1408:4: otherlv_13= 'where'
                     {
-                    otherlv_13=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleStaple3123); 
+                    otherlv_13=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleStaple3057); 
 
-                        	newLeafNode(otherlv_13, grammarAccess.getStapleAccess().getBetweenKeyword_9());
+                        	newLeafNode(otherlv_13, grammarAccess.getStapleAccess().getWhereKeyword_9());
                         
 
                     }
@@ -4017,163 +3922,59 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1426:3: ( (lv_min_14_0= ruleEInt ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1427:1: (lv_min_14_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1412:3: (otherlv_14= 'lowest' )?
+            int alt67=2;
+            int LA67_0 = input.LA(1);
+
+            if ( (LA67_0==33) ) {
+                alt67=1;
+            }
+            switch (alt67) {
+                case 1 :
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1412:5: otherlv_14= 'lowest'
+                    {
+                    otherlv_14=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleStaple3072); 
+
+                        	newLeafNode(otherlv_14, grammarAccess.getStapleAccess().getLowestKeyword_10());
+                        
+
+                    }
+                    break;
+
+            }
+
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1416:3: (otherlv_15= 'means' )?
+            int alt68=2;
+            int LA68_0 = input.LA(1);
+
+            if ( (LA68_0==34) ) {
+                alt68=1;
+            }
+            switch (alt68) {
+                case 1 :
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1416:5: otherlv_15= 'means'
+                    {
+                    otherlv_15=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleStaple3087); 
+
+                        	newLeafNode(otherlv_15, grammarAccess.getStapleAccess().getMeansKeyword_11());
+                        
+
+                    }
+                    break;
+
+            }
+
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1420:3: ( (lv_first_16_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1421:1: (lv_first_16_0= ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1427:1: (lv_min_14_0= ruleEInt )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1428:3: lv_min_14_0= ruleEInt
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1421:1: (lv_first_16_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1422:3: lv_first_16_0= ruleEString
             {
              
-            	        newCompositeNode(grammarAccess.getStapleAccess().getMinEIntParserRuleCall_10_0()); 
+            	        newCompositeNode(grammarAccess.getStapleAccess().getFirstEStringParserRuleCall_12_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleStaple3146);
-            lv_min_14_0=ruleEInt();
-
-            state._fsp--;
-
-
-            	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getStapleRule());
-            	        }
-                   		set(
-                   			current, 
-                   			"min",
-                    		lv_min_14_0, 
-                    		"EInt");
-            	        afterParserOrEnumRuleCall();
-            	    
-
-            }
-
-
-            }
-
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1444:2: (otherlv_15= 'and' )?
-            int alt70=2;
-            int LA70_0 = input.LA(1);
-
-            if ( (LA70_0==33) ) {
-                alt70=1;
-            }
-            switch (alt70) {
-                case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1444:4: otherlv_15= 'and'
-                    {
-                    otherlv_15=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleStaple3159); 
-
-                        	newLeafNode(otherlv_15, grammarAccess.getStapleAccess().getAndKeyword_11());
-                        
-
-                    }
-                    break;
-
-            }
-
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1448:3: ( (lv_max_16_0= ruleEInt ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1449:1: (lv_max_16_0= ruleEInt )
-            {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1449:1: (lv_max_16_0= ruleEInt )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1450:3: lv_max_16_0= ruleEInt
-            {
-             
-            	        newCompositeNode(grammarAccess.getStapleAccess().getMaxEIntParserRuleCall_12_0()); 
-            	    
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleStaple3182);
-            lv_max_16_0=ruleEInt();
-
-            state._fsp--;
-
-
-            	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getStapleRule());
-            	        }
-                   		set(
-                   			current, 
-                   			"max",
-                    		lv_max_16_0, 
-                    		"EInt");
-            	        afterParserOrEnumRuleCall();
-            	    
-
-            }
-
-
-            }
-
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1466:2: (otherlv_17= 'where' )?
-            int alt71=2;
-            int LA71_0 = input.LA(1);
-
-            if ( (LA71_0==34) ) {
-                alt71=1;
-            }
-            switch (alt71) {
-                case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1466:4: otherlv_17= 'where'
-                    {
-                    otherlv_17=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleStaple3195); 
-
-                        	newLeafNode(otherlv_17, grammarAccess.getStapleAccess().getWhereKeyword_13());
-                        
-
-                    }
-                    break;
-
-            }
-
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1470:3: (otherlv_18= 'lowest' )?
-            int alt72=2;
-            int LA72_0 = input.LA(1);
-
-            if ( (LA72_0==35) ) {
-                alt72=1;
-            }
-            switch (alt72) {
-                case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1470:5: otherlv_18= 'lowest'
-                    {
-                    otherlv_18=(Token)match(input,35,FollowSets000.FOLLOW_35_in_ruleStaple3210); 
-
-                        	newLeafNode(otherlv_18, grammarAccess.getStapleAccess().getLowestKeyword_14());
-                        
-
-                    }
-                    break;
-
-            }
-
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1474:3: (otherlv_19= 'means' )?
-            int alt73=2;
-            int LA73_0 = input.LA(1);
-
-            if ( (LA73_0==36) ) {
-                alt73=1;
-            }
-            switch (alt73) {
-                case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1474:5: otherlv_19= 'means'
-                    {
-                    otherlv_19=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleStaple3225); 
-
-                        	newLeafNode(otherlv_19, grammarAccess.getStapleAccess().getMeansKeyword_15());
-                        
-
-                    }
-                    break;
-
-            }
-
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1478:3: ( (lv_first_20_0= ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1479:1: (lv_first_20_0= ruleEString )
-            {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1479:1: (lv_first_20_0= ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1480:3: lv_first_20_0= ruleEString
-            {
-             
-            	        newCompositeNode(grammarAccess.getStapleAccess().getFirstEStringParserRuleCall_16_0()); 
-            	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleStaple3248);
-            lv_first_20_0=ruleEString();
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleStaple3110);
+            lv_first_16_0=ruleEString();
 
             state._fsp--;
 
@@ -4184,7 +3985,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"first",
-                    		lv_first_20_0, 
+                    		lv_first_16_0, 
                     		"EString");
             	        afterParserOrEnumRuleCall();
             	    
@@ -4194,20 +3995,20 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1496:2: (otherlv_21= ',' )?
-            int alt74=2;
-            int LA74_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1438:2: (otherlv_17= ',' )?
+            int alt69=2;
+            int LA69_0 = input.LA(1);
 
-            if ( (LA74_0==24) ) {
-                alt74=1;
+            if ( (LA69_0==25) ) {
+                alt69=1;
             }
-            switch (alt74) {
+            switch (alt69) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1496:4: otherlv_21= ','
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1438:4: otherlv_17= ','
                     {
-                    otherlv_21=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleStaple3261); 
+                    otherlv_17=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleStaple3123); 
 
-                        	newLeafNode(otherlv_21, grammarAccess.getStapleAccess().getCommaKeyword_17());
+                        	newLeafNode(otherlv_17, grammarAccess.getStapleAccess().getCommaKeyword_13());
                         
 
                     }
@@ -4215,20 +4016,20 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1500:3: (otherlv_22= 'mid' )?
-            int alt75=2;
-            int LA75_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1442:3: (otherlv_18= 'middle' )?
+            int alt70=2;
+            int LA70_0 = input.LA(1);
 
-            if ( (LA75_0==49) ) {
-                alt75=1;
+            if ( (LA70_0==43) ) {
+                alt70=1;
             }
-            switch (alt75) {
+            switch (alt70) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1500:5: otherlv_22= 'mid'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1442:5: otherlv_18= 'middle'
                     {
-                    otherlv_22=(Token)match(input,49,FollowSets000.FOLLOW_49_in_ruleStaple3276); 
+                    otherlv_18=(Token)match(input,43,FollowSets000.FOLLOW_43_in_ruleStaple3138); 
 
-                        	newLeafNode(otherlv_22, grammarAccess.getStapleAccess().getMidKeyword_18());
+                        	newLeafNode(otherlv_18, grammarAccess.getStapleAccess().getMiddleKeyword_14());
                         
 
                     }
@@ -4236,20 +4037,20 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1504:3: (otherlv_23= 'means' )?
-            int alt76=2;
-            int LA76_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1446:3: (otherlv_19= 'means' )?
+            int alt71=2;
+            int LA71_0 = input.LA(1);
 
-            if ( (LA76_0==36) ) {
-                alt76=1;
+            if ( (LA71_0==34) ) {
+                alt71=1;
             }
-            switch (alt76) {
+            switch (alt71) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1504:5: otherlv_23= 'means'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1446:5: otherlv_19= 'means'
                     {
-                    otherlv_23=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleStaple3291); 
+                    otherlv_19=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleStaple3153); 
 
-                        	newLeafNode(otherlv_23, grammarAccess.getStapleAccess().getMeansKeyword_19());
+                        	newLeafNode(otherlv_19, grammarAccess.getStapleAccess().getMeansKeyword_15());
                         
 
                     }
@@ -4257,17 +4058,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1508:3: ( (lv_mid_24_0= ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1509:1: (lv_mid_24_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1450:3: ( (lv_mid_20_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1451:1: (lv_mid_20_0= ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1509:1: (lv_mid_24_0= ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1510:3: lv_mid_24_0= ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1451:1: (lv_mid_20_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1452:3: lv_mid_20_0= ruleEString
             {
              
-            	        newCompositeNode(grammarAccess.getStapleAccess().getMidEStringParserRuleCall_20_0()); 
+            	        newCompositeNode(grammarAccess.getStapleAccess().getMidEStringParserRuleCall_16_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleStaple3314);
-            lv_mid_24_0=ruleEString();
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleStaple3176);
+            lv_mid_20_0=ruleEString();
 
             state._fsp--;
 
@@ -4278,7 +4079,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"mid",
-                    		lv_mid_24_0, 
+                    		lv_mid_20_0, 
                     		"EString");
             	        afterParserOrEnumRuleCall();
             	    
@@ -4288,20 +4089,20 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1526:2: (otherlv_25= 'and' )?
-            int alt77=2;
-            int LA77_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1468:2: (otherlv_21= 'and' )?
+            int alt72=2;
+            int LA72_0 = input.LA(1);
 
-            if ( (LA77_0==33) ) {
-                alt77=1;
+            if ( (LA72_0==31) ) {
+                alt72=1;
             }
-            switch (alt77) {
+            switch (alt72) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1526:4: otherlv_25= 'and'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1468:4: otherlv_21= 'and'
                     {
-                    otherlv_25=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleStaple3327); 
+                    otherlv_21=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleStaple3189); 
 
-                        	newLeafNode(otherlv_25, grammarAccess.getStapleAccess().getAndKeyword_21());
+                        	newLeafNode(otherlv_21, grammarAccess.getStapleAccess().getAndKeyword_17());
                         
 
                     }
@@ -4309,20 +4110,20 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1530:3: (otherlv_26= 'highest' )?
-            int alt78=2;
-            int LA78_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1472:3: (otherlv_22= 'highest' )?
+            int alt73=2;
+            int LA73_0 = input.LA(1);
 
-            if ( (LA78_0==37) ) {
-                alt78=1;
+            if ( (LA73_0==35) ) {
+                alt73=1;
             }
-            switch (alt78) {
+            switch (alt73) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1530:5: otherlv_26= 'highest'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1472:5: otherlv_22= 'highest'
                     {
-                    otherlv_26=(Token)match(input,37,FollowSets000.FOLLOW_37_in_ruleStaple3342); 
+                    otherlv_22=(Token)match(input,35,FollowSets000.FOLLOW_35_in_ruleStaple3204); 
 
-                        	newLeafNode(otherlv_26, grammarAccess.getStapleAccess().getHighestKeyword_22());
+                        	newLeafNode(otherlv_22, grammarAccess.getStapleAccess().getHighestKeyword_18());
                         
 
                     }
@@ -4330,20 +4131,20 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1534:3: (otherlv_27= 'means' )?
-            int alt79=2;
-            int LA79_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1476:3: (otherlv_23= 'means' )?
+            int alt74=2;
+            int LA74_0 = input.LA(1);
 
-            if ( (LA79_0==36) ) {
-                alt79=1;
+            if ( (LA74_0==34) ) {
+                alt74=1;
             }
-            switch (alt79) {
+            switch (alt74) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1534:5: otherlv_27= 'means'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1476:5: otherlv_23= 'means'
                     {
-                    otherlv_27=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleStaple3357); 
+                    otherlv_23=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleStaple3219); 
 
-                        	newLeafNode(otherlv_27, grammarAccess.getStapleAccess().getMeansKeyword_23());
+                        	newLeafNode(otherlv_23, grammarAccess.getStapleAccess().getMeansKeyword_19());
                         
 
                     }
@@ -4351,17 +4152,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1538:3: ( (lv_last_28_0= ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1539:1: (lv_last_28_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1480:3: ( (lv_last_24_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1481:1: (lv_last_24_0= ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1539:1: (lv_last_28_0= ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1540:3: lv_last_28_0= ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1481:1: (lv_last_24_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1482:3: lv_last_24_0= ruleEString
             {
              
-            	        newCompositeNode(grammarAccess.getStapleAccess().getLastEStringParserRuleCall_24_0()); 
+            	        newCompositeNode(grammarAccess.getStapleAccess().getLastEStringParserRuleCall_20_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleStaple3380);
-            lv_last_28_0=ruleEString();
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleStaple3242);
+            lv_last_24_0=ruleEString();
 
             state._fsp--;
 
@@ -4372,7 +4173,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"last",
-                    		lv_last_28_0, 
+                    		lv_last_24_0, 
                     		"EString");
             	        afterParserOrEnumRuleCall();
             	    
@@ -4382,28 +4183,28 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1556:2: ( ( (lv_forks_29_0= ruleRatingFork ) ) ( (lv_forks_30_0= ruleRatingFork ) )* )?
-            int alt81=2;
-            int LA81_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1498:2: ( ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )* )?
+            int alt76=2;
+            int LA76_0 = input.LA(1);
 
-            if ( (LA81_0==50) ) {
-                alt81=1;
+            if ( (LA76_0==44) ) {
+                alt76=1;
             }
-            switch (alt81) {
+            switch (alt76) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1556:3: ( (lv_forks_29_0= ruleRatingFork ) ) ( (lv_forks_30_0= ruleRatingFork ) )*
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1498:3: ( (lv_forks_25_0= ruleRatingFork ) ) ( (lv_forks_26_0= ruleRatingFork ) )*
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1556:3: ( (lv_forks_29_0= ruleRatingFork ) )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1557:1: (lv_forks_29_0= ruleRatingFork )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1498:3: ( (lv_forks_25_0= ruleRatingFork ) )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1499:1: (lv_forks_25_0= ruleRatingFork )
                     {
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1557:1: (lv_forks_29_0= ruleRatingFork )
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1558:3: lv_forks_29_0= ruleRatingFork
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1499:1: (lv_forks_25_0= ruleRatingFork )
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1500:3: lv_forks_25_0= ruleRatingFork
                     {
                      
-                    	        newCompositeNode(grammarAccess.getStapleAccess().getForksRatingForkParserRuleCall_25_0_0()); 
+                    	        newCompositeNode(grammarAccess.getStapleAccess().getForksRatingForkParserRuleCall_21_0_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleRatingFork_in_ruleStaple3402);
-                    lv_forks_29_0=ruleRatingFork();
+                    pushFollow(FollowSets000.FOLLOW_ruleRatingFork_in_ruleStaple3264);
+                    lv_forks_25_0=ruleRatingFork();
 
                     state._fsp--;
 
@@ -4414,7 +4215,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                            		add(
                            			current, 
                            			"forks",
-                            		lv_forks_29_0, 
+                            		lv_forks_25_0, 
                             		"RatingFork");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -4424,29 +4225,29 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1574:2: ( (lv_forks_30_0= ruleRatingFork ) )*
-                    loop80:
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1516:2: ( (lv_forks_26_0= ruleRatingFork ) )*
+                    loop75:
                     do {
-                        int alt80=2;
-                        int LA80_0 = input.LA(1);
+                        int alt75=2;
+                        int LA75_0 = input.LA(1);
 
-                        if ( (LA80_0==50) ) {
-                            alt80=1;
+                        if ( (LA75_0==44) ) {
+                            alt75=1;
                         }
 
 
-                        switch (alt80) {
+                        switch (alt75) {
                     	case 1 :
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1575:1: (lv_forks_30_0= ruleRatingFork )
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1517:1: (lv_forks_26_0= ruleRatingFork )
                     	    {
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1575:1: (lv_forks_30_0= ruleRatingFork )
-                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1576:3: lv_forks_30_0= ruleRatingFork
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1517:1: (lv_forks_26_0= ruleRatingFork )
+                    	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1518:3: lv_forks_26_0= ruleRatingFork
                     	    {
                     	     
-                    	    	        newCompositeNode(grammarAccess.getStapleAccess().getForksRatingForkParserRuleCall_25_1_0()); 
+                    	    	        newCompositeNode(grammarAccess.getStapleAccess().getForksRatingForkParserRuleCall_21_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleRatingFork_in_ruleStaple3423);
-                    	    lv_forks_30_0=ruleRatingFork();
+                    	    pushFollow(FollowSets000.FOLLOW_ruleRatingFork_in_ruleStaple3285);
+                    	    lv_forks_26_0=ruleRatingFork();
 
                     	    state._fsp--;
 
@@ -4457,7 +4258,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     	           		add(
                     	           			current, 
                     	           			"forks",
-                    	            		lv_forks_30_0, 
+                    	            		lv_forks_26_0, 
                     	            		"RatingFork");
                     	    	        afterParserOrEnumRuleCall();
                     	    	    
@@ -4469,7 +4270,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop80;
+                    	    break loop75;
                         }
                     } while (true);
 
@@ -4500,7 +4301,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleChoice"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1600:1: entryRuleChoice returns [EObject current=null] : iv_ruleChoice= ruleChoice EOF ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1542:1: entryRuleChoice returns [EObject current=null] : iv_ruleChoice= ruleChoice EOF ;
     public final EObject entryRuleChoice() throws RecognitionException {
         EObject current = null;
 
@@ -4508,17 +4309,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1601:2: (iv_ruleChoice= ruleChoice EOF )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1602:2: iv_ruleChoice= ruleChoice EOF
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1543:2: (iv_ruleChoice= ruleChoice EOF )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1544:2: iv_ruleChoice= ruleChoice EOF
             {
              newCompositeNode(grammarAccess.getChoiceRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleChoice_in_entryRuleChoice3462);
+            pushFollow(FollowSets000.FOLLOW_ruleChoice_in_entryRuleChoice3324);
             iv_ruleChoice=ruleChoice();
 
             state._fsp--;
 
              current =iv_ruleChoice; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleChoice3472); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleChoice3334); 
 
             }
 
@@ -4536,7 +4337,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleChoice"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1609:1: ruleChoice returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_description_2_0= ruleEString ) ) ) ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1551:1: ruleChoice returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_description_2_0= ruleEString ) ) ) ;
     public final EObject ruleChoice() throws RecognitionException {
         EObject current = null;
 
@@ -4548,19 +4349,19 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1612:28: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_description_2_0= ruleEString ) ) ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1613:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_description_2_0= ruleEString ) ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1554:28: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_description_2_0= ruleEString ) ) ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1555:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_description_2_0= ruleEString ) ) )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1613:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_description_2_0= ruleEString ) ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1613:2: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_description_2_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1555:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_description_2_0= ruleEString ) ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1555:2: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_description_2_0= ruleEString ) )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1613:2: ( (lv_name_0_0= RULE_ID ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1614:1: (lv_name_0_0= RULE_ID )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1555:2: ( (lv_name_0_0= RULE_ID ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1556:1: (lv_name_0_0= RULE_ID )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1614:1: (lv_name_0_0= RULE_ID )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1615:3: lv_name_0_0= RULE_ID
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1556:1: (lv_name_0_0= RULE_ID )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1557:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleChoice3514); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleChoice3376); 
 
             			newLeafNode(lv_name_0_0, grammarAccess.getChoiceAccess().getNameIDTerminalRuleCall_0_0()); 
             		
@@ -4580,20 +4381,20 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleChoice3531); 
+            otherlv_1=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleChoice3393); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getChoiceAccess().getColonKeyword_1());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1635:1: ( (lv_description_2_0= ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1636:1: (lv_description_2_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1577:1: ( (lv_description_2_0= ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1578:1: (lv_description_2_0= ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1636:1: (lv_description_2_0= ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1637:3: lv_description_2_0= ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1578:1: (lv_description_2_0= ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1579:3: lv_description_2_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getChoiceAccess().getDescriptionEStringParserRuleCall_2_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleChoice3552);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleChoice3414);
             lv_description_2_0=ruleEString();
 
             state._fsp--;
@@ -4636,7 +4437,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleChoiceFork"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1661:1: entryRuleChoiceFork returns [EObject current=null] : iv_ruleChoiceFork= ruleChoiceFork EOF ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1603:1: entryRuleChoiceFork returns [EObject current=null] : iv_ruleChoiceFork= ruleChoiceFork EOF ;
     public final EObject entryRuleChoiceFork() throws RecognitionException {
         EObject current = null;
 
@@ -4644,17 +4445,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1662:2: (iv_ruleChoiceFork= ruleChoiceFork EOF )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1663:2: iv_ruleChoiceFork= ruleChoiceFork EOF
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1604:2: (iv_ruleChoiceFork= ruleChoiceFork EOF )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1605:2: iv_ruleChoiceFork= ruleChoiceFork EOF
             {
              newCompositeNode(grammarAccess.getChoiceForkRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleChoiceFork_in_entryRuleChoiceFork3588);
+            pushFollow(FollowSets000.FOLLOW_ruleChoiceFork_in_entryRuleChoiceFork3450);
             iv_ruleChoiceFork=ruleChoiceFork();
 
             state._fsp--;
 
              current =iv_ruleChoiceFork; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleChoiceFork3598); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleChoiceFork3460); 
 
             }
 
@@ -4672,7 +4473,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleChoiceFork"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1670:1: ruleChoiceFork returns [EObject current=null] : (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* (otherlv_4= 'then' )? otherlv_5= 'go' otherlv_6= 'to' ( ( ruleEString ) ) (otherlv_8= ',' ( ( ruleEString ) ) )* ) ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1612:1: ruleChoiceFork returns [EObject current=null] : (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* (otherlv_4= 'then' )? (otherlv_5= 'continue' )? (otherlv_6= 'with' )? ( ( ruleEString ) ) (otherlv_8= ',' ( ( ruleEString ) ) )* ) ;
     public final EObject ruleChoiceFork() throws RecognitionException {
         EObject current = null;
 
@@ -4686,21 +4487,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1673:28: ( (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* (otherlv_4= 'then' )? otherlv_5= 'go' otherlv_6= 'to' ( ( ruleEString ) ) (otherlv_8= ',' ( ( ruleEString ) ) )* ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1674:1: (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* (otherlv_4= 'then' )? otherlv_5= 'go' otherlv_6= 'to' ( ( ruleEString ) ) (otherlv_8= ',' ( ( ruleEString ) ) )* )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1615:28: ( (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* (otherlv_4= 'then' )? (otherlv_5= 'continue' )? (otherlv_6= 'with' )? ( ( ruleEString ) ) (otherlv_8= ',' ( ( ruleEString ) ) )* ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1616:1: (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* (otherlv_4= 'then' )? (otherlv_5= 'continue' )? (otherlv_6= 'with' )? ( ( ruleEString ) ) (otherlv_8= ',' ( ( ruleEString ) ) )* )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1674:1: (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* (otherlv_4= 'then' )? otherlv_5= 'go' otherlv_6= 'to' ( ( ruleEString ) ) (otherlv_8= ',' ( ( ruleEString ) ) )* )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1674:3: otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* (otherlv_4= 'then' )? otherlv_5= 'go' otherlv_6= 'to' ( ( ruleEString ) ) (otherlv_8= ',' ( ( ruleEString ) ) )*
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1616:1: (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* (otherlv_4= 'then' )? (otherlv_5= 'continue' )? (otherlv_6= 'with' )? ( ( ruleEString ) ) (otherlv_8= ',' ( ( ruleEString ) ) )* )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1616:3: otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* (otherlv_4= 'then' )? (otherlv_5= 'continue' )? (otherlv_6= 'with' )? ( ( ruleEString ) ) (otherlv_8= ',' ( ( ruleEString ) ) )*
             {
-            otherlv_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleChoiceFork3635); 
+            otherlv_0=(Token)match(input,44,FollowSets000.FOLLOW_44_in_ruleChoiceFork3497); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getChoiceForkAccess().getIfKeyword_0());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1678:1: ( ( ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1679:1: ( ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1620:1: ( ( ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1621:1: ( ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1679:1: ( ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1680:3: ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1621:1: ( ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1622:3: ruleEString
             {
 
             			if (current==null) {
@@ -4710,7 +4511,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getChoiceForkAccess().getOnChoiceCrossReference_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleChoiceFork3658);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleChoiceFork3520);
             ruleEString();
 
             state._fsp--;
@@ -4724,30 +4525,30 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1693:2: (otherlv_2= ',' ( ( ruleEString ) ) )*
-            loop82:
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1635:2: (otherlv_2= ',' ( ( ruleEString ) ) )*
+            loop77:
             do {
-                int alt82=2;
-                int LA82_0 = input.LA(1);
+                int alt77=2;
+                int LA77_0 = input.LA(1);
 
-                if ( (LA82_0==24) ) {
-                    alt82=1;
+                if ( (LA77_0==25) ) {
+                    alt77=1;
                 }
 
 
-                switch (alt82) {
+                switch (alt77) {
             	case 1 :
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1693:4: otherlv_2= ',' ( ( ruleEString ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1635:4: otherlv_2= ',' ( ( ruleEString ) )
             	    {
-            	    otherlv_2=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleChoiceFork3671); 
+            	    otherlv_2=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleChoiceFork3533); 
 
             	        	newLeafNode(otherlv_2, grammarAccess.getChoiceForkAccess().getCommaKeyword_2_0());
             	        
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1697:1: ( ( ruleEString ) )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1698:1: ( ruleEString )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1639:1: ( ( ruleEString ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1640:1: ( ruleEString )
             	    {
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1698:1: ( ruleEString )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1699:3: ruleEString
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1640:1: ( ruleEString )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1641:3: ruleEString
             	    {
 
             	    			if (current==null) {
@@ -4757,7 +4558,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getChoiceForkAccess().getOnChoiceCrossReference_2_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleChoiceFork3694);
+            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleChoiceFork3556);
             	    ruleEString();
 
             	    state._fsp--;
@@ -4776,22 +4577,22 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop82;
+            	    break loop77;
                 }
             } while (true);
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1712:4: (otherlv_4= 'then' )?
-            int alt83=2;
-            int LA83_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1654:4: (otherlv_4= 'then' )?
+            int alt78=2;
+            int LA78_0 = input.LA(1);
 
-            if ( (LA83_0==51) ) {
-                alt83=1;
+            if ( (LA78_0==45) ) {
+                alt78=1;
             }
-            switch (alt83) {
+            switch (alt78) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1712:6: otherlv_4= 'then'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1654:6: otherlv_4= 'then'
                     {
-                    otherlv_4=(Token)match(input,51,FollowSets000.FOLLOW_51_in_ruleChoiceFork3709); 
+                    otherlv_4=(Token)match(input,45,FollowSets000.FOLLOW_45_in_ruleChoiceFork3571); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getChoiceForkAccess().getThenKeyword_3());
                         
@@ -4801,19 +4602,53 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,52,FollowSets000.FOLLOW_52_in_ruleChoiceFork3723); 
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1658:3: (otherlv_5= 'continue' )?
+            int alt79=2;
+            int LA79_0 = input.LA(1);
 
-                	newLeafNode(otherlv_5, grammarAccess.getChoiceForkAccess().getGoKeyword_4());
-                
-            otherlv_6=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleChoiceFork3735); 
+            if ( (LA79_0==46) ) {
+                alt79=1;
+            }
+            switch (alt79) {
+                case 1 :
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1658:5: otherlv_5= 'continue'
+                    {
+                    otherlv_5=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleChoiceFork3586); 
 
-                	newLeafNode(otherlv_6, grammarAccess.getChoiceForkAccess().getToKeyword_5());
-                
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1724:1: ( ( ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1725:1: ( ruleEString )
+                        	newLeafNode(otherlv_5, grammarAccess.getChoiceForkAccess().getContinueKeyword_4());
+                        
+
+                    }
+                    break;
+
+            }
+
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1662:3: (otherlv_6= 'with' )?
+            int alt80=2;
+            int LA80_0 = input.LA(1);
+
+            if ( (LA80_0==47) ) {
+                alt80=1;
+            }
+            switch (alt80) {
+                case 1 :
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1662:5: otherlv_6= 'with'
+                    {
+                    otherlv_6=(Token)match(input,47,FollowSets000.FOLLOW_47_in_ruleChoiceFork3601); 
+
+                        	newLeafNode(otherlv_6, grammarAccess.getChoiceForkAccess().getWithKeyword_5());
+                        
+
+                    }
+                    break;
+
+            }
+
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1666:3: ( ( ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1667:1: ( ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1725:1: ( ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1726:3: ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1667:1: ( ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1668:3: ruleEString
             {
 
             			if (current==null) {
@@ -4823,7 +4658,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getChoiceForkAccess().getQuestionsQuestionCrossReference_6_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleChoiceFork3758);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleChoiceFork3626);
             ruleEString();
 
             state._fsp--;
@@ -4837,30 +4672,30 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1739:2: (otherlv_8= ',' ( ( ruleEString ) ) )*
-            loop84:
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1681:2: (otherlv_8= ',' ( ( ruleEString ) ) )*
+            loop81:
             do {
-                int alt84=2;
-                int LA84_0 = input.LA(1);
+                int alt81=2;
+                int LA81_0 = input.LA(1);
 
-                if ( (LA84_0==24) ) {
-                    alt84=1;
+                if ( (LA81_0==25) ) {
+                    alt81=1;
                 }
 
 
-                switch (alt84) {
+                switch (alt81) {
             	case 1 :
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1739:4: otherlv_8= ',' ( ( ruleEString ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1681:4: otherlv_8= ',' ( ( ruleEString ) )
             	    {
-            	    otherlv_8=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleChoiceFork3771); 
+            	    otherlv_8=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleChoiceFork3639); 
 
             	        	newLeafNode(otherlv_8, grammarAccess.getChoiceForkAccess().getCommaKeyword_7_0());
             	        
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1743:1: ( ( ruleEString ) )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1744:1: ( ruleEString )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1685:1: ( ( ruleEString ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1686:1: ( ruleEString )
             	    {
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1744:1: ( ruleEString )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1745:3: ruleEString
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1686:1: ( ruleEString )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1687:3: ruleEString
             	    {
 
             	    			if (current==null) {
@@ -4870,7 +4705,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getChoiceForkAccess().getQuestionsQuestionCrossReference_7_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleChoiceFork3794);
+            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleChoiceFork3662);
             	    ruleEString();
 
             	    state._fsp--;
@@ -4889,7 +4724,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop84;
+            	    break loop81;
                 }
             } while (true);
 
@@ -4914,7 +4749,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEInt"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1766:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1708:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
     public final String entryRuleEInt() throws RecognitionException {
         String current = null;
 
@@ -4922,17 +4757,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1767:2: (iv_ruleEInt= ruleEInt EOF )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1768:2: iv_ruleEInt= ruleEInt EOF
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1709:2: (iv_ruleEInt= ruleEInt EOF )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1710:2: iv_ruleEInt= ruleEInt EOF
             {
              newCompositeNode(grammarAccess.getEIntRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_entryRuleEInt3833);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_entryRuleEInt3701);
             iv_ruleEInt=ruleEInt();
 
             state._fsp--;
 
              current =iv_ruleEInt.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEInt3844); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEInt3712); 
 
             }
 
@@ -4950,7 +4785,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1775:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1717:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -4960,24 +4795,24 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1778:28: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1779:1: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1720:28: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1721:1: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1779:1: ( (kw= '-' )? this_INT_1= RULE_INT )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1779:2: (kw= '-' )? this_INT_1= RULE_INT
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1721:1: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1721:2: (kw= '-' )? this_INT_1= RULE_INT
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1779:2: (kw= '-' )?
-            int alt85=2;
-            int LA85_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1721:2: (kw= '-' )?
+            int alt82=2;
+            int LA82_0 = input.LA(1);
 
-            if ( (LA85_0==53) ) {
-                alt85=1;
+            if ( (LA82_0==48) ) {
+                alt82=1;
             }
-            switch (alt85) {
+            switch (alt82) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1780:2: kw= '-'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1722:2: kw= '-'
                     {
-                    kw=(Token)match(input,53,FollowSets000.FOLLOW_53_in_ruleEInt3883); 
+                    kw=(Token)match(input,48,FollowSets000.FOLLOW_48_in_ruleEInt3751); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
@@ -4988,7 +4823,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            this_INT_1=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEInt3900); 
+            this_INT_1=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEInt3768); 
 
             		current.merge(this_INT_1);
                 
@@ -5016,7 +4851,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRatingFork"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1800:1: entryRuleRatingFork returns [EObject current=null] : iv_ruleRatingFork= ruleRatingFork EOF ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1742:1: entryRuleRatingFork returns [EObject current=null] : iv_ruleRatingFork= ruleRatingFork EOF ;
     public final EObject entryRuleRatingFork() throws RecognitionException {
         EObject current = null;
 
@@ -5024,17 +4859,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1801:2: (iv_ruleRatingFork= ruleRatingFork EOF )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1802:2: iv_ruleRatingFork= ruleRatingFork EOF
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1743:2: (iv_ruleRatingFork= ruleRatingFork EOF )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1744:2: iv_ruleRatingFork= ruleRatingFork EOF
             {
              newCompositeNode(grammarAccess.getRatingForkRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleRatingFork_in_entryRuleRatingFork3945);
+            pushFollow(FollowSets000.FOLLOW_ruleRatingFork_in_entryRuleRatingFork3813);
             iv_ruleRatingFork=ruleRatingFork();
 
             state._fsp--;
 
              current =iv_ruleRatingFork; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRatingFork3955); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRatingFork3823); 
 
             }
 
@@ -5052,7 +4887,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRatingFork"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1809:1: ruleRatingFork returns [EObject current=null] : (otherlv_0= 'if' (otherlv_1= 'it' )? (otherlv_2= 'is' )? otherlv_3= 'between' ( (lv_min_4_0= ruleEInt ) ) otherlv_5= 'and' ( (lv_max_6_0= ruleEInt ) ) (otherlv_7= 'then' )? otherlv_8= 'go' otherlv_9= 'to' ( ( ruleEString ) ) (otherlv_11= ',' ( ( ruleEString ) ) )* ) ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1751:1: ruleRatingFork returns [EObject current=null] : (otherlv_0= 'if' (otherlv_1= 'it' )? (otherlv_2= 'is' )? otherlv_3= 'between' ( (lv_min_4_0= ruleEInt ) ) otherlv_5= 'and' ( (lv_max_6_0= ruleEInt ) ) (otherlv_7= 'then' )? (otherlv_8= 'continue' )? (otherlv_9= 'with' )? ( ( ruleEString ) ) (otherlv_11= ',' ( ( ruleEString ) ) )* ) ;
     public final EObject ruleRatingFork() throws RecognitionException {
         EObject current = null;
 
@@ -5073,28 +4908,28 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1812:28: ( (otherlv_0= 'if' (otherlv_1= 'it' )? (otherlv_2= 'is' )? otherlv_3= 'between' ( (lv_min_4_0= ruleEInt ) ) otherlv_5= 'and' ( (lv_max_6_0= ruleEInt ) ) (otherlv_7= 'then' )? otherlv_8= 'go' otherlv_9= 'to' ( ( ruleEString ) ) (otherlv_11= ',' ( ( ruleEString ) ) )* ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1813:1: (otherlv_0= 'if' (otherlv_1= 'it' )? (otherlv_2= 'is' )? otherlv_3= 'between' ( (lv_min_4_0= ruleEInt ) ) otherlv_5= 'and' ( (lv_max_6_0= ruleEInt ) ) (otherlv_7= 'then' )? otherlv_8= 'go' otherlv_9= 'to' ( ( ruleEString ) ) (otherlv_11= ',' ( ( ruleEString ) ) )* )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1754:28: ( (otherlv_0= 'if' (otherlv_1= 'it' )? (otherlv_2= 'is' )? otherlv_3= 'between' ( (lv_min_4_0= ruleEInt ) ) otherlv_5= 'and' ( (lv_max_6_0= ruleEInt ) ) (otherlv_7= 'then' )? (otherlv_8= 'continue' )? (otherlv_9= 'with' )? ( ( ruleEString ) ) (otherlv_11= ',' ( ( ruleEString ) ) )* ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1755:1: (otherlv_0= 'if' (otherlv_1= 'it' )? (otherlv_2= 'is' )? otherlv_3= 'between' ( (lv_min_4_0= ruleEInt ) ) otherlv_5= 'and' ( (lv_max_6_0= ruleEInt ) ) (otherlv_7= 'then' )? (otherlv_8= 'continue' )? (otherlv_9= 'with' )? ( ( ruleEString ) ) (otherlv_11= ',' ( ( ruleEString ) ) )* )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1813:1: (otherlv_0= 'if' (otherlv_1= 'it' )? (otherlv_2= 'is' )? otherlv_3= 'between' ( (lv_min_4_0= ruleEInt ) ) otherlv_5= 'and' ( (lv_max_6_0= ruleEInt ) ) (otherlv_7= 'then' )? otherlv_8= 'go' otherlv_9= 'to' ( ( ruleEString ) ) (otherlv_11= ',' ( ( ruleEString ) ) )* )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1813:3: otherlv_0= 'if' (otherlv_1= 'it' )? (otherlv_2= 'is' )? otherlv_3= 'between' ( (lv_min_4_0= ruleEInt ) ) otherlv_5= 'and' ( (lv_max_6_0= ruleEInt ) ) (otherlv_7= 'then' )? otherlv_8= 'go' otherlv_9= 'to' ( ( ruleEString ) ) (otherlv_11= ',' ( ( ruleEString ) ) )*
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1755:1: (otherlv_0= 'if' (otherlv_1= 'it' )? (otherlv_2= 'is' )? otherlv_3= 'between' ( (lv_min_4_0= ruleEInt ) ) otherlv_5= 'and' ( (lv_max_6_0= ruleEInt ) ) (otherlv_7= 'then' )? (otherlv_8= 'continue' )? (otherlv_9= 'with' )? ( ( ruleEString ) ) (otherlv_11= ',' ( ( ruleEString ) ) )* )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1755:3: otherlv_0= 'if' (otherlv_1= 'it' )? (otherlv_2= 'is' )? otherlv_3= 'between' ( (lv_min_4_0= ruleEInt ) ) otherlv_5= 'and' ( (lv_max_6_0= ruleEInt ) ) (otherlv_7= 'then' )? (otherlv_8= 'continue' )? (otherlv_9= 'with' )? ( ( ruleEString ) ) (otherlv_11= ',' ( ( ruleEString ) ) )*
             {
-            otherlv_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleRatingFork3992); 
+            otherlv_0=(Token)match(input,44,FollowSets000.FOLLOW_44_in_ruleRatingFork3860); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRatingForkAccess().getIfKeyword_0());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1817:1: (otherlv_1= 'it' )?
-            int alt86=2;
-            int LA86_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1759:1: (otherlv_1= 'it' )?
+            int alt83=2;
+            int LA83_0 = input.LA(1);
 
-            if ( (LA86_0==54) ) {
-                alt86=1;
+            if ( (LA83_0==49) ) {
+                alt83=1;
             }
-            switch (alt86) {
+            switch (alt83) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1817:3: otherlv_1= 'it'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1759:3: otherlv_1= 'it'
                     {
-                    otherlv_1=(Token)match(input,54,FollowSets000.FOLLOW_54_in_ruleRatingFork4005); 
+                    otherlv_1=(Token)match(input,49,FollowSets000.FOLLOW_49_in_ruleRatingFork3873); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getRatingForkAccess().getItKeyword_1());
                         
@@ -5104,18 +4939,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1821:3: (otherlv_2= 'is' )?
-            int alt87=2;
-            int LA87_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1763:3: (otherlv_2= 'is' )?
+            int alt84=2;
+            int LA84_0 = input.LA(1);
 
-            if ( (LA87_0==16) ) {
-                alt87=1;
+            if ( (LA84_0==16) ) {
+                alt84=1;
             }
-            switch (alt87) {
+            switch (alt84) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1821:5: otherlv_2= 'is'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1763:5: otherlv_2= 'is'
                     {
-                    otherlv_2=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleRatingFork4020); 
+                    otherlv_2=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleRatingFork3888); 
 
                         	newLeafNode(otherlv_2, grammarAccess.getRatingForkAccess().getIsKeyword_2());
                         
@@ -5125,20 +4960,20 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleRatingFork4034); 
+            otherlv_3=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleRatingFork3902); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getRatingForkAccess().getBetweenKeyword_3());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1829:1: ( (lv_min_4_0= ruleEInt ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1830:1: (lv_min_4_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1771:1: ( (lv_min_4_0= ruleEInt ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1772:1: (lv_min_4_0= ruleEInt )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1830:1: (lv_min_4_0= ruleEInt )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1831:3: lv_min_4_0= ruleEInt
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1772:1: (lv_min_4_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1773:3: lv_min_4_0= ruleEInt
             {
              
             	        newCompositeNode(grammarAccess.getRatingForkAccess().getMinEIntParserRuleCall_4_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleRatingFork4055);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleRatingFork3923);
             lv_min_4_0=ruleEInt();
 
             state._fsp--;
@@ -5160,20 +4995,20 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleRatingFork4067); 
+            otherlv_5=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleRatingFork3935); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getRatingForkAccess().getAndKeyword_5());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1851:1: ( (lv_max_6_0= ruleEInt ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1852:1: (lv_max_6_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1793:1: ( (lv_max_6_0= ruleEInt ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1794:1: (lv_max_6_0= ruleEInt )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1852:1: (lv_max_6_0= ruleEInt )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1853:3: lv_max_6_0= ruleEInt
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1794:1: (lv_max_6_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1795:3: lv_max_6_0= ruleEInt
             {
              
             	        newCompositeNode(grammarAccess.getRatingForkAccess().getMaxEIntParserRuleCall_6_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleRatingFork4088);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleRatingFork3956);
             lv_max_6_0=ruleEInt();
 
             state._fsp--;
@@ -5195,18 +5030,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1869:2: (otherlv_7= 'then' )?
-            int alt88=2;
-            int LA88_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1811:2: (otherlv_7= 'then' )?
+            int alt85=2;
+            int LA85_0 = input.LA(1);
 
-            if ( (LA88_0==51) ) {
-                alt88=1;
+            if ( (LA85_0==45) ) {
+                alt85=1;
             }
-            switch (alt88) {
+            switch (alt85) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1869:4: otherlv_7= 'then'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1811:4: otherlv_7= 'then'
                     {
-                    otherlv_7=(Token)match(input,51,FollowSets000.FOLLOW_51_in_ruleRatingFork4101); 
+                    otherlv_7=(Token)match(input,45,FollowSets000.FOLLOW_45_in_ruleRatingFork3969); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getRatingForkAccess().getThenKeyword_7());
                         
@@ -5216,19 +5051,53 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,52,FollowSets000.FOLLOW_52_in_ruleRatingFork4115); 
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1815:3: (otherlv_8= 'continue' )?
+            int alt86=2;
+            int LA86_0 = input.LA(1);
 
-                	newLeafNode(otherlv_8, grammarAccess.getRatingForkAccess().getGoKeyword_8());
-                
-            otherlv_9=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleRatingFork4127); 
+            if ( (LA86_0==46) ) {
+                alt86=1;
+            }
+            switch (alt86) {
+                case 1 :
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1815:5: otherlv_8= 'continue'
+                    {
+                    otherlv_8=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleRatingFork3984); 
 
-                	newLeafNode(otherlv_9, grammarAccess.getRatingForkAccess().getToKeyword_9());
-                
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1881:1: ( ( ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1882:1: ( ruleEString )
+                        	newLeafNode(otherlv_8, grammarAccess.getRatingForkAccess().getContinueKeyword_8());
+                        
+
+                    }
+                    break;
+
+            }
+
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1819:3: (otherlv_9= 'with' )?
+            int alt87=2;
+            int LA87_0 = input.LA(1);
+
+            if ( (LA87_0==47) ) {
+                alt87=1;
+            }
+            switch (alt87) {
+                case 1 :
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1819:5: otherlv_9= 'with'
+                    {
+                    otherlv_9=(Token)match(input,47,FollowSets000.FOLLOW_47_in_ruleRatingFork3999); 
+
+                        	newLeafNode(otherlv_9, grammarAccess.getRatingForkAccess().getWithKeyword_9());
+                        
+
+                    }
+                    break;
+
+            }
+
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1823:3: ( ( ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1824:1: ( ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1882:1: ( ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1883:3: ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1824:1: ( ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1825:3: ruleEString
             {
 
             			if (current==null) {
@@ -5238,7 +5107,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getRatingForkAccess().getQuestionsQuestionCrossReference_10_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRatingFork4150);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRatingFork4024);
             ruleEString();
 
             state._fsp--;
@@ -5252,30 +5121,30 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1896:2: (otherlv_11= ',' ( ( ruleEString ) ) )*
-            loop89:
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1838:2: (otherlv_11= ',' ( ( ruleEString ) ) )*
+            loop88:
             do {
-                int alt89=2;
-                int LA89_0 = input.LA(1);
+                int alt88=2;
+                int LA88_0 = input.LA(1);
 
-                if ( (LA89_0==24) ) {
-                    alt89=1;
+                if ( (LA88_0==25) ) {
+                    alt88=1;
                 }
 
 
-                switch (alt89) {
+                switch (alt88) {
             	case 1 :
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1896:4: otherlv_11= ',' ( ( ruleEString ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1838:4: otherlv_11= ',' ( ( ruleEString ) )
             	    {
-            	    otherlv_11=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleRatingFork4163); 
+            	    otherlv_11=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleRatingFork4037); 
 
             	        	newLeafNode(otherlv_11, grammarAccess.getRatingForkAccess().getCommaKeyword_11_0());
             	        
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1900:1: ( ( ruleEString ) )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1901:1: ( ruleEString )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1842:1: ( ( ruleEString ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1843:1: ( ruleEString )
             	    {
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1901:1: ( ruleEString )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1902:3: ruleEString
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1843:1: ( ruleEString )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1844:3: ruleEString
             	    {
 
             	    			if (current==null) {
@@ -5285,7 +5154,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getRatingForkAccess().getQuestionsQuestionCrossReference_11_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRatingFork4186);
+            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRatingFork4060);
             	    ruleEString();
 
             	    state._fsp--;
@@ -5304,7 +5173,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop89;
+            	    break loop88;
                 }
             } while (true);
 
@@ -5329,7 +5198,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRankingSumFork"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1923:1: entryRuleRankingSumFork returns [EObject current=null] : iv_ruleRankingSumFork= ruleRankingSumFork EOF ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1865:1: entryRuleRankingSumFork returns [EObject current=null] : iv_ruleRankingSumFork= ruleRankingSumFork EOF ;
     public final EObject entryRuleRankingSumFork() throws RecognitionException {
         EObject current = null;
 
@@ -5337,17 +5206,17 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1924:2: (iv_ruleRankingSumFork= ruleRankingSumFork EOF )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1925:2: iv_ruleRankingSumFork= ruleRankingSumFork EOF
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1866:2: (iv_ruleRankingSumFork= ruleRankingSumFork EOF )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1867:2: iv_ruleRankingSumFork= ruleRankingSumFork EOF
             {
              newCompositeNode(grammarAccess.getRankingSumForkRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleRankingSumFork_in_entryRuleRankingSumFork4224);
+            pushFollow(FollowSets000.FOLLOW_ruleRankingSumFork_in_entryRuleRankingSumFork4098);
             iv_ruleRankingSumFork=ruleRankingSumFork();
 
             state._fsp--;
 
              current =iv_ruleRankingSumFork; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRankingSumFork4234); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRankingSumFork4108); 
 
             }
 
@@ -5365,7 +5234,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRankingSumFork"
-    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1932:1: ruleRankingSumFork returns [EObject current=null] : (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* otherlv_4= 'is' (otherlv_5= 'between' )? ( (lv_min_6_0= ruleEInt ) ) otherlv_7= 'and' ( (lv_max_8_0= ruleEInt ) ) (otherlv_9= 'then' )? otherlv_10= 'go' otherlv_11= 'to' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* ) ;
+    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1874:1: ruleRankingSumFork returns [EObject current=null] : (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* otherlv_4= 'is' (otherlv_5= 'between' )? ( (lv_min_6_0= ruleEInt ) ) otherlv_7= 'and' ( (lv_max_8_0= ruleEInt ) ) (otherlv_9= 'then' )? (otherlv_10= 'continue' )? (otherlv_11= 'with' )? ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* ) ;
     public final EObject ruleRankingSumFork() throws RecognitionException {
         EObject current = null;
 
@@ -5386,21 +5255,21 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1935:28: ( (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* otherlv_4= 'is' (otherlv_5= 'between' )? ( (lv_min_6_0= ruleEInt ) ) otherlv_7= 'and' ( (lv_max_8_0= ruleEInt ) ) (otherlv_9= 'then' )? otherlv_10= 'go' otherlv_11= 'to' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1936:1: (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* otherlv_4= 'is' (otherlv_5= 'between' )? ( (lv_min_6_0= ruleEInt ) ) otherlv_7= 'and' ( (lv_max_8_0= ruleEInt ) ) (otherlv_9= 'then' )? otherlv_10= 'go' otherlv_11= 'to' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1877:28: ( (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* otherlv_4= 'is' (otherlv_5= 'between' )? ( (lv_min_6_0= ruleEInt ) ) otherlv_7= 'and' ( (lv_max_8_0= ruleEInt ) ) (otherlv_9= 'then' )? (otherlv_10= 'continue' )? (otherlv_11= 'with' )? ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1878:1: (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* otherlv_4= 'is' (otherlv_5= 'between' )? ( (lv_min_6_0= ruleEInt ) ) otherlv_7= 'and' ( (lv_max_8_0= ruleEInt ) ) (otherlv_9= 'then' )? (otherlv_10= 'continue' )? (otherlv_11= 'with' )? ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1936:1: (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* otherlv_4= 'is' (otherlv_5= 'between' )? ( (lv_min_6_0= ruleEInt ) ) otherlv_7= 'and' ( (lv_max_8_0= ruleEInt ) ) (otherlv_9= 'then' )? otherlv_10= 'go' otherlv_11= 'to' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1936:3: otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* otherlv_4= 'is' (otherlv_5= 'between' )? ( (lv_min_6_0= ruleEInt ) ) otherlv_7= 'and' ( (lv_max_8_0= ruleEInt ) ) (otherlv_9= 'then' )? otherlv_10= 'go' otherlv_11= 'to' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )*
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1878:1: (otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* otherlv_4= 'is' (otherlv_5= 'between' )? ( (lv_min_6_0= ruleEInt ) ) otherlv_7= 'and' ( (lv_max_8_0= ruleEInt ) ) (otherlv_9= 'then' )? (otherlv_10= 'continue' )? (otherlv_11= 'with' )? ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1878:3: otherlv_0= 'if' ( ( ruleEString ) ) (otherlv_2= ',' ( ( ruleEString ) ) )* otherlv_4= 'is' (otherlv_5= 'between' )? ( (lv_min_6_0= ruleEInt ) ) otherlv_7= 'and' ( (lv_max_8_0= ruleEInt ) ) (otherlv_9= 'then' )? (otherlv_10= 'continue' )? (otherlv_11= 'with' )? ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )*
             {
-            otherlv_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleRankingSumFork4271); 
+            otherlv_0=(Token)match(input,44,FollowSets000.FOLLOW_44_in_ruleRankingSumFork4145); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRankingSumForkAccess().getIfKeyword_0());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1940:1: ( ( ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1941:1: ( ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1882:1: ( ( ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1883:1: ( ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1941:1: ( ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1942:3: ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1883:1: ( ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1884:3: ruleEString
             {
 
             			if (current==null) {
@@ -5410,7 +5279,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getRankingSumForkAccess().getOnChoiceCrossReference_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRankingSumFork4294);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRankingSumFork4168);
             ruleEString();
 
             state._fsp--;
@@ -5424,30 +5293,30 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1955:2: (otherlv_2= ',' ( ( ruleEString ) ) )*
-            loop90:
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1897:2: (otherlv_2= ',' ( ( ruleEString ) ) )*
+            loop89:
             do {
-                int alt90=2;
-                int LA90_0 = input.LA(1);
+                int alt89=2;
+                int LA89_0 = input.LA(1);
 
-                if ( (LA90_0==24) ) {
-                    alt90=1;
+                if ( (LA89_0==25) ) {
+                    alt89=1;
                 }
 
 
-                switch (alt90) {
+                switch (alt89) {
             	case 1 :
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1955:4: otherlv_2= ',' ( ( ruleEString ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1897:4: otherlv_2= ',' ( ( ruleEString ) )
             	    {
-            	    otherlv_2=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleRankingSumFork4307); 
+            	    otherlv_2=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleRankingSumFork4181); 
 
             	        	newLeafNode(otherlv_2, grammarAccess.getRankingSumForkAccess().getCommaKeyword_2_0());
             	        
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1959:1: ( ( ruleEString ) )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1960:1: ( ruleEString )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1901:1: ( ( ruleEString ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1902:1: ( ruleEString )
             	    {
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1960:1: ( ruleEString )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1961:3: ruleEString
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1902:1: ( ruleEString )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1903:3: ruleEString
             	    {
 
             	    			if (current==null) {
@@ -5457,7 +5326,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getRankingSumForkAccess().getOnChoiceCrossReference_2_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRankingSumFork4330);
+            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRankingSumFork4204);
             	    ruleEString();
 
             	    state._fsp--;
@@ -5476,26 +5345,26 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop90;
+            	    break loop89;
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleRankingSumFork4344); 
+            otherlv_4=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleRankingSumFork4218); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getRankingSumForkAccess().getIsKeyword_3());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1978:1: (otherlv_5= 'between' )?
-            int alt91=2;
-            int LA91_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1920:1: (otherlv_5= 'between' )?
+            int alt90=2;
+            int LA90_0 = input.LA(1);
 
-            if ( (LA91_0==32) ) {
-                alt91=1;
+            if ( (LA90_0==30) ) {
+                alt90=1;
             }
-            switch (alt91) {
+            switch (alt90) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1978:3: otherlv_5= 'between'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1920:3: otherlv_5= 'between'
                     {
-                    otherlv_5=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleRankingSumFork4357); 
+                    otherlv_5=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleRankingSumFork4231); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getRankingSumForkAccess().getBetweenKeyword_4());
                         
@@ -5505,16 +5374,16 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1982:3: ( (lv_min_6_0= ruleEInt ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1983:1: (lv_min_6_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1924:3: ( (lv_min_6_0= ruleEInt ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1925:1: (lv_min_6_0= ruleEInt )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1983:1: (lv_min_6_0= ruleEInt )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1984:3: lv_min_6_0= ruleEInt
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1925:1: (lv_min_6_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1926:3: lv_min_6_0= ruleEInt
             {
              
             	        newCompositeNode(grammarAccess.getRankingSumForkAccess().getMinEIntParserRuleCall_5_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleRankingSumFork4380);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleRankingSumFork4254);
             lv_min_6_0=ruleEInt();
 
             state._fsp--;
@@ -5536,20 +5405,20 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleRankingSumFork4392); 
+            otherlv_7=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleRankingSumFork4266); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getRankingSumForkAccess().getAndKeyword_6());
                 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2004:1: ( (lv_max_8_0= ruleEInt ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2005:1: (lv_max_8_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1946:1: ( (lv_max_8_0= ruleEInt ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1947:1: (lv_max_8_0= ruleEInt )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2005:1: (lv_max_8_0= ruleEInt )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2006:3: lv_max_8_0= ruleEInt
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1947:1: (lv_max_8_0= ruleEInt )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1948:3: lv_max_8_0= ruleEInt
             {
              
             	        newCompositeNode(grammarAccess.getRankingSumForkAccess().getMaxEIntParserRuleCall_7_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleRankingSumFork4413);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleRankingSumFork4287);
             lv_max_8_0=ruleEInt();
 
             state._fsp--;
@@ -5571,18 +5440,18 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2022:2: (otherlv_9= 'then' )?
-            int alt92=2;
-            int LA92_0 = input.LA(1);
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1964:2: (otherlv_9= 'then' )?
+            int alt91=2;
+            int LA91_0 = input.LA(1);
 
-            if ( (LA92_0==51) ) {
-                alt92=1;
+            if ( (LA91_0==45) ) {
+                alt91=1;
             }
-            switch (alt92) {
+            switch (alt91) {
                 case 1 :
-                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2022:4: otherlv_9= 'then'
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1964:4: otherlv_9= 'then'
                     {
-                    otherlv_9=(Token)match(input,51,FollowSets000.FOLLOW_51_in_ruleRankingSumFork4426); 
+                    otherlv_9=(Token)match(input,45,FollowSets000.FOLLOW_45_in_ruleRankingSumFork4300); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getRankingSumForkAccess().getThenKeyword_8());
                         
@@ -5592,19 +5461,53 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_10=(Token)match(input,52,FollowSets000.FOLLOW_52_in_ruleRankingSumFork4440); 
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1968:3: (otherlv_10= 'continue' )?
+            int alt92=2;
+            int LA92_0 = input.LA(1);
 
-                	newLeafNode(otherlv_10, grammarAccess.getRankingSumForkAccess().getGoKeyword_9());
-                
-            otherlv_11=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleRankingSumFork4452); 
+            if ( (LA92_0==46) ) {
+                alt92=1;
+            }
+            switch (alt92) {
+                case 1 :
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1968:5: otherlv_10= 'continue'
+                    {
+                    otherlv_10=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleRankingSumFork4315); 
 
-                	newLeafNode(otherlv_11, grammarAccess.getRankingSumForkAccess().getToKeyword_10());
-                
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2034:1: ( ( ruleEString ) )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2035:1: ( ruleEString )
+                        	newLeafNode(otherlv_10, grammarAccess.getRankingSumForkAccess().getContinueKeyword_9());
+                        
+
+                    }
+                    break;
+
+            }
+
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1972:3: (otherlv_11= 'with' )?
+            int alt93=2;
+            int LA93_0 = input.LA(1);
+
+            if ( (LA93_0==47) ) {
+                alt93=1;
+            }
+            switch (alt93) {
+                case 1 :
+                    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1972:5: otherlv_11= 'with'
+                    {
+                    otherlv_11=(Token)match(input,47,FollowSets000.FOLLOW_47_in_ruleRankingSumFork4330); 
+
+                        	newLeafNode(otherlv_11, grammarAccess.getRankingSumForkAccess().getWithKeyword_10());
+                        
+
+                    }
+                    break;
+
+            }
+
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1976:3: ( ( ruleEString ) )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1977:1: ( ruleEString )
             {
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2035:1: ( ruleEString )
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2036:3: ruleEString
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1977:1: ( ruleEString )
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1978:3: ruleEString
             {
 
             			if (current==null) {
@@ -5614,7 +5517,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getRankingSumForkAccess().getQuestionsQuestionCrossReference_11_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRankingSumFork4475);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRankingSumFork4355);
             ruleEString();
 
             state._fsp--;
@@ -5628,30 +5531,30 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2049:2: (otherlv_13= ',' ( ( ruleEString ) ) )*
-            loop93:
+            // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1991:2: (otherlv_13= ',' ( ( ruleEString ) ) )*
+            loop94:
             do {
-                int alt93=2;
-                int LA93_0 = input.LA(1);
+                int alt94=2;
+                int LA94_0 = input.LA(1);
 
-                if ( (LA93_0==24) ) {
-                    alt93=1;
+                if ( (LA94_0==25) ) {
+                    alt94=1;
                 }
 
 
-                switch (alt93) {
+                switch (alt94) {
             	case 1 :
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2049:4: otherlv_13= ',' ( ( ruleEString ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1991:4: otherlv_13= ',' ( ( ruleEString ) )
             	    {
-            	    otherlv_13=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleRankingSumFork4488); 
+            	    otherlv_13=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleRankingSumFork4368); 
 
             	        	newLeafNode(otherlv_13, grammarAccess.getRankingSumForkAccess().getCommaKeyword_12_0());
             	        
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2053:1: ( ( ruleEString ) )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2054:1: ( ruleEString )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1995:1: ( ( ruleEString ) )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1996:1: ( ruleEString )
             	    {
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2054:1: ( ruleEString )
-            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:2055:3: ruleEString
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1996:1: ( ruleEString )
+            	    // ../dk.itu.mddp.eank.survey/src-gen/org/xtext/example/mydsl/parser/antlr/internal/InternalMyDsl.g:1997:3: ruleEString
             	    {
 
             	    			if (current==null) {
@@ -5661,7 +5564,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getRankingSumForkAccess().getQuestionsQuestionCrossReference_12_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRankingSumFork4511);
+            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleRankingSumFork4391);
             	    ruleEString();
 
             	    state._fsp--;
@@ -5680,7 +5583,7 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop93;
+            	    break loop94;
                 }
             } while (true);
 
@@ -5712,9 +5615,9 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
     private static class FollowSets000 {
         public static final BitSet FOLLOW_ruleSurvey_in_entryRuleSurvey75 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleSurvey85 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleSurvey136 = new BitSet(new long[]{0x0001044060000802L});
-        public static final BitSet FOLLOW_ruleQuestion_in_ruleSurvey163 = new BitSet(new long[]{0x0001044060000802L});
-        public static final BitSet FOLLOW_ruleQuestion_in_ruleSurvey184 = new BitSet(new long[]{0x0001044060000802L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleSurvey136 = new BitSet(new long[]{0x0000045018000802L});
+        public static final BitSet FOLLOW_ruleQuestion_in_ruleSurvey163 = new BitSet(new long[]{0x0000045018000802L});
+        public static final BitSet FOLLOW_ruleQuestion_in_ruleSurvey184 = new BitSet(new long[]{0x0000045018000802L});
         public static final BitSet FOLLOW_ruleQuestion_in_entryRuleQuestion223 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleQuestion233 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleMultipleChoice_in_ruleQuestion280 = new BitSet(new long[]{0x0000000000000002L});
@@ -5739,197 +5642,187 @@ public class InternalMyDslParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_17_in_ruleMultipleChoice758 = new BitSet(new long[]{0x00000000000DE030L});
         public static final BitSet FOLLOW_18_in_ruleMultipleChoice774 = new BitSet(new long[]{0x00000000000DE030L});
         public static final BitSet FOLLOW_19_in_ruleMultipleChoice789 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleMultipleChoice812 = new BitSet(new long[]{0x0000000000D00010L});
-        public static final BitSet FOLLOW_20_in_ruleMultipleChoice825 = new BitSet(new long[]{0x0020000000200040L});
-        public static final BitSet FOLLOW_21_in_ruleMultipleChoice838 = new BitSet(new long[]{0x0020000000200040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleMultipleChoice861 = new BitSet(new long[]{0x0000000000D00010L});
-        public static final BitSet FOLLOW_22_in_ruleMultipleChoice876 = new BitSet(new long[]{0x0000000000D00010L});
-        public static final BitSet FOLLOW_23_in_ruleMultipleChoice891 = new BitSet(new long[]{0x0000000000D00010L});
-        public static final BitSet FOLLOW_ruleChoice_in_ruleMultipleChoice914 = new BitSet(new long[]{0x0004000003000002L});
-        public static final BitSet FOLLOW_24_in_ruleMultipleChoice927 = new BitSet(new long[]{0x0000000000D00010L});
-        public static final BitSet FOLLOW_ruleChoice_in_ruleMultipleChoice948 = new BitSet(new long[]{0x0004000003000002L});
-        public static final BitSet FOLLOW_25_in_ruleMultipleChoice963 = new BitSet(new long[]{0x000000001C0DE030L});
-        public static final BitSet FOLLOW_26_in_ruleMultipleChoice976 = new BitSet(new long[]{0x00000000180DE030L});
-        public static final BitSet FOLLOW_27_in_ruleMultipleChoice991 = new BitSet(new long[]{0x00000000100DE030L});
-        public static final BitSet FOLLOW_28_in_ruleMultipleChoice1006 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleMultipleChoice1029 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleChoiceFork_in_ruleMultipleChoice1053 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleChoiceFork_in_ruleMultipleChoice1074 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleOpen_in_entryRuleOpen1113 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleOpen1123 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_29_in_ruleOpen1169 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleOpen1186 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleOpen1203 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_13_in_ruleOpen1217 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleOpen1231 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_15_in_ruleOpen1246 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_16_in_ruleOpen1271 = new BitSet(new long[]{0x0000000000020000L});
-        public static final BitSet FOLLOW_17_in_ruleOpen1296 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_18_in_ruleOpen1312 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_19_in_ruleOpen1327 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleOpen1350 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleRating_Impl_in_entryRuleRating_Impl1386 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleRating_Impl1396 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_30_in_ruleRating_Impl1442 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleRating_Impl1459 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleRating_Impl1476 = new BitSet(new long[]{0x00000000800DE030L});
-        public static final BitSet FOLLOW_13_in_ruleRating_Impl1490 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleRating_Impl1504 = new BitSet(new long[]{0x00000000800DE030L});
-        public static final BitSet FOLLOW_15_in_ruleRating_Impl1519 = new BitSet(new long[]{0x00000000800DE030L});
-        public static final BitSet FOLLOW_16_in_ruleRating_Impl1538 = new BitSet(new long[]{0x0000000000020000L});
-        public static final BitSet FOLLOW_17_in_ruleRating_Impl1550 = new BitSet(new long[]{0x00000000800DE030L});
-        public static final BitSet FOLLOW_18_in_ruleRating_Impl1566 = new BitSet(new long[]{0x00000000800DE030L});
-        public static final BitSet FOLLOW_31_in_ruleRating_Impl1581 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_19_in_ruleRating_Impl1599 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRating_Impl1622 = new BitSet(new long[]{0x0020000100200040L});
-        public static final BitSet FOLLOW_32_in_ruleRating_Impl1635 = new BitSet(new long[]{0x0020000000200040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleRating_Impl1658 = new BitSet(new long[]{0x0020000200200040L});
-        public static final BitSet FOLLOW_33_in_ruleRating_Impl1671 = new BitSet(new long[]{0x0020000000200040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleRating_Impl1694 = new BitSet(new long[]{0x0000001C000DE030L});
-        public static final BitSet FOLLOW_34_in_ruleRating_Impl1707 = new BitSet(new long[]{0x00000018000DE030L});
-        public static final BitSet FOLLOW_35_in_ruleRating_Impl1722 = new BitSet(new long[]{0x00000010000DE030L});
-        public static final BitSet FOLLOW_36_in_ruleRating_Impl1737 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRating_Impl1760 = new BitSet(new long[]{0x00000032000DE030L});
-        public static final BitSet FOLLOW_33_in_ruleRating_Impl1773 = new BitSet(new long[]{0x00000030000DE030L});
-        public static final BitSet FOLLOW_37_in_ruleRating_Impl1788 = new BitSet(new long[]{0x00000010000DE030L});
-        public static final BitSet FOLLOW_36_in_ruleRating_Impl1803 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRating_Impl1826 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleRatingFork_in_ruleRating_Impl1848 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleRatingFork_in_ruleRating_Impl1869 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleRanking_in_entryRuleRanking1908 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleRanking1918 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_38_in_ruleRanking1955 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleRanking1972 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleRanking1989 = new BitSet(new long[]{0x00000080000DE030L});
-        public static final BitSet FOLLOW_13_in_ruleRanking2003 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleRanking2017 = new BitSet(new long[]{0x00000080000DE030L});
-        public static final BitSet FOLLOW_15_in_ruleRanking2032 = new BitSet(new long[]{0x00000080000DE030L});
-        public static final BitSet FOLLOW_16_in_ruleRanking2057 = new BitSet(new long[]{0x0000000000020000L});
-        public static final BitSet FOLLOW_17_in_ruleRanking2082 = new BitSet(new long[]{0x00000080000DE030L});
-        public static final BitSet FOLLOW_18_in_ruleRanking2098 = new BitSet(new long[]{0x00000080000DE030L});
-        public static final BitSet FOLLOW_39_in_ruleRanking2113 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_19_in_ruleRanking2131 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRanking2154 = new BitSet(new long[]{0x0000030000D00010L});
-        public static final BitSet FOLLOW_22_in_ruleRanking2167 = new BitSet(new long[]{0x0000030000D00010L});
-        public static final BitSet FOLLOW_40_in_ruleRanking2182 = new BitSet(new long[]{0x0000000000D00010L});
-        public static final BitSet FOLLOW_41_in_ruleRanking2200 = new BitSet(new long[]{0x0000000000D00010L});
-        public static final BitSet FOLLOW_23_in_ruleRanking2215 = new BitSet(new long[]{0x0000000000D00010L});
-        public static final BitSet FOLLOW_ruleChoice_in_ruleRanking2238 = new BitSet(new long[]{0x0004000001000002L});
-        public static final BitSet FOLLOW_24_in_ruleRanking2251 = new BitSet(new long[]{0x0000000000D00010L});
-        public static final BitSet FOLLOW_ruleChoice_in_ruleRanking2272 = new BitSet(new long[]{0x0004000001000002L});
-        public static final BitSet FOLLOW_ruleRankingSumFork_in_ruleRanking2296 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleRankingSumFork_in_ruleRanking2317 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleConstantSum_in_entryRuleConstantSum2356 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleConstantSum2366 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_42_in_ruleConstantSum2412 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleConstantSum2429 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleConstantSum2446 = new BitSet(new long[]{0x00000800000DE000L});
-        public static final BitSet FOLLOW_13_in_ruleConstantSum2460 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleConstantSum2474 = new BitSet(new long[]{0x00000800000D8000L});
-        public static final BitSet FOLLOW_15_in_ruleConstantSum2489 = new BitSet(new long[]{0x00000800000C0000L});
-        public static final BitSet FOLLOW_16_in_ruleConstantSum2514 = new BitSet(new long[]{0x0000000000020000L});
-        public static final BitSet FOLLOW_17_in_ruleConstantSum2539 = new BitSet(new long[]{0x00000800000C0000L});
-        public static final BitSet FOLLOW_18_in_ruleConstantSum2555 = new BitSet(new long[]{0x0000080000080000L});
-        public static final BitSet FOLLOW_43_in_ruleConstantSum2570 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_19_in_ruleConstantSum2588 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleConstantSum2610 = new BitSet(new long[]{0x0000B00000040000L});
-        public static final BitSet FOLLOW_18_in_ruleConstantSum2625 = new BitSet(new long[]{0x0000300000000000L});
-        public static final BitSet FOLLOW_44_in_ruleConstantSum2640 = new BitSet(new long[]{0x0000200000000000L});
-        public static final BitSet FOLLOW_45_in_ruleConstantSum2654 = new BitSet(new long[]{0x0020400000200040L});
-        public static final BitSet FOLLOW_46_in_ruleConstantSum2667 = new BitSet(new long[]{0x0020000000200040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleConstantSum2691 = new BitSet(new long[]{0x0000800000000000L});
-        public static final BitSet FOLLOW_47_in_ruleConstantSum2705 = new BitSet(new long[]{0x0000000000800000L});
-        public static final BitSet FOLLOW_23_in_ruleConstantSum2717 = new BitSet(new long[]{0x0000000000D00010L});
-        public static final BitSet FOLLOW_ruleChoice_in_ruleConstantSum2738 = new BitSet(new long[]{0x0004000001000002L});
-        public static final BitSet FOLLOW_24_in_ruleConstantSum2751 = new BitSet(new long[]{0x0000000000D00010L});
-        public static final BitSet FOLLOW_ruleChoice_in_ruleConstantSum2772 = new BitSet(new long[]{0x0004000001000002L});
-        public static final BitSet FOLLOW_ruleRankingSumFork_in_ruleConstantSum2796 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleRankingSumFork_in_ruleConstantSum2817 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleStaple_in_entryRuleStaple2856 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleStaple2866 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_48_in_ruleStaple2912 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleStaple2929 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleStaple2946 = new BitSet(new long[]{0x00000000800DE000L});
-        public static final BitSet FOLLOW_13_in_ruleStaple2960 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleStaple2974 = new BitSet(new long[]{0x00000000800D8000L});
-        public static final BitSet FOLLOW_15_in_ruleStaple2989 = new BitSet(new long[]{0x00000000800C0000L});
-        public static final BitSet FOLLOW_16_in_ruleStaple3014 = new BitSet(new long[]{0x0000000000020000L});
-        public static final BitSet FOLLOW_17_in_ruleStaple3039 = new BitSet(new long[]{0x00000000800C0000L});
-        public static final BitSet FOLLOW_18_in_ruleStaple3055 = new BitSet(new long[]{0x0000000080080000L});
-        public static final BitSet FOLLOW_31_in_ruleStaple3070 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_19_in_ruleStaple3088 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleStaple3110 = new BitSet(new long[]{0x0020000100200040L});
-        public static final BitSet FOLLOW_32_in_ruleStaple3123 = new BitSet(new long[]{0x0020000000200040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleStaple3146 = new BitSet(new long[]{0x0020000200200040L});
-        public static final BitSet FOLLOW_33_in_ruleStaple3159 = new BitSet(new long[]{0x0020000000200040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleStaple3182 = new BitSet(new long[]{0x0000001C000DE030L});
-        public static final BitSet FOLLOW_34_in_ruleStaple3195 = new BitSet(new long[]{0x00000018000DE030L});
-        public static final BitSet FOLLOW_35_in_ruleStaple3210 = new BitSet(new long[]{0x00000010000DE030L});
-        public static final BitSet FOLLOW_36_in_ruleStaple3225 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleStaple3248 = new BitSet(new long[]{0x00020010010DE030L});
-        public static final BitSet FOLLOW_24_in_ruleStaple3261 = new BitSet(new long[]{0x00020010000DE030L});
-        public static final BitSet FOLLOW_49_in_ruleStaple3276 = new BitSet(new long[]{0x00000010000DE030L});
-        public static final BitSet FOLLOW_36_in_ruleStaple3291 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleStaple3314 = new BitSet(new long[]{0x00000032000DE030L});
-        public static final BitSet FOLLOW_33_in_ruleStaple3327 = new BitSet(new long[]{0x00000030000DE030L});
-        public static final BitSet FOLLOW_37_in_ruleStaple3342 = new BitSet(new long[]{0x00000010000DE030L});
-        public static final BitSet FOLLOW_36_in_ruleStaple3357 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleStaple3380 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleRatingFork_in_ruleStaple3402 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleRatingFork_in_ruleStaple3423 = new BitSet(new long[]{0x0004000000000002L});
-        public static final BitSet FOLLOW_ruleChoice_in_entryRuleChoice3462 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleChoice3472 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleChoice3514 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleChoice3531 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleChoice3552 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleChoiceFork_in_entryRuleChoiceFork3588 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleChoiceFork3598 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_50_in_ruleChoiceFork3635 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleChoiceFork3658 = new BitSet(new long[]{0x0018000001000000L});
-        public static final BitSet FOLLOW_24_in_ruleChoiceFork3671 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleChoiceFork3694 = new BitSet(new long[]{0x0018000001000000L});
-        public static final BitSet FOLLOW_51_in_ruleChoiceFork3709 = new BitSet(new long[]{0x0010000000000000L});
-        public static final BitSet FOLLOW_52_in_ruleChoiceFork3723 = new BitSet(new long[]{0x0000000000040000L});
-        public static final BitSet FOLLOW_18_in_ruleChoiceFork3735 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleChoiceFork3758 = new BitSet(new long[]{0x0000000001000002L});
-        public static final BitSet FOLLOW_24_in_ruleChoiceFork3771 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleChoiceFork3794 = new BitSet(new long[]{0x0000000001000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_entryRuleEInt3833 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleEInt3844 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_53_in_ruleEInt3883 = new BitSet(new long[]{0x0000000000000040L});
-        public static final BitSet FOLLOW_RULE_INT_in_ruleEInt3900 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleRatingFork_in_entryRuleRatingFork3945 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleRatingFork3955 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_50_in_ruleRatingFork3992 = new BitSet(new long[]{0x0040000100010000L});
-        public static final BitSet FOLLOW_54_in_ruleRatingFork4005 = new BitSet(new long[]{0x0000000100010000L});
-        public static final BitSet FOLLOW_16_in_ruleRatingFork4020 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleRatingFork4034 = new BitSet(new long[]{0x0020000000200040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleRatingFork4055 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_ruleRatingFork4067 = new BitSet(new long[]{0x0020000000200040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleRatingFork4088 = new BitSet(new long[]{0x0018000000000000L});
-        public static final BitSet FOLLOW_51_in_ruleRatingFork4101 = new BitSet(new long[]{0x0010000000000000L});
-        public static final BitSet FOLLOW_52_in_ruleRatingFork4115 = new BitSet(new long[]{0x0000000000040000L});
-        public static final BitSet FOLLOW_18_in_ruleRatingFork4127 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRatingFork4150 = new BitSet(new long[]{0x0000000001000002L});
-        public static final BitSet FOLLOW_24_in_ruleRatingFork4163 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRatingFork4186 = new BitSet(new long[]{0x0000000001000002L});
-        public static final BitSet FOLLOW_ruleRankingSumFork_in_entryRuleRankingSumFork4224 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleRankingSumFork4234 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_50_in_ruleRankingSumFork4271 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRankingSumFork4294 = new BitSet(new long[]{0x0000000001010000L});
-        public static final BitSet FOLLOW_24_in_ruleRankingSumFork4307 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRankingSumFork4330 = new BitSet(new long[]{0x0000000001010000L});
-        public static final BitSet FOLLOW_16_in_ruleRankingSumFork4344 = new BitSet(new long[]{0x0020000100200040L});
-        public static final BitSet FOLLOW_32_in_ruleRankingSumFork4357 = new BitSet(new long[]{0x0020000000200040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleRankingSumFork4380 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_ruleRankingSumFork4392 = new BitSet(new long[]{0x0020000000200040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleRankingSumFork4413 = new BitSet(new long[]{0x0018000000000000L});
-        public static final BitSet FOLLOW_51_in_ruleRankingSumFork4426 = new BitSet(new long[]{0x0010000000000000L});
-        public static final BitSet FOLLOW_52_in_ruleRankingSumFork4440 = new BitSet(new long[]{0x0000000000040000L});
-        public static final BitSet FOLLOW_18_in_ruleRankingSumFork4452 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRankingSumFork4475 = new BitSet(new long[]{0x0000000001000002L});
-        public static final BitSet FOLLOW_24_in_ruleRankingSumFork4488 = new BitSet(new long[]{0x00000000000DE030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleRankingSumFork4511 = new BitSet(new long[]{0x0000000001000002L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleMultipleChoice812 = new BitSet(new long[]{0x0000000001B00010L});
+        public static final BitSet FOLLOW_20_in_ruleMultipleChoice826 = new BitSet(new long[]{0x0000000000200000L});
+        public static final BitSet FOLLOW_21_in_ruleMultipleChoice840 = new BitSet(new long[]{0x0001000000400040L});
+        public static final BitSet FOLLOW_22_in_ruleMultipleChoice853 = new BitSet(new long[]{0x0001000000400040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleMultipleChoice876 = new BitSet(new long[]{0x0000000001B00010L});
+        public static final BitSet FOLLOW_23_in_ruleMultipleChoice891 = new BitSet(new long[]{0x0000000001B00010L});
+        public static final BitSet FOLLOW_24_in_ruleMultipleChoice906 = new BitSet(new long[]{0x0000000001B00010L});
+        public static final BitSet FOLLOW_ruleChoice_in_ruleMultipleChoice929 = new BitSet(new long[]{0x0000100006000002L});
+        public static final BitSet FOLLOW_25_in_ruleMultipleChoice942 = new BitSet(new long[]{0x0000000001B00010L});
+        public static final BitSet FOLLOW_ruleChoice_in_ruleMultipleChoice963 = new BitSet(new long[]{0x0000100006000002L});
+        public static final BitSet FOLLOW_26_in_ruleMultipleChoice978 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleMultipleChoice999 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleChoiceFork_in_ruleMultipleChoice1023 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleChoiceFork_in_ruleMultipleChoice1044 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleOpen_in_entryRuleOpen1083 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleOpen1093 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_27_in_ruleOpen1139 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleOpen1156 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleOpen1173 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_13_in_ruleOpen1187 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleOpen1201 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_15_in_ruleOpen1216 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_16_in_ruleOpen1241 = new BitSet(new long[]{0x0000000000020000L});
+        public static final BitSet FOLLOW_17_in_ruleOpen1266 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_18_in_ruleOpen1282 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_19_in_ruleOpen1297 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleOpen1320 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleRating_Impl_in_entryRuleRating_Impl1356 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleRating_Impl1366 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_28_in_ruleRating_Impl1412 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleRating_Impl1429 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleRating_Impl1446 = new BitSet(new long[]{0x00000000200DE030L});
+        public static final BitSet FOLLOW_13_in_ruleRating_Impl1460 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleRating_Impl1474 = new BitSet(new long[]{0x00000000200DE030L});
+        public static final BitSet FOLLOW_15_in_ruleRating_Impl1489 = new BitSet(new long[]{0x00000000200DE030L});
+        public static final BitSet FOLLOW_16_in_ruleRating_Impl1514 = new BitSet(new long[]{0x0000000000020000L});
+        public static final BitSet FOLLOW_17_in_ruleRating_Impl1539 = new BitSet(new long[]{0x00000000200DE030L});
+        public static final BitSet FOLLOW_18_in_ruleRating_Impl1555 = new BitSet(new long[]{0x00000000200DE030L});
+        public static final BitSet FOLLOW_29_in_ruleRating_Impl1570 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_19_in_ruleRating_Impl1588 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleRating_Impl1611 = new BitSet(new long[]{0x0001000040400040L});
+        public static final BitSet FOLLOW_30_in_ruleRating_Impl1624 = new BitSet(new long[]{0x0001000000400040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleRating_Impl1647 = new BitSet(new long[]{0x0001000080400040L});
+        public static final BitSet FOLLOW_31_in_ruleRating_Impl1660 = new BitSet(new long[]{0x0001000000400040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleRating_Impl1683 = new BitSet(new long[]{0x00000007000DE030L});
+        public static final BitSet FOLLOW_32_in_ruleRating_Impl1696 = new BitSet(new long[]{0x00000006000DE030L});
+        public static final BitSet FOLLOW_33_in_ruleRating_Impl1711 = new BitSet(new long[]{0x00000004000DE030L});
+        public static final BitSet FOLLOW_34_in_ruleRating_Impl1726 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleRating_Impl1749 = new BitSet(new long[]{0x0000000C800DE030L});
+        public static final BitSet FOLLOW_31_in_ruleRating_Impl1762 = new BitSet(new long[]{0x0000000C000DE030L});
+        public static final BitSet FOLLOW_35_in_ruleRating_Impl1777 = new BitSet(new long[]{0x00000004000DE030L});
+        public static final BitSet FOLLOW_34_in_ruleRating_Impl1792 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleRating_Impl1815 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleRatingFork_in_ruleRating_Impl1837 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleRatingFork_in_ruleRating_Impl1858 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleRanking_in_entryRuleRanking1897 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleRanking1907 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_36_in_ruleRanking1944 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleRanking1961 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleRanking1978 = new BitSet(new long[]{0x00000020000DE030L});
+        public static final BitSet FOLLOW_13_in_ruleRanking1992 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleRanking2006 = new BitSet(new long[]{0x00000020000DE030L});
+        public static final BitSet FOLLOW_15_in_ruleRanking2021 = new BitSet(new long[]{0x00000020000DE030L});
+        public static final BitSet FOLLOW_16_in_ruleRanking2046 = new BitSet(new long[]{0x0000000000020000L});
+        public static final BitSet FOLLOW_17_in_ruleRanking2071 = new BitSet(new long[]{0x00000020000DE030L});
+        public static final BitSet FOLLOW_18_in_ruleRanking2087 = new BitSet(new long[]{0x00000020000DE030L});
+        public static final BitSet FOLLOW_37_in_ruleRanking2102 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_19_in_ruleRanking2120 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleRanking2143 = new BitSet(new long[]{0x0000000001B00010L});
+        public static final BitSet FOLLOW_24_in_ruleRanking2156 = new BitSet(new long[]{0x0000000001B00010L});
+        public static final BitSet FOLLOW_ruleChoice_in_ruleRanking2179 = new BitSet(new long[]{0x0000100002000002L});
+        public static final BitSet FOLLOW_25_in_ruleRanking2192 = new BitSet(new long[]{0x0000000001B00010L});
+        public static final BitSet FOLLOW_ruleChoice_in_ruleRanking2213 = new BitSet(new long[]{0x0000100002000002L});
+        public static final BitSet FOLLOW_ruleRankingSumFork_in_ruleRanking2237 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleRankingSumFork_in_ruleRanking2258 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleConstantSum_in_entryRuleConstantSum2297 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleConstantSum2307 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_38_in_ruleConstantSum2353 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleConstantSum2370 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleConstantSum2387 = new BitSet(new long[]{0x00000080000DE030L});
+        public static final BitSet FOLLOW_13_in_ruleConstantSum2401 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleConstantSum2415 = new BitSet(new long[]{0x00000080000DE030L});
+        public static final BitSet FOLLOW_15_in_ruleConstantSum2430 = new BitSet(new long[]{0x00000080000DE030L});
+        public static final BitSet FOLLOW_16_in_ruleConstantSum2455 = new BitSet(new long[]{0x0000000000020000L});
+        public static final BitSet FOLLOW_17_in_ruleConstantSum2480 = new BitSet(new long[]{0x00000080000DE030L});
+        public static final BitSet FOLLOW_18_in_ruleConstantSum2496 = new BitSet(new long[]{0x00000080000DE030L});
+        public static final BitSet FOLLOW_39_in_ruleConstantSum2511 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_19_in_ruleConstantSum2529 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleConstantSum2552 = new BitSet(new long[]{0x0000030001B40010L});
+        public static final BitSet FOLLOW_18_in_ruleConstantSum2567 = new BitSet(new long[]{0x0000030000000000L});
+        public static final BitSet FOLLOW_40_in_ruleConstantSum2582 = new BitSet(new long[]{0x0000020000000000L});
+        public static final BitSet FOLLOW_41_in_ruleConstantSum2596 = new BitSet(new long[]{0x0001000000C00040L});
+        public static final BitSet FOLLOW_23_in_ruleConstantSum2609 = new BitSet(new long[]{0x0001000000400040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleConstantSum2633 = new BitSet(new long[]{0x0000000001B00010L});
+        public static final BitSet FOLLOW_24_in_ruleConstantSum2648 = new BitSet(new long[]{0x0000000001B00010L});
+        public static final BitSet FOLLOW_ruleChoice_in_ruleConstantSum2671 = new BitSet(new long[]{0x0000100002000002L});
+        public static final BitSet FOLLOW_25_in_ruleConstantSum2684 = new BitSet(new long[]{0x0000000001B00010L});
+        public static final BitSet FOLLOW_ruleChoice_in_ruleConstantSum2705 = new BitSet(new long[]{0x0000100002000002L});
+        public static final BitSet FOLLOW_ruleRankingSumFork_in_ruleConstantSum2729 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleRankingSumFork_in_ruleConstantSum2750 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleStaple_in_entryRuleStaple2789 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleStaple2799 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_42_in_ruleStaple2845 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleStaple2862 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleStaple2879 = new BitSet(new long[]{0x00000000200DE030L});
+        public static final BitSet FOLLOW_13_in_ruleStaple2893 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleStaple2907 = new BitSet(new long[]{0x00000000200DE030L});
+        public static final BitSet FOLLOW_15_in_ruleStaple2922 = new BitSet(new long[]{0x00000000200DE030L});
+        public static final BitSet FOLLOW_16_in_ruleStaple2947 = new BitSet(new long[]{0x0000000000020000L});
+        public static final BitSet FOLLOW_17_in_ruleStaple2972 = new BitSet(new long[]{0x00000000200DE030L});
+        public static final BitSet FOLLOW_18_in_ruleStaple2988 = new BitSet(new long[]{0x00000000200DE030L});
+        public static final BitSet FOLLOW_29_in_ruleStaple3003 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_19_in_ruleStaple3021 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleStaple3044 = new BitSet(new long[]{0x00000007000DE030L});
+        public static final BitSet FOLLOW_32_in_ruleStaple3057 = new BitSet(new long[]{0x00000006000DE030L});
+        public static final BitSet FOLLOW_33_in_ruleStaple3072 = new BitSet(new long[]{0x00000004000DE030L});
+        public static final BitSet FOLLOW_34_in_ruleStaple3087 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleStaple3110 = new BitSet(new long[]{0x00000804020DE030L});
+        public static final BitSet FOLLOW_25_in_ruleStaple3123 = new BitSet(new long[]{0x00000804000DE030L});
+        public static final BitSet FOLLOW_43_in_ruleStaple3138 = new BitSet(new long[]{0x00000004000DE030L});
+        public static final BitSet FOLLOW_34_in_ruleStaple3153 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleStaple3176 = new BitSet(new long[]{0x0000000C800DE030L});
+        public static final BitSet FOLLOW_31_in_ruleStaple3189 = new BitSet(new long[]{0x0000000C000DE030L});
+        public static final BitSet FOLLOW_35_in_ruleStaple3204 = new BitSet(new long[]{0x00000004000DE030L});
+        public static final BitSet FOLLOW_34_in_ruleStaple3219 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleStaple3242 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleRatingFork_in_ruleStaple3264 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleRatingFork_in_ruleStaple3285 = new BitSet(new long[]{0x0000100000000002L});
+        public static final BitSet FOLLOW_ruleChoice_in_entryRuleChoice3324 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleChoice3334 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleChoice3376 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleChoice3393 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleChoice3414 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleChoiceFork_in_entryRuleChoiceFork3450 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleChoiceFork3460 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_44_in_ruleChoiceFork3497 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleChoiceFork3520 = new BitSet(new long[]{0x0000E000020DE030L});
+        public static final BitSet FOLLOW_25_in_ruleChoiceFork3533 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleChoiceFork3556 = new BitSet(new long[]{0x0000E000020DE030L});
+        public static final BitSet FOLLOW_45_in_ruleChoiceFork3571 = new BitSet(new long[]{0x0000C000000DE030L});
+        public static final BitSet FOLLOW_46_in_ruleChoiceFork3586 = new BitSet(new long[]{0x00008000000DE030L});
+        public static final BitSet FOLLOW_47_in_ruleChoiceFork3601 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleChoiceFork3626 = new BitSet(new long[]{0x0000000002000002L});
+        public static final BitSet FOLLOW_25_in_ruleChoiceFork3639 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleChoiceFork3662 = new BitSet(new long[]{0x0000000002000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_entryRuleEInt3701 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleEInt3712 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_48_in_ruleEInt3751 = new BitSet(new long[]{0x0000000000000040L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleEInt3768 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleRatingFork_in_entryRuleRatingFork3813 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleRatingFork3823 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_44_in_ruleRatingFork3860 = new BitSet(new long[]{0x0002000040010000L});
+        public static final BitSet FOLLOW_49_in_ruleRatingFork3873 = new BitSet(new long[]{0x0000000040010000L});
+        public static final BitSet FOLLOW_16_in_ruleRatingFork3888 = new BitSet(new long[]{0x0000000040000000L});
+        public static final BitSet FOLLOW_30_in_ruleRatingFork3902 = new BitSet(new long[]{0x0001000000400040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleRatingFork3923 = new BitSet(new long[]{0x0000000080000000L});
+        public static final BitSet FOLLOW_31_in_ruleRatingFork3935 = new BitSet(new long[]{0x0001000000400040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleRatingFork3956 = new BitSet(new long[]{0x0000E000000DE030L});
+        public static final BitSet FOLLOW_45_in_ruleRatingFork3969 = new BitSet(new long[]{0x0000C000000DE030L});
+        public static final BitSet FOLLOW_46_in_ruleRatingFork3984 = new BitSet(new long[]{0x00008000000DE030L});
+        public static final BitSet FOLLOW_47_in_ruleRatingFork3999 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleRatingFork4024 = new BitSet(new long[]{0x0000000002000002L});
+        public static final BitSet FOLLOW_25_in_ruleRatingFork4037 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleRatingFork4060 = new BitSet(new long[]{0x0000000002000002L});
+        public static final BitSet FOLLOW_ruleRankingSumFork_in_entryRuleRankingSumFork4098 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleRankingSumFork4108 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_44_in_ruleRankingSumFork4145 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleRankingSumFork4168 = new BitSet(new long[]{0x0000000002010000L});
+        public static final BitSet FOLLOW_25_in_ruleRankingSumFork4181 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleRankingSumFork4204 = new BitSet(new long[]{0x0000000002010000L});
+        public static final BitSet FOLLOW_16_in_ruleRankingSumFork4218 = new BitSet(new long[]{0x0001000040400040L});
+        public static final BitSet FOLLOW_30_in_ruleRankingSumFork4231 = new BitSet(new long[]{0x0001000000400040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleRankingSumFork4254 = new BitSet(new long[]{0x0000000080000000L});
+        public static final BitSet FOLLOW_31_in_ruleRankingSumFork4266 = new BitSet(new long[]{0x0001000000400040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleRankingSumFork4287 = new BitSet(new long[]{0x0000E000000DE030L});
+        public static final BitSet FOLLOW_45_in_ruleRankingSumFork4300 = new BitSet(new long[]{0x0000C000000DE030L});
+        public static final BitSet FOLLOW_46_in_ruleRankingSumFork4315 = new BitSet(new long[]{0x00008000000DE030L});
+        public static final BitSet FOLLOW_47_in_ruleRankingSumFork4330 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleRankingSumFork4355 = new BitSet(new long[]{0x0000000002000002L});
+        public static final BitSet FOLLOW_25_in_ruleRankingSumFork4368 = new BitSet(new long[]{0x00000000000DE030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleRankingSumFork4391 = new BitSet(new long[]{0x0000000002000002L});
     }
 
 

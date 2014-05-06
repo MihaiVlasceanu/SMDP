@@ -228,6 +228,7 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	 * Constraint:
 	 *     (
 	 *         name=ID 
+	 *         isRequired?='is'? 
 	 *         question=EString 
 	 *         min=EInt 
 	 *         max=EInt 
@@ -247,8 +248,6 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	 *         name=ID 
 	 *         isRequired?='is'? 
 	 *         question=EString 
-	 *         min=EInt 
-	 *         max=EInt 
 	 *         first=EString 
 	 *         mid=EString 
 	 *         last=EString 

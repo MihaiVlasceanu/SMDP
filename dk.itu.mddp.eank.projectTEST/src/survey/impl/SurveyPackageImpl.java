@@ -13,7 +13,6 @@ import survey.Choice;
 import survey.ChoiceFork;
 import survey.ConstantSum;
 import survey.Fork;
-import survey.Model;
 import survey.MultipleChoice;
 import survey.Open;
 import survey.Question;
@@ -131,13 +130,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * @generated
 	 */
 	private EClass rankingSumForkEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass modelEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -475,8 +467,35 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStaple_Mid() {
+	public EAttribute getStaple_First() {
 		return (EAttribute)stapleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStaple_Mid() {
+		return (EAttribute)stapleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStaple_Last() {
+		return (EAttribute)stapleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStaple_Forks() {
+		return (EReference)stapleEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -619,24 +638,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getModel() {
-		return modelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModel_Survey() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SurveyFactory getSurveyFactory() {
 		return (SurveyFactory)getEFactoryInstance();
 	}
@@ -698,7 +699,10 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEReference(constantSumEClass, CONSTANT_SUM__FORKS);
 
 		stapleEClass = createEClass(STAPLE);
+		createEAttribute(stapleEClass, STAPLE__FIRST);
 		createEAttribute(stapleEClass, STAPLE__MID);
+		createEAttribute(stapleEClass, STAPLE__LAST);
+		createEReference(stapleEClass, STAPLE__FORKS);
 
 		forkEClass = createEClass(FORK);
 		createEReference(forkEClass, FORK__QUESTIONS);
@@ -719,9 +723,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEAttribute(rankingSumForkEClass, RANKING_SUM_FORK__MAX);
 		createEAttribute(rankingSumForkEClass, RANKING_SUM_FORK__MIN);
 		createEReference(rankingSumForkEClass, RANKING_SUM_FORK__ON);
-
-		modelEClass = createEClass(MODEL);
-		createEReference(modelEClass, MODEL__SURVEY);
 	}
 
 	/**
@@ -757,7 +758,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		ratingEClass.getESuperTypes().add(this.getQuestion());
 		rankingEClass.getESuperTypes().add(this.getQuestion());
 		constantSumEClass.getESuperTypes().add(this.getQuestion());
-		stapleEClass.getESuperTypes().add(this.getRating());
+		stapleEClass.getESuperTypes().add(this.getQuestion());
 		ratingForkEClass.getESuperTypes().add(this.getFork());
 		choiceForkEClass.getESuperTypes().add(this.getFork());
 		rankingChoiceForkEClass.getESuperTypes().add(this.getFork());
@@ -802,7 +803,10 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEReference(getConstantSum_Forks(), this.getRankingSumFork(), null, "forks", null, 0, -1, ConstantSum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stapleEClass, Staple.class, "Staple", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStaple_First(), ecorePackage.getEString(), "first", null, 0, 1, Staple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStaple_Mid(), ecorePackage.getEString(), "mid", null, 0, 1, Staple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStaple_Last(), ecorePackage.getEString(), "last", null, 0, 1, Staple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStaple_Forks(), this.getRatingFork(), null, "forks", null, 0, -1, Staple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(forkEClass, Fork.class, "Fork", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFork_Questions(), this.getQuestion(), null, "questions", null, 1, -1, Fork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -823,9 +827,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEAttribute(getRankingSumFork_Max(), ecorePackage.getEInt(), "max", null, 0, 1, RankingSumFork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRankingSumFork_Min(), ecorePackage.getEInt(), "min", null, 0, 1, RankingSumFork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRankingSumFork_On(), this.getChoice(), null, "on", null, 1, -1, RankingSumFork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModel_Survey(), this.getSurvey(), null, "Survey", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

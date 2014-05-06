@@ -29,7 +29,7 @@ class Constraints {
 		questions.forEach[q, i | map.put(q,i)]
 		questions.forEach[q |
 			usedList.add(map.get(q))
-			var localQuestions = CodeGenerator.forkMap(q)
+			var localQuestions = Transformation.forkMap(q)
 			if(localQuestions != null)
 			{
 				localQuestions.forEach[localQuestion |
@@ -164,7 +164,7 @@ class Constraints {
 	def static boolean Constraint(RatingFork it, Staple q)
 	{
 		
-		max <= q.max && min >= q.min
+		max <= 5 && min >= -5
 	}
 
 

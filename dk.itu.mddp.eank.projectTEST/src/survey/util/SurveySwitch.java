@@ -122,7 +122,6 @@ public class SurveySwitch<T> extends Switch<T> {
 			case SurveyPackage.STAPLE: {
 				Staple staple = (Staple)theEObject;
 				T result = caseStaple(staple);
-				if (result == null) result = caseRating(staple);
 				if (result == null) result = caseQuestion(staple);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -158,12 +157,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				RankingSumFork rankingSumFork = (RankingSumFork)theEObject;
 				T result = caseRankingSumFork(rankingSumFork);
 				if (result == null) result = caseFork(rankingSumFork);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SurveyPackage.MODEL: {
-				Model model = (Model)theEObject;
-				T result = caseModel(model);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -378,21 +371,6 @@ public class SurveySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRankingSumFork(RankingSumFork object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseModel(Model object) {
 		return null;
 	}
 

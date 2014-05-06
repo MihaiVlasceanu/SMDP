@@ -24,9 +24,9 @@ MultipleChoice returns MultipleChoice:
 		('the'? 'user')?
 		('may' | (isRequired ?= 'is' 'required'))? 
 		'to'? 'answer'? question=EString
-		('picking' 'up to'? answerCount = EInt )?
-		'from'? 'these'? choice+=Choice ( "," choice+=Choice)* 
-		('or' 'with'?'something'?'else'? other=EString)?
+		('by'? 'picking' 'up to'? answerCount = EInt )?
+		'of'? 'these'? choice+=Choice ( "," choice+=Choice)* 
+		('or'  other=EString)?
 		(forks+=ChoiceFork (forks+=ChoiceFork)*)?;
 
 Open returns Open:
@@ -41,7 +41,7 @@ Rating_Impl returns Rating:
 	{Rating}
 	'Rating' name=ID ':'
 		('the'? 'user')?
-		('may' |  'is' 'required')? 
+		('may' |  (isRequired ?= 'is' 'required'))? 
 		'to'? ('rate' | 'answer')? question=EString
 		'between'? min=EInt
 		'and'? max=EInt
@@ -55,7 +55,7 @@ Ranking returns Ranking:
 		('the'? 'user')?
 		('may' | (isRequired ?= 'is' 'required'))? 
 		'to'? ('rank' | 'answer')? question=EString
-		'from'? ('one of' | 'some of')? 'these'? choices+=Choice ( "," choices+=Choice)*
+		'these'? choices+=Choice ( "," choices+=Choice)*
 		(forks+=RankingSumFork (forks+=RankingSumFork)*)?;
 
 ConstantSum returns ConstantSum:
@@ -63,9 +63,9 @@ ConstantSum returns ConstantSum:
 	'ConstantSum' name=ID ':'
 		('the'? 'user')?
 		('may' | (isRequired ?= 'is' 'required'))? 
-		'to'? ('distribute' | 'answer') question=EString
+		'to'? ('distribute' | 'answer')? question=EString
 		(('to'? 'a'? 'total' 'of'?) constant = EInt)?
-		'amongst' 'these' choices+=Choice ( "," choices+=Choice)*
+		'these'? choices+=Choice ( "," choices+=Choice)*
 		(forks+=RankingSumFork (forks+=RankingSumFork)*)?;
 
 Staple returns Staple:
@@ -73,11 +73,9 @@ Staple returns Staple:
 	'Staple'name=ID  ':'
 		('the'? 'user')?
 		('may' | (isRequired ?= 'is' 'required'))? 
-		'to'? ('rate' | 'answer') question=EString
-		'between'? min=EInt
-		'and'? max=EInt
+		'to'? ('rate' | 'answer')? question=EString
 		'where'? 'lowest'? 'means'? first=EString','?
-		'mid'? 'means'? mid=EString
+		'middle'? 'means'? mid=EString
 		'and'? 'highest'? 'means'? last=EString
 		(forks+=RatingFork (forks+=RatingFork)*)?;
 
@@ -87,18 +85,18 @@ Choice returns Choice:
 
 ChoiceFork returns ChoiceFork:
 		'if' on+=[Choice|EString] ( "," on+=[Choice|EString])*
-		'then'? 'go' 'to'  questions+=[Question|EString] (","questions+=[Question|EString])*;
+		'then'? 'continue'? 'with'?  questions+=[Question|EString] (","questions+=[Question|EString])*;
 
 EInt returns ecore::EInt:
 	'-'? INT;
 
 RatingFork returns RatingFork:
 		'if' 'it'? 'is'? 'between' min=EInt 'and' max=EInt
-		'then'? 'go''to' questions+=[Question|EString] (","questions+=[Question|EString])*;
+		'then'? 'continue'? 'with'? questions+=[Question|EString] (","questions+=[Question|EString])*;
 
 RankingSumFork returns RankingSumFork:
 
 		'if' on+=[Choice|EString] ( "," on+=[Choice|EString])* 
 		'is' 'between'? min=EInt 'and' max=EInt 
-		'then'? 'go''to' questions+=[Question|EString] (","questions+=[Question|EString])*;
+		'then'? 'continue'? 'with'? questions+=[Question|EString] (","questions+=[Question|EString])*;
 

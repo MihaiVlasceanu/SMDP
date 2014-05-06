@@ -68,7 +68,6 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 			case SurveyPackage.CHOICE_FORK: return createChoiceFork();
 			case SurveyPackage.RANKING_CHOICE_FORK: return createRankingChoiceFork();
 			case SurveyPackage.RANKING_SUM_FORK: return createRankingSumFork();
-			case SurveyPackage.MODEL: return createModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -192,16 +191,6 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	public RankingSumFork createRankingSumFork() {
 		RankingSumForkImpl rankingSumFork = new RankingSumForkImpl();
 		return rankingSumFork;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Model createModel() {
-		ModelImpl model = new ModelImpl();
-		return model;
 	}
 
 	/**
