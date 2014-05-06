@@ -206,7 +206,7 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Description: ");
+		result.append(" (description: ");
 		result.append(description);
 		result.append(", name: ");
 		result.append(name);

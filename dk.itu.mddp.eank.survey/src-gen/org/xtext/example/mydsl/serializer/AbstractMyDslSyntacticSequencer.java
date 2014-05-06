@@ -28,15 +28,14 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	protected AbstractElementAlias match_ConstantSum_ToKeyword_9_0_0_q;
 	protected AbstractElementAlias match_ConstantSum___TheKeyword_4_0_q_UserKeyword_4_1__q;
 	protected AbstractElementAlias match_MultipleChoice_AnswerKeyword_7_q;
-	protected AbstractElementAlias match_MultipleChoice_ElseKeyword_15_3_q;
+	protected AbstractElementAlias match_MultipleChoice_ElseKeyword_14_3_q;
 	protected AbstractElementAlias match_MultipleChoice_FromKeyword_10_q;
 	protected AbstractElementAlias match_MultipleChoice_MayKeyword_5_0_q;
-	protected AbstractElementAlias match_MultipleChoice_SomethingKeyword_15_2_q;
-	protected AbstractElementAlias match_MultipleChoice_TheseKeyword_12_q;
+	protected AbstractElementAlias match_MultipleChoice_SomethingKeyword_14_2_q;
+	protected AbstractElementAlias match_MultipleChoice_TheseKeyword_11_q;
 	protected AbstractElementAlias match_MultipleChoice_ToKeyword_6_q;
 	protected AbstractElementAlias match_MultipleChoice_UpToKeyword_9_1_q;
-	protected AbstractElementAlias match_MultipleChoice_WithKeyword_15_1_q;
-	protected AbstractElementAlias match_MultipleChoice___OneOfKeyword_11_0_or_SomeOfKeyword_11_1__q;
+	protected AbstractElementAlias match_MultipleChoice_WithKeyword_14_1_q;
 	protected AbstractElementAlias match_MultipleChoice___TheKeyword_4_0_q_UserKeyword_4_1__q;
 	protected AbstractElementAlias match_Open_AnswerKeyword_7_q;
 	protected AbstractElementAlias match_Open_MayKeyword_5_0_q;
@@ -57,6 +56,8 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	protected AbstractElementAlias match_Rating_Impl_AndKeyword_11_q;
 	protected AbstractElementAlias match_Rating_Impl_AndKeyword_17_q;
 	protected AbstractElementAlias match_Rating_Impl_BetweenKeyword_9_q;
+	protected AbstractElementAlias match_Rating_Impl_HighestKeyword_18_q;
+	protected AbstractElementAlias match_Rating_Impl_LowestKeyword_14_q;
 	protected AbstractElementAlias match_Rating_Impl_MayKeyword_5_0_q_or___IsKeyword_5_1_0_RequiredKeyword_5_1_1__;
 	protected AbstractElementAlias match_Rating_Impl_MeansKeyword_15_q;
 	protected AbstractElementAlias match_Rating_Impl_MeansKeyword_19_q;
@@ -69,10 +70,13 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	protected AbstractElementAlias match_Staple_AnswerKeyword_7_1_or_RateKeyword_7_0;
 	protected AbstractElementAlias match_Staple_BetweenKeyword_9_q;
 	protected AbstractElementAlias match_Staple_CommaKeyword_17_q;
+	protected AbstractElementAlias match_Staple_HighestKeyword_22_q;
+	protected AbstractElementAlias match_Staple_LowestKeyword_14_q;
 	protected AbstractElementAlias match_Staple_MayKeyword_5_0_q;
 	protected AbstractElementAlias match_Staple_MeansKeyword_15_q;
 	protected AbstractElementAlias match_Staple_MeansKeyword_19_q;
 	protected AbstractElementAlias match_Staple_MeansKeyword_23_q;
+	protected AbstractElementAlias match_Staple_MidKeyword_18_q;
 	protected AbstractElementAlias match_Staple_ToKeyword_6_q;
 	protected AbstractElementAlias match_Staple_WhereKeyword_13_q;
 	protected AbstractElementAlias match_Staple___TheKeyword_4_0_q_UserKeyword_4_1__q;
@@ -89,15 +93,14 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 		match_ConstantSum_ToKeyword_9_0_0_q = new TokenAlias(false, true, grammarAccess.getConstantSumAccess().getToKeyword_9_0_0());
 		match_ConstantSum___TheKeyword_4_0_q_UserKeyword_4_1__q = new GroupAlias(false, true, new TokenAlias(false, true, grammarAccess.getConstantSumAccess().getTheKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getConstantSumAccess().getUserKeyword_4_1()));
 		match_MultipleChoice_AnswerKeyword_7_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getAnswerKeyword_7());
-		match_MultipleChoice_ElseKeyword_15_3_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getElseKeyword_15_3());
+		match_MultipleChoice_ElseKeyword_14_3_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getElseKeyword_14_3());
 		match_MultipleChoice_FromKeyword_10_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getFromKeyword_10());
 		match_MultipleChoice_MayKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getMayKeyword_5_0());
-		match_MultipleChoice_SomethingKeyword_15_2_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getSomethingKeyword_15_2());
-		match_MultipleChoice_TheseKeyword_12_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getTheseKeyword_12());
+		match_MultipleChoice_SomethingKeyword_14_2_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getSomethingKeyword_14_2());
+		match_MultipleChoice_TheseKeyword_11_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getTheseKeyword_11());
 		match_MultipleChoice_ToKeyword_6_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getToKeyword_6());
 		match_MultipleChoice_UpToKeyword_9_1_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getUpToKeyword_9_1());
-		match_MultipleChoice_WithKeyword_15_1_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getWithKeyword_15_1());
-		match_MultipleChoice___OneOfKeyword_11_0_or_SomeOfKeyword_11_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getMultipleChoiceAccess().getOneOfKeyword_11_0()), new TokenAlias(false, false, grammarAccess.getMultipleChoiceAccess().getSomeOfKeyword_11_1()));
+		match_MultipleChoice_WithKeyword_14_1_q = new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getWithKeyword_14_1());
 		match_MultipleChoice___TheKeyword_4_0_q_UserKeyword_4_1__q = new GroupAlias(false, true, new TokenAlias(false, true, grammarAccess.getMultipleChoiceAccess().getTheKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getMultipleChoiceAccess().getUserKeyword_4_1()));
 		match_Open_AnswerKeyword_7_q = new TokenAlias(false, true, grammarAccess.getOpenAccess().getAnswerKeyword_7());
 		match_Open_MayKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getOpenAccess().getMayKeyword_5_0());
@@ -118,6 +121,8 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 		match_Rating_Impl_AndKeyword_11_q = new TokenAlias(false, true, grammarAccess.getRating_ImplAccess().getAndKeyword_11());
 		match_Rating_Impl_AndKeyword_17_q = new TokenAlias(false, true, grammarAccess.getRating_ImplAccess().getAndKeyword_17());
 		match_Rating_Impl_BetweenKeyword_9_q = new TokenAlias(false, true, grammarAccess.getRating_ImplAccess().getBetweenKeyword_9());
+		match_Rating_Impl_HighestKeyword_18_q = new TokenAlias(false, true, grammarAccess.getRating_ImplAccess().getHighestKeyword_18());
+		match_Rating_Impl_LowestKeyword_14_q = new TokenAlias(false, true, grammarAccess.getRating_ImplAccess().getLowestKeyword_14());
 		match_Rating_Impl_MayKeyword_5_0_q_or___IsKeyword_5_1_0_RequiredKeyword_5_1_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRating_ImplAccess().getIsKeyword_5_1_0()), new TokenAlias(false, false, grammarAccess.getRating_ImplAccess().getRequiredKeyword_5_1_1())), new TokenAlias(false, true, grammarAccess.getRating_ImplAccess().getMayKeyword_5_0()));
 		match_Rating_Impl_MeansKeyword_15_q = new TokenAlias(false, true, grammarAccess.getRating_ImplAccess().getMeansKeyword_15());
 		match_Rating_Impl_MeansKeyword_19_q = new TokenAlias(false, true, grammarAccess.getRating_ImplAccess().getMeansKeyword_19());
@@ -130,10 +135,13 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 		match_Staple_AnswerKeyword_7_1_or_RateKeyword_7_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStapleAccess().getAnswerKeyword_7_1()), new TokenAlias(false, false, grammarAccess.getStapleAccess().getRateKeyword_7_0()));
 		match_Staple_BetweenKeyword_9_q = new TokenAlias(false, true, grammarAccess.getStapleAccess().getBetweenKeyword_9());
 		match_Staple_CommaKeyword_17_q = new TokenAlias(false, true, grammarAccess.getStapleAccess().getCommaKeyword_17());
+		match_Staple_HighestKeyword_22_q = new TokenAlias(false, true, grammarAccess.getStapleAccess().getHighestKeyword_22());
+		match_Staple_LowestKeyword_14_q = new TokenAlias(false, true, grammarAccess.getStapleAccess().getLowestKeyword_14());
 		match_Staple_MayKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getStapleAccess().getMayKeyword_5_0());
 		match_Staple_MeansKeyword_15_q = new TokenAlias(false, true, grammarAccess.getStapleAccess().getMeansKeyword_15());
 		match_Staple_MeansKeyword_19_q = new TokenAlias(false, true, grammarAccess.getStapleAccess().getMeansKeyword_19());
 		match_Staple_MeansKeyword_23_q = new TokenAlias(false, true, grammarAccess.getStapleAccess().getMeansKeyword_23());
+		match_Staple_MidKeyword_18_q = new TokenAlias(false, true, grammarAccess.getStapleAccess().getMidKeyword_18());
 		match_Staple_ToKeyword_6_q = new TokenAlias(false, true, grammarAccess.getStapleAccess().getToKeyword_6());
 		match_Staple_WhereKeyword_13_q = new TokenAlias(false, true, grammarAccess.getStapleAccess().getWhereKeyword_13());
 		match_Staple___TheKeyword_4_0_q_UserKeyword_4_1__q = new GroupAlias(false, true, new TokenAlias(false, true, grammarAccess.getStapleAccess().getTheKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getStapleAccess().getUserKeyword_4_1()));
@@ -169,24 +177,22 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 				emit_ConstantSum___TheKeyword_4_0_q_UserKeyword_4_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_MultipleChoice_AnswerKeyword_7_q.equals(syntax))
 				emit_MultipleChoice_AnswerKeyword_7_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_MultipleChoice_ElseKeyword_15_3_q.equals(syntax))
-				emit_MultipleChoice_ElseKeyword_15_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_MultipleChoice_ElseKeyword_14_3_q.equals(syntax))
+				emit_MultipleChoice_ElseKeyword_14_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_MultipleChoice_FromKeyword_10_q.equals(syntax))
 				emit_MultipleChoice_FromKeyword_10_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_MultipleChoice_MayKeyword_5_0_q.equals(syntax))
 				emit_MultipleChoice_MayKeyword_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_MultipleChoice_SomethingKeyword_15_2_q.equals(syntax))
-				emit_MultipleChoice_SomethingKeyword_15_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_MultipleChoice_TheseKeyword_12_q.equals(syntax))
-				emit_MultipleChoice_TheseKeyword_12_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_MultipleChoice_SomethingKeyword_14_2_q.equals(syntax))
+				emit_MultipleChoice_SomethingKeyword_14_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_MultipleChoice_TheseKeyword_11_q.equals(syntax))
+				emit_MultipleChoice_TheseKeyword_11_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_MultipleChoice_ToKeyword_6_q.equals(syntax))
 				emit_MultipleChoice_ToKeyword_6_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_MultipleChoice_UpToKeyword_9_1_q.equals(syntax))
 				emit_MultipleChoice_UpToKeyword_9_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_MultipleChoice_WithKeyword_15_1_q.equals(syntax))
-				emit_MultipleChoice_WithKeyword_15_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_MultipleChoice___OneOfKeyword_11_0_or_SomeOfKeyword_11_1__q.equals(syntax))
-				emit_MultipleChoice___OneOfKeyword_11_0_or_SomeOfKeyword_11_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_MultipleChoice_WithKeyword_14_1_q.equals(syntax))
+				emit_MultipleChoice_WithKeyword_14_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_MultipleChoice___TheKeyword_4_0_q_UserKeyword_4_1__q.equals(syntax))
 				emit_MultipleChoice___TheKeyword_4_0_q_UserKeyword_4_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Open_AnswerKeyword_7_q.equals(syntax))
@@ -227,6 +233,10 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 				emit_Rating_Impl_AndKeyword_17_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Rating_Impl_BetweenKeyword_9_q.equals(syntax))
 				emit_Rating_Impl_BetweenKeyword_9_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Rating_Impl_HighestKeyword_18_q.equals(syntax))
+				emit_Rating_Impl_HighestKeyword_18_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Rating_Impl_LowestKeyword_14_q.equals(syntax))
+				emit_Rating_Impl_LowestKeyword_14_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Rating_Impl_MayKeyword_5_0_q_or___IsKeyword_5_1_0_RequiredKeyword_5_1_1__.equals(syntax))
 				emit_Rating_Impl_MayKeyword_5_0_q_or___IsKeyword_5_1_0_RequiredKeyword_5_1_1__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Rating_Impl_MeansKeyword_15_q.equals(syntax))
@@ -251,6 +261,10 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 				emit_Staple_BetweenKeyword_9_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Staple_CommaKeyword_17_q.equals(syntax))
 				emit_Staple_CommaKeyword_17_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Staple_HighestKeyword_22_q.equals(syntax))
+				emit_Staple_HighestKeyword_22_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Staple_LowestKeyword_14_q.equals(syntax))
+				emit_Staple_LowestKeyword_14_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Staple_MayKeyword_5_0_q.equals(syntax))
 				emit_Staple_MayKeyword_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Staple_MeansKeyword_15_q.equals(syntax))
@@ -259,6 +273,8 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 				emit_Staple_MeansKeyword_19_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Staple_MeansKeyword_23_q.equals(syntax))
 				emit_Staple_MeansKeyword_23_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Staple_MidKeyword_18_q.equals(syntax))
+				emit_Staple_MidKeyword_18_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Staple_ToKeyword_6_q.equals(syntax))
 				emit_Staple_ToKeyword_6_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Staple_WhereKeyword_13_q.equals(syntax))
@@ -287,7 +303,7 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	
 	/**
 	 * Syntax:
-	 *     'answer' | 'distribute'
+	 *     'distribute' | 'answer'
 	 */
 	protected void emit_ConstantSum_AnswerKeyword_7_1_or_DistributeKeyword_7_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -345,7 +361,7 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	 * Syntax:
 	 *     'else'?
 	 */
-	protected void emit_MultipleChoice_ElseKeyword_15_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_MultipleChoice_ElseKeyword_14_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -369,7 +385,7 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	 * Syntax:
 	 *     'something'?
 	 */
-	protected void emit_MultipleChoice_SomethingKeyword_15_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_MultipleChoice_SomethingKeyword_14_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -377,7 +393,7 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	 * Syntax:
 	 *     'these'?
 	 */
-	protected void emit_MultipleChoice_TheseKeyword_12_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_MultipleChoice_TheseKeyword_11_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -401,15 +417,7 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	 * Syntax:
 	 *     'with'?
 	 */
-	protected void emit_MultipleChoice_WithKeyword_15_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
-	 *     ('some of' | 'one of')?
-	 */
-	protected void emit_MultipleChoice___OneOfKeyword_11_0_or_SomeOfKeyword_11_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_MultipleChoice_WithKeyword_14_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -575,6 +583,22 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	
 	/**
 	 * Syntax:
+	 *     'highest'?
+	 */
+	protected void emit_Rating_Impl_HighestKeyword_18_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     'lowest'?
+	 */
+	protected void emit_Rating_Impl_LowestKeyword_14_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
 	 *     ('is' 'required') | 'may'?
 	 */
 	protected void emit_Rating_Impl_MayKeyword_5_0_q_or___IsKeyword_5_1_0_RequiredKeyword_5_1_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
@@ -615,7 +639,7 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	
 	/**
 	 * Syntax:
-	 *     ('answer' | 'rate')?
+	 *     ('rate' | 'answer')?
 	 */
 	protected void emit_Rating_Impl___AnswerKeyword_7_1_or_RateKeyword_7_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -671,6 +695,22 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	
 	/**
 	 * Syntax:
+	 *     'highest'?
+	 */
+	protected void emit_Staple_HighestKeyword_22_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     'lowest'?
+	 */
+	protected void emit_Staple_LowestKeyword_14_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
 	 *     'may'?
 	 */
 	protected void emit_Staple_MayKeyword_5_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
@@ -698,6 +738,14 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	 *     'means'?
 	 */
 	protected void emit_Staple_MeansKeyword_23_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     'mid'?
+	 */
+	protected void emit_Staple_MidKeyword_18_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

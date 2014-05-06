@@ -283,9 +283,9 @@ public class RankingSumForkImpl extends MinimalEObjectImpl.Container implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Max: ");
+		result.append(" (max: ");
 		result.append(max);
-		result.append(", Min: ");
+		result.append(", min: ");
 		result.append(min);
 		result.append(')');
 		return result.toString();

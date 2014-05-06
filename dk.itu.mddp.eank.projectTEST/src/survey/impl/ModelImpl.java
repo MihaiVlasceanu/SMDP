@@ -2,19 +2,14 @@
  */
 package survey.impl;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import survey.Model;
 import survey.Survey;
@@ -27,7 +22,7 @@ import survey.SurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link survey.impl.ModelImpl#getSurveys <em>Surveys</em>}</li>
+ *   <li>{@link survey.impl.ModelImpl#getSurvey <em>Survey</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,14 +30,14 @@ import survey.SurveyPackage;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	/**
-	 * The cached value of the '{@link #getSurveys() <em>Surveys</em>}' containment reference list.
+	 * The cached value of the '{@link #getSurvey() <em>Survey</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSurveys()
+	 * @see #getSurvey()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Survey> surveys;
+	protected Survey survey;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,11 +63,42 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Survey> getSurveys() {
-		if (surveys == null) {
-			surveys = new EObjectContainmentEList<Survey>(Survey.class, this, SurveyPackage.MODEL__SURVEYS);
+	public Survey getSurvey() {
+		return survey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSurvey(Survey newSurvey, NotificationChain msgs) {
+		Survey oldSurvey = survey;
+		survey = newSurvey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SurveyPackage.MODEL__SURVEY, oldSurvey, newSurvey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return surveys;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSurvey(Survey newSurvey) {
+		if (newSurvey != survey) {
+			NotificationChain msgs = null;
+			if (survey != null)
+				msgs = ((InternalEObject)survey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SurveyPackage.MODEL__SURVEY, null, msgs);
+			if (newSurvey != null)
+				msgs = ((InternalEObject)newSurvey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SurveyPackage.MODEL__SURVEY, null, msgs);
+			msgs = basicSetSurvey(newSurvey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.MODEL__SURVEY, newSurvey, newSurvey));
 	}
 
 	/**
@@ -83,8 +109,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SurveyPackage.MODEL__SURVEYS:
-				return ((InternalEList<?>)getSurveys()).basicRemove(otherEnd, msgs);
+			case SurveyPackage.MODEL__SURVEY:
+				return basicSetSurvey(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,8 +123,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SurveyPackage.MODEL__SURVEYS:
-				return getSurveys();
+			case SurveyPackage.MODEL__SURVEY:
+				return getSurvey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,13 +134,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SurveyPackage.MODEL__SURVEYS:
-				getSurveys().clear();
-				getSurveys().addAll((Collection<? extends Survey>)newValue);
+			case SurveyPackage.MODEL__SURVEY:
+				setSurvey((Survey)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +152,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.MODEL__SURVEYS:
-				getSurveys().clear();
+			case SurveyPackage.MODEL__SURVEY:
+				setSurvey((Survey)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -143,8 +167,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.MODEL__SURVEYS:
-				return surveys != null && !surveys.isEmpty();
+			case SurveyPackage.MODEL__SURVEY:
+				return survey != null;
 		}
 		return super.eIsSet(featureID);
 	}

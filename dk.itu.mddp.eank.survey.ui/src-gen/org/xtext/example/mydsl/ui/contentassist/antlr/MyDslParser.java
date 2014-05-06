@@ -41,7 +41,6 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getEBooleanAccess().getAlternatives(), "rule__EBoolean__Alternatives");
 					put(grammarAccess.getMultipleChoiceAccess().getAlternatives_5(), "rule__MultipleChoice__Alternatives_5");
-					put(grammarAccess.getMultipleChoiceAccess().getAlternatives_11(), "rule__MultipleChoice__Alternatives_11");
 					put(grammarAccess.getOpenAccess().getAlternatives_5(), "rule__Open__Alternatives_5");
 					put(grammarAccess.getRating_ImplAccess().getAlternatives_5(), "rule__Rating_Impl__Alternatives_5");
 					put(grammarAccess.getRating_ImplAccess().getAlternatives_7(), "rule__Rating_Impl__Alternatives_7");
@@ -52,17 +51,15 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConstantSumAccess().getAlternatives_7(), "rule__ConstantSum__Alternatives_7");
 					put(grammarAccess.getStapleAccess().getAlternatives_5(), "rule__Staple__Alternatives_5");
 					put(grammarAccess.getStapleAccess().getAlternatives_7(), "rule__Staple__Alternatives_7");
-					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getSurveyAccess().getGroup(), "rule__Survey__Group__0");
 					put(grammarAccess.getSurveyAccess().getGroup_2(), "rule__Survey__Group_2__0");
 					put(grammarAccess.getMultipleChoiceAccess().getGroup(), "rule__MultipleChoice__Group__0");
 					put(grammarAccess.getMultipleChoiceAccess().getGroup_4(), "rule__MultipleChoice__Group_4__0");
 					put(grammarAccess.getMultipleChoiceAccess().getGroup_5_1(), "rule__MultipleChoice__Group_5_1__0");
 					put(grammarAccess.getMultipleChoiceAccess().getGroup_9(), "rule__MultipleChoice__Group_9__0");
+					put(grammarAccess.getMultipleChoiceAccess().getGroup_13(), "rule__MultipleChoice__Group_13__0");
 					put(grammarAccess.getMultipleChoiceAccess().getGroup_14(), "rule__MultipleChoice__Group_14__0");
 					put(grammarAccess.getMultipleChoiceAccess().getGroup_15(), "rule__MultipleChoice__Group_15__0");
-					put(grammarAccess.getMultipleChoiceAccess().getGroup_16(), "rule__MultipleChoice__Group_16__0");
-					put(grammarAccess.getMultipleChoiceAccess().getGroup_16_1(), "rule__MultipleChoice__Group_16_1__0");
 					put(grammarAccess.getOpenAccess().getGroup(), "rule__Open__Group__0");
 					put(grammarAccess.getOpenAccess().getGroup_4(), "rule__Open__Group_4__0");
 					put(grammarAccess.getOpenAccess().getGroup_5_1(), "rule__Open__Group_5_1__0");
@@ -70,13 +67,11 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRating_ImplAccess().getGroup_4(), "rule__Rating_Impl__Group_4__0");
 					put(grammarAccess.getRating_ImplAccess().getGroup_5_1(), "rule__Rating_Impl__Group_5_1__0");
 					put(grammarAccess.getRating_ImplAccess().getGroup_21(), "rule__Rating_Impl__Group_21__0");
-					put(grammarAccess.getRating_ImplAccess().getGroup_21_1(), "rule__Rating_Impl__Group_21_1__0");
 					put(grammarAccess.getRankingAccess().getGroup(), "rule__Ranking__Group__0");
 					put(grammarAccess.getRankingAccess().getGroup_3(), "rule__Ranking__Group_3__0");
 					put(grammarAccess.getRankingAccess().getGroup_4_1(), "rule__Ranking__Group_4_1__0");
 					put(grammarAccess.getRankingAccess().getGroup_12(), "rule__Ranking__Group_12__0");
 					put(grammarAccess.getRankingAccess().getGroup_13(), "rule__Ranking__Group_13__0");
-					put(grammarAccess.getRankingAccess().getGroup_13_1(), "rule__Ranking__Group_13_1__0");
 					put(grammarAccess.getConstantSumAccess().getGroup(), "rule__ConstantSum__Group__0");
 					put(grammarAccess.getConstantSumAccess().getGroup_4(), "rule__ConstantSum__Group_4__0");
 					put(grammarAccess.getConstantSumAccess().getGroup_5_1(), "rule__ConstantSum__Group_5_1__0");
@@ -84,12 +79,10 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConstantSumAccess().getGroup_9_0(), "rule__ConstantSum__Group_9_0__0");
 					put(grammarAccess.getConstantSumAccess().getGroup_13(), "rule__ConstantSum__Group_13__0");
 					put(grammarAccess.getConstantSumAccess().getGroup_14(), "rule__ConstantSum__Group_14__0");
-					put(grammarAccess.getConstantSumAccess().getGroup_14_1(), "rule__ConstantSum__Group_14_1__0");
 					put(grammarAccess.getStapleAccess().getGroup(), "rule__Staple__Group__0");
 					put(grammarAccess.getStapleAccess().getGroup_4(), "rule__Staple__Group_4__0");
 					put(grammarAccess.getStapleAccess().getGroup_5_1(), "rule__Staple__Group_5_1__0");
 					put(grammarAccess.getStapleAccess().getGroup_25(), "rule__Staple__Group_25__0");
-					put(grammarAccess.getStapleAccess().getGroup_25_1(), "rule__Staple__Group_25_1__0");
 					put(grammarAccess.getChoiceAccess().getGroup(), "rule__Choice__Group__0");
 					put(grammarAccess.getChoiceForkAccess().getGroup(), "rule__ChoiceFork__Group__0");
 					put(grammarAccess.getChoiceForkAccess().getGroup_2(), "rule__ChoiceFork__Group_2__0");
@@ -100,7 +93,6 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRankingSumForkAccess().getGroup(), "rule__RankingSumFork__Group__0");
 					put(grammarAccess.getRankingSumForkAccess().getGroup_2(), "rule__RankingSumFork__Group_2__0");
 					put(grammarAccess.getRankingSumForkAccess().getGroup_12(), "rule__RankingSumFork__Group_12__0");
-					put(grammarAccess.getModelAccess().getSurveysAssignment_1(), "rule__Model__SurveysAssignment_1");
 					put(grammarAccess.getSurveyAccess().getNameAssignment_1(), "rule__Survey__NameAssignment_1");
 					put(grammarAccess.getSurveyAccess().getQuestionsAssignment_2_0(), "rule__Survey__QuestionsAssignment_2_0");
 					put(grammarAccess.getSurveyAccess().getQuestionsAssignment_2_1(), "rule__Survey__QuestionsAssignment_2_1");
@@ -108,11 +100,11 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMultipleChoiceAccess().getIsRequiredAssignment_5_1_0(), "rule__MultipleChoice__IsRequiredAssignment_5_1_0");
 					put(grammarAccess.getMultipleChoiceAccess().getQuestionAssignment_8(), "rule__MultipleChoice__QuestionAssignment_8");
 					put(grammarAccess.getMultipleChoiceAccess().getAnswerCountAssignment_9_2(), "rule__MultipleChoice__AnswerCountAssignment_9_2");
-					put(grammarAccess.getMultipleChoiceAccess().getChoiceAssignment_13(), "rule__MultipleChoice__ChoiceAssignment_13");
-					put(grammarAccess.getMultipleChoiceAccess().getChoiceAssignment_14_1(), "rule__MultipleChoice__ChoiceAssignment_14_1");
-					put(grammarAccess.getMultipleChoiceAccess().getOtherAssignment_15_4(), "rule__MultipleChoice__OtherAssignment_15_4");
-					put(grammarAccess.getMultipleChoiceAccess().getForkAssignment_16_0(), "rule__MultipleChoice__ForkAssignment_16_0");
-					put(grammarAccess.getMultipleChoiceAccess().getForkAssignment_16_1_1(), "rule__MultipleChoice__ForkAssignment_16_1_1");
+					put(grammarAccess.getMultipleChoiceAccess().getChoiceAssignment_12(), "rule__MultipleChoice__ChoiceAssignment_12");
+					put(grammarAccess.getMultipleChoiceAccess().getChoiceAssignment_13_1(), "rule__MultipleChoice__ChoiceAssignment_13_1");
+					put(grammarAccess.getMultipleChoiceAccess().getOtherAssignment_14_4(), "rule__MultipleChoice__OtherAssignment_14_4");
+					put(grammarAccess.getMultipleChoiceAccess().getForksAssignment_15_0(), "rule__MultipleChoice__ForksAssignment_15_0");
+					put(grammarAccess.getMultipleChoiceAccess().getForksAssignment_15_1(), "rule__MultipleChoice__ForksAssignment_15_1");
 					put(grammarAccess.getOpenAccess().getNameAssignment_2(), "rule__Open__NameAssignment_2");
 					put(grammarAccess.getOpenAccess().getIsRequiredAssignment_5_1_0(), "rule__Open__IsRequiredAssignment_5_1_0");
 					put(grammarAccess.getOpenAccess().getQuestionAssignment_8(), "rule__Open__QuestionAssignment_8");
@@ -122,23 +114,23 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRating_ImplAccess().getMaxAssignment_12(), "rule__Rating_Impl__MaxAssignment_12");
 					put(grammarAccess.getRating_ImplAccess().getFirstAssignment_16(), "rule__Rating_Impl__FirstAssignment_16");
 					put(grammarAccess.getRating_ImplAccess().getLastAssignment_20(), "rule__Rating_Impl__LastAssignment_20");
-					put(grammarAccess.getRating_ImplAccess().getForkAssignment_21_0(), "rule__Rating_Impl__ForkAssignment_21_0");
-					put(grammarAccess.getRating_ImplAccess().getForkAssignment_21_1_1(), "rule__Rating_Impl__ForkAssignment_21_1_1");
+					put(grammarAccess.getRating_ImplAccess().getForksAssignment_21_0(), "rule__Rating_Impl__ForksAssignment_21_0");
+					put(grammarAccess.getRating_ImplAccess().getForksAssignment_21_1(), "rule__Rating_Impl__ForksAssignment_21_1");
 					put(grammarAccess.getRankingAccess().getNameAssignment_1(), "rule__Ranking__NameAssignment_1");
 					put(grammarAccess.getRankingAccess().getIsRequiredAssignment_4_1_0(), "rule__Ranking__IsRequiredAssignment_4_1_0");
 					put(grammarAccess.getRankingAccess().getQuestionAssignment_7(), "rule__Ranking__QuestionAssignment_7");
 					put(grammarAccess.getRankingAccess().getChoicesAssignment_11(), "rule__Ranking__ChoicesAssignment_11");
 					put(grammarAccess.getRankingAccess().getChoicesAssignment_12_1(), "rule__Ranking__ChoicesAssignment_12_1");
-					put(grammarAccess.getRankingAccess().getForkAssignment_13_0(), "rule__Ranking__ForkAssignment_13_0");
-					put(grammarAccess.getRankingAccess().getForkAssignment_13_1_1(), "rule__Ranking__ForkAssignment_13_1_1");
+					put(grammarAccess.getRankingAccess().getForksAssignment_13_0(), "rule__Ranking__ForksAssignment_13_0");
+					put(grammarAccess.getRankingAccess().getForksAssignment_13_1(), "rule__Ranking__ForksAssignment_13_1");
 					put(grammarAccess.getConstantSumAccess().getNameAssignment_2(), "rule__ConstantSum__NameAssignment_2");
 					put(grammarAccess.getConstantSumAccess().getIsRequiredAssignment_5_1_0(), "rule__ConstantSum__IsRequiredAssignment_5_1_0");
 					put(grammarAccess.getConstantSumAccess().getQuestionAssignment_8(), "rule__ConstantSum__QuestionAssignment_8");
 					put(grammarAccess.getConstantSumAccess().getConstantAssignment_9_1(), "rule__ConstantSum__ConstantAssignment_9_1");
 					put(grammarAccess.getConstantSumAccess().getChoicesAssignment_12(), "rule__ConstantSum__ChoicesAssignment_12");
 					put(grammarAccess.getConstantSumAccess().getChoicesAssignment_13_1(), "rule__ConstantSum__ChoicesAssignment_13_1");
-					put(grammarAccess.getConstantSumAccess().getForkAssignment_14_0(), "rule__ConstantSum__ForkAssignment_14_0");
-					put(grammarAccess.getConstantSumAccess().getForkAssignment_14_1_1(), "rule__ConstantSum__ForkAssignment_14_1_1");
+					put(grammarAccess.getConstantSumAccess().getForksAssignment_14_0(), "rule__ConstantSum__ForksAssignment_14_0");
+					put(grammarAccess.getConstantSumAccess().getForksAssignment_14_1(), "rule__ConstantSum__ForksAssignment_14_1");
 					put(grammarAccess.getStapleAccess().getNameAssignment_2(), "rule__Staple__NameAssignment_2");
 					put(grammarAccess.getStapleAccess().getIsRequiredAssignment_5_1_0(), "rule__Staple__IsRequiredAssignment_5_1_0");
 					put(grammarAccess.getStapleAccess().getQuestionAssignment_8(), "rule__Staple__QuestionAssignment_8");
@@ -147,8 +139,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStapleAccess().getFirstAssignment_16(), "rule__Staple__FirstAssignment_16");
 					put(grammarAccess.getStapleAccess().getMidAssignment_20(), "rule__Staple__MidAssignment_20");
 					put(grammarAccess.getStapleAccess().getLastAssignment_24(), "rule__Staple__LastAssignment_24");
-					put(grammarAccess.getStapleAccess().getForkAssignment_25_0(), "rule__Staple__ForkAssignment_25_0");
-					put(grammarAccess.getStapleAccess().getForkAssignment_25_1_1(), "rule__Staple__ForkAssignment_25_1_1");
+					put(grammarAccess.getStapleAccess().getForksAssignment_25_0(), "rule__Staple__ForksAssignment_25_0");
+					put(grammarAccess.getStapleAccess().getForksAssignment_25_1(), "rule__Staple__ForksAssignment_25_1");
 					put(grammarAccess.getChoiceAccess().getNameAssignment_0(), "rule__Choice__NameAssignment_0");
 					put(grammarAccess.getChoiceAccess().getDescriptionAssignment_2(), "rule__Choice__DescriptionAssignment_2");
 					put(grammarAccess.getChoiceForkAccess().getOnAssignment_1(), "rule__ChoiceFork__OnAssignment_1");
@@ -175,7 +167,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			org.xtext.example.mydsl.ui.contentassist.antlr.internal.InternalMyDslParser typedParser = (org.xtext.example.mydsl.ui.contentassist.antlr.internal.InternalMyDslParser) parser;
-			typedParser.entryRuleModel();
+			typedParser.entryRuleSurvey();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

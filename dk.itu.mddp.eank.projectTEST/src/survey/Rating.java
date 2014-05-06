@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link survey.Rating#getMax <em>Max</em>}</li>
  *   <li>{@link survey.Rating#getFirst <em>First</em>}</li>
  *   <li>{@link survey.Rating#getLast <em>Last</em>}</li>
- *   <li>{@link survey.Rating#getFork <em>Fork</em>}</li>
+ *   <li>{@link survey.Rating#getForks <em>Forks</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,19 +130,19 @@ public interface Rating extends Question {
 	void setLast(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Fork</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Forks</b></em>' containment reference list.
 	 * The list contents are of type {@link survey.RatingFork}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Fork</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Forks</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fork</em>' containment reference list.
-	 * @see survey.SurveyPackage#getRating_Fork()
+	 * @return the value of the '<em>Forks</em>' containment reference list.
+	 * @see survey.SurveyPackage#getRating_Forks()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<RatingFork> getFork();
+	EList<RatingFork> getForks();
 
 } // Rating

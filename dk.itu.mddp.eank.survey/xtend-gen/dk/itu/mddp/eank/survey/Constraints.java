@@ -13,6 +13,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.eclipse.xtext.xbase.lib.Pair;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure2;
 import survey.Choice;
@@ -117,12 +118,31 @@ public class Constraints {
         result = false;
       }
       EList<Question> _questions_1 = it.getQuestions();
-      final Function1<Question,Boolean> _function_1 = new Function1<Question,Boolean>() {
-        public Boolean apply(final Question it) {
-          return Boolean.valueOf(Constraints.Constraint(it));
+      final Function1<Question,Pair<Boolean,String>> _function_1 = new Function1<Question,Pair<Boolean,String>>() {
+        public Pair<Boolean,String> apply(final Question it) {
+          boolean _Constraint = Constraints.Constraint(it);
+          String _name = it.getName();
+          return Pair.<Boolean, String>of(Boolean.valueOf(_Constraint), _name);
         }
       };
-      boolean _forall = IterableExtensions.<Question>forall(_questions_1, _function_1);
+      List<Pair<Boolean,String>> tuplestuff = ListExtensions.<Question, Pair<Boolean,String>>map(_questions_1, _function_1);
+      final Procedure1<Pair<Boolean,String>> _function_2 = new Procedure1<Pair<Boolean,String>>() {
+        public void apply(final Pair<Boolean,String> x) {
+          Boolean _key = x.getKey();
+          String _plus = (_key + ", ");
+          String _value = x.getValue();
+          String _plus_1 = (_plus + _value);
+          InputOutput.<String>println(_plus_1);
+        }
+      };
+      IterableExtensions.<Pair<Boolean,String>>forEach(tuplestuff, _function_2);
+      final Function1<Pair<Boolean,String>,Boolean> _function_3 = new Function1<Pair<Boolean,String>,Boolean>() {
+        public Boolean apply(final Pair<Boolean,String> x) {
+          Boolean _key = x.getKey();
+          return Boolean.valueOf(((_key).booleanValue() == true));
+        }
+      };
+      boolean _forall = IterableExtensions.<Pair<Boolean,String>>forall(tuplestuff, _function_3);
       if (_forall) {
         result = true;
       } else {
@@ -141,17 +161,17 @@ public class Constraints {
   protected static boolean _Constraint(final MultipleChoice it) {
     boolean _and = false;
     boolean _and_1 = false;
-    EList<ChoiceFork> _fork = it.getFork();
+    EList<ChoiceFork> _forks = it.getForks();
     final Function1<ChoiceFork,Boolean> _function = new Function1<ChoiceFork,Boolean>() {
       public Boolean apply(final ChoiceFork x) {
         return Boolean.valueOf(Constraints.Constraint(x, it));
       }
     };
-    boolean _forall = IterableExtensions.<ChoiceFork>forall(_fork, _function);
+    boolean _forall = IterableExtensions.<ChoiceFork>forall(_forks, _function);
     if (!_forall) {
       _and_1 = false;
     } else {
-      EList<ChoiceFork> _fork_1 = it.getFork();
+      EList<ChoiceFork> _forks_1 = it.getForks();
       final Function1<ChoiceFork,Boolean> _function_1 = new Function1<ChoiceFork,Boolean>() {
         public Boolean apply(final ChoiceFork it) {
           EList<Question> _questions = it.getQuestions();
@@ -162,13 +182,13 @@ public class Constraints {
           return Boolean.valueOf((_size == _size_1));
         }
       };
-      boolean _forall_1 = IterableExtensions.<ChoiceFork>forall(_fork_1, _function_1);
+      boolean _forall_1 = IterableExtensions.<ChoiceFork>forall(_forks_1, _function_1);
       _and_1 = _forall_1;
     }
     if (!_and_1) {
       _and = false;
     } else {
-      EList<ChoiceFork> _fork_2 = it.getFork();
+      EList<ChoiceFork> _forks_2 = it.getForks();
       final Function1<ChoiceFork,Boolean> _function_2 = new Function1<ChoiceFork,Boolean>() {
         public Boolean apply(final ChoiceFork it) {
           EList<Choice> _on = it.getOn();
@@ -179,7 +199,7 @@ public class Constraints {
           return Boolean.valueOf((_size == _size_1));
         }
       };
-      boolean _forall_2 = IterableExtensions.<ChoiceFork>forall(_fork_2, _function_2);
+      boolean _forall_2 = IterableExtensions.<ChoiceFork>forall(_forks_2, _function_2);
       _and = _forall_2;
     }
     return _and;
@@ -193,17 +213,17 @@ public class Constraints {
       boolean _and = false;
       boolean _and_1 = false;
       boolean _and_2 = false;
-      EList<RankingSumFork> _fork = it.getFork();
+      EList<RankingSumFork> _forks = it.getForks();
       final Function1<RankingSumFork,Boolean> _function = new Function1<RankingSumFork,Boolean>() {
         public Boolean apply(final RankingSumFork x) {
           return Boolean.valueOf(Constraints.Constraint(x, it));
         }
       };
-      boolean _forall = IterableExtensions.<RankingSumFork>forall(_fork, _function);
+      boolean _forall = IterableExtensions.<RankingSumFork>forall(_forks, _function);
       if (!_forall) {
         _and_2 = false;
       } else {
-        EList<RankingSumFork> _fork_1 = it.getFork();
+        EList<RankingSumFork> _forks_1 = it.getForks();
         final Function1<RankingSumFork,Boolean> _function_1 = new Function1<RankingSumFork,Boolean>() {
           public Boolean apply(final RankingSumFork x) {
             EList<Question> _questions = x.getQuestions();
@@ -214,13 +234,13 @@ public class Constraints {
             return Boolean.valueOf((_size == _size_1));
           }
         };
-        boolean _forall_1 = IterableExtensions.<RankingSumFork>forall(_fork_1, _function_1);
+        boolean _forall_1 = IterableExtensions.<RankingSumFork>forall(_forks_1, _function_1);
         _and_2 = _forall_1;
       }
       if (!_and_2) {
         _and_1 = false;
       } else {
-        EList<RankingSumFork> _fork_2 = it.getFork();
+        EList<RankingSumFork> _forks_2 = it.getForks();
         final Function1<RankingSumFork,Boolean> _function_2 = new Function1<RankingSumFork,Boolean>() {
           public Boolean apply(final RankingSumFork it) {
             EList<Choice> _on = it.getOn();
@@ -231,19 +251,19 @@ public class Constraints {
             return Boolean.valueOf((_size == _size_1));
           }
         };
-        boolean _forall_2 = IterableExtensions.<RankingSumFork>forall(_fork_2, _function_2);
+        boolean _forall_2 = IterableExtensions.<RankingSumFork>forall(_forks_2, _function_2);
         _and_1 = _forall_2;
       }
       if (!_and_1) {
         _and = false;
       } else {
-        EList<RankingSumFork> _fork_3 = it.getFork();
+        EList<RankingSumFork> _forks_3 = it.getForks();
         final Function1<RankingSumFork,Boolean> _function_3 = new Function1<RankingSumFork,Boolean>() {
           public Boolean apply(final RankingSumFork it) {
             return Boolean.valueOf(Constraints.Constraint(it, choiceCount));
           }
         };
-        boolean _forall_3 = IterableExtensions.<RankingSumFork>forall(_fork_3, _function_3);
+        boolean _forall_3 = IterableExtensions.<RankingSumFork>forall(_forks_3, _function_3);
         _and = _forall_3;
       }
       _xblockexpression = _and;
@@ -267,19 +287,19 @@ public class Constraints {
     if (!_and_2) {
       _and_1 = false;
     } else {
-      EList<RatingFork> _fork = it.getFork();
+      EList<RatingFork> _forks = it.getForks();
       final Function1<RatingFork,Boolean> _function = new Function1<RatingFork,Boolean>() {
         public Boolean apply(final RatingFork x) {
           return Boolean.valueOf(Constraints.Constraint(x, it));
         }
       };
-      boolean _forall = IterableExtensions.<RatingFork>forall(_fork, _function);
+      boolean _forall = IterableExtensions.<RatingFork>forall(_forks, _function);
       _and_1 = _forall;
     }
     if (!_and_1) {
       _and = false;
     } else {
-      EList<RatingFork> _fork_1 = it.getFork();
+      EList<RatingFork> _forks_1 = it.getForks();
       final Function1<RatingFork,Boolean> _function_1 = new Function1<RatingFork,Boolean>() {
         public Boolean apply(final RatingFork it) {
           EList<Question> _questions = it.getQuestions();
@@ -290,7 +310,7 @@ public class Constraints {
           return Boolean.valueOf((_size == _size_1));
         }
       };
-      boolean _forall_1 = IterableExtensions.<RatingFork>forall(_fork_1, _function_1);
+      boolean _forall_1 = IterableExtensions.<RatingFork>forall(_forks_1, _function_1);
       _and = _forall_1;
     }
     return _and;
@@ -298,17 +318,17 @@ public class Constraints {
   
   protected static boolean _Constraint(final Staple it) {
     boolean _and = false;
-    EList<RatingFork> _fork = it.getFork();
+    EList<RatingFork> _forks = it.getForks();
     final Function1<RatingFork,Boolean> _function = new Function1<RatingFork,Boolean>() {
       public Boolean apply(final RatingFork x) {
         return Boolean.valueOf(Constraints.Constraint(x, it));
       }
     };
-    boolean _forall = IterableExtensions.<RatingFork>forall(_fork, _function);
+    boolean _forall = IterableExtensions.<RatingFork>forall(_forks, _function);
     if (!_forall) {
       _and = false;
     } else {
-      EList<RatingFork> _fork_1 = it.getFork();
+      EList<RatingFork> _forks_1 = it.getForks();
       final Function1<RatingFork,Boolean> _function_1 = new Function1<RatingFork,Boolean>() {
         public Boolean apply(final RatingFork it) {
           EList<Question> _questions = it.getQuestions();
@@ -319,7 +339,7 @@ public class Constraints {
           return Boolean.valueOf((_size == _size_1));
         }
       };
-      boolean _forall_1 = IterableExtensions.<RatingFork>forall(_fork_1, _function_1);
+      boolean _forall_1 = IterableExtensions.<RatingFork>forall(_forks_1, _function_1);
       _and = _forall_1;
     }
     return _and;
@@ -334,19 +354,19 @@ public class Constraints {
     if (!_greaterEqualsThan) {
       _and_2 = false;
     } else {
-      EList<RankingSumFork> _fork = it.getFork();
+      EList<RankingSumFork> _forks = it.getForks();
       final Function1<RankingSumFork,Boolean> _function = new Function1<RankingSumFork,Boolean>() {
         public Boolean apply(final RankingSumFork x) {
           return Boolean.valueOf(Constraints.Constraint(x, it));
         }
       };
-      boolean _forall = IterableExtensions.<RankingSumFork>forall(_fork, _function);
+      boolean _forall = IterableExtensions.<RankingSumFork>forall(_forks, _function);
       _and_2 = _forall;
     }
     if (!_and_2) {
       _and_1 = false;
     } else {
-      EList<RankingSumFork> _fork_1 = it.getFork();
+      EList<RankingSumFork> _forks_1 = it.getForks();
       final Function1<RankingSumFork,Boolean> _function_1 = new Function1<RankingSumFork,Boolean>() {
         public Boolean apply(final RankingSumFork it) {
           EList<Question> _questions = it.getQuestions();
@@ -357,13 +377,13 @@ public class Constraints {
           return Boolean.valueOf((_size == _size_1));
         }
       };
-      boolean _forall_1 = IterableExtensions.<RankingSumFork>forall(_fork_1, _function_1);
+      boolean _forall_1 = IterableExtensions.<RankingSumFork>forall(_forks_1, _function_1);
       _and_1 = _forall_1;
     }
     if (!_and_1) {
       _and = false;
     } else {
-      EList<RankingSumFork> _fork_2 = it.getFork();
+      EList<RankingSumFork> _forks_2 = it.getForks();
       final Function1<RankingSumFork,Boolean> _function_2 = new Function1<RankingSumFork,Boolean>() {
         public Boolean apply(final RankingSumFork it) {
           EList<Choice> _on = it.getOn();
@@ -374,7 +394,7 @@ public class Constraints {
           return Boolean.valueOf((_size == _size_1));
         }
       };
-      boolean _forall_2 = IterableExtensions.<RankingSumFork>forall(_fork_2, _function_2);
+      boolean _forall_2 = IterableExtensions.<RankingSumFork>forall(_forks_2, _function_2);
       _and = _forall_2;
     }
     return _and;
@@ -394,7 +414,39 @@ public class Constraints {
       _and = false;
     } else {
       int _min = it.getMin();
-      boolean _greaterEqualsThan = (_min >= choiceCount);
+      boolean _greaterEqualsThan = (_min >= 0);
+      _and = _greaterEqualsThan;
+    }
+    return _and;
+  }
+  
+  public static boolean Constraint(final RatingFork it, final Rating q) {
+    boolean _and = false;
+    int _max = it.getMax();
+    int _max_1 = q.getMax();
+    boolean _lessEqualsThan = (_max <= _max_1);
+    if (!_lessEqualsThan) {
+      _and = false;
+    } else {
+      int _min = it.getMin();
+      int _min_1 = q.getMin();
+      boolean _greaterEqualsThan = (_min >= _min_1);
+      _and = _greaterEqualsThan;
+    }
+    return _and;
+  }
+  
+  public static boolean Constraint(final RatingFork it, final Staple q) {
+    boolean _and = false;
+    int _max = it.getMax();
+    int _max_1 = q.getMax();
+    boolean _lessEqualsThan = (_max <= _max_1);
+    if (!_lessEqualsThan) {
+      _and = false;
+    } else {
+      int _min = it.getMin();
+      int _min_1 = q.getMin();
+      boolean _greaterEqualsThan = (_min >= _min_1);
       _and = _greaterEqualsThan;
     }
     return _and;

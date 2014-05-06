@@ -2,25 +2,24 @@ package dk.itu.mddp.eank.survey
 
 import survey.SurveyPackage
 import org.eclipse.emf.common.util.URI
-import survey.Model
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.resource.XtextResource
 import org.xtext.example.mydsl.generator.MyDslGenerator
 import org.eclipse.emf.mwe.internal.core.ast.util.Injector
 import org.xtext.example.mydsl.MyDslStandaloneSetupGenerated
-import survey.Survey
-import survey.Question
-import survey.Open
-import survey.MultipleChoice
-import survey.Ranking
-import survey.Rating
-import survey.Staple
 import java.util.HashMap
 import org.eclipse.emf.common.util.EList
 import java.util.List
 import java.util.ArrayList
-import survey.Fork
+import survey.Question
+import survey.Survey
+import survey.Open
+import survey.Rating
+import survey.Staple
+import survey.MultipleChoice
 import survey.ConstantSum
+import survey.Ranking
+import survey.Fork
 
 abstract class CodeGenerator {
 	protected static val instanceFileName = "test-files/Tes.survey"
@@ -42,8 +41,8 @@ abstract class CodeGenerator {
 		val uri = URI::createURI(instanceFileName)
 		var resource = resourceSet.getResource(uri, true)			/* true means follow proxies */
 
-		val Model m = resource.getContents().get(0) as Model
-		val questions = m.surveys.get(0).questions
+		val Survey m = resource.getContents() as Survey
+		val questions = m.questions
 		
 		//Changes all choices so they reference the correct ID within the question
 		//Previously it would reference the first occurence of the choice with that name
@@ -109,11 +108,11 @@ abstract class CodeGenerator {
 		]
 		
 		var  goToMap2 =goToMap;
-		
-		
-		println(toTemplate(m.surveys.get(0)).toString())
 
-		if(Constraints.Constraint(m.surveys.get(0)))
+		println(toTemplate(m).toString())
+
+
+		if(Constraints.Constraint(m))
 			println("All constraints passed!")
 		else
 			println("Constraints Failed")
@@ -164,9 +163,9 @@ abstract class CodeGenerator {
 	def static dispatch changeChoices(MultipleChoice it)
 	{
 		//Iterates all the forks and checks for their choices
-		fork.forEach[f | 
+		forks.forEach[f | 
 			choice.forEach[c | 
-				//When the fork's "on" contains the current choice with the same name 
+				//When the forks's "on" contains the current choice with the same name 
 				if(f.on.exists[x | x.name == c.name])
 				{
 					//it removes this choice 
@@ -180,7 +179,7 @@ abstract class CodeGenerator {
 	}
 	def static dispatch changeChoices(ConstantSum it)
 	{
-		fork.forEach[f | 
+		forks.forEach[f | 
 			choices.forEach[c | 
 				if(f.on.exists[x | x.name == c.name])
 				{
@@ -192,7 +191,7 @@ abstract class CodeGenerator {
 	}
 	def static dispatch changeChoices(Ranking it)
 	{
-		fork.forEach[f | 
+		forks.forEach[f | 
 			choices.forEach[c | 
 				if(f.on.exists[x | x.name == c.name])
 				{
@@ -211,31 +210,30 @@ abstract class CodeGenerator {
 	
 	def static dispatch List<EList<Question>> forkMap(MultipleChoice it)
 	{
-			return it.fork.map[getQuestions]
+			return it.forks.map[getQuestions]
 	}
 	def static dispatch List<EList<Question>> forkMap(Ranking it)
 	{
-			return it.fork.map[getQuestions]
+			return it.forks.map[getQuestions]
 	}
 	def static dispatch List<EList<Question>> forkMap(Rating it)
 	{		
-			return it.fork.map[getQuestions]
+			return it.forks.map[getQuestions]
 	}
 	def static dispatch List<EList<Question>> forkMap(ConstantSum it)
 	{		
-			return it.fork.map[getQuestions]
+			return it.forks.map[getQuestions]
 	}
 	
 	def static dispatch List<EList<Question>> forkMap(Staple it)
 	{		
-			return it.fork.map[getQuestions]
+			return it.forks.map[getQuestions]
 	}
 	
 	def static List<EList<Question>> getQuestions(Fork it)
 	{
 			return questions.map[] 			
 	}
-
 	
 	/**
 	 * Removes all non-alphanumeric characters in a string

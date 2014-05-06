@@ -27,7 +27,7 @@ import survey.SurveyPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link survey.impl.RankingImpl#getChoices <em>Choices</em>}</li>
- *   <li>{@link survey.impl.RankingImpl#getFork <em>Fork</em>}</li>
+ *   <li>{@link survey.impl.RankingImpl#getForks <em>Forks</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,14 +45,14 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 	protected EList<Choice> choices;
 
 	/**
-	 * The cached value of the '{@link #getFork() <em>Fork</em>}' containment reference list.
+	 * The cached value of the '{@link #getForks() <em>Forks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFork()
+	 * @see #getForks()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RankingSumFork> fork;
+	protected EList<RankingSumFork> forks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,11 +90,11 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RankingSumFork> getFork() {
-		if (fork == null) {
-			fork = new EObjectContainmentEList<RankingSumFork>(RankingSumFork.class, this, SurveyPackage.RANKING__FORK);
+	public EList<RankingSumFork> getForks() {
+		if (forks == null) {
+			forks = new EObjectContainmentEList<RankingSumFork>(RankingSumFork.class, this, SurveyPackage.RANKING__FORKS);
 		}
-		return fork;
+		return forks;
 	}
 
 	/**
@@ -107,8 +107,8 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 		switch (featureID) {
 			case SurveyPackage.RANKING__CHOICES:
 				return ((InternalEList<?>)getChoices()).basicRemove(otherEnd, msgs);
-			case SurveyPackage.RANKING__FORK:
-				return ((InternalEList<?>)getFork()).basicRemove(otherEnd, msgs);
+			case SurveyPackage.RANKING__FORKS:
+				return ((InternalEList<?>)getForks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,8 +123,8 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 		switch (featureID) {
 			case SurveyPackage.RANKING__CHOICES:
 				return getChoices();
-			case SurveyPackage.RANKING__FORK:
-				return getFork();
+			case SurveyPackage.RANKING__FORKS:
+				return getForks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -142,9 +142,9 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 				getChoices().clear();
 				getChoices().addAll((Collection<? extends Choice>)newValue);
 				return;
-			case SurveyPackage.RANKING__FORK:
-				getFork().clear();
-				getFork().addAll((Collection<? extends RankingSumFork>)newValue);
+			case SurveyPackage.RANKING__FORKS:
+				getForks().clear();
+				getForks().addAll((Collection<? extends RankingSumFork>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -161,8 +161,8 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 			case SurveyPackage.RANKING__CHOICES:
 				getChoices().clear();
 				return;
-			case SurveyPackage.RANKING__FORK:
-				getFork().clear();
+			case SurveyPackage.RANKING__FORKS:
+				getForks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -178,8 +178,8 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 		switch (featureID) {
 			case SurveyPackage.RANKING__CHOICES:
 				return choices != null && !choices.isEmpty();
-			case SurveyPackage.RANKING__FORK:
-				return fork != null && !fork.isEmpty();
+			case SurveyPackage.RANKING__FORKS:
+				return forks != null && !forks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
