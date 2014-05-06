@@ -31,7 +31,7 @@ import survey.SurveyPackage;
  * <ul>
  *   <li>{@link survey.impl.MultipleChoiceImpl#getChoice <em>Choice</em>}</li>
  *   <li>{@link survey.impl.MultipleChoiceImpl#getOther <em>Other</em>}</li>
- *   <li>{@link survey.impl.MultipleChoiceImpl#getFork <em>Fork</em>}</li>
+ *   <li>{@link survey.impl.MultipleChoiceImpl#getForks <em>Forks</em>}</li>
  *   <li>{@link survey.impl.MultipleChoiceImpl#getAnswerCount <em>Answer Count</em>}</li>
  * </ul>
  * </p>
@@ -70,14 +70,14 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 	protected String other = OTHER_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFork() <em>Fork</em>}' containment reference list.
+	 * The cached value of the '{@link #getForks() <em>Forks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFork()
+	 * @see #getForks()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ChoiceFork> fork;
+	protected EList<ChoiceFork> forks;
 
 	/**
 	 * The default value of the '{@link #getAnswerCount() <em>Answer Count</em>}' attribute.
@@ -156,11 +156,11 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ChoiceFork> getFork() {
-		if (fork == null) {
-			fork = new EObjectContainmentEList<ChoiceFork>(ChoiceFork.class, this, SurveyPackage.MULTIPLE_CHOICE__FORK);
+	public EList<ChoiceFork> getForks() {
+		if (forks == null) {
+			forks = new EObjectContainmentEList<ChoiceFork>(ChoiceFork.class, this, SurveyPackage.MULTIPLE_CHOICE__FORKS);
 		}
-		return fork;
+		return forks;
 	}
 
 	/**
@@ -194,8 +194,8 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 		switch (featureID) {
 			case SurveyPackage.MULTIPLE_CHOICE__CHOICE:
 				return ((InternalEList<?>)getChoice()).basicRemove(otherEnd, msgs);
-			case SurveyPackage.MULTIPLE_CHOICE__FORK:
-				return ((InternalEList<?>)getFork()).basicRemove(otherEnd, msgs);
+			case SurveyPackage.MULTIPLE_CHOICE__FORKS:
+				return ((InternalEList<?>)getForks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -212,8 +212,8 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 				return getChoice();
 			case SurveyPackage.MULTIPLE_CHOICE__OTHER:
 				return getOther();
-			case SurveyPackage.MULTIPLE_CHOICE__FORK:
-				return getFork();
+			case SurveyPackage.MULTIPLE_CHOICE__FORKS:
+				return getForks();
 			case SurveyPackage.MULTIPLE_CHOICE__ANSWER_COUNT:
 				return getAnswerCount();
 		}
@@ -236,9 +236,9 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 			case SurveyPackage.MULTIPLE_CHOICE__OTHER:
 				setOther((String)newValue);
 				return;
-			case SurveyPackage.MULTIPLE_CHOICE__FORK:
-				getFork().clear();
-				getFork().addAll((Collection<? extends ChoiceFork>)newValue);
+			case SurveyPackage.MULTIPLE_CHOICE__FORKS:
+				getForks().clear();
+				getForks().addAll((Collection<? extends ChoiceFork>)newValue);
 				return;
 			case SurveyPackage.MULTIPLE_CHOICE__ANSWER_COUNT:
 				setAnswerCount((Integer)newValue);
@@ -261,8 +261,8 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 			case SurveyPackage.MULTIPLE_CHOICE__OTHER:
 				setOther(OTHER_EDEFAULT);
 				return;
-			case SurveyPackage.MULTIPLE_CHOICE__FORK:
-				getFork().clear();
+			case SurveyPackage.MULTIPLE_CHOICE__FORKS:
+				getForks().clear();
 				return;
 			case SurveyPackage.MULTIPLE_CHOICE__ANSWER_COUNT:
 				setAnswerCount(ANSWER_COUNT_EDEFAULT);
@@ -283,8 +283,8 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 				return choice != null && !choice.isEmpty();
 			case SurveyPackage.MULTIPLE_CHOICE__OTHER:
 				return OTHER_EDEFAULT == null ? other != null : !OTHER_EDEFAULT.equals(other);
-			case SurveyPackage.MULTIPLE_CHOICE__FORK:
-				return fork != null && !fork.isEmpty();
+			case SurveyPackage.MULTIPLE_CHOICE__FORKS:
+				return forks != null && !forks.isEmpty();
 			case SurveyPackage.MULTIPLE_CHOICE__ANSWER_COUNT:
 				return answerCount != ANSWER_COUNT_EDEFAULT;
 		}

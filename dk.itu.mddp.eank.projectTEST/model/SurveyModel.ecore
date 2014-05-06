@@ -2,10 +2,6 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="survey" nsURI="platform:/resource/dk.itu.mddp.eank.project/model/SurveyModel.ecore"
     nsPrefix="surveyModel">
-  <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="surveys" upperBound="-1"
-        eType="#//Survey" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Survey">
     <eStructuralFeatures xsi:type="ecore:EReference" name="questions" upperBound="-1"
         eType="#//Question" containment="true"/>
@@ -20,51 +16,49 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="choice" upperBound="-1"
         eType="#//Choice" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="other" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Fork" upperBound="-1" eType="#//ChoiceFork"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forks" upperBound="-1"
+        eType="#//ChoiceFork" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="answerCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Open" eSuperTypes="#//Question">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AnswerLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Open" eSuperTypes="#//Question"/>
   <eClassifiers xsi:type="ecore:EClass" name="Rating" eSuperTypes="#//Question">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="first" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="last" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Fork" upperBound="-1" eType="#//RatingFork"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forks" upperBound="-1"
+        eType="#//RatingFork" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Choice">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ranking" eSuperTypes="#//Question">
     <eStructuralFeatures xsi:type="ecore:EReference" name="choices" lowerBound="2"
         upperBound="-1" eType="#//Choice" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Fork" upperBound="-1" eType="#//RankingSumFork"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forks" upperBound="-1"
+        eType="#//RankingSumFork" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantSum" eSuperTypes="#//Question">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Choices" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choices" lowerBound="1"
         upperBound="-1" eType="#//Choice" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Fork" upperBound="-1" eType="#//RankingSumFork"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forks" upperBound="-1"
+        eType="#//RankingSumFork" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Staple" eSuperTypes="#//Rating">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Fork" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Questions" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="questions" lowerBound="1"
         upperBound="-1" eType="#//Question"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RatingFork" eSuperTypes="#//Fork">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChoiceFork" eSuperTypes="#//Fork">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="On" lowerBound="1" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="on" lowerBound="1" upperBound="-1"
         eType="#//Choice"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RankingChoiceFork" eSuperTypes="#//Fork">
@@ -74,9 +68,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RankingSumFork" eSuperTypes="#//Fork">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="On" lowerBound="1" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="on" lowerBound="1" upperBound="-1"
         eType="#//Choice"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Survey" eType="#//Survey"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

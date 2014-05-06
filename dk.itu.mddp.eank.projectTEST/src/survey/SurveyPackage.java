@@ -57,43 +57,6 @@ public interface SurveyPackage extends EPackage {
 	SurveyPackage eINSTANCE = survey.impl.SurveyPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link survey.impl.ModelImpl <em>Model</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.ModelImpl
-	 * @see survey.impl.SurveyPackageImpl#getModel()
-	 * @generated
-	 */
-	int MODEL = 0;
-
-	/**
-	 * The feature id for the '<em><b>Surveys</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__SURVEYS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link survey.impl.SurveyImpl <em>Survey</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,7 +64,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getSurvey()
 	 * @generated
 	 */
-	int SURVEY = 1;
+	int SURVEY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Questions</b></em>' containment reference list.
@@ -147,7 +110,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getQuestion()
 	 * @generated
 	 */
-	int QUESTION = 2;
+	int QUESTION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -202,7 +165,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getMultipleChoice()
 	 * @generated
 	 */
-	int MULTIPLE_CHOICE = 3;
+	int MULTIPLE_CHOICE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -250,13 +213,13 @@ public interface SurveyPackage extends EPackage {
 	int MULTIPLE_CHOICE__OTHER = QUESTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Fork</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Forks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE_CHOICE__FORK = QUESTION_FEATURE_COUNT + 2;
+	int MULTIPLE_CHOICE__FORKS = QUESTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Answer Count</b></em>' attribute.
@@ -293,7 +256,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getOpen()
 	 * @generated
 	 */
-	int OPEN = 4;
+	int OPEN = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -323,22 +286,13 @@ public interface SurveyPackage extends EPackage {
 	int OPEN__IS_REQUIRED = QUESTION__IS_REQUIRED;
 
 	/**
-	 * The feature id for the '<em><b>Answer Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPEN__ANSWER_LENGTH = QUESTION_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Open</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPEN_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 1;
+	int OPEN_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Open</em>' class.
@@ -357,7 +311,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getRating()
 	 * @generated
 	 */
-	int RATING = 5;
+	int RATING = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -423,13 +377,13 @@ public interface SurveyPackage extends EPackage {
 	int RATING__LAST = QUESTION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Fork</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Forks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RATING__FORK = QUESTION_FEATURE_COUNT + 4;
+	int RATING__FORKS = QUESTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Rating</em>' class.
@@ -457,7 +411,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getChoice()
 	 * @generated
 	 */
-	int CHOICE = 6;
+	int CHOICE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -503,7 +457,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getRanking()
 	 * @generated
 	 */
-	int RANKING = 7;
+	int RANKING = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -542,13 +496,13 @@ public interface SurveyPackage extends EPackage {
 	int RANKING__CHOICES = QUESTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Fork</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Forks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RANKING__FORK = QUESTION_FEATURE_COUNT + 1;
+	int RANKING__FORKS = QUESTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Ranking</em>' class.
@@ -569,79 +523,6 @@ public interface SurveyPackage extends EPackage {
 	int RANKING_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link survey.impl.DichotomousImpl <em>Dichotomous</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.DichotomousImpl
-	 * @see survey.impl.SurveyPackageImpl#getDichotomous()
-	 * @generated
-	 */
-	int DICHOTOMOUS = 8;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICHOTOMOUS__NAME = QUESTION__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Question</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICHOTOMOUS__QUESTION = QUESTION__QUESTION;
-
-	/**
-	 * The feature id for the '<em><b>Is Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICHOTOMOUS__IS_REQUIRED = QUESTION__IS_REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>On Yes</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICHOTOMOUS__ON_YES = QUESTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>On No</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICHOTOMOUS__ON_NO = QUESTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Dichotomous</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICHOTOMOUS_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Dichotomous</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICHOTOMOUS_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link survey.impl.ConstantSumImpl <em>Constant Sum</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -649,7 +530,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getConstantSum()
 	 * @generated
 	 */
-	int CONSTANT_SUM = 9;
+	int CONSTANT_SUM = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -697,13 +578,13 @@ public interface SurveyPackage extends EPackage {
 	int CONSTANT_SUM__CONSTANT = QUESTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Fork</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Forks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT_SUM__FORK = QUESTION_FEATURE_COUNT + 2;
+	int CONSTANT_SUM__FORKS = QUESTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Constant Sum</em>' class.
@@ -731,7 +612,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getStaple()
 	 * @generated
 	 */
-	int STAPLE = 10;
+	int STAPLE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -797,13 +678,13 @@ public interface SurveyPackage extends EPackage {
 	int STAPLE__LAST = RATING__LAST;
 
 	/**
-	 * The feature id for the '<em><b>Fork</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Forks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STAPLE__FORK = RATING__FORK;
+	int STAPLE__FORKS = RATING__FORKS;
 
 	/**
 	 * The feature id for the '<em><b>Mid</b></em>' attribute.
@@ -840,7 +721,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getFork()
 	 * @generated
 	 */
-	int FORK = 11;
+	int FORK = 9;
 
 	/**
 	 * The feature id for the '<em><b>Questions</b></em>' reference list.
@@ -877,7 +758,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getRatingFork()
 	 * @generated
 	 */
-	int RATING_FORK = 12;
+	int RATING_FORK = 10;
 
 	/**
 	 * The feature id for the '<em><b>Questions</b></em>' reference list.
@@ -932,7 +813,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getChoiceFork()
 	 * @generated
 	 */
-	int CHOICE_FORK = 13;
+	int CHOICE_FORK = 11;
 
 	/**
 	 * The feature id for the '<em><b>Questions</b></em>' reference list.
@@ -971,43 +852,6 @@ public interface SurveyPackage extends EPackage {
 	int CHOICE_FORK_OPERATION_COUNT = FORK_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link survey.impl.DichotomousForkImpl <em>Dichotomous Fork</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.DichotomousForkImpl
-	 * @see survey.impl.SurveyPackageImpl#getDichotomousFork()
-	 * @generated
-	 */
-	int DICHOTOMOUS_FORK = 14;
-
-	/**
-	 * The feature id for the '<em><b>Questions</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICHOTOMOUS_FORK__QUESTIONS = FORK__QUESTIONS;
-
-	/**
-	 * The number of structural features of the '<em>Dichotomous Fork</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICHOTOMOUS_FORK_FEATURE_COUNT = FORK_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Dichotomous Fork</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICHOTOMOUS_FORK_OPERATION_COUNT = FORK_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link survey.impl.RankingChoiceForkImpl <em>Ranking Choice Fork</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1015,7 +859,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getRankingChoiceFork()
 	 * @generated
 	 */
-	int RANKING_CHOICE_FORK = 15;
+	int RANKING_CHOICE_FORK = 12;
 
 	/**
 	 * The feature id for the '<em><b>Questions</b></em>' reference list.
@@ -1079,7 +923,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getRankingSumFork()
 	 * @generated
 	 */
-	int RANKING_SUM_FORK = 16;
+	int RANKING_SUM_FORK = 13;
 
 	/**
 	 * The feature id for the '<em><b>Questions</b></em>' reference list.
@@ -1135,27 +979,43 @@ public interface SurveyPackage extends EPackage {
 	 */
 	int RANKING_SUM_FORK_OPERATION_COUNT = FORK_OPERATION_COUNT + 0;
 
-
 	/**
-	 * Returns the meta object for class '{@link survey.Model <em>Model</em>}'.
+	 * The meta object id for the '{@link survey.impl.ModelImpl <em>Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model</em>'.
-	 * @see survey.Model
+	 * @see survey.impl.ModelImpl
+	 * @see survey.impl.SurveyPackageImpl#getModel()
 	 * @generated
 	 */
-	EClass getModel();
+	int MODEL = 14;
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link survey.Model#getSurveys <em>Surveys</em>}'.
+	 * The feature id for the '<em><b>Survey</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Surveys</em>'.
-	 * @see survey.Model#getSurveys()
-	 * @see #getModel()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getModel_Surveys();
+	int MODEL__SURVEY = 0;
+
+	/**
+	 * The number of structural features of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link survey.Survey <em>Survey</em>}'.
@@ -1265,15 +1125,15 @@ public interface SurveyPackage extends EPackage {
 	EAttribute getMultipleChoice_Other();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link survey.MultipleChoice#getFork <em>Fork</em>}'.
+	 * Returns the meta object for the containment reference list '{@link survey.MultipleChoice#getForks <em>Forks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Fork</em>'.
-	 * @see survey.MultipleChoice#getFork()
+	 * @return the meta object for the containment reference list '<em>Forks</em>'.
+	 * @see survey.MultipleChoice#getForks()
 	 * @see #getMultipleChoice()
 	 * @generated
 	 */
-	EReference getMultipleChoice_Fork();
+	EReference getMultipleChoice_Forks();
 
 	/**
 	 * Returns the meta object for the attribute '{@link survey.MultipleChoice#getAnswerCount <em>Answer Count</em>}'.
@@ -1295,17 +1155,6 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOpen();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Open#getAnswerLength <em>Answer Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Answer Length</em>'.
-	 * @see survey.Open#getAnswerLength()
-	 * @see #getOpen()
-	 * @generated
-	 */
-	EAttribute getOpen_AnswerLength();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Rating <em>Rating</em>}'.
@@ -1362,15 +1211,15 @@ public interface SurveyPackage extends EPackage {
 	EAttribute getRating_Last();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link survey.Rating#getFork <em>Fork</em>}'.
+	 * Returns the meta object for the containment reference list '{@link survey.Rating#getForks <em>Forks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Fork</em>'.
-	 * @see survey.Rating#getFork()
+	 * @return the meta object for the containment reference list '<em>Forks</em>'.
+	 * @see survey.Rating#getForks()
 	 * @see #getRating()
 	 * @generated
 	 */
-	EReference getRating_Fork();
+	EReference getRating_Forks();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Choice <em>Choice</em>}'.
@@ -1426,47 +1275,15 @@ public interface SurveyPackage extends EPackage {
 	EReference getRanking_Choices();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link survey.Ranking#getFork <em>Fork</em>}'.
+	 * Returns the meta object for the containment reference list '{@link survey.Ranking#getForks <em>Forks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Fork</em>'.
-	 * @see survey.Ranking#getFork()
+	 * @return the meta object for the containment reference list '<em>Forks</em>'.
+	 * @see survey.Ranking#getForks()
 	 * @see #getRanking()
 	 * @generated
 	 */
-	EReference getRanking_Fork();
-
-	/**
-	 * Returns the meta object for class '{@link survey.Dichotomous <em>Dichotomous</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Dichotomous</em>'.
-	 * @see survey.Dichotomous
-	 * @generated
-	 */
-	EClass getDichotomous();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link survey.Dichotomous#getOnYes <em>On Yes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>On Yes</em>'.
-	 * @see survey.Dichotomous#getOnYes()
-	 * @see #getDichotomous()
-	 * @generated
-	 */
-	EReference getDichotomous_OnYes();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link survey.Dichotomous#getOnNo <em>On No</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>On No</em>'.
-	 * @see survey.Dichotomous#getOnNo()
-	 * @see #getDichotomous()
-	 * @generated
-	 */
-	EReference getDichotomous_OnNo();
+	EReference getRanking_Forks();
 
 	/**
 	 * Returns the meta object for class '{@link survey.ConstantSum <em>Constant Sum</em>}'.
@@ -1501,15 +1318,15 @@ public interface SurveyPackage extends EPackage {
 	EAttribute getConstantSum_Constant();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link survey.ConstantSum#getFork <em>Fork</em>}'.
+	 * Returns the meta object for the containment reference list '{@link survey.ConstantSum#getForks <em>Forks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Fork</em>'.
-	 * @see survey.ConstantSum#getFork()
+	 * @return the meta object for the containment reference list '<em>Forks</em>'.
+	 * @see survey.ConstantSum#getForks()
 	 * @see #getConstantSum()
 	 * @generated
 	 */
-	EReference getConstantSum_Fork();
+	EReference getConstantSum_Forks();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Staple <em>Staple</em>}'.
@@ -1607,16 +1424,6 @@ public interface SurveyPackage extends EPackage {
 	EReference getChoiceFork_On();
 
 	/**
-	 * Returns the meta object for class '{@link survey.DichotomousFork <em>Dichotomous Fork</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Dichotomous Fork</em>'.
-	 * @see survey.DichotomousFork
-	 * @generated
-	 */
-	EClass getDichotomousFork();
-
-	/**
 	 * Returns the meta object for class '{@link survey.RankingChoiceFork <em>Ranking Choice Fork</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1703,6 +1510,27 @@ public interface SurveyPackage extends EPackage {
 	EReference getRankingSumFork_On();
 
 	/**
+	 * Returns the meta object for class '{@link survey.Model <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Model</em>'.
+	 * @see survey.Model
+	 * @generated
+	 */
+	EClass getModel();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link survey.Model#getSurvey <em>Survey</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Survey</em>'.
+	 * @see survey.Model#getSurvey()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Survey();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1725,24 +1553,6 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
-		/**
-		 * The meta object literal for the '{@link survey.impl.ModelImpl <em>Model</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.impl.ModelImpl
-		 * @see survey.impl.SurveyPackageImpl#getModel()
-		 * @generated
-		 */
-		EClass MODEL = eINSTANCE.getModel();
-
-		/**
-		 * The meta object literal for the '<em><b>Surveys</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL__SURVEYS = eINSTANCE.getModel_Surveys();
-
 		/**
 		 * The meta object literal for the '{@link survey.impl.SurveyImpl <em>Survey</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -1830,12 +1640,12 @@ public interface SurveyPackage extends EPackage {
 		EAttribute MULTIPLE_CHOICE__OTHER = eINSTANCE.getMultipleChoice_Other();
 
 		/**
-		 * The meta object literal for the '<em><b>Fork</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Forks</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MULTIPLE_CHOICE__FORK = eINSTANCE.getMultipleChoice_Fork();
+		EReference MULTIPLE_CHOICE__FORKS = eINSTANCE.getMultipleChoice_Forks();
 
 		/**
 		 * The meta object literal for the '<em><b>Answer Count</b></em>' attribute feature.
@@ -1854,14 +1664,6 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OPEN = eINSTANCE.getOpen();
-
-		/**
-		 * The meta object literal for the '<em><b>Answer Length</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OPEN__ANSWER_LENGTH = eINSTANCE.getOpen_AnswerLength();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.RatingImpl <em>Rating</em>}' class.
@@ -1906,12 +1708,12 @@ public interface SurveyPackage extends EPackage {
 		EAttribute RATING__LAST = eINSTANCE.getRating_Last();
 
 		/**
-		 * The meta object literal for the '<em><b>Fork</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Forks</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RATING__FORK = eINSTANCE.getRating_Fork();
+		EReference RATING__FORKS = eINSTANCE.getRating_Forks();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.ChoiceImpl <em>Choice</em>}' class.
@@ -1958,38 +1760,12 @@ public interface SurveyPackage extends EPackage {
 		EReference RANKING__CHOICES = eINSTANCE.getRanking_Choices();
 
 		/**
-		 * The meta object literal for the '<em><b>Fork</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Forks</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RANKING__FORK = eINSTANCE.getRanking_Fork();
-
-		/**
-		 * The meta object literal for the '{@link survey.impl.DichotomousImpl <em>Dichotomous</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.impl.DichotomousImpl
-		 * @see survey.impl.SurveyPackageImpl#getDichotomous()
-		 * @generated
-		 */
-		EClass DICHOTOMOUS = eINSTANCE.getDichotomous();
-
-		/**
-		 * The meta object literal for the '<em><b>On Yes</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DICHOTOMOUS__ON_YES = eINSTANCE.getDichotomous_OnYes();
-
-		/**
-		 * The meta object literal for the '<em><b>On No</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DICHOTOMOUS__ON_NO = eINSTANCE.getDichotomous_OnNo();
+		EReference RANKING__FORKS = eINSTANCE.getRanking_Forks();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.ConstantSumImpl <em>Constant Sum</em>}' class.
@@ -2018,12 +1794,12 @@ public interface SurveyPackage extends EPackage {
 		EAttribute CONSTANT_SUM__CONSTANT = eINSTANCE.getConstantSum_Constant();
 
 		/**
-		 * The meta object literal for the '<em><b>Fork</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Forks</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONSTANT_SUM__FORK = eINSTANCE.getConstantSum_Fork();
+		EReference CONSTANT_SUM__FORKS = eINSTANCE.getConstantSum_Forks();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.StapleImpl <em>Staple</em>}' class.
@@ -2106,16 +1882,6 @@ public interface SurveyPackage extends EPackage {
 		EReference CHOICE_FORK__ON = eINSTANCE.getChoiceFork_On();
 
 		/**
-		 * The meta object literal for the '{@link survey.impl.DichotomousForkImpl <em>Dichotomous Fork</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.impl.DichotomousForkImpl
-		 * @see survey.impl.SurveyPackageImpl#getDichotomousFork()
-		 * @generated
-		 */
-		EClass DICHOTOMOUS_FORK = eINSTANCE.getDichotomousFork();
-
-		/**
 		 * The meta object literal for the '{@link survey.impl.RankingChoiceForkImpl <em>Ranking Choice Fork</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2182,6 +1948,24 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RANKING_SUM_FORK__ON = eINSTANCE.getRankingSumFork_On();
+
+		/**
+		 * The meta object literal for the '{@link survey.impl.ModelImpl <em>Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see survey.impl.ModelImpl
+		 * @see survey.impl.SurveyPackageImpl#getModel()
+		 * @generated
+		 */
+		EClass MODEL = eINSTANCE.getModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Survey</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__SURVEY = eINSTANCE.getModel_Survey();
 
 	}
 

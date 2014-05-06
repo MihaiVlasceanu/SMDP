@@ -18,28 +18,48 @@ import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
+	public class SurveyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Survey");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cModelAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cSurveysAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cSurveysSurveyParserRuleCall_1_0 = (RuleCall)cSurveysAssignment_1.eContents().get(0);
+		private final Action cSurveyAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cQuestionsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cQuestionsQuestionParserRuleCall_2_0_0 = (RuleCall)cQuestionsAssignment_2_0.eContents().get(0);
+		private final Assignment cQuestionsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cQuestionsQuestionParserRuleCall_2_1_0 = (RuleCall)cQuestionsAssignment_2_1.eContents().get(0);
 		
-		//Model:
-		//	{Model} surveys+=Survey?;
+		//Survey:
+		//	{Survey} name=ID (questions+=Question questions+=Question*)?;
 		public ParserRule getRule() { return rule; }
 
-		//{Model} surveys+=Survey?
+		//{Survey} name=ID (questions+=Question questions+=Question*)?
 		public Group getGroup() { return cGroup; }
 
-		//{Model}
-		public Action getModelAction_0() { return cModelAction_0; }
+		//{Survey}
+		public Action getSurveyAction_0() { return cSurveyAction_0; }
 
-		//surveys+=Survey?
-		public Assignment getSurveysAssignment_1() { return cSurveysAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
-		//Survey
-		public RuleCall getSurveysSurveyParserRuleCall_1_0() { return cSurveysSurveyParserRuleCall_1_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//(questions+=Question questions+=Question*)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//questions+=Question
+		public Assignment getQuestionsAssignment_2_0() { return cQuestionsAssignment_2_0; }
+
+		//Question
+		public RuleCall getQuestionsQuestionParserRuleCall_2_0_0() { return cQuestionsQuestionParserRuleCall_2_0_0; }
+
+		//questions+=Question*
+		public Assignment getQuestionsAssignment_2_1() { return cQuestionsAssignment_2_1; }
+
+		//Question
+		public RuleCall getQuestionsQuestionParserRuleCall_2_1_0() { return cQuestionsQuestionParserRuleCall_2_1_0; }
 	}
 
 	public class QuestionElements extends AbstractParserRuleElementFinder {
@@ -76,50 +96,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Staple
 		public RuleCall getStapleParserRuleCall_5() { return cStapleParserRuleCall_5; }
-	}
-
-	public class SurveyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Survey");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSurveyAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cQuestionsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final RuleCall cQuestionsQuestionParserRuleCall_2_0_0 = (RuleCall)cQuestionsAssignment_2_0.eContents().get(0);
-		private final Assignment cQuestionsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cQuestionsQuestionParserRuleCall_2_1_0 = (RuleCall)cQuestionsAssignment_2_1.eContents().get(0);
-		
-		//Survey:
-		//	{Survey} name=EString (questions+=Question questions+=Question*)?;
-		public ParserRule getRule() { return rule; }
-
-		//{Survey} name=EString (questions+=Question questions+=Question*)?
-		public Group getGroup() { return cGroup; }
-
-		//{Survey}
-		public Action getSurveyAction_0() { return cSurveyAction_0; }
-
-		//name=EString
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-
-		//EString
-		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
-
-		//(questions+=Question questions+=Question*)?
-		public Group getGroup_2() { return cGroup_2; }
-
-		//questions+=Question
-		public Assignment getQuestionsAssignment_2_0() { return cQuestionsAssignment_2_0; }
-
-		//Question
-		public RuleCall getQuestionsQuestionParserRuleCall_2_0_0() { return cQuestionsQuestionParserRuleCall_2_0_0; }
-
-		//questions+=Question*
-		public Assignment getQuestionsAssignment_2_1() { return cQuestionsAssignment_2_1; }
-
-		//Question
-		public RuleCall getQuestionsQuestionParserRuleCall_2_1_0() { return cQuestionsQuestionParserRuleCall_2_1_0; }
 	}
 
 	public class EStringElements extends AbstractParserRuleElementFinder {
@@ -189,40 +165,35 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAnswerCountAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
 		private final RuleCall cAnswerCountEIntParserRuleCall_9_2_0 = (RuleCall)cAnswerCountAssignment_9_2.eContents().get(0);
 		private final Keyword cFromKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Alternatives cAlternatives_11 = (Alternatives)cGroup.eContents().get(11);
-		private final Keyword cOneOfKeyword_11_0 = (Keyword)cAlternatives_11.eContents().get(0);
-		private final Keyword cSomeOfKeyword_11_1 = (Keyword)cAlternatives_11.eContents().get(1);
-		private final Keyword cTheseKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Assignment cChoiceAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final RuleCall cChoiceChoiceParserRuleCall_13_0 = (RuleCall)cChoiceAssignment_13.eContents().get(0);
+		private final Keyword cTheseKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Assignment cChoiceAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cChoiceChoiceParserRuleCall_12_0 = (RuleCall)cChoiceAssignment_12.eContents().get(0);
+		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
+		private final Keyword cCommaKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
+		private final Assignment cChoiceAssignment_13_1 = (Assignment)cGroup_13.eContents().get(1);
+		private final RuleCall cChoiceChoiceParserRuleCall_13_1_0 = (RuleCall)cChoiceAssignment_13_1.eContents().get(0);
 		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
-		private final Keyword cCommaKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
-		private final Assignment cChoiceAssignment_14_1 = (Assignment)cGroup_14.eContents().get(1);
-		private final RuleCall cChoiceChoiceParserRuleCall_14_1_0 = (RuleCall)cChoiceAssignment_14_1.eContents().get(0);
+		private final Keyword cOrKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
+		private final Keyword cWithKeyword_14_1 = (Keyword)cGroup_14.eContents().get(1);
+		private final Keyword cSomethingKeyword_14_2 = (Keyword)cGroup_14.eContents().get(2);
+		private final Keyword cElseKeyword_14_3 = (Keyword)cGroup_14.eContents().get(3);
+		private final Assignment cOtherAssignment_14_4 = (Assignment)cGroup_14.eContents().get(4);
+		private final RuleCall cOtherEStringParserRuleCall_14_4_0 = (RuleCall)cOtherAssignment_14_4.eContents().get(0);
 		private final Group cGroup_15 = (Group)cGroup.eContents().get(15);
-		private final Keyword cOrKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
-		private final Keyword cWithKeyword_15_1 = (Keyword)cGroup_15.eContents().get(1);
-		private final Keyword cSomethingKeyword_15_2 = (Keyword)cGroup_15.eContents().get(2);
-		private final Keyword cElseKeyword_15_3 = (Keyword)cGroup_15.eContents().get(3);
-		private final Assignment cOtherAssignment_15_4 = (Assignment)cGroup_15.eContents().get(4);
-		private final RuleCall cOtherEStringParserRuleCall_15_4_0 = (RuleCall)cOtherAssignment_15_4.eContents().get(0);
-		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
-		private final Assignment cForkAssignment_16_0 = (Assignment)cGroup_16.eContents().get(0);
-		private final RuleCall cForkChoiceForkParserRuleCall_16_0_0 = (RuleCall)cForkAssignment_16_0.eContents().get(0);
-		private final Group cGroup_16_1 = (Group)cGroup_16.eContents().get(1);
-		private final Keyword cCommaKeyword_16_1_0 = (Keyword)cGroup_16_1.eContents().get(0);
-		private final Assignment cForkAssignment_16_1_1 = (Assignment)cGroup_16_1.eContents().get(1);
-		private final RuleCall cForkChoiceForkParserRuleCall_16_1_1_0 = (RuleCall)cForkAssignment_16_1_1.eContents().get(0);
+		private final Assignment cForksAssignment_15_0 = (Assignment)cGroup_15.eContents().get(0);
+		private final RuleCall cForksChoiceForkParserRuleCall_15_0_0 = (RuleCall)cForksAssignment_15_0.eContents().get(0);
+		private final Assignment cForksAssignment_15_1 = (Assignment)cGroup_15.eContents().get(1);
+		private final RuleCall cForksChoiceForkParserRuleCall_15_1_0 = (RuleCall)cForksAssignment_15_1.eContents().get(0);
 		
 		//MultipleChoice:
 		//	{MultipleChoice} "MultipleChoice" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? "answer"?
-		//	question=EString ("picking" "up to"? answerCount=EInt)? "from"? ("one of" | "some of")? "these"? choice+=Choice (","
-		//	choice+=Choice)* ("or" "with"? "something"? "else"? other=EString)? (Fork+=ChoiceFork ("," Fork+=ChoiceFork)*)?;
+		//	question=EString ("picking" "up to"? answerCount=EInt)? "from"? "these"? choice+=Choice ("," choice+=Choice)* ("or"
+		//	"with"? "something"? "else"? other=EString)? (forks+=ChoiceFork forks+=ChoiceFork*)?;
 		public ParserRule getRule() { return rule; }
 
 		//{MultipleChoice} "MultipleChoice" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? "answer"?
-		//question=EString ("picking" "up to"? answerCount=EInt)? "from"? ("one of" | "some of")? "these"? choice+=Choice (","
-		//choice+=Choice)* ("or" "with"? "something"? "else"? other=EString)? (Fork+=ChoiceFork ("," Fork+=ChoiceFork)*)?
+		//question=EString ("picking" "up to"? answerCount=EInt)? "from"? "these"? choice+=Choice ("," choice+=Choice)* ("or"
+		//"with"? "something"? "else"? other=EString)? (forks+=ChoiceFork forks+=ChoiceFork*)?
 		public Group getGroup() { return cGroup; }
 
 		//{MultipleChoice}
@@ -297,77 +268,62 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"from"?
 		public Keyword getFromKeyword_10() { return cFromKeyword_10; }
 
-		//("one of" | "some of")?
-		public Alternatives getAlternatives_11() { return cAlternatives_11; }
-
-		//"one of"
-		public Keyword getOneOfKeyword_11_0() { return cOneOfKeyword_11_0; }
-
-		//"some of"
-		public Keyword getSomeOfKeyword_11_1() { return cSomeOfKeyword_11_1; }
-
 		//"these"?
-		public Keyword getTheseKeyword_12() { return cTheseKeyword_12; }
+		public Keyword getTheseKeyword_11() { return cTheseKeyword_11; }
 
 		//choice+=Choice
-		public Assignment getChoiceAssignment_13() { return cChoiceAssignment_13; }
+		public Assignment getChoiceAssignment_12() { return cChoiceAssignment_12; }
 
 		//Choice
-		public RuleCall getChoiceChoiceParserRuleCall_13_0() { return cChoiceChoiceParserRuleCall_13_0; }
+		public RuleCall getChoiceChoiceParserRuleCall_12_0() { return cChoiceChoiceParserRuleCall_12_0; }
 
 		//("," choice+=Choice)*
-		public Group getGroup_14() { return cGroup_14; }
+		public Group getGroup_13() { return cGroup_13; }
 
 		//","
-		public Keyword getCommaKeyword_14_0() { return cCommaKeyword_14_0; }
+		public Keyword getCommaKeyword_13_0() { return cCommaKeyword_13_0; }
 
 		//choice+=Choice
-		public Assignment getChoiceAssignment_14_1() { return cChoiceAssignment_14_1; }
+		public Assignment getChoiceAssignment_13_1() { return cChoiceAssignment_13_1; }
 
 		//Choice
-		public RuleCall getChoiceChoiceParserRuleCall_14_1_0() { return cChoiceChoiceParserRuleCall_14_1_0; }
+		public RuleCall getChoiceChoiceParserRuleCall_13_1_0() { return cChoiceChoiceParserRuleCall_13_1_0; }
 
 		//("or" "with"? "something"? "else"? other=EString)?
-		public Group getGroup_15() { return cGroup_15; }
+		public Group getGroup_14() { return cGroup_14; }
 
 		//"or"
-		public Keyword getOrKeyword_15_0() { return cOrKeyword_15_0; }
+		public Keyword getOrKeyword_14_0() { return cOrKeyword_14_0; }
 
 		//"with"?
-		public Keyword getWithKeyword_15_1() { return cWithKeyword_15_1; }
+		public Keyword getWithKeyword_14_1() { return cWithKeyword_14_1; }
 
 		//"something"?
-		public Keyword getSomethingKeyword_15_2() { return cSomethingKeyword_15_2; }
+		public Keyword getSomethingKeyword_14_2() { return cSomethingKeyword_14_2; }
 
 		//"else"?
-		public Keyword getElseKeyword_15_3() { return cElseKeyword_15_3; }
+		public Keyword getElseKeyword_14_3() { return cElseKeyword_14_3; }
 
 		//other=EString
-		public Assignment getOtherAssignment_15_4() { return cOtherAssignment_15_4; }
+		public Assignment getOtherAssignment_14_4() { return cOtherAssignment_14_4; }
 
 		//EString
-		public RuleCall getOtherEStringParserRuleCall_15_4_0() { return cOtherEStringParserRuleCall_15_4_0; }
+		public RuleCall getOtherEStringParserRuleCall_14_4_0() { return cOtherEStringParserRuleCall_14_4_0; }
 
-		//(Fork+=ChoiceFork ("," Fork+=ChoiceFork)*)?
-		public Group getGroup_16() { return cGroup_16; }
+		//(forks+=ChoiceFork forks+=ChoiceFork*)?
+		public Group getGroup_15() { return cGroup_15; }
 
-		//Fork+=ChoiceFork
-		public Assignment getForkAssignment_16_0() { return cForkAssignment_16_0; }
-
-		//ChoiceFork
-		public RuleCall getForkChoiceForkParserRuleCall_16_0_0() { return cForkChoiceForkParserRuleCall_16_0_0; }
-
-		//("," Fork+=ChoiceFork)*
-		public Group getGroup_16_1() { return cGroup_16_1; }
-
-		//","
-		public Keyword getCommaKeyword_16_1_0() { return cCommaKeyword_16_1_0; }
-
-		//Fork+=ChoiceFork
-		public Assignment getForkAssignment_16_1_1() { return cForkAssignment_16_1_1; }
+		//forks+=ChoiceFork
+		public Assignment getForksAssignment_15_0() { return cForksAssignment_15_0; }
 
 		//ChoiceFork
-		public RuleCall getForkChoiceForkParserRuleCall_16_1_1_0() { return cForkChoiceForkParserRuleCall_16_1_1_0; }
+		public RuleCall getForksChoiceForkParserRuleCall_15_0_0() { return cForksChoiceForkParserRuleCall_15_0_0; }
+
+		//forks+=ChoiceFork*
+		public Assignment getForksAssignment_15_1() { return cForksAssignment_15_1; }
+
+		//ChoiceFork
+		public RuleCall getForksChoiceForkParserRuleCall_15_1_0() { return cForksChoiceForkParserRuleCall_15_1_0; }
 	}
 
 	public class OpenElements extends AbstractParserRuleElementFinder {
@@ -493,22 +449,20 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cLastAssignment_20 = (Assignment)cGroup.eContents().get(20);
 		private final RuleCall cLastEStringParserRuleCall_20_0 = (RuleCall)cLastAssignment_20.eContents().get(0);
 		private final Group cGroup_21 = (Group)cGroup.eContents().get(21);
-		private final Assignment cForkAssignment_21_0 = (Assignment)cGroup_21.eContents().get(0);
-		private final RuleCall cForkRatingForkParserRuleCall_21_0_0 = (RuleCall)cForkAssignment_21_0.eContents().get(0);
-		private final Group cGroup_21_1 = (Group)cGroup_21.eContents().get(1);
-		private final Keyword cCommaKeyword_21_1_0 = (Keyword)cGroup_21_1.eContents().get(0);
-		private final Assignment cForkAssignment_21_1_1 = (Assignment)cGroup_21_1.eContents().get(1);
-		private final RuleCall cForkRatingForkParserRuleCall_21_1_1_0 = (RuleCall)cForkAssignment_21_1_1.eContents().get(0);
+		private final Assignment cForksAssignment_21_0 = (Assignment)cGroup_21.eContents().get(0);
+		private final RuleCall cForksRatingForkParserRuleCall_21_0_0 = (RuleCall)cForksAssignment_21_0.eContents().get(0);
+		private final Assignment cForksAssignment_21_1 = (Assignment)cGroup_21.eContents().get(1);
+		private final RuleCall cForksRatingForkParserRuleCall_21_1_0 = (RuleCall)cForksAssignment_21_1.eContents().get(0);
 		
 		//Rating_Impl returns Rating:
 		//	{Rating} "Rating" name=ID ":" ("the"? "user")? ("may" | "is" "required")? "to"? ("rate" | "answer")? question=EString
-		//	"between"? Min=EInt "and"? Max=EInt "where"? "lowest" "means"? first=EString "and"? "highest" "means"? last=EString
-		//	(Fork+=RatingFork ("," Fork+=RatingFork)*)?;
+		//	"between"? min=EInt "and"? max=EInt "where"? "lowest"? "means"? first=EString "and"? "highest"? "means"? last=EString
+		//	(forks+=RatingFork forks+=RatingFork*)?;
 		public ParserRule getRule() { return rule; }
 
 		//{Rating} "Rating" name=ID ":" ("the"? "user")? ("may" | "is" "required")? "to"? ("rate" | "answer")? question=EString
-		//"between"? Min=EInt "and"? Max=EInt "where"? "lowest" "means"? first=EString "and"? "highest" "means"? last=EString
-		//(Fork+=RatingFork ("," Fork+=RatingFork)*)?
+		//"between"? min=EInt "and"? max=EInt "where"? "lowest"? "means"? first=EString "and"? "highest"? "means"? last=EString
+		//(forks+=RatingFork forks+=RatingFork*)?
 		public Group getGroup() { return cGroup; }
 
 		//{Rating}
@@ -571,7 +525,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"between"?
 		public Keyword getBetweenKeyword_9() { return cBetweenKeyword_9; }
 
-		//Min=EInt
+		//min=EInt
 		public Assignment getMinAssignment_10() { return cMinAssignment_10; }
 
 		//EInt
@@ -580,7 +534,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"and"?
 		public Keyword getAndKeyword_11() { return cAndKeyword_11; }
 
-		//Max=EInt
+		//max=EInt
 		public Assignment getMaxAssignment_12() { return cMaxAssignment_12; }
 
 		//EInt
@@ -589,7 +543,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"where"?
 		public Keyword getWhereKeyword_13() { return cWhereKeyword_13; }
 
-		//"lowest"
+		//"lowest"?
 		public Keyword getLowestKeyword_14() { return cLowestKeyword_14; }
 
 		//"means"?
@@ -604,7 +558,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"and"?
 		public Keyword getAndKeyword_17() { return cAndKeyword_17; }
 
-		//"highest"
+		//"highest"?
 		public Keyword getHighestKeyword_18() { return cHighestKeyword_18; }
 
 		//"means"?
@@ -616,26 +570,20 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getLastEStringParserRuleCall_20_0() { return cLastEStringParserRuleCall_20_0; }
 
-		//(Fork+=RatingFork ("," Fork+=RatingFork)*)?
+		//(forks+=RatingFork forks+=RatingFork*)?
 		public Group getGroup_21() { return cGroup_21; }
 
-		//Fork+=RatingFork
-		public Assignment getForkAssignment_21_0() { return cForkAssignment_21_0; }
+		//forks+=RatingFork
+		public Assignment getForksAssignment_21_0() { return cForksAssignment_21_0; }
 
 		//RatingFork
-		public RuleCall getForkRatingForkParserRuleCall_21_0_0() { return cForkRatingForkParserRuleCall_21_0_0; }
+		public RuleCall getForksRatingForkParserRuleCall_21_0_0() { return cForksRatingForkParserRuleCall_21_0_0; }
 
-		//("," Fork+=RatingFork)*
-		public Group getGroup_21_1() { return cGroup_21_1; }
-
-		//","
-		public Keyword getCommaKeyword_21_1_0() { return cCommaKeyword_21_1_0; }
-
-		//Fork+=RatingFork
-		public Assignment getForkAssignment_21_1_1() { return cForkAssignment_21_1_1; }
+		//forks+=RatingFork*
+		public Assignment getForksAssignment_21_1() { return cForksAssignment_21_1; }
 
 		//RatingFork
-		public RuleCall getForkRatingForkParserRuleCall_21_1_1_0() { return cForkRatingForkParserRuleCall_21_1_1_0; }
+		public RuleCall getForksRatingForkParserRuleCall_21_1_0() { return cForksRatingForkParserRuleCall_21_1_0; }
 	}
 
 	public class RankingElements extends AbstractParserRuleElementFinder {
@@ -672,22 +620,20 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cChoicesAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
 		private final RuleCall cChoicesChoiceParserRuleCall_12_1_0 = (RuleCall)cChoicesAssignment_12_1.eContents().get(0);
 		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
-		private final Assignment cForkAssignment_13_0 = (Assignment)cGroup_13.eContents().get(0);
-		private final RuleCall cForkRankingSumForkParserRuleCall_13_0_0 = (RuleCall)cForkAssignment_13_0.eContents().get(0);
-		private final Group cGroup_13_1 = (Group)cGroup_13.eContents().get(1);
-		private final Keyword cCommaKeyword_13_1_0 = (Keyword)cGroup_13_1.eContents().get(0);
-		private final Assignment cForkAssignment_13_1_1 = (Assignment)cGroup_13_1.eContents().get(1);
-		private final RuleCall cForkRankingSumForkParserRuleCall_13_1_1_0 = (RuleCall)cForkAssignment_13_1_1.eContents().get(0);
+		private final Assignment cForksAssignment_13_0 = (Assignment)cGroup_13.eContents().get(0);
+		private final RuleCall cForksRankingSumForkParserRuleCall_13_0_0 = (RuleCall)cForksAssignment_13_0.eContents().get(0);
+		private final Assignment cForksAssignment_13_1 = (Assignment)cGroup_13.eContents().get(1);
+		private final RuleCall cForksRankingSumForkParserRuleCall_13_1_0 = (RuleCall)cForksAssignment_13_1.eContents().get(0);
 		
 		//Ranking:
 		//	"Ranking" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? ("rank" | "answer")?
 		//	question=EString "from"? ("one of" | "some of")? "these"? choices+=Choice ("," choices+=Choice)*
-		//	(Fork+=RankingSumFork ("," Fork+=RankingSumFork)*)?;
+		//	(forks+=RankingSumFork forks+=RankingSumFork*)?;
 		public ParserRule getRule() { return rule; }
 
 		//"Ranking" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? ("rank" | "answer")?
-		//question=EString "from"? ("one of" | "some of")? "these"? choices+=Choice ("," choices+=Choice)* (Fork+=RankingSumFork
-		//("," Fork+=RankingSumFork)*)?
+		//question=EString "from"? ("one of" | "some of")? "these"? choices+=Choice ("," choices+=Choice)*
+		//(forks+=RankingSumFork forks+=RankingSumFork*)?
 		public Group getGroup() { return cGroup; }
 
 		//"Ranking"
@@ -780,26 +726,20 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Choice
 		public RuleCall getChoicesChoiceParserRuleCall_12_1_0() { return cChoicesChoiceParserRuleCall_12_1_0; }
 
-		//(Fork+=RankingSumFork ("," Fork+=RankingSumFork)*)?
+		//(forks+=RankingSumFork forks+=RankingSumFork*)?
 		public Group getGroup_13() { return cGroup_13; }
 
-		//Fork+=RankingSumFork
-		public Assignment getForkAssignment_13_0() { return cForkAssignment_13_0; }
+		//forks+=RankingSumFork
+		public Assignment getForksAssignment_13_0() { return cForksAssignment_13_0; }
 
 		//RankingSumFork
-		public RuleCall getForkRankingSumForkParserRuleCall_13_0_0() { return cForkRankingSumForkParserRuleCall_13_0_0; }
+		public RuleCall getForksRankingSumForkParserRuleCall_13_0_0() { return cForksRankingSumForkParserRuleCall_13_0_0; }
 
-		//("," Fork+=RankingSumFork)*
-		public Group getGroup_13_1() { return cGroup_13_1; }
-
-		//","
-		public Keyword getCommaKeyword_13_1_0() { return cCommaKeyword_13_1_0; }
-
-		//Fork+=RankingSumFork
-		public Assignment getForkAssignment_13_1_1() { return cForkAssignment_13_1_1; }
+		//forks+=RankingSumFork*
+		public Assignment getForksAssignment_13_1() { return cForksAssignment_13_1; }
 
 		//RankingSumFork
-		public RuleCall getForkRankingSumForkParserRuleCall_13_1_1_0() { return cForkRankingSumForkParserRuleCall_13_1_1_0; }
+		public RuleCall getForksRankingSumForkParserRuleCall_13_1_0() { return cForksRankingSumForkParserRuleCall_13_1_0; }
 	}
 
 	public class ConstantSumElements extends AbstractParserRuleElementFinder {
@@ -833,7 +773,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cOfKeyword_9_0_3 = (Keyword)cGroup_9_0.eContents().get(3);
 		private final Assignment cConstantAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
 		private final RuleCall cConstantEIntParserRuleCall_9_1_0 = (RuleCall)cConstantAssignment_9_1.eContents().get(0);
-		private final Keyword cAmongKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cAmongstKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		private final Keyword cTheseKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		private final Assignment cChoicesAssignment_12 = (Assignment)cGroup.eContents().get(12);
 		private final RuleCall cChoicesChoiceParserRuleCall_12_0 = (RuleCall)cChoicesAssignment_12.eContents().get(0);
@@ -842,22 +782,20 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cChoicesAssignment_13_1 = (Assignment)cGroup_13.eContents().get(1);
 		private final RuleCall cChoicesChoiceParserRuleCall_13_1_0 = (RuleCall)cChoicesAssignment_13_1.eContents().get(0);
 		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
-		private final Assignment cForkAssignment_14_0 = (Assignment)cGroup_14.eContents().get(0);
-		private final RuleCall cForkRankingSumForkParserRuleCall_14_0_0 = (RuleCall)cForkAssignment_14_0.eContents().get(0);
-		private final Group cGroup_14_1 = (Group)cGroup_14.eContents().get(1);
-		private final Keyword cCommaKeyword_14_1_0 = (Keyword)cGroup_14_1.eContents().get(0);
-		private final Assignment cForkAssignment_14_1_1 = (Assignment)cGroup_14_1.eContents().get(1);
-		private final RuleCall cForkRankingSumForkParserRuleCall_14_1_1_0 = (RuleCall)cForkAssignment_14_1_1.eContents().get(0);
+		private final Assignment cForksAssignment_14_0 = (Assignment)cGroup_14.eContents().get(0);
+		private final RuleCall cForksRankingSumForkParserRuleCall_14_0_0 = (RuleCall)cForksAssignment_14_0.eContents().get(0);
+		private final Assignment cForksAssignment_14_1 = (Assignment)cGroup_14.eContents().get(1);
+		private final RuleCall cForksRankingSumForkParserRuleCall_14_1_0 = (RuleCall)cForksAssignment_14_1.eContents().get(0);
 		
 		//ConstantSum:
 		//	{ConstantSum} "ConstantSum" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? ("distribute" |
-		//	"answer") question=EString (("to"? "a"? "total" "of"?) Constant=EInt)? "among" "these" Choices+=Choice (","
-		//	Choices+=Choice)* (Fork+=RankingSumFork ("," Fork+=RankingSumFork)*)?;
+		//	"answer") question=EString (("to"? "a"? "total" "of"?) constant=EInt)? "amongst" "these" choices+=Choice (","
+		//	choices+=Choice)* (forks+=RankingSumFork forks+=RankingSumFork*)?;
 		public ParserRule getRule() { return rule; }
 
 		//{ConstantSum} "ConstantSum" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? ("distribute" |
-		//"answer") question=EString (("to"? "a"? "total" "of"?) Constant=EInt)? "among" "these" Choices+=Choice (","
-		//Choices+=Choice)* (Fork+=RankingSumFork ("," Fork+=RankingSumFork)*)?
+		//"answer") question=EString (("to"? "a"? "total" "of"?) constant=EInt)? "amongst" "these" choices+=Choice (","
+		//choices+=Choice)* (forks+=RankingSumFork forks+=RankingSumFork*)?
 		public Group getGroup() { return cGroup; }
 
 		//{ConstantSum}
@@ -920,7 +858,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getQuestionEStringParserRuleCall_8_0() { return cQuestionEStringParserRuleCall_8_0; }
 
-		//(("to"? "a"? "total" "of"?) Constant=EInt)?
+		//(("to"? "a"? "total" "of"?) constant=EInt)?
 		public Group getGroup_9() { return cGroup_9; }
 
 		//"to"? "a"? "total" "of"?
@@ -938,56 +876,50 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"of"?
 		public Keyword getOfKeyword_9_0_3() { return cOfKeyword_9_0_3; }
 
-		//Constant=EInt
+		//constant=EInt
 		public Assignment getConstantAssignment_9_1() { return cConstantAssignment_9_1; }
 
 		//EInt
 		public RuleCall getConstantEIntParserRuleCall_9_1_0() { return cConstantEIntParserRuleCall_9_1_0; }
 
-		//"among"
-		public Keyword getAmongKeyword_10() { return cAmongKeyword_10; }
+		//"amongst"
+		public Keyword getAmongstKeyword_10() { return cAmongstKeyword_10; }
 
 		//"these"
 		public Keyword getTheseKeyword_11() { return cTheseKeyword_11; }
 
-		//Choices+=Choice
+		//choices+=Choice
 		public Assignment getChoicesAssignment_12() { return cChoicesAssignment_12; }
 
 		//Choice
 		public RuleCall getChoicesChoiceParserRuleCall_12_0() { return cChoicesChoiceParserRuleCall_12_0; }
 
-		//("," Choices+=Choice)*
+		//("," choices+=Choice)*
 		public Group getGroup_13() { return cGroup_13; }
 
 		//","
 		public Keyword getCommaKeyword_13_0() { return cCommaKeyword_13_0; }
 
-		//Choices+=Choice
+		//choices+=Choice
 		public Assignment getChoicesAssignment_13_1() { return cChoicesAssignment_13_1; }
 
 		//Choice
 		public RuleCall getChoicesChoiceParserRuleCall_13_1_0() { return cChoicesChoiceParserRuleCall_13_1_0; }
 
-		//(Fork+=RankingSumFork ("," Fork+=RankingSumFork)*)?
+		//(forks+=RankingSumFork forks+=RankingSumFork*)?
 		public Group getGroup_14() { return cGroup_14; }
 
-		//Fork+=RankingSumFork
-		public Assignment getForkAssignment_14_0() { return cForkAssignment_14_0; }
+		//forks+=RankingSumFork
+		public Assignment getForksAssignment_14_0() { return cForksAssignment_14_0; }
 
 		//RankingSumFork
-		public RuleCall getForkRankingSumForkParserRuleCall_14_0_0() { return cForkRankingSumForkParserRuleCall_14_0_0; }
+		public RuleCall getForksRankingSumForkParserRuleCall_14_0_0() { return cForksRankingSumForkParserRuleCall_14_0_0; }
 
-		//("," Fork+=RankingSumFork)*
-		public Group getGroup_14_1() { return cGroup_14_1; }
-
-		//","
-		public Keyword getCommaKeyword_14_1_0() { return cCommaKeyword_14_1_0; }
-
-		//Fork+=RankingSumFork
-		public Assignment getForkAssignment_14_1_1() { return cForkAssignment_14_1_1; }
+		//forks+=RankingSumFork*
+		public Assignment getForksAssignment_14_1() { return cForksAssignment_14_1; }
 
 		//RankingSumFork
-		public RuleCall getForkRankingSumForkParserRuleCall_14_1_1_0() { return cForkRankingSumForkParserRuleCall_14_1_1_0; }
+		public RuleCall getForksRankingSumForkParserRuleCall_14_1_0() { return cForksRankingSumForkParserRuleCall_14_1_0; }
 	}
 
 	public class StapleElements extends AbstractParserRuleElementFinder {
@@ -1035,22 +967,20 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cLastAssignment_24 = (Assignment)cGroup.eContents().get(24);
 		private final RuleCall cLastEStringParserRuleCall_24_0 = (RuleCall)cLastAssignment_24.eContents().get(0);
 		private final Group cGroup_25 = (Group)cGroup.eContents().get(25);
-		private final Assignment cForkAssignment_25_0 = (Assignment)cGroup_25.eContents().get(0);
-		private final RuleCall cForkRatingForkParserRuleCall_25_0_0 = (RuleCall)cForkAssignment_25_0.eContents().get(0);
-		private final Group cGroup_25_1 = (Group)cGroup_25.eContents().get(1);
-		private final Keyword cCommaKeyword_25_1_0 = (Keyword)cGroup_25_1.eContents().get(0);
-		private final Assignment cForkAssignment_25_1_1 = (Assignment)cGroup_25_1.eContents().get(1);
-		private final RuleCall cForkRatingForkParserRuleCall_25_1_1_0 = (RuleCall)cForkAssignment_25_1_1.eContents().get(0);
+		private final Assignment cForksAssignment_25_0 = (Assignment)cGroup_25.eContents().get(0);
+		private final RuleCall cForksRatingForkParserRuleCall_25_0_0 = (RuleCall)cForksAssignment_25_0.eContents().get(0);
+		private final Assignment cForksAssignment_25_1 = (Assignment)cGroup_25.eContents().get(1);
+		private final RuleCall cForksRatingForkParserRuleCall_25_1_0 = (RuleCall)cForksAssignment_25_1.eContents().get(0);
 		
 		//Staple:
 		//	{Staple} "Staple" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? ("rate" | "answer")
-		//	question=EString "between"? Min=EInt "and"? Max=EInt "where"? "lowest" "means"? first=EString ","? "mid" "means"?
-		//	mid=EString "and"? "highest" "means"? last=EString (Fork+=RatingFork ("," Fork+=RatingFork)*)?;
+		//	question=EString "between"? min=EInt "and"? max=EInt "where"? "lowest"? "means"? first=EString ","? "mid"? "means"?
+		//	mid=EString "and"? "highest"? "means"? last=EString (forks+=RatingFork forks+=RatingFork*)?;
 		public ParserRule getRule() { return rule; }
 
 		//{Staple} "Staple" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? ("rate" | "answer")
-		//question=EString "between"? Min=EInt "and"? Max=EInt "where"? "lowest" "means"? first=EString ","? "mid" "means"?
-		//mid=EString "and"? "highest" "means"? last=EString (Fork+=RatingFork ("," Fork+=RatingFork)*)?
+		//question=EString "between"? min=EInt "and"? max=EInt "where"? "lowest"? "means"? first=EString ","? "mid"? "means"?
+		//mid=EString "and"? "highest"? "means"? last=EString (forks+=RatingFork forks+=RatingFork*)?
 		public Group getGroup() { return cGroup; }
 
 		//{Staple}
@@ -1116,7 +1046,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"between"?
 		public Keyword getBetweenKeyword_9() { return cBetweenKeyword_9; }
 
-		//Min=EInt
+		//min=EInt
 		public Assignment getMinAssignment_10() { return cMinAssignment_10; }
 
 		//EInt
@@ -1125,7 +1055,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"and"?
 		public Keyword getAndKeyword_11() { return cAndKeyword_11; }
 
-		//Max=EInt
+		//max=EInt
 		public Assignment getMaxAssignment_12() { return cMaxAssignment_12; }
 
 		//EInt
@@ -1134,7 +1064,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"where"?
 		public Keyword getWhereKeyword_13() { return cWhereKeyword_13; }
 
-		//"lowest"
+		//"lowest"?
 		public Keyword getLowestKeyword_14() { return cLowestKeyword_14; }
 
 		//"means"?
@@ -1149,7 +1079,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//","?
 		public Keyword getCommaKeyword_17() { return cCommaKeyword_17; }
 
-		//"mid"
+		//"mid"?
 		public Keyword getMidKeyword_18() { return cMidKeyword_18; }
 
 		//"means"?
@@ -1164,7 +1094,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"and"?
 		public Keyword getAndKeyword_21() { return cAndKeyword_21; }
 
-		//"highest"
+		//"highest"?
 		public Keyword getHighestKeyword_22() { return cHighestKeyword_22; }
 
 		//"means"?
@@ -1176,26 +1106,20 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getLastEStringParserRuleCall_24_0() { return cLastEStringParserRuleCall_24_0; }
 
-		//(Fork+=RatingFork ("," Fork+=RatingFork)*)?
+		//(forks+=RatingFork forks+=RatingFork*)?
 		public Group getGroup_25() { return cGroup_25; }
 
-		//Fork+=RatingFork
-		public Assignment getForkAssignment_25_0() { return cForkAssignment_25_0; }
+		//forks+=RatingFork
+		public Assignment getForksAssignment_25_0() { return cForksAssignment_25_0; }
 
 		//RatingFork
-		public RuleCall getForkRatingForkParserRuleCall_25_0_0() { return cForkRatingForkParserRuleCall_25_0_0; }
+		public RuleCall getForksRatingForkParserRuleCall_25_0_0() { return cForksRatingForkParserRuleCall_25_0_0; }
 
-		//("," Fork+=RatingFork)*
-		public Group getGroup_25_1() { return cGroup_25_1; }
-
-		//","
-		public Keyword getCommaKeyword_25_1_0() { return cCommaKeyword_25_1_0; }
-
-		//Fork+=RatingFork
-		public Assignment getForkAssignment_25_1_1() { return cForkAssignment_25_1_1; }
+		//forks+=RatingFork*
+		public Assignment getForksAssignment_25_1() { return cForksAssignment_25_1; }
 
 		//RatingFork
-		public RuleCall getForkRatingForkParserRuleCall_25_1_1_0() { return cForkRatingForkParserRuleCall_25_1_1_0; }
+		public RuleCall getForksRatingForkParserRuleCall_25_1_0() { return cForksRatingForkParserRuleCall_25_1_0; }
 	}
 
 	public class ChoiceElements extends AbstractParserRuleElementFinder {
@@ -1208,10 +1132,10 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDescriptionEStringParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		
 		//Choice:
-		//	name=ID ":" Description=EString;
+		//	name=ID ":" description=EString;
 		public ParserRule getRule() { return rule; }
 
-		//name=ID ":" Description=EString
+		//name=ID ":" description=EString
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -1223,7 +1147,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 
-		//Description=EString
+		//description=EString
 		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
 
 		//EString
@@ -1255,18 +1179,18 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cQuestionsQuestionEStringParserRuleCall_7_1_0_1 = (RuleCall)cQuestionsQuestionCrossReference_7_1_0.eContents().get(1);
 		
 		//ChoiceFork:
-		//	"if" On+=[Choice|EString] ("," On+=[Choice|EString])* "then"? "go" "to" Questions+=[Question|EString] (","
-		//	Questions+=[Question|EString])*;
+		//	"if" on+=[Choice|EString] ("," on+=[Choice|EString])* "then"? "go" "to" questions+=[Question|EString] (","
+		//	questions+=[Question|EString])*;
 		public ParserRule getRule() { return rule; }
 
-		//"if" On+=[Choice|EString] ("," On+=[Choice|EString])* "then"? "go" "to" Questions+=[Question|EString] (","
-		//Questions+=[Question|EString])*
+		//"if" on+=[Choice|EString] ("," on+=[Choice|EString])* "then"? "go" "to" questions+=[Question|EString] (","
+		//questions+=[Question|EString])*
 		public Group getGroup() { return cGroup; }
 
 		//"if"
 		public Keyword getIfKeyword_0() { return cIfKeyword_0; }
 
-		//On+=[Choice|EString]
+		//on+=[Choice|EString]
 		public Assignment getOnAssignment_1() { return cOnAssignment_1; }
 
 		//[Choice|EString]
@@ -1275,13 +1199,13 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getOnChoiceEStringParserRuleCall_1_0_1() { return cOnChoiceEStringParserRuleCall_1_0_1; }
 
-		//("," On+=[Choice|EString])*
+		//("," on+=[Choice|EString])*
 		public Group getGroup_2() { return cGroup_2; }
 
 		//","
 		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 
-		//On+=[Choice|EString]
+		//on+=[Choice|EString]
 		public Assignment getOnAssignment_2_1() { return cOnAssignment_2_1; }
 
 		//[Choice|EString]
@@ -1299,7 +1223,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"to"
 		public Keyword getToKeyword_5() { return cToKeyword_5; }
 
-		//Questions+=[Question|EString]
+		//questions+=[Question|EString]
 		public Assignment getQuestionsAssignment_6() { return cQuestionsAssignment_6; }
 
 		//[Question|EString]
@@ -1308,13 +1232,13 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getQuestionsQuestionEStringParserRuleCall_6_0_1() { return cQuestionsQuestionEStringParserRuleCall_6_0_1; }
 
-		//("," Questions+=[Question|EString])*
+		//("," questions+=[Question|EString])*
 		public Group getGroup_7() { return cGroup_7; }
 
 		//","
 		public Keyword getCommaKeyword_7_0() { return cCommaKeyword_7_0; }
 
-		//Questions+=[Question|EString]
+		//questions+=[Question|EString]
 		public Assignment getQuestionsAssignment_7_1() { return cQuestionsAssignment_7_1; }
 
 		//[Question|EString]
@@ -1369,12 +1293,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cQuestionsQuestionEStringParserRuleCall_11_1_0_1 = (RuleCall)cQuestionsQuestionCrossReference_11_1_0.eContents().get(1);
 		
 		//RatingFork:
-		//	"if" "it"? "is"? "between" Min=EInt "and" Max=EInt "then"? "go" "to" Questions+=[Question|EString] (","
-		//	Questions+=[Question|EString])*;
+		//	"if" "it"? "is"? "between" min=EInt "and" max=EInt "then"? "go" "to" questions+=[Question|EString] (","
+		//	questions+=[Question|EString])*;
 		public ParserRule getRule() { return rule; }
 
-		//"if" "it"? "is"? "between" Min=EInt "and" Max=EInt "then"? "go" "to" Questions+=[Question|EString] (","
-		//Questions+=[Question|EString])*
+		//"if" "it"? "is"? "between" min=EInt "and" max=EInt "then"? "go" "to" questions+=[Question|EString] (","
+		//questions+=[Question|EString])*
 		public Group getGroup() { return cGroup; }
 
 		//"if"
@@ -1389,7 +1313,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"between"
 		public Keyword getBetweenKeyword_3() { return cBetweenKeyword_3; }
 
-		//Min=EInt
+		//min=EInt
 		public Assignment getMinAssignment_4() { return cMinAssignment_4; }
 
 		//EInt
@@ -1398,7 +1322,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"and"
 		public Keyword getAndKeyword_5() { return cAndKeyword_5; }
 
-		//Max=EInt
+		//max=EInt
 		public Assignment getMaxAssignment_6() { return cMaxAssignment_6; }
 
 		//EInt
@@ -1413,7 +1337,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"to"
 		public Keyword getToKeyword_9() { return cToKeyword_9; }
 
-		//Questions+=[Question|EString]
+		//questions+=[Question|EString]
 		public Assignment getQuestionsAssignment_10() { return cQuestionsAssignment_10; }
 
 		//[Question|EString]
@@ -1422,13 +1346,13 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getQuestionsQuestionEStringParserRuleCall_10_0_1() { return cQuestionsQuestionEStringParserRuleCall_10_0_1; }
 
-		//("," Questions+=[Question|EString])*
+		//("," questions+=[Question|EString])*
 		public Group getGroup_11() { return cGroup_11; }
 
 		//","
 		public Keyword getCommaKeyword_11_0() { return cCommaKeyword_11_0; }
 
-		//Questions+=[Question|EString]
+		//questions+=[Question|EString]
 		public Assignment getQuestionsAssignment_11_1() { return cQuestionsAssignment_11_1; }
 
 		//[Question|EString]
@@ -1470,18 +1394,18 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cQuestionsQuestionEStringParserRuleCall_12_1_0_1 = (RuleCall)cQuestionsQuestionCrossReference_12_1_0.eContents().get(1);
 		
 		//RankingSumFork:
-		//	"if" On+=[Choice|EString] ("," On+=[Choice|EString])* "is" "between"? Min=EInt "and" Max=EInt "then"? "go" "to"
-		//	Questions+=[Question|EString] ("," Questions+=[Question|EString])*;
+		//	"if" on+=[Choice|EString] ("," on+=[Choice|EString])* "is" "between"? min=EInt "and" max=EInt "then"? "go" "to"
+		//	questions+=[Question|EString] ("," questions+=[Question|EString])*;
 		public ParserRule getRule() { return rule; }
 
-		//"if" On+=[Choice|EString] ("," On+=[Choice|EString])* "is" "between"? Min=EInt "and" Max=EInt "then"? "go" "to"
-		//Questions+=[Question|EString] ("," Questions+=[Question|EString])*
+		//"if" on+=[Choice|EString] ("," on+=[Choice|EString])* "is" "between"? min=EInt "and" max=EInt "then"? "go" "to"
+		//questions+=[Question|EString] ("," questions+=[Question|EString])*
 		public Group getGroup() { return cGroup; }
 
 		//"if"
 		public Keyword getIfKeyword_0() { return cIfKeyword_0; }
 
-		//On+=[Choice|EString]
+		//on+=[Choice|EString]
 		public Assignment getOnAssignment_1() { return cOnAssignment_1; }
 
 		//[Choice|EString]
@@ -1490,13 +1414,13 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getOnChoiceEStringParserRuleCall_1_0_1() { return cOnChoiceEStringParserRuleCall_1_0_1; }
 
-		//("," On+=[Choice|EString])*
+		//("," on+=[Choice|EString])*
 		public Group getGroup_2() { return cGroup_2; }
 
 		//","
 		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 
-		//On+=[Choice|EString]
+		//on+=[Choice|EString]
 		public Assignment getOnAssignment_2_1() { return cOnAssignment_2_1; }
 
 		//[Choice|EString]
@@ -1511,7 +1435,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"between"?
 		public Keyword getBetweenKeyword_4() { return cBetweenKeyword_4; }
 
-		//Min=EInt
+		//min=EInt
 		public Assignment getMinAssignment_5() { return cMinAssignment_5; }
 
 		//EInt
@@ -1520,7 +1444,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"and"
 		public Keyword getAndKeyword_6() { return cAndKeyword_6; }
 
-		//Max=EInt
+		//max=EInt
 		public Assignment getMaxAssignment_7() { return cMaxAssignment_7; }
 
 		//EInt
@@ -1535,7 +1459,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"to"
 		public Keyword getToKeyword_10() { return cToKeyword_10; }
 
-		//Questions+=[Question|EString]
+		//questions+=[Question|EString]
 		public Assignment getQuestionsAssignment_11() { return cQuestionsAssignment_11; }
 
 		//[Question|EString]
@@ -1544,13 +1468,13 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getQuestionsQuestionEStringParserRuleCall_11_0_1() { return cQuestionsQuestionEStringParserRuleCall_11_0_1; }
 
-		//("," Questions+=[Question|EString])*
+		//("," questions+=[Question|EString])*
 		public Group getGroup_12() { return cGroup_12; }
 
 		//","
 		public Keyword getCommaKeyword_12_0() { return cCommaKeyword_12_0; }
 
-		//Questions+=[Question|EString]
+		//questions+=[Question|EString]
 		public Assignment getQuestionsAssignment_12_1() { return cQuestionsAssignment_12_1; }
 
 		//[Question|EString]
@@ -1561,9 +1485,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private ModelElements pModel;
-	private QuestionElements pQuestion;
 	private SurveyElements pSurvey;
+	private QuestionElements pQuestion;
 	private EStringElements pEString;
 	private EBooleanElements pEBoolean;
 	private MultipleChoiceElements pMultipleChoice;
@@ -1616,14 +1539,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Model:
-	//	{Model} surveys+=Survey?;
-	public ModelElements getModelAccess() {
-		return (pModel != null) ? pModel : (pModel = new ModelElements());
+	//Survey:
+	//	{Survey} name=ID (questions+=Question questions+=Question*)?;
+	public SurveyElements getSurveyAccess() {
+		return (pSurvey != null) ? pSurvey : (pSurvey = new SurveyElements());
 	}
 	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
+	public ParserRule getSurveyRule() {
+		return getSurveyAccess().getRule();
 	}
 
 	//Question:
@@ -1634,16 +1557,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getQuestionRule() {
 		return getQuestionAccess().getRule();
-	}
-
-	//Survey:
-	//	{Survey} name=EString (questions+=Question questions+=Question*)?;
-	public SurveyElements getSurveyAccess() {
-		return (pSurvey != null) ? pSurvey : (pSurvey = new SurveyElements());
-	}
-	
-	public ParserRule getSurveyRule() {
-		return getSurveyAccess().getRule();
 	}
 
 	//EString returns ecore::EString:
@@ -1668,8 +1581,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//MultipleChoice:
 	//	{MultipleChoice} "MultipleChoice" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? "answer"?
-	//	question=EString ("picking" "up to"? answerCount=EInt)? "from"? ("one of" | "some of")? "these"? choice+=Choice (","
-	//	choice+=Choice)* ("or" "with"? "something"? "else"? other=EString)? (Fork+=ChoiceFork ("," Fork+=ChoiceFork)*)?;
+	//	question=EString ("picking" "up to"? answerCount=EInt)? "from"? "these"? choice+=Choice ("," choice+=Choice)* ("or"
+	//	"with"? "something"? "else"? other=EString)? (forks+=ChoiceFork forks+=ChoiceFork*)?;
 	public MultipleChoiceElements getMultipleChoiceAccess() {
 		return (pMultipleChoice != null) ? pMultipleChoice : (pMultipleChoice = new MultipleChoiceElements());
 	}
@@ -1690,8 +1603,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Rating_Impl returns Rating:
 	//	{Rating} "Rating" name=ID ":" ("the"? "user")? ("may" | "is" "required")? "to"? ("rate" | "answer")? question=EString
-	//	"between"? Min=EInt "and"? Max=EInt "where"? "lowest" "means"? first=EString "and"? "highest" "means"? last=EString
-	//	(Fork+=RatingFork ("," Fork+=RatingFork)*)?;
+	//	"between"? min=EInt "and"? max=EInt "where"? "lowest"? "means"? first=EString "and"? "highest"? "means"? last=EString
+	//	(forks+=RatingFork forks+=RatingFork*)?;
 	public Rating_ImplElements getRating_ImplAccess() {
 		return (pRating_Impl != null) ? pRating_Impl : (pRating_Impl = new Rating_ImplElements());
 	}
@@ -1703,7 +1616,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//Ranking:
 	//	"Ranking" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? ("rank" | "answer")?
 	//	question=EString "from"? ("one of" | "some of")? "these"? choices+=Choice ("," choices+=Choice)*
-	//	(Fork+=RankingSumFork ("," Fork+=RankingSumFork)*)?;
+	//	(forks+=RankingSumFork forks+=RankingSumFork*)?;
 	public RankingElements getRankingAccess() {
 		return (pRanking != null) ? pRanking : (pRanking = new RankingElements());
 	}
@@ -1714,8 +1627,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ConstantSum:
 	//	{ConstantSum} "ConstantSum" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? ("distribute" |
-	//	"answer") question=EString (("to"? "a"? "total" "of"?) Constant=EInt)? "among" "these" Choices+=Choice (","
-	//	Choices+=Choice)* (Fork+=RankingSumFork ("," Fork+=RankingSumFork)*)?;
+	//	"answer") question=EString (("to"? "a"? "total" "of"?) constant=EInt)? "amongst" "these" choices+=Choice (","
+	//	choices+=Choice)* (forks+=RankingSumFork forks+=RankingSumFork*)?;
 	public ConstantSumElements getConstantSumAccess() {
 		return (pConstantSum != null) ? pConstantSum : (pConstantSum = new ConstantSumElements());
 	}
@@ -1726,8 +1639,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Staple:
 	//	{Staple} "Staple" name=ID ":" ("the"? "user")? ("may" | isRequired?="is" "required")? "to"? ("rate" | "answer")
-	//	question=EString "between"? Min=EInt "and"? Max=EInt "where"? "lowest" "means"? first=EString ","? "mid" "means"?
-	//	mid=EString "and"? "highest" "means"? last=EString (Fork+=RatingFork ("," Fork+=RatingFork)*)?;
+	//	question=EString "between"? min=EInt "and"? max=EInt "where"? "lowest"? "means"? first=EString ","? "mid"? "means"?
+	//	mid=EString "and"? "highest"? "means"? last=EString (forks+=RatingFork forks+=RatingFork*)?;
 	public StapleElements getStapleAccess() {
 		return (pStaple != null) ? pStaple : (pStaple = new StapleElements());
 	}
@@ -1737,7 +1650,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Choice:
-	//	name=ID ":" Description=EString;
+	//	name=ID ":" description=EString;
 	public ChoiceElements getChoiceAccess() {
 		return (pChoice != null) ? pChoice : (pChoice = new ChoiceElements());
 	}
@@ -1747,8 +1660,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ChoiceFork:
-	//	"if" On+=[Choice|EString] ("," On+=[Choice|EString])* "then"? "go" "to" Questions+=[Question|EString] (","
-	//	Questions+=[Question|EString])*;
+	//	"if" on+=[Choice|EString] ("," on+=[Choice|EString])* "then"? "go" "to" questions+=[Question|EString] (","
+	//	questions+=[Question|EString])*;
 	public ChoiceForkElements getChoiceForkAccess() {
 		return (pChoiceFork != null) ? pChoiceFork : (pChoiceFork = new ChoiceForkElements());
 	}
@@ -1768,8 +1681,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RatingFork:
-	//	"if" "it"? "is"? "between" Min=EInt "and" Max=EInt "then"? "go" "to" Questions+=[Question|EString] (","
-	//	Questions+=[Question|EString])*;
+	//	"if" "it"? "is"? "between" min=EInt "and" max=EInt "then"? "go" "to" questions+=[Question|EString] (","
+	//	questions+=[Question|EString])*;
 	public RatingForkElements getRatingForkAccess() {
 		return (pRatingFork != null) ? pRatingFork : (pRatingFork = new RatingForkElements());
 	}
@@ -1779,8 +1692,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RankingSumFork:
-	//	"if" On+=[Choice|EString] ("," On+=[Choice|EString])* "is" "between"? Min=EInt "and" Max=EInt "then"? "go" "to"
-	//	Questions+=[Question|EString] ("," Questions+=[Question|EString])*;
+	//	"if" on+=[Choice|EString] ("," on+=[Choice|EString])* "is" "between"? min=EInt "and" max=EInt "then"? "go" "to"
+	//	questions+=[Question|EString] ("," questions+=[Question|EString])*;
 	public RankingSumForkElements getRankingSumForkAccess() {
 		return (pRankingSumFork != null) ? pRankingSumFork : (pRankingSumFork = new RankingSumForkElements());
 	}

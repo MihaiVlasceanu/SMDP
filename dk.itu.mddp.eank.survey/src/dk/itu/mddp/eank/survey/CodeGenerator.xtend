@@ -2,25 +2,24 @@ package dk.itu.mddp.eank.survey
 
 import survey.SurveyPackage
 import org.eclipse.emf.common.util.URI
-import survey.Model
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.resource.XtextResource
 import org.xtext.example.mydsl.generator.MyDslGenerator
 import org.eclipse.emf.mwe.internal.core.ast.util.Injector
 import org.xtext.example.mydsl.MyDslStandaloneSetupGenerated
-import survey.Survey
-import survey.Question
-import survey.Open
-import survey.MultipleChoice
-import survey.Ranking
-import survey.Rating
-import survey.Staple
 import java.util.HashMap
 import org.eclipse.emf.common.util.EList
 import java.util.List
 import java.util.ArrayList
-import survey.Fork
+import survey.Question
+import survey.Survey
+import survey.Open
+import survey.Rating
+import survey.Staple
+import survey.MultipleChoice
 import survey.ConstantSum
+import survey.Ranking
+import survey.Fork
 
 class CodeGenerator {
 	val static instanceFileName = "test-files/Tes.survey"
@@ -42,8 +41,8 @@ class CodeGenerator {
 		val uri = URI::createURI(instanceFileName)
 		var resource = resourceSet.getResource(uri, true)			/* true means follow proxies */
 
-		val Model m = resource.getContents().get(0) as Model
-		val questions = m.surveys.get(0).questions
+		val Survey m = resource.getContents() as Survey
+		val questions = m.questions
 		
 		//Changes all choices so they reference the correct ID within the question
 		//Previously it would reference the first occurence of the choice with that name
@@ -130,14 +129,14 @@ class CodeGenerator {
 //		}		
 		
 		var  goToMap2 =goToMap;
-		println(toTemplate(m.surveys.get(0)).toString())
+		println(toTemplate(m).toString())
 //		if(Constraints.Constraint(m.surveys.get(0)))
 //			println("All constraints passed!")w
 //		else
 //			println("Constraints Failed")
 //		println(MyDslGenerator.compileToJava(m).toString().replaceAll("object", "Object"))
 
-		if(Constraints.Constraint(m.surveys.get(0)))
+		if(Constraints.Constraint(m))
 			println("All constraints passed!")
 		else
 			println("Constraints Failed")
@@ -164,9 +163,9 @@ class CodeGenerator {
 	def static dispatch changeChoices(MultipleChoice it)
 	{
 		//Iterates all the forks and checks for their choices
-		fork.forEach[f | 
+		forks.forEach[f | 
 			choice.forEach[c | 
-				//When the fork's "on" contains the current choice with the same name 
+				//When the forks's "on" contains the current choice with the same name 
 				if(f.on.exists[x | x.name == c.name])
 				{
 					//it removes this choice 
@@ -180,7 +179,7 @@ class CodeGenerator {
 	}
 	def static dispatch changeChoices(ConstantSum it)
 	{
-		fork.forEach[f | 
+		forks.forEach[f | 
 			choices.forEach[c | 
 				if(f.on.exists[x | x.name == c.name])
 				{
@@ -192,7 +191,7 @@ class CodeGenerator {
 	}
 	def static dispatch changeChoices(Ranking it)
 	{
-		fork.forEach[f | 
+		forks.forEach[f | 
 			choices.forEach[c | 
 				if(f.on.exists[x | x.name == c.name])
 				{
@@ -211,24 +210,24 @@ class CodeGenerator {
 	
 	def static dispatch List<EList<Question>> forkMap(MultipleChoice it)
 	{
-			return it.fork.map[getQuestions]
+			return it.forks.map[getQuestions]
 	}
 	def static dispatch List<EList<Question>> forkMap(Ranking it)
 	{
-			return it.fork.map[getQuestions]
+			return it.forks.map[getQuestions]
 	}
 	def static dispatch List<EList<Question>> forkMap(Rating it)
 	{		
-			return it.fork.map[getQuestions]
+			return it.forks.map[getQuestions]
 	}
 	def static dispatch List<EList<Question>> forkMap(ConstantSum it)
 	{		
-			return it.fork.map[getQuestions]
+			return it.forks.map[getQuestions]
 	}
 	
 	def static dispatch  List<EList<Question>> forkMap(Staple it)
 	{		
-			return it.fork.map[getQuestions]
+			return it.forks.map[getQuestions]
 	}
 	
 	def static List<EList<Question>> getQuestions(Fork it)
@@ -288,7 +287,7 @@ class CodeGenerator {
 		«FOR choice : it.choice »		      
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="« it.name »" id="option_« normalize(choice.name) »" value="«choice.description»" onClick="return Survey.changeSubmitButtonStatus(this);" data-next="«FOR fork : it.fork »« IF fork.on.contains(choice) »« map.get(fork.questions.get(0)) + 1 »« ENDIF »«ENDFOR»" /> « choice.description»
+					<input type="checkbox" name="« it.name »" id="option_« normalize(choice.name) »" value="«choice.description»" onClick="return Survey.changeSubmitButtonStatus(this);" data-next="«FOR fork : it.forks »« IF fork.on.contains(choice) »« map.get(fork.questions.get(0)) + 1 »« ENDIF »«ENDFOR»" /> « choice.description»
 				</label>
 			</div>
 		«ENDFOR»
@@ -322,7 +321,7 @@ class CodeGenerator {
 				<div class="form-group">
 					<label for="ranking_«normalize(choice.name)»" class="col-xs-9 control-label">«choice.description»</label>
 					<div class="col-xs-3">
-						<input type="number" class="form-control rating" id="ranking_«normalize(choice.name)»" maxlength="2" onkeyup="return « IF it.fork.size > 0 && it.fork.exists[f | f.on.contains(choice)] »Fork.calculate(this, 'ranking_«normalize(choice.name)»')« ELSE »Survey.rankingUpdate(this)« ENDIF »;" data-next="" />
+						<input type="number" class="form-control rating" id="ranking_«normalize(choice.name)»" maxlength="2" onkeyup="return « IF it.forks.size > 0 && it.forks.exists[f | f.on.contains(choice)] »Fork.calculate(this, 'ranking_«normalize(choice.name)»')« ELSE »Survey.rankingUpdate(this)« ENDIF »;" data-next="" />
 					</div>
 				</div>
 		«ENDFOR»
@@ -332,7 +331,7 @@ class CodeGenerator {
 			</button>
 		</form>
 		
-		« IF it.fork.size > 0»
+		« IF it.forks.size > 0»
 		<script type="text/javascript">
 		var Fork = Fork || {};
 		Fork = (function(){
@@ -346,10 +345,10 @@ class CodeGenerator {
 		      {
 		        // Actul inout value
 		        var value = numberField.val();
-				« FOR fork : it.fork »
-				« IF fork.questions.size > 0»
-				if (Survey.isBetween(value, « fork.min », « fork.max »)) {
-					numberField.attr(Survey.SURVEY_FORK_SEL, '« fork.questions.join(",", [q | toInt(q.name)]) »');
+				« FOR forks : it.forks »
+				« IF forks.questions.size > 0»
+				if (Survey.isBetween(value, « forks.min », « forks.max »)) {
+					numberField.attr(Survey.SURVEY_FORK_SEL, '« forks.questions.join(",", [q | toInt(q.name)]) »');
 				}
 				« ENDIF »
 		        « ENDFOR »
@@ -407,7 +406,7 @@ class CodeGenerator {
 			<div class="form-group">
 				<label class="col-xs-8 control-label">«choice.description»</label>
 				<div class="col-xs-4">
-					<input type="number" class="form-control rating" id="sum_« normalize(choice.name) »" maxlength="3" onkeyup="return « IF it.fork.size > 0 && it.fork.exists[f | f.on.contains(choice)] »Fork.calculate(this, 'sum_«normalize(choice.name)»')« ELSE »Survey.constantSumUpdate(this)« ENDIF »;" name="sum_« normalize(choice.name) »" data-next="" />
+					<input type="number" class="form-control rating" id="sum_« normalize(choice.name) »" maxlength="3" onkeyup="return « IF it.forks.size > 0 && it.forks.exists[f | f.on.contains(choice)] »Fork.calculate(this, 'sum_«normalize(choice.name)»')« ELSE »Survey.constantSumUpdate(this)« ENDIF »;" name="sum_« normalize(choice.name) »" data-next="" />
 				</div>
 			</div>
 		«ENDFOR»
@@ -419,7 +418,7 @@ class CodeGenerator {
 		</div>
 		</form>
 		
-		« IF it.fork.size > 0»
+		« IF it.forks.size > 0»
 		<script type="text/javascript">
 		var Fork = Fork || {};
 		Fork = (function(){
@@ -433,10 +432,10 @@ class CodeGenerator {
 		      {
 		        // Actul inout value
 		        var value = numberField.val();
-				« FOR fork : it.fork »
-				« IF fork.questions.size > 0»
-				if (Survey.isBetween(value, « fork.min », « fork.max »)) {
-					numberField.attr(Survey.SURVEY_FORK_SEL, '« fork.questions.join(",", [q | toInt(q.name)]) »');
+				« FOR forks : it.forks »
+				« IF forks.questions.size > 0»
+				if (Survey.isBetween(value, « forks.min », « forks.max »)) {
+					numberField.attr(Survey.SURVEY_FORK_SEL, '« forks.questions.join(",", [q | toInt(q.name)]) »');
 				}
 				« ENDIF »
 		        « ENDFOR »
