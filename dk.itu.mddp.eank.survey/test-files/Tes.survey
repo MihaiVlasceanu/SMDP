@@ -1,38 +1,16 @@
-Survey1
-Rating Q4414:
- 	the user is required to rate "THIS"
- 	between 1 and 5
- 	lowest "Hi" highest "Yo"
- 	if it is between 1 and 3 then Q1
- 	if it is between 2 and 3 then Q2
- 	
-	ConstantSum Q1:
-		the user
-		is required
-		to distribute "Divide your daily activities in hours"
-		to a total of 24
-		these A1: "Learning", B1 : "Cooking", C1 : "Training", D1 : "Gaming"
-		if C1 is between 2 and 4 then Q3
-	MultipleChoice Q2:
-		the user
-		is required
-		to answer "At what level of education?"
-		picking up to 1 these A2 : "Bachelor", B2 : "Master's", C2 : "PHD"
-	Ranking Q3 :
+TestSurvey
+	MultipleChoice Q1:
 		the user 
-		may rank "Rank your favorite subjects"
-		these A3 : "MDDP", B3 : "Database Tuning", C3 : "Discrete Mathematics"
-		if C3 is between 1 and 2 then Q4
-	Open Q4: 
-		"What are your thoughts about model driven development?"
-	Open Q8: 
-		"What are your thoughts about model driven development?"
-	MultipleChoice Q6:
-		the user
 		is required
-		to answer "At what level of education?"
-		picking 1 these A : "Bachelor", B : "Master's", C : "PHD"
-		if B then  Q7		
-	Staple Q7: 
-		rate "Have you been following the lectures"
-		where lowest means "I've been asleep the entire time", middle means "I've been present" and  highest means "I am always a 100% focused"		
+		to answer "Was today a good day?"
+		picking up to 1 these A : "Yes", B : "No", C : "Maybe"
+		if A then continue with Q2
+		if B, C then continue with  Q2, Q3
+	Ranking Q2:
+		the user 
+		may rank "Favorite food"
+		these  A : "Pizza", B : "Salad", C : "Cookies"
+	Rating Q3:
+		"Today's weather" 1 10 "Terrible" "Great"
+		
+		

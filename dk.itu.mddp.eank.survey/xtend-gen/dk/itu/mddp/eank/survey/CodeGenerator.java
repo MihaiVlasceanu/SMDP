@@ -15,7 +15,7 @@ public abstract class CodeGenerator {
     this.questionMap = questionMap;
   }
   
-  public abstract String toTemplate(final Survey it);
+  public abstract String getTemplate(final Survey it);
   
   /**
    * Removes all non-alphanumeric characters in a string

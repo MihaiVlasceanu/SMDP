@@ -1,6 +1,7 @@
 package dk.itu.mddp.eank.survey;
 
 import com.google.inject.Injector;
+import dk.itu.mddp.eank.survey.AndroidCodeGenerator;
 import dk.itu.mddp.eank.survey.CodeGenerator;
 import dk.itu.mddp.eank.survey.Constraints;
 import dk.itu.mddp.eank.survey.HtmlCodeGenerator;
@@ -38,17 +39,10 @@ public class Runner {
       EObject _get = _contents.get(0);
       final Survey m = ((Survey) _get);
       final Survey survey = Transformation.changeChoices(m);
-      final EList<Question> questions = survey.getQuestions();
-      QuestionMapping.MapQuestions(m);
-      HashMap<Question,Integer> goToMap = QuestionMapping.goToMap;
-      HashMap<Question,Integer> questionMap = QuestionMapping.map;
-      final CodeGenerator generator = new HtmlCodeGenerator(goToMap, questionMap);
-      String _template = generator.toTemplate(survey);
-      String _string = _template.toString();
-      InputOutput.<String>println(_string);
       boolean _Constraint = Constraints.Constraint(m);
       if (_Constraint) {
         InputOutput.<String>println("All constraints passed!");
+        Runner.generate(survey);
       } else {
         InputOutput.<String>println("Constraints Failed");
       }
@@ -61,5 +55,19 @@ public class Runner {
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+  
+  public static void generate(final Survey it) {
+    QuestionMapping.MapQuestions(it);
+    HashMap<Question,Integer> goToMap = QuestionMapping.goToMap;
+    HashMap<Question,Integer> questionMap = QuestionMapping.map;
+    final CodeGenerator htmlGenerator = new HtmlCodeGenerator(goToMap, questionMap);
+    final CodeGenerator androidGenerator = new AndroidCodeGenerator(goToMap, questionMap);
+    String _template = htmlGenerator.getTemplate(it);
+    String _string = _template.toString();
+    InputOutput.<String>println(_string);
+    String _template_1 = androidGenerator.getTemplate(it);
+    String _string_1 = _template_1.toString();
+    InputOutput.<String>println(_string_1);
   }
 }

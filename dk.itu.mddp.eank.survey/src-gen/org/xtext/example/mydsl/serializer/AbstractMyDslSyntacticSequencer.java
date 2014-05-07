@@ -531,7 +531,7 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	
 	/**
 	 * Syntax:
-	 *     ('answer' | 'rank')?
+	 *     ('rank' | 'answer')?
 	 */
 	protected void emit_Ranking___AnswerKeyword_6_1_or_RankKeyword_6_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -667,7 +667,7 @@ public abstract class AbstractMyDslSyntacticSequencer extends AbstractSyntacticS
 	
 	/**
 	 * Syntax:
-	 *     ('rate' | 'answer')?
+	 *     ('answer' | 'rate')?
 	 */
 	protected void emit_Rating_Impl___AnswerKeyword_7_1_or_RateKeyword_7_0__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

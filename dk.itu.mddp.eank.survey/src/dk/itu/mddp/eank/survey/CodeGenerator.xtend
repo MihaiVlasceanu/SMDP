@@ -1,25 +1,8 @@
 package dk.itu.mddp.eank.survey
 
-import survey.SurveyPackage
-import org.eclipse.emf.common.util.URI
-import org.eclipse.xtext.resource.XtextResourceSet
-import org.eclipse.xtext.resource.XtextResource
-import org.xtext.example.mydsl.generator.MyDslGenerator
-import org.eclipse.emf.mwe.internal.core.ast.util.Injector
-import org.xtext.example.mydsl.MyDslStandaloneSetupGenerated
 import java.util.HashMap
-import org.eclipse.emf.common.util.EList
-import java.util.List
-import java.util.ArrayList
 import survey.Question
 import survey.Survey
-import survey.Open
-import survey.Rating
-import survey.Staple
-import survey.MultipleChoice
-import survey.ConstantSum
-import survey.Ranking
-import survey.Fork
 
 abstract class CodeGenerator {
 	protected var goToMap = new HashMap<Question, Integer>();
@@ -29,7 +12,7 @@ abstract class CodeGenerator {
 		this.questionMap = questionMap
 	}
 	
-	def abstract String toTemplate(Survey it)
+	def abstract String getTemplate(Survey it)
 
 	/**
 	 * Removes all non-alphanumeric characters in a string

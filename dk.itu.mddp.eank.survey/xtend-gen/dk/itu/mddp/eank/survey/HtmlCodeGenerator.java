@@ -30,7 +30,7 @@ public class HtmlCodeGenerator extends CodeGenerator {
   /**
    * HTML generator for the Open type question
    */
-  public String toTemplate(final Survey it) {
+  public String getTemplate(final Survey it) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.newLine();
     {

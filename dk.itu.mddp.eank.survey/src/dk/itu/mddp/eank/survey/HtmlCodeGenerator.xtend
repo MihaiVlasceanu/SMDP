@@ -19,7 +19,7 @@ class HtmlCodeGenerator extends CodeGenerator
 	/**
 	 * HTML generator for the Open type question
 	 */
-	override String toTemplate(Survey it)
+	override String getTemplate(Survey it)
 	{				
 		'''
 	
