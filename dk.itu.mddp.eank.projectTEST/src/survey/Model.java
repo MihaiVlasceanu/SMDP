@@ -2,8 +2,6 @@
  */
 package survey;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link survey.Model#getSurveys <em>Surveys</em>}</li>
+ *   <li>{@link survey.Model#getSurvey <em>Survey</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,19 +22,29 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Surveys</b></em>' containment reference list.
-	 * The list contents are of type {@link survey.Survey}.
+	 * Returns the value of the '<em><b>Survey</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Surveys</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Survey</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Surveys</em>' containment reference list.
-	 * @see survey.SurveyPackage#getModel_Surveys()
+	 * @return the value of the '<em>Survey</em>' containment reference.
+	 * @see #setSurvey(Survey)
+	 * @see survey.SurveyPackage#getModel_Survey()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Survey> getSurveys();
+	Survey getSurvey();
+
+	/**
+	 * Sets the value of the '{@link survey.Model#getSurvey <em>Survey</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Survey</em>' containment reference.
+	 * @see #getSurvey()
+	 * @generated
+	 */
+	void setSurvey(Survey value);
 
 } // Model

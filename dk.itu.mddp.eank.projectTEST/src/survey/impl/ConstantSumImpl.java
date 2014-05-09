@@ -31,7 +31,7 @@ import survey.SurveyPackage;
  * <ul>
  *   <li>{@link survey.impl.ConstantSumImpl#getChoices <em>Choices</em>}</li>
  *   <li>{@link survey.impl.ConstantSumImpl#getConstant <em>Constant</em>}</li>
- *   <li>{@link survey.impl.ConstantSumImpl#getFork <em>Fork</em>}</li>
+ *   <li>{@link survey.impl.ConstantSumImpl#getForks <em>Forks</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,14 +69,14 @@ public class ConstantSumImpl extends QuestionImpl implements ConstantSum {
 	protected int constant = CONSTANT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFork() <em>Fork</em>}' containment reference list.
+	 * The cached value of the '{@link #getForks() <em>Forks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFork()
+	 * @see #getForks()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RankingSumFork> fork;
+	protected EList<RankingSumFork> forks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,11 +135,11 @@ public class ConstantSumImpl extends QuestionImpl implements ConstantSum {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RankingSumFork> getFork() {
-		if (fork == null) {
-			fork = new EObjectContainmentEList<RankingSumFork>(RankingSumFork.class, this, SurveyPackage.CONSTANT_SUM__FORK);
+	public EList<RankingSumFork> getForks() {
+		if (forks == null) {
+			forks = new EObjectContainmentEList<RankingSumFork>(RankingSumFork.class, this, SurveyPackage.CONSTANT_SUM__FORKS);
 		}
-		return fork;
+		return forks;
 	}
 
 	/**
@@ -152,8 +152,8 @@ public class ConstantSumImpl extends QuestionImpl implements ConstantSum {
 		switch (featureID) {
 			case SurveyPackage.CONSTANT_SUM__CHOICES:
 				return ((InternalEList<?>)getChoices()).basicRemove(otherEnd, msgs);
-			case SurveyPackage.CONSTANT_SUM__FORK:
-				return ((InternalEList<?>)getFork()).basicRemove(otherEnd, msgs);
+			case SurveyPackage.CONSTANT_SUM__FORKS:
+				return ((InternalEList<?>)getForks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -170,8 +170,8 @@ public class ConstantSumImpl extends QuestionImpl implements ConstantSum {
 				return getChoices();
 			case SurveyPackage.CONSTANT_SUM__CONSTANT:
 				return getConstant();
-			case SurveyPackage.CONSTANT_SUM__FORK:
-				return getFork();
+			case SurveyPackage.CONSTANT_SUM__FORKS:
+				return getForks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -192,9 +192,9 @@ public class ConstantSumImpl extends QuestionImpl implements ConstantSum {
 			case SurveyPackage.CONSTANT_SUM__CONSTANT:
 				setConstant((Integer)newValue);
 				return;
-			case SurveyPackage.CONSTANT_SUM__FORK:
-				getFork().clear();
-				getFork().addAll((Collection<? extends RankingSumFork>)newValue);
+			case SurveyPackage.CONSTANT_SUM__FORKS:
+				getForks().clear();
+				getForks().addAll((Collection<? extends RankingSumFork>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -214,8 +214,8 @@ public class ConstantSumImpl extends QuestionImpl implements ConstantSum {
 			case SurveyPackage.CONSTANT_SUM__CONSTANT:
 				setConstant(CONSTANT_EDEFAULT);
 				return;
-			case SurveyPackage.CONSTANT_SUM__FORK:
-				getFork().clear();
+			case SurveyPackage.CONSTANT_SUM__FORKS:
+				getForks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -233,8 +233,8 @@ public class ConstantSumImpl extends QuestionImpl implements ConstantSum {
 				return choices != null && !choices.isEmpty();
 			case SurveyPackage.CONSTANT_SUM__CONSTANT:
 				return constant != CONSTANT_EDEFAULT;
-			case SurveyPackage.CONSTANT_SUM__FORK:
-				return fork != null && !fork.isEmpty();
+			case SurveyPackage.CONSTANT_SUM__FORKS:
+				return forks != null && !forks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -249,7 +249,7 @@ public class ConstantSumImpl extends QuestionImpl implements ConstantSum {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Constant: ");
+		result.append(" (constant: ");
 		result.append(constant);
 		result.append(')');
 		return result.toString();

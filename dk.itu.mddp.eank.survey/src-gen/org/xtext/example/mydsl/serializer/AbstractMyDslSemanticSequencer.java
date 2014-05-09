@@ -17,7 +17,6 @@ import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 import survey.Choice;
 import survey.ChoiceFork;
 import survey.ConstantSum;
-import survey.Model;
 import survey.MultipleChoice;
 import survey.Open;
 import survey.Ranking;
@@ -52,12 +51,6 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 				if(context == grammarAccess.getConstantSumRule() ||
 				   context == grammarAccess.getQuestionRule()) {
 					sequence_ConstantSum(context, (ConstantSum) semanticObject); 
-					return; 
-				}
-				else break;
-			case SurveyPackage.MODEL:
-				if(context == grammarAccess.getModelRule()) {
-					sequence_Model(context, (Model) semanticObject); 
 					return; 
 				}
 				else break;
@@ -120,7 +113,7 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Constraint:
-	 *     (On+=[Choice|EString] On+=[Choice|EString]* Questions+=[Question|EString] Questions+=[Question|EString]*)
+	 *     (on+=[Choice|EString] on+=[Choice|EString]* questions+=[Question|EString] questions+=[Question|EString]*)
 	 */
 	protected void sequence_ChoiceFork(EObject context, ChoiceFork semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -129,7 +122,7 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Constraint:
-	 *     (name=ID Description=EString)
+	 *     (name=ID description=EString)
 	 */
 	protected void sequence_Choice(EObject context, Choice semanticObject) {
 		if(errorAcceptor != null) {
@@ -152,22 +145,13 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	 *         name=ID 
 	 *         isRequired?='is'? 
 	 *         question=EString 
-	 *         Constant=EInt? 
-	 *         Choices+=Choice 
-	 *         Choices+=Choice* 
-	 *         (Fork+=RankingSumFork Fork+=RankingSumFork*)?
+	 *         constant=EInt? 
+	 *         choices+=Choice 
+	 *         choices+=Choice* 
+	 *         (forks+=RankingSumFork forks+=RankingSumFork*)?
 	 *     )
 	 */
 	protected void sequence_ConstantSum(EObject context, ConstantSum semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (surveys+=Survey?)
-	 */
-	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -182,7 +166,7 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	 *         choice+=Choice 
 	 *         choice+=Choice* 
 	 *         other=EString? 
-	 *         (Fork+=ChoiceFork Fork+=ChoiceFork*)?
+	 *         (forks+=ChoiceFork forks+=ChoiceFork*)?
 	 *     )
 	 */
 	protected void sequence_MultipleChoice(EObject context, MultipleChoice semanticObject) {
@@ -202,12 +186,12 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	/**
 	 * Constraint:
 	 *     (
-	 *         On+=[Choice|EString] 
-	 *         On+=[Choice|EString]* 
-	 *         Min=EInt 
-	 *         Max=EInt 
-	 *         Questions+=[Question|EString] 
-	 *         Questions+=[Question|EString]*
+	 *         on+=[Choice|EString] 
+	 *         on+=[Choice|EString]* 
+	 *         min=EInt 
+	 *         max=EInt 
+	 *         questions+=[Question|EString] 
+	 *         questions+=[Question|EString]*
 	 *     )
 	 */
 	protected void sequence_RankingSumFork(EObject context, RankingSumFork semanticObject) {
@@ -223,7 +207,7 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	 *         question=EString 
 	 *         choices+=Choice 
 	 *         choices+=Choice* 
-	 *         (Fork+=RankingSumFork Fork+=RankingSumFork*)?
+	 *         (forks+=RankingSumFork forks+=RankingSumFork*)?
 	 *     )
 	 */
 	protected void sequence_Ranking(EObject context, Ranking semanticObject) {
@@ -233,7 +217,7 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Constraint:
-	 *     (Min=EInt Max=EInt Questions+=[Question|EString] Questions+=[Question|EString]*)
+	 *     (min=EInt max=EInt questions+=[Question|EString] questions+=[Question|EString]*)
 	 */
 	protected void sequence_RatingFork(EObject context, RatingFork semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -244,12 +228,13 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	 * Constraint:
 	 *     (
 	 *         name=ID 
+	 *         isRequired?='is'? 
 	 *         question=EString 
-	 *         Min=EInt 
-	 *         Max=EInt 
+	 *         min=EInt 
+	 *         max=EInt 
 	 *         first=EString 
 	 *         last=EString 
-	 *         (Fork+=RatingFork Fork+=RatingFork*)?
+	 *         (forks+=RatingFork forks+=RatingFork*)?
 	 *     )
 	 */
 	protected void sequence_Rating_Impl(EObject context, Rating semanticObject) {
@@ -263,12 +248,10 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	 *         name=ID 
 	 *         isRequired?='is'? 
 	 *         question=EString 
-	 *         Min=EInt 
-	 *         Max=EInt 
 	 *         first=EString 
 	 *         mid=EString 
 	 *         last=EString 
-	 *         (Fork+=RatingFork Fork+=RatingFork*)?
+	 *         (forks+=RatingFork forks+=RatingFork*)?
 	 *     )
 	 */
 	protected void sequence_Staple(EObject context, Staple semanticObject) {
@@ -278,7 +261,7 @@ public abstract class AbstractMyDslSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Constraint:
-	 *     (name=EString (questions+=Question questions+=Question*)?)
+	 *     (name=ID (questions+=Question questions+=Question*)?)
 	 */
 	protected void sequence_Survey(EObject context, Survey semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

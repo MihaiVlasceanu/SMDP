@@ -22,15 +22,6 @@ public interface SurveyFactory extends EFactory {
 	SurveyFactory eINSTANCE = survey.impl.SurveyFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Model</em>'.
-	 * @generated
-	 */
-	Model createModel();
-
-	/**
 	 * Returns a new object of class '<em>Survey</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,15 +76,6 @@ public interface SurveyFactory extends EFactory {
 	Ranking createRanking();
 
 	/**
-	 * Returns a new object of class '<em>Dichotomous</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dichotomous</em>'.
-	 * @generated
-	 */
-	Dichotomous createDichotomous();
-
-	/**
 	 * Returns a new object of class '<em>Constant Sum</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,15 +110,6 @@ public interface SurveyFactory extends EFactory {
 	 * @generated
 	 */
 	ChoiceFork createChoiceFork();
-
-	/**
-	 * Returns a new object of class '<em>Dichotomous Fork</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dichotomous Fork</em>'.
-	 * @generated
-	 */
-	DichotomousFork createDichotomousFork();
 
 	/**
 	 * Returns a new object of class '<em>Ranking Choice Fork</em>'.

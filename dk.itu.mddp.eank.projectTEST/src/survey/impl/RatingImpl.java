@@ -32,7 +32,7 @@ import survey.SurveyPackage;
  *   <li>{@link survey.impl.RatingImpl#getMax <em>Max</em>}</li>
  *   <li>{@link survey.impl.RatingImpl#getFirst <em>First</em>}</li>
  *   <li>{@link survey.impl.RatingImpl#getLast <em>Last</em>}</li>
- *   <li>{@link survey.impl.RatingImpl#getFork <em>Fork</em>}</li>
+ *   <li>{@link survey.impl.RatingImpl#getForks <em>Forks</em>}</li>
  * </ul>
  * </p>
  *
@@ -120,14 +120,14 @@ public class RatingImpl extends QuestionImpl implements Rating {
 	protected String last = LAST_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFork() <em>Fork</em>}' containment reference list.
+	 * The cached value of the '{@link #getForks() <em>Forks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFork()
+	 * @see #getForks()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RatingFork> fork;
+	protected EList<RatingFork> forks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -237,11 +237,11 @@ public class RatingImpl extends QuestionImpl implements Rating {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RatingFork> getFork() {
-		if (fork == null) {
-			fork = new EObjectContainmentEList<RatingFork>(RatingFork.class, this, SurveyPackage.RATING__FORK);
+	public EList<RatingFork> getForks() {
+		if (forks == null) {
+			forks = new EObjectContainmentEList<RatingFork>(RatingFork.class, this, SurveyPackage.RATING__FORKS);
 		}
-		return fork;
+		return forks;
 	}
 
 	/**
@@ -252,8 +252,8 @@ public class RatingImpl extends QuestionImpl implements Rating {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SurveyPackage.RATING__FORK:
-				return ((InternalEList<?>)getFork()).basicRemove(otherEnd, msgs);
+			case SurveyPackage.RATING__FORKS:
+				return ((InternalEList<?>)getForks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -274,8 +274,8 @@ public class RatingImpl extends QuestionImpl implements Rating {
 				return getFirst();
 			case SurveyPackage.RATING__LAST:
 				return getLast();
-			case SurveyPackage.RATING__FORK:
-				return getFork();
+			case SurveyPackage.RATING__FORKS:
+				return getForks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -301,9 +301,9 @@ public class RatingImpl extends QuestionImpl implements Rating {
 			case SurveyPackage.RATING__LAST:
 				setLast((String)newValue);
 				return;
-			case SurveyPackage.RATING__FORK:
-				getFork().clear();
-				getFork().addAll((Collection<? extends RatingFork>)newValue);
+			case SurveyPackage.RATING__FORKS:
+				getForks().clear();
+				getForks().addAll((Collection<? extends RatingFork>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -329,8 +329,8 @@ public class RatingImpl extends QuestionImpl implements Rating {
 			case SurveyPackage.RATING__LAST:
 				setLast(LAST_EDEFAULT);
 				return;
-			case SurveyPackage.RATING__FORK:
-				getFork().clear();
+			case SurveyPackage.RATING__FORKS:
+				getForks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -352,8 +352,8 @@ public class RatingImpl extends QuestionImpl implements Rating {
 				return FIRST_EDEFAULT == null ? first != null : !FIRST_EDEFAULT.equals(first);
 			case SurveyPackage.RATING__LAST:
 				return LAST_EDEFAULT == null ? last != null : !LAST_EDEFAULT.equals(last);
-			case SurveyPackage.RATING__FORK:
-				return fork != null && !fork.isEmpty();
+			case SurveyPackage.RATING__FORKS:
+				return forks != null && !forks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -368,9 +368,9 @@ public class RatingImpl extends QuestionImpl implements Rating {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Min: ");
+		result.append(" (min: ");
 		result.append(min);
-		result.append(", Max: ");
+		result.append(", max: ");
 		result.append(max);
 		result.append(", first: ");
 		result.append(first);

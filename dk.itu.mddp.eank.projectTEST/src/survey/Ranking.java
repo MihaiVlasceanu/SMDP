@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link survey.Ranking#getChoices <em>Choices</em>}</li>
- *   <li>{@link survey.Ranking#getFork <em>Fork</em>}</li>
+ *   <li>{@link survey.Ranking#getForks <em>Forks</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,19 +39,19 @@ public interface Ranking extends Question {
 	EList<Choice> getChoices();
 
 	/**
-	 * Returns the value of the '<em><b>Fork</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Forks</b></em>' containment reference list.
 	 * The list contents are of type {@link survey.RankingSumFork}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Fork</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Forks</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fork</em>' containment reference list.
-	 * @see survey.SurveyPackage#getRanking_Fork()
+	 * @return the value of the '<em>Forks</em>' containment reference list.
+	 * @see survey.SurveyPackage#getRanking_Forks()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<RankingSumFork> getFork();
+	EList<RankingSumFork> getForks();
 
 } // Ranking

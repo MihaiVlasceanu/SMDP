@@ -29,7 +29,7 @@ class Constraints {
 		questions.forEach[q, i | map.put(q,i)]
 		questions.forEach[q |
 			usedList.add(map.get(q))
-			var localQuestions = CodeGenerator.forkMap(q)
+			var localQuestions = Transformation.forkMap(q)
 			if(localQuestions != null)
 			{
 				localQuestions.forEach[localQuestion |
@@ -73,7 +73,10 @@ class Constraints {
 			result = false
 		}
 		//Checks for additional constraints, in regards to forking
-		if(questions.forall[Constraint])
+		var tuplestuff = questions.map[Constraint -> it.name]
+		
+		tuplestuff.forEach[x | println(x.key + ", " + x.value)]
+		if(tuplestuff.forall[x | x.key == true])
 		{
 			result = true
 		}
@@ -90,47 +93,60 @@ class Constraints {
 	}
 	def static dispatch boolean Constraint(MultipleChoice it){
 		//Checks if the questions forks do not reference to the the parent question
-		fork.forall[x | Constraint(x, it)]
+		forks.forall[x | Constraint(x, it)]
 		&&
-		//Checks if the fork references to the same question several times
-		fork.forall[questions.toSet.size == questions.size]
+		//Checks if the forks references to the same question several times
+		forks.forall[questions.toSet.size == questions.size]
 		&&
 		//Checks if the forks reference to the same choice several times
-		fork.forall[on.toSet.size == on.size]
+		forks.forall[on.toSet.size == on.size]
 	}
 	def static dispatch boolean Constraint(Ranking it){
 		val choiceCount = choices.size
-		fork.forall[x | Constraint(x, it)] 
+//		var selfReference = forks.forall[x | Constraint(x, it)] 
+//		var duplicateQuestions = forks.forall[x | x.questions.toSet.size == x.questions.size]
+//		var duplicateChoices = forks.forall[on.toSet.size == on.size]
+//		var rangeOutOfBounds = forks.forall[Constraint(choiceCount)]
+//		
+//		println(
+//		"Self Reference: " + selfReference + 
+//		" Duplicate Questions: " + duplicateQuestions +  
+//		" Duplicate Choices :" + duplicateChoices + 
+//		" Out of Bounds" + rangeOutOfBounds +
+//		"Choice Count: " + choiceCount)
+//		 
+		
+		forks.forall[x | Constraint(x, it)] 
 		&&
-		fork.forall[x | x.questions.toSet.size == x.questions.size]
+		forks.forall[x | x.questions.toSet.size == x.questions.size]
 		&&
-		fork.forall[on.toSet.size == on.size]
+		forks.forall[on.toSet.size == on.size]
 		&&
-		//Checks if a ranking fork's min and max are within bounds
-		fork.forall[Constraint(choiceCount)]
+		//Checks if a ranking forks's min and max are within bounds
+		forks.forall[Constraint(choiceCount)]
 	}
 	def static dispatch boolean Constraint(Rating it){
 		min >= 0 && max > 0
 		&&
-		fork.forall[x | Constraint(x, it)]
+		forks.forall[x | Constraint(x, it)]
 		&&
-		fork.forall[questions.toSet.size == questions.size]
+		forks.forall[questions.toSet.size == questions.size]
 		
 	}
 	def static dispatch boolean Constraint(Staple it){
-		fork.forall[x | Constraint(x, it)]
+		forks.forall[x | Constraint(x, it)]
 		&&
-		fork.forall[questions.toSet.size == questions.size]
+		forks.forall[questions.toSet.size == questions.size]
 		
 	}
 	def static dispatch boolean Constraint(ConstantSum it){
 		constant >= 0
 		&&
-		fork.forall[x | Constraint(x, it)]
+		forks.forall[x | Constraint(x, it)]
 		&&
-		fork.forall[questions.toSet.size == questions.size]
+		forks.forall[questions.toSet.size == questions.size]
 		&&
-		fork.forall[on.toSet.size == on.size]
+		forks.forall[on.toSet.size == on.size]
 	}
 	def static boolean Constraint(Fork it, Question q){
 		!questions.contains(q)
@@ -138,7 +154,17 @@ class Constraints {
 	def static boolean Constraint(RankingSumFork it, int choiceCount)
 	{
 		
-		max <= choiceCount && min >= choiceCount
+		max <= choiceCount && min >= 0
+	}
+	def static boolean Constraint(RatingFork it, Rating q)
+	{
+		
+		max <= q.max && min >= q.min
+	}
+	def static boolean Constraint(RatingFork it, Staple q)
+	{
+		
+		max <= 5 && min >= -5
 	}
 
 

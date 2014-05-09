@@ -68,10 +68,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	protected SurveySwitch<Adapter> modelSwitch =
 		new SurveySwitch<Adapter>() {
 			@Override
-			public Adapter caseModel(Model object) {
-				return createModelAdapter();
-			}
-			@Override
 			public Adapter caseSurvey(Survey object) {
 				return createSurveyAdapter();
 			}
@@ -100,10 +96,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 				return createRankingAdapter();
 			}
 			@Override
-			public Adapter caseDichotomous(Dichotomous object) {
-				return createDichotomousAdapter();
-			}
-			@Override
 			public Adapter caseConstantSum(ConstantSum object) {
 				return createConstantSumAdapter();
 			}
@@ -122,10 +114,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseChoiceFork(ChoiceFork object) {
 				return createChoiceForkAdapter();
-			}
-			@Override
-			public Adapter caseDichotomousFork(DichotomousFork object) {
-				return createDichotomousForkAdapter();
 			}
 			@Override
 			public Adapter caseRankingChoiceFork(RankingChoiceFork object) {
@@ -154,20 +142,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link survey.Model <em>Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see survey.Model
-	 * @generated
-	 */
-	public Adapter createModelAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link survey.Survey <em>Survey</em>}'.
@@ -268,20 +242,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link survey.Dichotomous <em>Dichotomous</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see survey.Dichotomous
-	 * @generated
-	 */
-	public Adapter createDichotomousAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link survey.ConstantSum <em>Constant Sum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -348,20 +308,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createChoiceForkAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link survey.DichotomousFork <em>Dichotomous Fork</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see survey.DichotomousFork
-	 * @generated
-	 */
-	public Adapter createDichotomousForkAdapter() {
 		return null;
 	}
 

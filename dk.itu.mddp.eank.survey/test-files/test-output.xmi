@@ -1,39 +1,14 @@
-Survey1
-	Open Q2:
-		the user is required to answer "Things"
-		
-	MultipleChoice Q2:
-		the user
-		is required
-		to answer "At what level of education?"
-		from one of these A : "Bachelor", B : "Master's", C : "PHD"
-		if B then go to Q3,Q4,
-		if A then go to Q5,Q6,Q7			
-	Ranking Q3 :
+ExampleSurvey
+	MultipleChoice Q1:
 		the user 
-		may rank "Rank your favorite subjects"
-		from these A : "MDDP", B : "Database Tuning", C : "Discrete Mathematics"
-		if A is between 1 and 3 then go to Q2
-	Open Q4: 
-		"What are your thoughts about model driven development?"
-	MultipleChoice Q5:
-		the user
+		is required 
+		to answer "Did you find the Ask language useful?"
+		picking 1 of these A : "Yes", B : "No"
+		if A then continue with Q2, Q3
+	Rating Q2:
+		rate "Ease of use"
+		1 and 10 "Aweful" "Amazing"
+	Ranking Q3:
 		is required
-		to answer "At what level of education?"
-		from one of these A : "Bachelor", B : "Master's", C : "PHD"
-		if B, B then go to Qx, Qx
-		
-Staple Qx : 
-		rate "Have you been following the lectures"
-		between -5 and 5 where lowest means "I've been asleep the entire time", mid means "I've been present" and highest means "I am always a 100% focused"		
-Staple Q6 : 
-	rate "Have you been following the lectures"
-	between -5 and 5 where lowest means "I've been asleep the entire time", mid means "I've been present" and highest means "I am always a 100% focused"
-	
-Staple Q7 : 
-	rate "Have you been following the lectures"
-	between -5 and 5 where lowest means "I've been asleep the entire time", mid means "I've been present" and highest means "I am always a 100% focused"
-	
-Staple Q8 : 
-		rate "Have you been following the lectures"
-		between -5 and 5 where lowest means "I've been asleep the entire time", mid means "I've been present" and highest means "I am always a 100% focused"
+		rank "Favorite Features"
+		these A : "Code Generation", B : "Editor", C : "Forking"
