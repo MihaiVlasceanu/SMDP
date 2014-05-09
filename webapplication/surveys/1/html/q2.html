@@ -1,0 +1,22 @@
+<form method="POST" action="" id="Q2" class="smdp" autocomplete="off" role="form">
+<div class="question_container">
+      <h3 class="smdp_question">At what level of education?</h3>
+</div>
+<div class="options_container">
+<div class="checkbox">
+	<label>
+		<input type="checkbox" name="Q2" id="option_A" value="Bachelor" onClick="return Survey.changeSubmitButtonStatus(this);" data-next="" /> Bachelor
+	</label>
+</div>
+<div class="checkbox">
+	<label>
+		<input type="checkbox" name="Q2" id="option_B" value="Master's" onClick="return Survey.changeSubmitButtonStatus(this);" data-next="2" /> Master's
+	</label>
+</div>
+<div class="checkbox">
+	<label>
+		<input type="checkbox" name="Q2" id="option_C" value="PHD" onClick="return Survey.changeSubmitButtonStatus(this);" data-next="" /> PHD
+	</label>
+</div>
+	<button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#Q2', 3);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+</form>
