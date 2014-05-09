@@ -1,16 +1,14 @@
-TestSurvey
+ExampleSurvey
 	MultipleChoice Q1:
 		the user 
+		is required 
+		to answer "Did you find the Ask language useful?"
+		picking 1 of these A : "Yes", B : "No"
+		if A then continue with Q2, Q3
+	Rating Q2:
+		rate "Ease of use"
+		1 and 10 "Aweful" "Amazing"
+	Ranking Q3:
 		is required
-		to answer "Was today a good day?"
-		picking up to 1 these A : "Yes", B : "No", C : "Maybe"
-		if A then continue with Q2
-		if B, C then continue with  Q2, Q3
-	Ranking Q2:
-		the user 
-		may rank "Favorite food"
-		these  A : "Pizza", B : "Salad", C : "Cookies"
-	Rating Q3:
-		"Today's weather" 1 10 "Terrible" "Great"
-		
-		
+		rank "Favorite Features"
+		these A : "Code Generation", B : "Editor", C : "Forking"
