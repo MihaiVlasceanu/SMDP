@@ -8,14 +8,22 @@ import survey.Choice
 import survey.ConstantSum
 import survey.Question
 import org.eclipse.emf.common.util.EList
-import java.util.HashMap
+import java.util.HashMapimport java.io.File
+import java.io.PrintWriter
+import java.io.IOException
+import java.io.BufferedWriter
+import java.io.FileWriter
 
 class AndroidCodeGenerator extends CodeGenerator {	
 	new(HashMap<Question, Integer> goToMap, HashMap<Question, Integer> questionMap)
 	{
 		super(goToMap, questionMap)
 	}
-	override String getTemplate(Survey it) {
+	override void generate(Survey it){
+		var generated = getTemplate
+		saveResource(generated)
+	}
+	def getTemplate(Survey it) {
 		'''
 		package com.smdp.surveytoandroid;
 		
@@ -206,6 +214,35 @@ class AndroidCodeGenerator extends CodeGenerator {
 					questions.add(«it.name»);
 				
 					'''
+	}
+	def static saveResource(CharSequence template){
+		
+		var fileName = File.separator + "CodeGenData.java"
+		var workingDir = System.getProperty("user.dir");
+		var f = new File(workingDir)
+		// Folder String path
+		var directory = f.parentFile + "\\dk.itu.mddp.group10.android\\src\\com\\smdp\\surveytoandroid"
+		var file = new File(directory + fileName)
+		println(file.absolutePath)
+		
+		if(!file.isFile)
+		{
+			file.createNewFile()
+		} else {
+			file.delete()
+		}
+		
+		try {
+			var writer = new PrintWriter(new BufferedWriter(new FileWriter(file, true)))
+		
+			writer.println(template)
+		
+			writer.close()
+		} catch(IOException ex)
+		{
+			println(ex.getMessage())
+		}
+		
 	}
 	
 }

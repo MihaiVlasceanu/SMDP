@@ -10,7 +10,7 @@ abstract class CodeGenerator {
 		this.questionMap = questionMap
 	}
 	
-	def abstract String getTemplate(Survey it)
+	def abstract void generate(Survey it)
 
 	/**
 	 * Removes all non-alphanumeric characters in a string

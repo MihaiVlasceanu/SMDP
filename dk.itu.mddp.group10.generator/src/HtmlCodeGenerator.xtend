@@ -21,17 +21,13 @@ class HtmlCodeGenerator extends CodeGenerator
 	/**
 	 * HTML generator for the Open type question
 	 */
-	override String getTemplate(Survey it)
+	override void generate(Survey it)
 	{				
-		'''
-	
-		«FOR question : questions »
-		«{ var to=goToMap.get(question)
+		questions.forEach[question |
+			var to=goToMap.get(question)
 			saveResource(it, question, toTemplate(question, to))
-		}»
-		«ENDFOR»
-		« generateHtmlIndex(it) »
-		'''
+		]
+		generateHtmlIndex(it)
 	}
 	
 	def dispatch toTemplate(Open it, int to)

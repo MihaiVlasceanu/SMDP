@@ -42,7 +42,8 @@ class Runner {
 		var questionMap =QuestionMapping.map
 		val CodeGenerator htmlGenerator = new HtmlCodeGenerator(goToMap, questionMap)
 		val CodeGenerator androidGenerator = new AndroidCodeGenerator(goToMap, questionMap)
-		println(androidGenerator.getTemplate(it).toString())
+		htmlGenerator.generate(it)
+		androidGenerator.generate(it)
 	}
 
 	
