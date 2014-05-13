@@ -1,3 +1,5 @@
+package dk.itu.mddp.eank.survey
+
 import survey.Survey
 import survey.Open
 import survey.MultipleChoice
@@ -28,19 +30,57 @@ class AndroidCodeGenerator extends CodeGenerator {
 		import com.smdp.surveytoandroid.questionstructure.Questionable;
 		import com.smdp.surveytoandroid.questionstructure.RankingQuestion;
 		import com.smdp.surveytoandroid.questionstructure.RatingQuestion;
-		import com.smdp.surveytoandroid.questionstructure.SumConstantQuestion;
-		import com.smdp.surveytoandroid.questionstructure.Staple;
+		import com.smdp.surveytoandroid.questionstructure.ConstantSumQuestion;
+		import com.smdp.surveytoandroid.questionstructure.StapleQuestion;
 		import com.smdp.surveytoandroid.questionstructure.Survey;
 		
 		public class CodeGenData {
 			
 			private static ArrayList<Questionable> questions = new ArrayList<Questionable>();
+			
+			public static String getSurveyName() {
+				
+				Survey «it.name» = new Survey ("«it.name»");
+				String surveyName = «it.name».getName();
+				return surveyName;
+		}
 		
 			public static ArrayList<Questionable> addQuestionsToArrList() {
 		
-				Survey «it.name» = new Survey ("«it.name»");
-				
-				«FOR question : it.questions»«toTemplate(question)»«ENDFOR»
+		«FOR question : it.questions»«toTemplate(question)»«ENDFOR»
+			«FOR question : it.questions»
+				«IF(question instanceof MultipleChoice)»
+					«FOR p : question.choice»
+			 		«FOR q : question.forks»		 				
+			 		«IF (q.on.contains(p))» «toTemplate(q.questions,p.description, question.name, question.forks.indexOf(q).toString)» 
+			 		«ENDIF »«ENDFOR»
+					«ENDFOR»
+				«ENDIF»
+				«IF(question instanceof Ranking)»
+					«FOR p : question.choices»
+			 		«FOR q : question.forks»		 				
+			 		«IF (q.on.contains(p))» «toTemplate(q.questions,p.description, question.name, q.min, q.max, question.forks.indexOf(q).toString)» 
+			 		«ENDIF »«ENDFOR»
+					«ENDFOR»
+				«ENDIF»
+				«IF(question instanceof ConstantSum)»
+					«FOR p : question.choices»
+			 		«FOR q : question.forks»		 				
+			 		«IF (q.on.contains(p))» «toTemplate(q.questions,p.description, question.name,q.min, q.max, question.forks.indexOf(q).toString)» 
+			 		«ENDIF »«ENDFOR»
+					«ENDFOR»
+				«ENDIF»
+				«IF(question instanceof Rating)»
+					«FOR q : question.forks»	
+					 «IF (question.forks.size >0)»«toTemplate(q.questions, question.name, q.min, q.max,question.forks.indexOf(q).toString )»
+					 «ENDIF »«ENDFOR»
+				«ENDIF»
+				«IF(question instanceof Staple)»
+					«FOR q : question.forks»	
+				 	«IF (question.forks.size >0)»«toTemplate(q.questions, question.name, q.min, q.max,question.forks.indexOf(q).toString )»
+				 	«ENDIF »«ENDFOR»
+				«ENDIF»
+			«ENDFOR»
 				return questions;
 			}
 		}	
@@ -56,37 +96,49 @@ class AndroidCodeGenerator extends CodeGenerator {
 	}
 
 	//multiple choice forks template	
-	def dispatch toTemplate(String forkname, String forkarrayname,  EList<Question> questions, String choicename, String questionname) {
-			'''
-			Fork «forkname» = new Fork();
-			ArrayList<Questionable> «forkarrayname» = new ArrayList<Questionable>();
-			«FOR q : questions»«forkarrayname».add(«q.name»); «ENDFOR»
-			«forkname».bindingChoiceQuest.put("«choicename»",«forkarrayname»);
-			«questionname».forks.add(«forkname»);
-				
-			'''
+	def dispatch toTemplate( EList<Question> questions, String choicename, String questionname, String forkid) {
+			//name for the specific forks
+			var forkName = questionname.toLowerCase + "ForkId" + forkid
+			//name for forks array 
+			var forkArrName = questionname.toLowerCase + "ForkArrId" + forkid
+				'''
+				Fork «forkName» = new Fork();
+				ArrayList<Questionable> «forkArrName» = new ArrayList<Questionable>();
+				«FOR q : questions»«forkArrName».add(«q.name»); «ENDFOR»
+				«forkName».bindingChoiceQuest.put("«choicename»",«forkArrName»);
+				«questionname».forks.add(«forkName»);
+						
+				'''
 	}
 	
-	//rank + sum constant forks template
-	def dispatch toTemplate(String forkname, String forkarrayname,  EList<Question> questions, String choicename,String questionname, int min, int max) {
+	//rank + constant sum forks template
+	def dispatch toTemplate(  EList<Question> questions, String choicename,String questionname, int min, int max, String forkid) {
+			//name for the specific forks
+			var forkName = questionname.toLowerCase + "ForkId" + forkid
+			//name for forks array 
+			var forkArrName = questionname.toLowerCase + "ForkArrId" + forkid
+			
 			'''
-			Fork «forkname» = new Fork(«min», «max»);
-			ArrayList<Questionable> «forkarrayname» = new ArrayList<Questionable>();
-			«FOR q : questions»«forkarrayname».add(«q.name»); «ENDFOR»
-			«forkname».bindingChoiceQuest.put("«choicename»",«forkarrayname»);
-			«questionname».forks.add(«forkname»);
+			Fork «forkName» = new Fork(«min», «max»);
+			ArrayList<Questionable> «forkArrName» = new ArrayList<Questionable>();
+			«FOR q : questions»«forkArrName».add(«q.name»); «ENDFOR»
+			«forkName».bindingChoiceQuest.put("«choicename»",«forkArrName»);
+			«questionname».forks.add(«forkName»);
 				
 			'''
 	}
 	
 	//rate + staple forks template
-	def dispatch toTemplate(String forkname, String forkarrayname, EList<Question> questions,String questionname, int min, int max) {
+	def dispatch toTemplate(EList<Question> questions,String questionname, int min, int max, String forkid) {
+			//name for the specific forks
+			var forkName = questionname.toLowerCase + "ForkId" + forkid
+			//name for forks array 
+			var forkArrName = questionname.toLowerCase + "ForkArrId" + forkid
+			
 			'''
-			Fork «forkname» = new Fork («min», «max»);
-			ArrayList<Questionable> «forkarrayname» = new ArrayList<Questionable>();
-			«FOR q : questions»«forkarrayname».add(«q.name»); «ENDFOR»
-			«forkname».forkQues.add(«forkarrayname»);
-			«questionname».forks.add(«forkname»);
+			Fork «forkName» = new Fork («min», «max»);
+			«FOR q : questions»«forkName».forkQues.add(«q.name»); «ENDFOR»
+			«questionname».forks.add(«forkName»);
 				
 			'''
 	}
@@ -96,20 +148,11 @@ class AndroidCodeGenerator extends CodeGenerator {
 	def dispatch toTemplate(MultipleChoice it) {
 			//name for the choice array
 			var arrName = "arrMulti" + it.name
-			//name for the specific forks
-			var forkName = it.name.toLowerCase + "ForkId"
-			//name for forks array 
-			var forkArrName = it.name.toLowerCase + "ForkArrId"
+
 			'''
 			ArrayList<Choice> «arrName» = new ArrayList<Choice>();
-			«FOR c : it.choices»«toTemplate(c, arrName)»«ENDFOR»MultipleChoiceQuestion «it.name» = new MultipleChoiceQuestion ("«it.name»","«it.question»",«it.isRequired», "«it.other»", «arrName» );		
-			
-			«FOR p : choices»
-			 «FOR q : forks»		 				
-			 «IF (q.on.contains(p))»
-			 «toTemplate(forkName,forkArrName,q.questions,p.name, it.name)» 
-			 « ENDIF »«ENDFOR»
-			«ENDFOR»
+			«FOR c : it.choice»«toTemplate(c, arrName)»«ENDFOR»MultipleChoiceQuestion «it.name» = new MultipleChoiceQuestion ("«it.name»","«it.question»",«it.isRequired», "«it.other»", «arrName» );		
+
 			questions.add(«it.name»);	
 			
 			'''
@@ -125,20 +168,11 @@ class AndroidCodeGenerator extends CodeGenerator {
 	def dispatch toTemplate(Ranking it) {
 			//name for the choice array
 			var arrName = "arrRank" + it.name
-			//name for the specific forks 
-			var forkName = it.name.toLowerCase + "ForkId"
-			//name for forks array
-			var forkArrName = it.name.toLowerCase + "ForkArrId"
+
 			'''
 			ArrayList<Choice> «arrName» = new ArrayList<Choice>();
-			«FOR c : it.choices» «toTemplate(c, arrName)»«ENDFOR»
-			RankingQuestion «it.name» = new RankingQuestion ("«it.name»","«it.question»",«it.isRequired», «arrName»);
-			«FOR p : choices»
-			 «FOR q : forks»				
-			 «IF (q.on.contains(p))»
-			 «toTemplate(forkName + forks.indexOf(q),forkArrName,q.questions,p.name, it.name, q.min, q.max)» 
-			 « ENDIF »«ENDFOR»
-			«ENDFOR»
+			«FOR c : it.choices» «toTemplate(c, arrName)»«ENDFOR»RankingQuestion «it.name» = new RankingQuestion ("«it.name»","«it.question»",«it.isRequired», «arrName»);
+			
 			questions.add(«it.name»);
 			
 			'''
@@ -147,47 +181,30 @@ class AndroidCodeGenerator extends CodeGenerator {
 	def dispatch toTemplate(ConstantSum it) {
 			//name for the choice array
 			var arrName = "arrConstSum" + it.name
-			//name for the specific forks 
-			var forkName = it.name.toLowerCase + "ForkId"
-			//name for forks array
-			var forkArrName = it.name.toLowerCase + "ForkArrId"
+
 			'''
 			ArrayList<Choice> «arrName» = new ArrayList<Choice>();
 			«FOR c : it.choices» «toTemplate(c, arrName)»«ENDFOR»ConstantSumQuestion «it.name» = new ConstantSumQuestion ("«it.name»","«it.question»",«it.isRequired», «it.constant»,«arrName» );
-			 
-			«FOR p : choices»
-			 «FOR q : forks»				
-			 «IF (q.on.contains(p))»«toTemplate(forkName + forks.indexOf(q),forkArrName,q.questions,p.name, it.name, q.min, q.max)»
-			 « ENDIF »«ENDFOR»
-			«ENDFOR»
+
 			questions.add(«it.name»);			
 
 			'''
 	}
 	//rating question template
 	def dispatch toTemplate(Rating it) {
-			var forkName = it.name.toLowerCase + "ForkId"
-			var forkArrName = it.name.toLowerCase + "ForkArrId"
-			'''
-			RatingQuestion «it.name» = 
-			new RatingQuestion ("«it.name»","«it.question» ",«it.isRequired», «it.min», «it.max», "«it.first»"," «it.last»");
-			«FOR q : forks»	
-			 «IF (it.forks.size >0)»«toTemplate(forkName,forkArrName,q.questions, it.name, q.min, q.max)»
-			 « ENDIF »«ENDFOR»
-			questions.add(«it.name»);'''
+
+				'''
+				RatingQuestion «it.name» = new RatingQuestion ("«it.name»","«it.question» ",«it.isRequired», «it.min», «it.max», "«it.first»"," «it.last»");
+				
+				questions.add(«it.name»);				
+
+				'''
 	}
 	//staple question template
 	def dispatch toTemplate(Staple it) {
-			//name for the specific forks 
-			var forkName = it.name.toLowerCase + "ForkId"
-			//name for forks array
-			var forkArrName = it.name.toLowerCase + "ForkArrId"
 					'''
-					Staple «it.name» = new Staple ("«it.name»","«it.question»",«it.isRequired»,"«it.first»", "«it.last»", "«it.mid»");
+					StapleQuestion «it.name» = new StapleQuestion ("«it.name»","«it.question»",«it.isRequired»,"«it.first»", "«it.last»", "«it.mid»");
 					
-					«FOR q : forks»	
-					 «IF (it.forks.size >0)»«toTemplate(forkName,forkArrName,q.questions, it.name, q.min, q.max)»
-				 	 « ENDIF »«ENDFOR»
 					questions.add(«it.name»);
 				
 					'''
