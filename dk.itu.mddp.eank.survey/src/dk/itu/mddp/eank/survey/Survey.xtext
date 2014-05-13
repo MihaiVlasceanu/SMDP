@@ -25,7 +25,7 @@ MultipleChoice returns MultipleChoice:
 		('may' | (isRequired ?= 'is' 'required'))? 
 		'to'? 'answer'? question=EString
 		('by'? 'picking' 'up to'? answerCount = EInt )?
-		'of'? 'these'? choice+=Choice ( "," choice+=Choice)* 
+		'of'? 'these'? choices+=Choice ( "," choices+=Choice)* 
 		('or'  other=EString)?
 		(forks+=ChoiceFork (forks+=ChoiceFork)*)?;
 
@@ -65,7 +65,7 @@ ConstantSum returns ConstantSum:
 		('may' | (isRequired ?= 'is' 'required'))? 
 		'to'? ('distribute' | 'answer')? question=EString
 		(('to'? 'a'? 'total' 'of'?) constant = EInt)?
-		'these'? choices+=Choice ( "," choices+=Choice)*
+		'among'?'these'? choices+=Choice ( "," choices+=Choice)*
 		(forks+=RankingSumFork (forks+=RankingSumFork)*)?;
 
 Staple returns Staple:
