@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/dk.itu.mddp.group10.ask.sdk_1.0.0.201405131404.jar" id="dk.itu.mddp.group10.ask.sdk" version="1.0.0.201405131404">
+      <category name="new_category_2"/>
+   </feature>
+   <category-def name="new_category_2" label="New Category 2"/>
+</site>
