@@ -17,6 +17,7 @@ class Runner {
 		val uri = URI::createURI(instanceFileName)
 		var resource = resourceSet.getResource(uri, true)			/* true means follow proxies */
 		val Survey m = resource.getContents().get(0) as Survey
+		//s
 		val survey = Transformation.changeChoices(m)
 		//Changes all choices so they reference the correct ID within the question
 		//Previously it would reference the first occurence of the choice with that name
