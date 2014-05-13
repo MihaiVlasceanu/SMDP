@@ -27,12 +27,11 @@ class HtmlCodeGenerator extends CodeGenerator
 	
 		«FOR question : questions »
 		«{ var to=goToMap.get(question)
-			saveResource(question, toTemplate(question, to))
+			saveResource(it, question, toTemplate(question, to))
 		}»
 		«ENDFOR»
+		« generateHtmlIndex(it) »
 		'''
-
-		
 	}
 	
 	def dispatch toTemplate(Open it, int to)
@@ -263,15 +262,117 @@ class HtmlCodeGenerator extends CodeGenerator
 			'''
 	}
 	
+	def dispatch getHtmlIndexTemplate(Survey it)
+	{
+		'''
+		<!DOCTYPE html>
+		<html lang="en">
+		  <head>
+		    <meta charset="utf-8">
+		    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		    <meta name="viewport" content="width=device-width, initial-scale=1">
+		    <title>« it.name »</title>
+		
+		    <!-- Bootstrap -->
+		    <link href="css/bootstrap.min.css" rel="stylesheet">
+		    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500italic,500,400italic,300,100italic,100,300italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+		    
+		    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		    <!--[if lt IE 9]>
+		      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		    <![endif]-->
+		    <link href="css/style.css" rel="stylesheet">
+		    <link href="css/csspinner.css" rel="stylesheet">
+		  </head>
+		  <body>
+		    <nav class="navbar navbar-default" role="navigation">
+		      <div class="container-fluid">
+		        <!-- Brand and toggle get grouped for better mobile display -->
+		        <div class="navbar-header">
+		          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		          </button>
+		          <a class="navbar-brand" href="#">« it.name »</a>
+		        </div>
+		        </div><!-- /.navbar-collapse -->
+		      </div><!-- /.container-fluid -->
+		    </nav>
+		
+		    <div class="pg">
+		      <div class="gc">
+		        <div class="qd">
+		          <h3 class="smdp_question">Welcome to our Survey Demo! <br /> Please press 'Start' to begin!</h3>
+		          <span class="glyphicon glyphicon-question-sign smdp"></span>
+		
+		          <button type="button" class="btn btn-primary btn-sm btn-block start" name="submitQuestion" onclick="return Survey.initSurvey('« normalize(it.name) »');" disabled="disabled">Please wait ...</button>
+		        </div>
+		      </div>
+		    </div>
+		    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		    <!-- Include all compiled plugins (below), or include individual files as needed -->
+		    <script src="js/bootstrap.min.js"></script>
+		    <script src="js/jquery.cookie.js"></script>
+		    <script src="js/survey.js"></script>
+		  </body>
+		</html>
+		'''
+	}
+	
+	def dispatch generateHtmlIndex(Survey it)
+	{
+		// App name
+		var AppName  = normalize(it.name)
+		// HTML file name
+		var fileName = "webapplication" + File.separator + "index.html"
+		// Folder String path
+		var directory = "webapplication"
+		// Create the folder path
+		var folder  = new File(directory)
+		if(!folder.isDirectory())
+		{
+			folder.mkdirs()
+		}
+		
+		// Crate the file
+		var html 	= new File(fileName)
+
+		if(!html.isFile)
+		{
+			html.createNewFile()
+		} else {
+			html.delete()
+			html.createNewFile()
+		}
+		
+		try {
+			var writer = new PrintWriter(new BufferedWriter(new FileWriter(html, true)))
+		
+			writer.println(getHtmlIndexTemplate(it))
+		
+			writer.close()
+		} catch(IOException ex)
+		{
+			println(ex.getMessage())
+		}
+	}
+	
 	/**
 	 * Outputs each question to its' own html file
 	 */
-	def static saveResource(Question question, CharSequence template)
+	def static saveResource(Survey it, Question question, CharSequence template)
 	{
+		// App name
+		var AppName  = normalize(it.name)
 		// HTML file name
-		var fileName = "webapplication" + File.separator+ "surveys" + File.separator + "1" + File.separator + "html" + File.separator + question.name.toLowerCase + ".html"
+		var fileName = "webapplication" + File.separator+ "surveys" + File.separator + AppName + File.separator + "html" + File.separator + question.name.toLowerCase + ".html"
 		// Folder String path
-		var directory = "webapplication" + File.separator+ "surveys" + File.separator + "1" + File.separator + "html"
+		var directory = "webapplication" + File.separator+ "surveys" + File.separator + AppName + File.separator + "html"
 		// Create the folder path
 		var folder  = new File(directory)
 		if(!folder.isDirectory())
