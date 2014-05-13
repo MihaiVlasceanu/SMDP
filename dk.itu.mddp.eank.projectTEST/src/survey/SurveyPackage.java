@@ -195,22 +195,13 @@ public interface SurveyPackage extends EPackage {
 	int MULTIPLE_CHOICE__IS_REQUIRED = QUESTION__IS_REQUIRED;
 
 	/**
-	 * The feature id for the '<em><b>Choice</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLE_CHOICE__CHOICE = QUESTION_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Other</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE_CHOICE__OTHER = QUESTION_FEATURE_COUNT + 1;
+	int MULTIPLE_CHOICE__OTHER = QUESTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Forks</b></em>' containment reference list.
@@ -219,7 +210,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE_CHOICE__FORKS = QUESTION_FEATURE_COUNT + 2;
+	int MULTIPLE_CHOICE__FORKS = QUESTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Answer Count</b></em>' attribute.
@@ -228,7 +219,16 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE_CHOICE__ANSWER_COUNT = QUESTION_FEATURE_COUNT + 3;
+	int MULTIPLE_CHOICE__ANSWER_COUNT = QUESTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Choices</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_CHOICE__CHOICES = QUESTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Multiple Choice</em>' class.
@@ -487,22 +487,22 @@ public interface SurveyPackage extends EPackage {
 	int RANKING__IS_REQUIRED = QUESTION__IS_REQUIRED;
 
 	/**
-	 * The feature id for the '<em><b>Choices</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANKING__CHOICES = QUESTION_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Forks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RANKING__FORKS = QUESTION_FEATURE_COUNT + 1;
+	int RANKING__FORKS = QUESTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Choices</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANKING__CHOICES = QUESTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Ranking</em>' class.
@@ -1048,17 +1048,6 @@ public interface SurveyPackage extends EPackage {
 	EClass getMultipleChoice();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link survey.MultipleChoice#getChoice <em>Choice</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Choice</em>'.
-	 * @see survey.MultipleChoice#getChoice()
-	 * @see #getMultipleChoice()
-	 * @generated
-	 */
-	EReference getMultipleChoice_Choice();
-
-	/**
 	 * Returns the meta object for the attribute '{@link survey.MultipleChoice#getOther <em>Other</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1090,6 +1079,17 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMultipleChoice_AnswerCount();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link survey.MultipleChoice#getChoices <em>Choices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Choices</em>'.
+	 * @see survey.MultipleChoice#getChoices()
+	 * @see #getMultipleChoice()
+	 * @generated
+	 */
+	EReference getMultipleChoice_Choices();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Open <em>Open</em>}'.
@@ -1209,17 +1209,6 @@ public interface SurveyPackage extends EPackage {
 	EClass getRanking();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link survey.Ranking#getChoices <em>Choices</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Choices</em>'.
-	 * @see survey.Ranking#getChoices()
-	 * @see #getRanking()
-	 * @generated
-	 */
-	EReference getRanking_Choices();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link survey.Ranking#getForks <em>Forks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1229,6 +1218,17 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRanking_Forks();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link survey.Ranking#getChoices <em>Choices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Choices</em>'.
+	 * @see survey.Ranking#getChoices()
+	 * @see #getRanking()
+	 * @generated
+	 */
+	EReference getRanking_Choices();
 
 	/**
 	 * Returns the meta object for class '{@link survey.ConstantSum <em>Constant Sum</em>}'.
@@ -1581,14 +1581,6 @@ public interface SurveyPackage extends EPackage {
 		EClass MULTIPLE_CHOICE = eINSTANCE.getMultipleChoice();
 
 		/**
-		 * The meta object literal for the '<em><b>Choice</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MULTIPLE_CHOICE__CHOICE = eINSTANCE.getMultipleChoice_Choice();
-
-		/**
 		 * The meta object literal for the '<em><b>Other</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1611,6 +1603,14 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MULTIPLE_CHOICE__ANSWER_COUNT = eINSTANCE.getMultipleChoice_AnswerCount();
+
+		/**
+		 * The meta object literal for the '<em><b>Choices</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MULTIPLE_CHOICE__CHOICES = eINSTANCE.getMultipleChoice_Choices();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.OpenImpl <em>Open</em>}' class.
@@ -1709,20 +1709,20 @@ public interface SurveyPackage extends EPackage {
 		EClass RANKING = eINSTANCE.getRanking();
 
 		/**
-		 * The meta object literal for the '<em><b>Choices</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RANKING__CHOICES = eINSTANCE.getRanking_Choices();
-
-		/**
 		 * The meta object literal for the '<em><b>Forks</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference RANKING__FORKS = eINSTANCE.getRanking_Forks();
+
+		/**
+		 * The meta object literal for the '<em><b>Choices</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RANKING__CHOICES = eINSTANCE.getRanking_Choices();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.ConstantSumImpl <em>Constant Sum</em>}' class.

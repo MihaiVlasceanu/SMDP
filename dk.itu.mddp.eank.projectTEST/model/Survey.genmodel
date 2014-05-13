@@ -16,10 +16,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//Question/isRequired"/>
     </genClasses>
     <genClasses ecoreClass="SurveyModel.ecore#//MultipleChoice">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//MultipleChoice/choice"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//MultipleChoice/other"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//MultipleChoice/forks"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SurveyModel.ecore#//MultipleChoice/answerCount"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//MultipleChoice/choices"/>
     </genClasses>
     <genClasses ecoreClass="SurveyModel.ecore#//Open"/>
     <genClasses ecoreClass="SurveyModel.ecore#//Rating">
@@ -36,6 +36,7 @@
     <genClasses ecoreClass="SurveyModel.ecore#//Ranking">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Ranking/choices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Ranking/forks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//Ranking/choices.1"/>
     </genClasses>
     <genClasses ecoreClass="SurveyModel.ecore#//ConstantSum">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SurveyModel.ecore#//ConstantSum/choices"/>

@@ -26,24 +26,14 @@ import survey.SurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link survey.impl.RankingImpl#getChoices <em>Choices</em>}</li>
  *   <li>{@link survey.impl.RankingImpl#getForks <em>Forks</em>}</li>
+ *   <li>{@link survey.impl.RankingImpl#getChoices <em>Choices</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class RankingImpl extends QuestionImpl implements Ranking {
-	/**
-	 * The cached value of the '{@link #getChoices() <em>Choices</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getChoices()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Choice> choices;
-
 	/**
 	 * The cached value of the '{@link #getForks() <em>Forks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -53,6 +43,16 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 	 * @ordered
 	 */
 	protected EList<RankingSumFork> forks;
+
+	/**
+	 * The cached value of the '{@link #getChoices() <em>Choices</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChoices()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Choice> choices;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,18 +78,6 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Choice> getChoices() {
-		if (choices == null) {
-			choices = new EObjectContainmentEList<Choice>(Choice.class, this, SurveyPackage.RANKING__CHOICES);
-		}
-		return choices;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<RankingSumFork> getForks() {
 		if (forks == null) {
 			forks = new EObjectContainmentEList<RankingSumFork>(RankingSumFork.class, this, SurveyPackage.RANKING__FORKS);
@@ -102,13 +90,25 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Choice> getChoices() {
+		if (choices == null) {
+			choices = new EObjectContainmentEList<Choice>(Choice.class, this, SurveyPackage.RANKING__CHOICES);
+		}
+		return choices;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SurveyPackage.RANKING__CHOICES:
-				return ((InternalEList<?>)getChoices()).basicRemove(otherEnd, msgs);
 			case SurveyPackage.RANKING__FORKS:
 				return ((InternalEList<?>)getForks()).basicRemove(otherEnd, msgs);
+			case SurveyPackage.RANKING__CHOICES:
+				return ((InternalEList<?>)getChoices()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -121,10 +121,10 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SurveyPackage.RANKING__CHOICES:
-				return getChoices();
 			case SurveyPackage.RANKING__FORKS:
 				return getForks();
+			case SurveyPackage.RANKING__CHOICES:
+				return getChoices();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -138,13 +138,13 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SurveyPackage.RANKING__CHOICES:
-				getChoices().clear();
-				getChoices().addAll((Collection<? extends Choice>)newValue);
-				return;
 			case SurveyPackage.RANKING__FORKS:
 				getForks().clear();
 				getForks().addAll((Collection<? extends RankingSumFork>)newValue);
+				return;
+			case SurveyPackage.RANKING__CHOICES:
+				getChoices().clear();
+				getChoices().addAll((Collection<? extends Choice>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -158,11 +158,11 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.RANKING__CHOICES:
-				getChoices().clear();
-				return;
 			case SurveyPackage.RANKING__FORKS:
 				getForks().clear();
+				return;
+			case SurveyPackage.RANKING__CHOICES:
+				getChoices().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -176,10 +176,10 @@ public class RankingImpl extends QuestionImpl implements Ranking {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.RANKING__CHOICES:
-				return choices != null && !choices.isEmpty();
 			case SurveyPackage.RANKING__FORKS:
 				return forks != null && !forks.isEmpty();
+			case SurveyPackage.RANKING__CHOICES:
+				return choices != null && !choices.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

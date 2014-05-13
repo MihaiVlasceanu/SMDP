@@ -269,17 +269,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMultipleChoice_Choice() {
-		return (EReference)multipleChoiceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getMultipleChoice_Other() {
-		return (EAttribute)multipleChoiceEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)multipleChoiceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -288,7 +279,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * @generated
 	 */
 	public EReference getMultipleChoice_Forks() {
-		return (EReference)multipleChoiceEClass.getEStructuralFeatures().get(2);
+		return (EReference)multipleChoiceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -297,7 +288,16 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * @generated
 	 */
 	public EAttribute getMultipleChoice_AnswerCount() {
-		return (EAttribute)multipleChoiceEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)multipleChoiceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMultipleChoice_Choices() {
+		return (EReference)multipleChoiceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -404,7 +404,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRanking_Choices() {
+	public EReference getRanking_Forks() {
 		return (EReference)rankingEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -413,7 +413,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRanking_Forks() {
+	public EReference getRanking_Choices() {
 		return (EReference)rankingEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -671,10 +671,10 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEAttribute(questionEClass, QUESTION__IS_REQUIRED);
 
 		multipleChoiceEClass = createEClass(MULTIPLE_CHOICE);
-		createEReference(multipleChoiceEClass, MULTIPLE_CHOICE__CHOICE);
 		createEAttribute(multipleChoiceEClass, MULTIPLE_CHOICE__OTHER);
 		createEReference(multipleChoiceEClass, MULTIPLE_CHOICE__FORKS);
 		createEAttribute(multipleChoiceEClass, MULTIPLE_CHOICE__ANSWER_COUNT);
+		createEReference(multipleChoiceEClass, MULTIPLE_CHOICE__CHOICES);
 
 		openEClass = createEClass(OPEN);
 
@@ -690,8 +690,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEAttribute(choiceEClass, CHOICE__NAME);
 
 		rankingEClass = createEClass(RANKING);
-		createEReference(rankingEClass, RANKING__CHOICES);
 		createEReference(rankingEClass, RANKING__FORKS);
+		createEReference(rankingEClass, RANKING__CHOICES);
 
 		constantSumEClass = createEClass(CONSTANT_SUM);
 		createEReference(constantSumEClass, CONSTANT_SUM__CHOICES);
@@ -775,10 +775,10 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEAttribute(getQuestion_IsRequired(), ecorePackage.getEBoolean(), "isRequired", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multipleChoiceEClass, MultipleChoice.class, "MultipleChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMultipleChoice_Choice(), this.getChoice(), null, "choice", null, 0, -1, MultipleChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMultipleChoice_Other(), ecorePackage.getEString(), "other", null, 0, 1, MultipleChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMultipleChoice_Forks(), this.getChoiceFork(), null, "forks", null, 0, -1, MultipleChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMultipleChoice_AnswerCount(), ecorePackage.getEInt(), "answerCount", null, 0, 1, MultipleChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMultipleChoice_Choices(), this.getChoice(), null, "choices", null, 0, -1, MultipleChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(openEClass, Open.class, "Open", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -794,8 +794,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEAttribute(getChoice_Name(), ecorePackage.getEString(), "name", null, 0, 1, Choice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rankingEClass, Ranking.class, "Ranking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRanking_Choices(), this.getChoice(), null, "choices", null, 2, -1, Ranking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRanking_Forks(), this.getRankingSumFork(), null, "forks", null, 0, -1, Ranking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRanking_Choices(), this.getChoice(), null, "choices", null, 0, -1, Ranking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(constantSumEClass, ConstantSum.class, "ConstantSum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConstantSum_Choices(), this.getChoice(), null, "choices", null, 1, -1, ConstantSum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -29,26 +29,16 @@ import survey.SurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link survey.impl.MultipleChoiceImpl#getChoice <em>Choice</em>}</li>
  *   <li>{@link survey.impl.MultipleChoiceImpl#getOther <em>Other</em>}</li>
  *   <li>{@link survey.impl.MultipleChoiceImpl#getForks <em>Forks</em>}</li>
  *   <li>{@link survey.impl.MultipleChoiceImpl#getAnswerCount <em>Answer Count</em>}</li>
+ *   <li>{@link survey.impl.MultipleChoiceImpl#getChoices <em>Choices</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
-	/**
-	 * The cached value of the '{@link #getChoice() <em>Choice</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getChoice()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Choice> choice;
-
 	/**
 	 * The default value of the '{@link #getOther() <em>Other</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -100,6 +90,16 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 	protected int answerCount = ANSWER_COUNT_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getChoices() <em>Choices</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChoices()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Choice> choices;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -116,18 +116,6 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 	@Override
 	protected EClass eStaticClass() {
 		return SurveyPackage.Literals.MULTIPLE_CHOICE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Choice> getChoice() {
-		if (choice == null) {
-			choice = new EObjectContainmentEList<Choice>(Choice.class, this, SurveyPackage.MULTIPLE_CHOICE__CHOICE);
-		}
-		return choice;
 	}
 
 	/**
@@ -189,13 +177,25 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Choice> getChoices() {
+		if (choices == null) {
+			choices = new EObjectContainmentEList<Choice>(Choice.class, this, SurveyPackage.MULTIPLE_CHOICE__CHOICES);
+		}
+		return choices;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SurveyPackage.MULTIPLE_CHOICE__CHOICE:
-				return ((InternalEList<?>)getChoice()).basicRemove(otherEnd, msgs);
 			case SurveyPackage.MULTIPLE_CHOICE__FORKS:
 				return ((InternalEList<?>)getForks()).basicRemove(otherEnd, msgs);
+			case SurveyPackage.MULTIPLE_CHOICE__CHOICES:
+				return ((InternalEList<?>)getChoices()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -208,14 +208,14 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SurveyPackage.MULTIPLE_CHOICE__CHOICE:
-				return getChoice();
 			case SurveyPackage.MULTIPLE_CHOICE__OTHER:
 				return getOther();
 			case SurveyPackage.MULTIPLE_CHOICE__FORKS:
 				return getForks();
 			case SurveyPackage.MULTIPLE_CHOICE__ANSWER_COUNT:
 				return getAnswerCount();
+			case SurveyPackage.MULTIPLE_CHOICE__CHOICES:
+				return getChoices();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,10 +229,6 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SurveyPackage.MULTIPLE_CHOICE__CHOICE:
-				getChoice().clear();
-				getChoice().addAll((Collection<? extends Choice>)newValue);
-				return;
 			case SurveyPackage.MULTIPLE_CHOICE__OTHER:
 				setOther((String)newValue);
 				return;
@@ -242,6 +238,10 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 				return;
 			case SurveyPackage.MULTIPLE_CHOICE__ANSWER_COUNT:
 				setAnswerCount((Integer)newValue);
+				return;
+			case SurveyPackage.MULTIPLE_CHOICE__CHOICES:
+				getChoices().clear();
+				getChoices().addAll((Collection<? extends Choice>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -255,9 +255,6 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.MULTIPLE_CHOICE__CHOICE:
-				getChoice().clear();
-				return;
 			case SurveyPackage.MULTIPLE_CHOICE__OTHER:
 				setOther(OTHER_EDEFAULT);
 				return;
@@ -266,6 +263,9 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 				return;
 			case SurveyPackage.MULTIPLE_CHOICE__ANSWER_COUNT:
 				setAnswerCount(ANSWER_COUNT_EDEFAULT);
+				return;
+			case SurveyPackage.MULTIPLE_CHOICE__CHOICES:
+				getChoices().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -279,14 +279,14 @@ public class MultipleChoiceImpl extends QuestionImpl implements MultipleChoice {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.MULTIPLE_CHOICE__CHOICE:
-				return choice != null && !choice.isEmpty();
 			case SurveyPackage.MULTIPLE_CHOICE__OTHER:
 				return OTHER_EDEFAULT == null ? other != null : !OTHER_EDEFAULT.equals(other);
 			case SurveyPackage.MULTIPLE_CHOICE__FORKS:
 				return forks != null && !forks.isEmpty();
 			case SurveyPackage.MULTIPLE_CHOICE__ANSWER_COUNT:
 				return answerCount != ANSWER_COUNT_EDEFAULT;
+			case SurveyPackage.MULTIPLE_CHOICE__CHOICES:
+				return choices != null && !choices.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

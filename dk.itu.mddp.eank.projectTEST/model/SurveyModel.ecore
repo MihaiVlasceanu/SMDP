@@ -34,12 +34,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ranking" eSuperTypes="#//Question">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="choices" lowerBound="2"
-        upperBound="-1" eType="#//Choice" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="forks" upperBound="-1"
         eType="#//RankingSumFork" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="choices" lowerBound="2"
-        upperBound="-1" eType="#//Choice"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choices" upperBound="-1"
+        eType="#//Choice" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantSum" eSuperTypes="#//Question">
     <eStructuralFeatures xsi:type="ecore:EReference" name="choices" lowerBound="1"

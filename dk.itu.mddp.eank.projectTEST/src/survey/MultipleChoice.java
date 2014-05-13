@@ -12,10 +12,10 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link survey.MultipleChoice#getChoice <em>Choice</em>}</li>
  *   <li>{@link survey.MultipleChoice#getOther <em>Other</em>}</li>
  *   <li>{@link survey.MultipleChoice#getForks <em>Forks</em>}</li>
  *   <li>{@link survey.MultipleChoice#getAnswerCount <em>Answer Count</em>}</li>
+ *   <li>{@link survey.MultipleChoice#getChoices <em>Choices</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,22 +24,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface MultipleChoice extends Question {
-	/**
-	 * Returns the value of the '<em><b>Choice</b></em>' containment reference list.
-	 * The list contents are of type {@link survey.Choice}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Choice</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Choice</em>' containment reference list.
-	 * @see survey.SurveyPackage#getMultipleChoice_Choice()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Choice> getChoice();
-
 	/**
 	 * Returns the value of the '<em><b>Other</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -107,5 +91,21 @@ public interface MultipleChoice extends Question {
 	 * @generated
 	 */
 	void setAnswerCount(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Choices</b></em>' containment reference list.
+	 * The list contents are of type {@link survey.Choice}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Choices</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Choices</em>' containment reference list.
+	 * @see survey.SurveyPackage#getMultipleChoice_Choices()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Choice> getChoices();
 
 } // MultipleChoice
