@@ -1,5 +1,3 @@
-package dk.itu.mddp.eank.survey
-
 import survey.Survey
 import survey.Open
 import survey.MultipleChoice
@@ -50,7 +48,7 @@ class AndroidCodeGenerator extends CodeGenerator {
 		«FOR question : it.questions»«toTemplate(question)»«ENDFOR»
 			«FOR question : it.questions»
 				«IF(question instanceof MultipleChoice)»
-					«FOR p : question.choice»
+					«FOR p : question.choices»
 			 		«FOR q : question.forks»		 				
 			 		«IF (q.on.contains(p))» «toTemplate(q.questions,p.description, question.name, question.forks.indexOf(q).toString)» 
 			 		«ENDIF »«ENDFOR»
@@ -151,7 +149,7 @@ class AndroidCodeGenerator extends CodeGenerator {
 
 			'''
 			ArrayList<Choice> «arrName» = new ArrayList<Choice>();
-			«FOR c : it.choice»«toTemplate(c, arrName)»«ENDFOR»MultipleChoiceQuestion «it.name» = new MultipleChoiceQuestion ("«it.name»","«it.question»",«it.isRequired», "«it.other»", «arrName» );		
+			«FOR c : it.choices»«toTemplate(c, arrName)»«ENDFOR»MultipleChoiceQuestion «it.name» = new MultipleChoiceQuestion ("«it.name»","«it.question»",«it.isRequired», "«it.other»", «arrName» );		
 
 			questions.add(«it.name»);	
 			

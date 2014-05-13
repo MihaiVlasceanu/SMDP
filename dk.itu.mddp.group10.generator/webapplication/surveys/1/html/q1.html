@@ -1,0 +1,19 @@
+<form method="POST" action="" id="Q1" class="smdp required" autocomplete="off" role="form">
+<div class="question_container">
+      <h3 class="smdp_question">Did you find the Ask language useful?</h3>
+</div>
+<div class="options_container">
+<div class="checkbox">
+	<label>
+		<input type="checkbox" name="Q1" id="option_A" value="Yes" onClick="return Survey.changeSubmitButtonStatus(this);" data-next="2" /> Yes
+	</label>
+</div>
+<div class="checkbox">
+	<label>
+		<input type="checkbox" name="Q1" id="option_B" value="No" onClick="return Survey.changeSubmitButtonStatus(this);" data-next="" /> No
+	</label>
+</div>
+	</div>
+	<button type="button" class="btn btn-primary btn-sm btn-block" disabled="disabled" name="submitQuestion" onclick="return Survey.saveAnswerData('#Q1', 3);">Next Question <span class="glyphicon glyphicon-chevron-right"></span></button>
+</form>
+
