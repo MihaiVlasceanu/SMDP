@@ -21,9 +21,10 @@ class AndroidCodeGenerator extends CodeGenerator {
 	}
 	override void generate(Survey it){
 		var generated = getTemplate
+		println(generated)
 		saveResource(generated)
 	}
-	def getTemplate(Survey it) {
+	def static String getTemplate(Survey it) {
 		'''
 		package com.smdp.surveytoandroid;
 		
@@ -93,7 +94,7 @@ class AndroidCodeGenerator extends CodeGenerator {
 		'''
 	}
 	//open question template
-	def dispatch toTemplate(Open it) {
+	def static dispatch toTemplate(Open it) {
 				'''
 				OpenQuestion «it.name» = new OpenQuestion ("«it.name»","«it.question»",«it.isRequired»);
 				questions.add(«it.name»);			
@@ -102,7 +103,7 @@ class AndroidCodeGenerator extends CodeGenerator {
 	}
 
 	//multiple choice forks template	
-	def dispatch toTemplate( EList<Question> questions, String choicename, String questionname, String forkid) {
+	def static dispatch toTemplate( EList<Question> questions, String choicename, String questionname, String forkid) {
 			//name for the specific forks
 			var forkName = questionname.toLowerCase + "ForkId" + forkid
 			//name for forks array 
@@ -118,7 +119,7 @@ class AndroidCodeGenerator extends CodeGenerator {
 	}
 	
 	//rank + constant sum forks template
-	def dispatch toTemplate(  EList<Question> questions, String choicename,String questionname, int min, int max, String forkid) {
+	def static dispatch toTemplate(  EList<Question> questions, String choicename,String questionname, int min, int max, String forkid) {
 			//name for the specific forks
 			var forkName = questionname.toLowerCase + "ForkId" + forkid
 			//name for forks array 
@@ -135,7 +136,7 @@ class AndroidCodeGenerator extends CodeGenerator {
 	}
 	
 	//rate + staple forks template
-	def dispatch toTemplate(EList<Question> questions,String questionname, int min, int max, String forkid) {
+	def static dispatch toTemplate(EList<Question> questions,String questionname, int min, int max, String forkid) {
 			//name for the specific forks
 			var forkName = questionname.toLowerCase + "ForkId" + forkid
 			//name for forks array 
@@ -151,7 +152,7 @@ class AndroidCodeGenerator extends CodeGenerator {
 	
 	
 	//multiple choice template
-	def dispatch toTemplate(MultipleChoice it) {
+	def static dispatch toTemplate(MultipleChoice it) {
 			//name for the choice array
 			var arrName = "arrMulti" + it.name
 
@@ -164,14 +165,14 @@ class AndroidCodeGenerator extends CodeGenerator {
 			'''
 	}
 	//choice template	
-	def dispatch toTemplate(Choice it, String arrname) {
+	def static dispatch toTemplate(Choice it, String arrname) {
 			
 			'''
 			«arrname».add(new Choice ("«it.name»","«it.description»")); 
 			'''
 	}
 	//ranking question template
-	def dispatch toTemplate(Ranking it) {
+	def static dispatch toTemplate(Ranking it) {
 			//name for the choice array
 			var arrName = "arrRank" + it.name
 
@@ -184,7 +185,7 @@ class AndroidCodeGenerator extends CodeGenerator {
 			'''
 	}
 	//cosntantSum question template
-	def dispatch toTemplate(ConstantSum it) {
+	def static dispatch toTemplate(ConstantSum it) {
 			//name for the choice array
 			var arrName = "arrConstSum" + it.name
 
@@ -197,7 +198,7 @@ class AndroidCodeGenerator extends CodeGenerator {
 			'''
 	}
 	//rating question template
-	def dispatch toTemplate(Rating it) {
+	def  static dispatch toTemplate(Rating it) {
 
 				'''
 				RatingQuestion «it.name» = new RatingQuestion ("«it.name»","«it.question» ",«it.isRequired», «it.min», «it.max», "«it.first»"," «it.last»");
@@ -207,7 +208,7 @@ class AndroidCodeGenerator extends CodeGenerator {
 				'''
 	}
 	//staple question template
-	def dispatch toTemplate(Staple it) {
+	def static dispatch toTemplate(Staple it) {
 					'''
 					StapleQuestion «it.name» = new StapleQuestion ("«it.name»","«it.question»",«it.isRequired»,"«it.first»", "«it.last»", "«it.mid»");
 					
