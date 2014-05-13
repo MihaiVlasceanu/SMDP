@@ -268,7 +268,6 @@ class HtmlCodeGenerator extends CodeGenerator
 	 */
 	def static saveResource(Question question, CharSequence template)
 	{
-		
 		// HTML file name
 		var fileName = "webapplication" + File.separator+ "surveys" + File.separator + "1" + File.separator + "html" + File.separator + question.name.toLowerCase + ".html"
 		// Folder String path
