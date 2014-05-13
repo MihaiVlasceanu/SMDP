@@ -13,6 +13,7 @@ Survey = (function() {
 		CONSTSUM_VAL_LBL_CLS    : '.label-total',
 		SURVEY_NXTQS_BTN_SEL    : 'button[name=submitQuestion]',
 		SURVEY_FORK_SEL 		: 'data-next',
+		SURVEY_NAME 			: '',
 		// Changes the status of the submit button enabled/disabled
 		// for checkboxes and radios
 		changeSubmitButtonStatus: function(e)
@@ -198,7 +199,6 @@ Survey = (function() {
 				// Delete the last typed character
 				input.val(val.substring(0, val.length - 1));
 			}
-			
 			// init a counter
 			var total = 0;
 			// All the fields have been filled (default)
@@ -216,6 +216,7 @@ Survey = (function() {
 					allRated = false;
 				}
 			});
+
 			// compare the overall target of the form with the counter
 			var finalTotal = (ttlVal - total);
 			// If they don't have the same value
@@ -261,8 +262,8 @@ Survey = (function() {
 			}
 
 			jQuery.ajax({
-			  url: "surveys/1/html/" + f,
-			  cache: true
+			  url: "surveys/" + Survey.SURVEY_NAME + "/html/" + f,
+			  cache: false
 			})
 			  .done(function( html ) {
 			    jQuery(Survey.SURVEY_FORM_CONTAINER).html( html ).removeClass('csspinner');
@@ -327,6 +328,7 @@ Survey = (function() {
 				if(typeof cookies.forks !== 'undesfined' && cookies.forks !== 0) {
 					cookies.forks.splice(0, 1);
 				}
+
 			} else {
 				if(nextId !== false)
 				{
@@ -348,7 +350,7 @@ Survey = (function() {
 				// Init the new data object node
 				cookies.forks   		= [];
 			}
-				
+			
 			// Question Object
 			var question 				= {};
 			// Set an id
@@ -391,8 +393,9 @@ Survey = (function() {
 			}
 			return false;
 		},
-		initSurvey: function()
+		initSurvey: function(SurveyName)
 		{
+			Survey.SURVEY_NAME = SurveyName;
 			// If the survey was already completed
 			if(Survey.isCompleted())
 			{
