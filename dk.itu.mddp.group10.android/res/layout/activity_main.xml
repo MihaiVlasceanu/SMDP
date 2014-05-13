@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#393939"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <!-- Welcome Form -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical"
+        android:padding="10dip" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:gravity="center"
+            android:text="@string/welcomemessage"
+            android:textColor="#ff5a09"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/instructions"
+            android:textColor="#abaaaa"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnStartSurvey"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18sp"
+            android:text="@string/start"
+            android:textColor="#ff5a09"
+            android:textStyle="bold" 
+            android:background="@layout/custom_button"/>
+    </LinearLayout>
+    <!-- Welcome Form Ends -->
+
+</RelativeLayout>
